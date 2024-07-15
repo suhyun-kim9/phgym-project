@@ -106,7 +106,7 @@
 
 </div>
 
-    <script type="text/javascript" src="nav/admin-navigation.js"> </script>
+    <script type="text/javascript" src="../include/js/admin-navigation.js"> </script>
  
 </body>
 </html>
