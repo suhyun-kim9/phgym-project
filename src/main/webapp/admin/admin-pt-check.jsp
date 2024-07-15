@@ -18,7 +18,7 @@
     <div class="aside">
         <nav>
 
-        
+        <!--  240715 5:51 수정함 ~~ -->
         <ul class="nav_1">
             <div class="logo"> <img src="nav/logo_dark.webp"> </div>
             <li> <i class="bi bi-person-fill"></i> <a> 관리자 계정 </a> </li>
@@ -63,7 +63,7 @@
                              <input type="submit" value="조회">
                          </div>
                  </div>
-         
+      
          
                  <!-- pt 담당 트레이너 -->
                  <div class="pt_trainer">
