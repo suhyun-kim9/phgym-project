@@ -1,0 +1,50 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+ul, li, ol, dl, dd {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.content {
+    width: 1024px;
+    margin: 0 auto;
+}
+
+.content > .wrap {
+    width: 60%;
+    margin: 0 auto;
+}
+
+/* ===그래프=== */
+.content > .wrap > .graph_box {
+    display: flex;
+    text-align: center;
+}
+
+.content > .wrap > .graph_box img {
+    border: 1px solid #F97316;
+}
+
+/* ===출석내역=== */
+.content > .wrap > .checkin_list > table {
+    margin: 0 auto;
+    border: 1px solid #F97316;
+    width: 100%;
+}
+
+.content > .wrap > .checkin_list > table tr th {
+    text-align: center;
+    border-bottom: 1px solid #F97316;
+}
+
+.content .wrap > .checkin_list > table tr td {
+    text-align: center;
+}

@@ -1,0 +1,41 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+ul, li, ol, dl, dd {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.content {
+    width: 1024px;
+    margin: 0 auto;
+}
+
+.content > .wrap {
+    width: 60%;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.content > .wrap > .trainer_box {
+    display: flex;
+    width: 50%;
+    border: 1px solid #999;
+}
+
+.content > .wrap > .trainer_box > .trainer_img {
+    width: 40%;
+}
+
+.content > .wrap > .trainer_box > .trainer_content {
+    width: 60%;
+}
+

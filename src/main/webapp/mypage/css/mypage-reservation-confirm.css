@@ -1,0 +1,29 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+ul, li, ol, dl, dd {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.content {
+    width: 1024px;
+    margin: 0 auto;
+}
+
+.content > .wrap {
+    width: 60%;
+    margin: 0 auto;
+    border: 1px solid #999;
+}
+
+.content > .wrap {
+    text-align: center;
+}

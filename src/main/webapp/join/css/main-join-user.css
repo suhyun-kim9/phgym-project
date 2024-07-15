@@ -1,0 +1,88 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+ul, li, ol, dl, dd {
+    list-style: none;
+}
+
+#wrap {
+    width: 1024px;
+    height: 768px;
+}
+
+.join_page h3 {
+    text-align: center;
+}
+
+#wrap .join_page {
+    width: 50%;
+    overflow: hidden;
+    margin: 0 auto;
+    margin-top: 80px;
+}
+
+.join_page .left {
+    float: left;
+    width: 50%;
+    text-align: center;
+}
+
+.join_page .left button {
+    width: 30px;
+}
+
+.join_page .left .gender {
+    width: 50px;
+}
+
+.join_page .left p {
+    text-align: left;
+    margin-left: 42px;
+}
+
+.join_page .left input {
+    width: 65%;
+    text-align: right;
+}
+
+.join_page .left > div p {
+    font-size: 15px;
+    font-weight: 600;
+    margin-top: 20px;
+}
+
+.join_page .right {
+    float: right;
+    width: 50%;
+    margin-top: 123px;
+}
+
+
+.join_page .right input {
+    width: 65%;
+    text-align: right;
+}
+
+.join_page .right > div p {
+    font-size: 15px;
+    font-weight: 600;
+    margin-top: 20px;
+}
+
+.btn2 {
+    width: 220px;
+    margin: 0 auto;
+}
+
+.btn2 button {
+    width: 100px;
+    margin-top: 20px; 
+    float: left;
+}
+
+.btn2 button:nth-child(2) {
+    margin-left: 5px;
+}
+

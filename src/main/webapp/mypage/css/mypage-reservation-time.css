@@ -1,0 +1,60 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+ul, li, ol, dl, dd {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.content {
+    width: 1024px;
+    margin: 0 auto;
+}
+
+.content > .wrap {
+    width: 60%;
+    margin: 0 auto;
+    display: flex;
+    border: 1px solid #999;
+}
+
+.content > .wrap > .trainer_box {
+    width: 40%;
+    border: 1px solid #999;
+}
+
+.content > .wrap > .time {
+    width: 60%;
+}
+
+.content > .wrap > .time > p {
+    text-align: center;
+}
+
+.time > .display {
+    display: flex;
+    justify-content: center;
+}
+
+.time > .display > div {
+    border: 1px solid #999;
+}
+
+.time_select_box {
+    border: 1px solid #999;
+}
+
+.time_select_box > div > ul {
+    display: inline-block;
+}
+
+.time_select_box > div > ul > li {
+    display: inline-block;
+}

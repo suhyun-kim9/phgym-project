@@ -1,0 +1,50 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+ul, li, ol, dl, dd {
+    list-style: none;
+}
+
+.wrap {
+    /* width: 1024px; */
+    height: 768px;
+}
+
+.wrap h3 {
+    text-align: center;
+}
+
+.wrap .login_page {
+    width: 20%;
+    margin: 0 auto;
+    margin-top: 5px;
+    border: 1px solid #777;
+    border-radius: 15px;
+}
+
+.wrap .login_wrap {
+    display: inline-block;
+    padding-left: 15px;
+    padding-top: 15px;
+}
+
+.wrap p {
+    font-size: 14px;
+}
+
+.wrap div {
+    margin-bottom: 15px;
+}
+
+.wrap .login_situation {
+    display: inline;
+}
+
+
+.wrap button {
+    display:block;
+    width: 175px;
+    margin-top: 15px;
+}

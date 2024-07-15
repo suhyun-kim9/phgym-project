@@ -1,0 +1,92 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        @font-face {
+            font-family: 'SUIT-Regular';
+            src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Regular.woff2') format('woff2');
+            font-weight: normal;
+            font-style: normal;
+        }
+    
+        * {margin: 0 auto; padding: 0; text-decoration: none; font-family: 'SUIT-Regular';}
+        
+        /* 전체 틀 */
+        .map-wrap {
+            width: 1024px; height: 850px;
+            border: 0px solid black;
+            display: flex; 
+
+        }
+
+
+        /* 지도 이미지 파일 */
+        .map-wrap > .map-img {
+            position: relative;
+            border: 1px solid #000;
+            width: 45%; height: 50%; top: 210px;
+        }
+        .map-wrap > .map-img > img {
+            width: 100%;  height: 100%;
+        }
+
+        /* 오시는길 소개란 */
+        .map-wrap > .map-info {
+            position: relative;
+            width: 45%; height: 50%; top: 210px;
+            border: 0px solid black;
+            display: flex; flex-direction: column; justify-content: space-between;
+        }
+        .map-wrap > .map-info > div {
+            border: 1px solid #000; border-radius: 10px;
+            width: 100%; height: 22%; text-indent: 10px;
+        }
+    </style>
+
+
+
+</head>
+<body>
+    
+    <section>
+        <div class="map-wrap">
+            <div class="map-img">
+                <img src="img/지도.png" alt="지도">
+            </div>
+            <div class="map-info">
+                <div>
+                    <p>도로명 주소</p>
+                    <p>서울시 강남구</p>
+                </div>
+                <div>
+                    <p>유선번호</p>
+                    <p>02-1234-5678</p>
+                </div>
+                <div>
+                    <p>영업시간</p>
+                    <p>평일: AM 06:00 ~ PM 11:00</p>
+                    <p>주말: AM 06:00 ~ PM 06:00</p>
+                    <p>(매주 셋째주 토요일 정기휴무)</p>
+                </div>
+                <div>
+                    <p>주차</p>
+                    <p>헬스장 건물 전용 주차장 이용 가능</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+</body>
+</html>
