@@ -51,6 +51,7 @@
             <p>2024-07-01</p>
             <button type="button" onclick="location.href='checkin.mypage'">출석하기</button>${msg}
             <p>일단 규칙적으로 운동하면, 이것을 멈추기가 어려울 것이다. - 에린 그레이 -</p>
+            test test test
         </div>
     </section>
 </body>
