@@ -18,8 +18,10 @@
     <div class="aside">
         <nav>
 
+
         <!-- 7월 16일 수정했습니다 혜주 -->
         <ul class="nav_1">
+
             <div class="logo"> <img src="nav/logo_dark.webp"> </div>
             <li> <i class="bi bi-person-fill"></i> <a> 관리자 계정 </a> </li>
             <li> 
@@ -63,7 +65,7 @@
                              <input type="submit" value="조회">
                          </div>
                  </div>
-         
+      
          
                  <!-- pt 담당 트레이너 -->
                  <div class="pt_trainer">
@@ -106,7 +108,7 @@
 
 </div>
 
-    <script type="text/javascript" src="nav/admin-navigation.js"> </script>
+    <script type="text/javascript" src="../include/js/admin-navigation.js"> </script>
  
 </body>
 </html>
