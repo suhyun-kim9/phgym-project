@@ -17,7 +17,7 @@
     <div class="aside">
         <nav>
         <ul class="nav_1">
-            <div class="logo"> <img src="nav/logo_dark.webp"> </div>
+            <div class="logo"> <img src="img/logo-light.png"> </div>
             <li> <i class="bi bi-person-fill"></i> <a> 관리자 계정 </a> </li>
             <li> 
                 <div id="dropdown">
@@ -48,7 +48,7 @@
 
 </div>
 
-    <script type="text/javascript" src="nav/admin-navigation.js"> </script>
+    <script type="text/javascript" src="js/admin-navigation.js"> </script>
  
 </body>
 </html>

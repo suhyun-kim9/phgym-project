@@ -38,10 +38,11 @@
 
 .logo {
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 
 .logo > img {
+	margin-top : 20px;
     height: 150px;
 }
 
@@ -57,11 +58,9 @@
 }
 
 .nav_1 > li:hover {
-    background-color: #f97316;
+    background-color: #ee6c4d;
 }
-.nav_1 > li.active {
-    background-color: green;
-}
+
 
 /* .nav_1 > li:nth-child(3) > .nav_2 {
     display: none;
@@ -71,9 +70,7 @@
     display: block;
 } */
 
-#dropdown:active {
-    background-color: #f97316;
-}
+
 
 #nav_2 {
     display: none;
