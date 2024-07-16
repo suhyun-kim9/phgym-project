@@ -32,19 +32,21 @@ public class MypageController extends HttpServlet {
 		String command = uri.substring(path.length());
 		System.out.println("command = " + command);
 		
-		request.getSession().setAttribute("userNo", 3); //삭제예정
+		request.getSession().setAttribute("sessionUserNo", 1); //삭제예정
 		
 		MypageService service = null;
 		if(command.equals("/mypage/checkin.mypage")) {
 			service = new MypageServiceImpl();
-			String result = service.checkedin(request, response);
-			if(result.equals("Y")) {
-				request.setAttribute("msg", "Y");
-			}
-			request.getRequestDispatcher("mypage-checkin.jsp").forward(request, response);
-		} else if(command.equals("/mypage/checkingin.mypage")) {
+			service.checkCheckin(request, response);
+		} else if(command.equals("/mypage/doCheckin.mypage")) {
 			service = new MypageServiceImpl();
-			service.checkingin(request, response);
+			service.doCheckin(request, response);
+		} else if(command.equals("/mypage/transfer.mypage")) {
+			service = new MypageServiceImpl();
+			service.checkTransfer(request, response);
+		} else if(command.equals("/mypage/doTransfer.mypage")) {
+			service = new MypageServiceImpl();
+			service.doTransfer(request, response);
 		}
 	}
 }

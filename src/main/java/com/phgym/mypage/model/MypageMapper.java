@@ -1,8 +1,19 @@
 package com.phgym.mypage.model;
 
+import java.time.LocalDate;
+import java.util.List;
+
 public interface MypageMapper {
 
-	public int checkingin(int userNo);
+	public int doCheckin(int sessionUserNo);
 	
-	public int checkedin(int userNo);
+	public int checkCheckin(int sessionUserNo);
+	
+	public int doTransfer(MembershipPayHisDTO dto);
+	
+	public int updateRemarkTransferState(int sessionUserNo);
+	
+	public LocalDate selectEndDate(int membershipPayNo);
+	
+	public List<MembershipPayHisDTO> checkTransfer(int membershipPayNo);
 }

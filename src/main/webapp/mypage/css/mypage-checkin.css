@@ -27,8 +27,42 @@ img {
 }
 
 .content > .wrap {
-    border: 1px solid #F97316;
+    border: 1px solid #ff7f56;
     width: 60%;
-    margin: 0 auto;
+    margin: 100px auto 0;
     text-align: center;
+    box-shadow: 0 8px 16px rgb(0, 0, 0, 0.3);
+}
+
+.content > .wrap > .content_title {
+	margin-top: 50px;
+	font-size: 30px;
+}
+
+.content > .wrap > .clock {
+	margin-top: 20px;
+	font-size: 20px;
+}
+
+.content > .wrap > .checkin {
+	margin-top: 20px;
+	width: 150px;
+    height: 45px;
+    border-radius: 5px;
+	background-color: #ff7f56;
+	color: #ffffff;
+	border: none;
+	font-size: 20px;
+	cursor: pointer;
+}
+
+.content > .wrap > .quote {
+	margin-top: 20px;
+	font-size: 15px;
+}
+
+.content > .wrap > .author {
+	margin-top: 5px;
+	margin-bottom: 50px;
+	font-size: 15px;
 }
