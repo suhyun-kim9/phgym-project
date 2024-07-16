@@ -32,20 +32,19 @@ public class MypageController extends HttpServlet {
 		String command = uri.substring(path.length());
 		System.out.println("command = " + command);
 		
+		request.getSession().setAttribute("userNo", 3); //삭제예정
+		
 		MypageService service = null;
 		if(command.equals("/mypage/checkin.mypage")) {
-			request.setAttribute("userNo", 1); //세션으로 변경 예정
-			
 			service = new MypageServiceImpl();
 			String result = service.checkedin(request, response);
-			System.out.println("출석 여부: " + result);
 			if(result.equals("Y")) {
-				request.setAttribute("msg", "이미 출석체크 하셨습니다.");
-				request.getRequestDispatcher("mypage-checkin.jsp").forward(request, response);
-			} else {
-				System.out.println("출석 기록");
-				service.checkin(request, response);
+				request.setAttribute("msg", "Y");
 			}
+			request.getRequestDispatcher("mypage-checkin.jsp").forward(request, response);
+		} else if(command.equals("/mypage/checkingin.mypage")) {
+			service = new MypageServiceImpl();
+			service.checkingin(request, response);
 		}
 	}
 }
