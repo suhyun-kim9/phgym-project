@@ -17,12 +17,12 @@ public class MypageServiceImpl implements MypageService {
 	private SqlSessionFactory sqlSessionFactory = MybatisUtil.getSqlSessionFactory();
 
 	@Override
-	public void checkin(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		int userNo = (int)request.getAttribute("userNo"); //세션으로 변경 예정
+	public void checkingin(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		int userNo = (int)request.getSession().getAttribute("userNo");
 		
 		SqlSession sql = sqlSessionFactory.openSession(true);
 		MypageMapper mypage = sql.getMapper(MypageMapper.class);
-		int result = mypage.checkin(userNo);
+		int result = mypage.checkingin(userNo);
 		if(result == 1) {
 			System.out.println("성공");
 		} else {
@@ -30,19 +30,19 @@ public class MypageServiceImpl implements MypageService {
 		}
 		sql.close();
 		
-		response.sendRedirect("/PHGYM/mypage/mypage-checkin.jsp");
+		response.sendRedirect("/PHGYM/mypage/checkin.mypage");
 	}
 
 	@Override
 	public String checkedin(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		int userNo = (int)request.getAttribute("userNo"); //세션으로 변경 예정
+		int userNo = (int)request.getSession().getAttribute("userNo");
 		
 		SqlSession sql = sqlSessionFactory.openSession(true);
 		MypageMapper mypage = sql.getMapper(MypageMapper.class);
 		int count = mypage.checkedin(userNo);
 		String result = "N";
-		if(count == 1) {
+		if(count != 0) {
 			result = "Y"; //출석완료
 		}
 		sql.close();
