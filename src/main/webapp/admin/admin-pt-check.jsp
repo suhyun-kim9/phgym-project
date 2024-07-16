@@ -18,8 +18,10 @@
     <div class="aside">
         <nav>
 
-        <!--  240715 5:51 수정함 ~~ -->
-        <ul class="nav_1"><!-- 0716_상혁수정 -->
+
+        <!-- 7월 16일 수정했습니다 혜주 -->
+        <ul class="nav_1">
+
             <div class="logo"> <img src="nav/logo_dark.webp"> </div>
             <li> <i class="bi bi-person-fill"></i> <a> 관리자 계정 </a> </li>
             <li> 
