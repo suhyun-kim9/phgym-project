@@ -8,7 +8,11 @@ import jakarta.servlet.http.HttpServletResponse;
 
 public interface MypageService {
 
-	public void checkingin(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException;
+	public void doCheckin(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException;
 
-	public String checkedin(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException;
+	public void checkCheckin(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException;
+	
+	public void doTransfer(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException;
+	
+	public void checkTransfer(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException;
 }
