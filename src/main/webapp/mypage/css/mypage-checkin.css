@@ -27,15 +27,15 @@ img {
 }
 
 .content > .wrap {
-    border: 1px solid #ff7f56;
     width: 60%;
     margin: 100px auto 0;
     text-align: center;
-    box-shadow: 0 8px 16px rgb(0, 0, 0, 0.3);
+    box-shadow: 0 8px 16px #ff7f56;
+    padding-bottom: 50px;
 }
 
 .content > .wrap > .content_title {
-	margin-top: 50px;
+	padding-top: 50px;
 	font-size: 30px;
 }
 
@@ -63,6 +63,5 @@ img {
 
 .content > .wrap > .author {
 	margin-top: 5px;
-	margin-bottom: 50px;
 	font-size: 15px;
 }

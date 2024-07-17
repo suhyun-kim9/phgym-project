@@ -46,7 +46,7 @@ public class MypageServiceImpl implements MypageService {
 		MypageMapper mypage = sql.getMapper(MypageMapper.class);
 		int count = mypage.checkCheckin(sessionUserNo);
 		if(count != 0) {
-			request.setAttribute("msg", "Y"); //출석완료
+			request.setAttribute("checkCheckinResult", "Y"); //출석완료
 		}
 		sql.close();
 		
@@ -60,21 +60,25 @@ public class MypageServiceImpl implements MypageService {
 		int userNo = Integer.parseInt(request.getParameter("userNo"));
 		int membershipPayNo = Integer.parseInt(request.getParameter("membershipPayNo"));
 		
+		MembershipPayHisDTO dto = null;
+		dto = new MembershipPayHisDTO();
+		dto.setMembershipPayNo(membershipPayNo);
+		dto.setUserNo(sessionUserNo);
+		
 		SqlSession sql = sqlSessionFactory.openSession(true);
 		MypageMapper mypage = sql.getMapper(MypageMapper.class);
-		mypage.updateRemarkTransferState(sessionUserNo);
+		mypage.updateRemarkTransferState(dto);
 		LocalDate dt = mypage.selectEndDate(membershipPayNo);
 		
-		MembershipPayHisDTO dto = new MembershipPayHisDTO();
+		dto = new MembershipPayHisDTO();
 		dto.setUserNo(userNo);
 		dto.setMembershipPayNo(membershipPayNo);
 		dto.setEndDate(dt);
 		
-		
 		int result = mypage.doTransfer(dto);
 		if(result == 1) {
 			System.out.println("===doTransfer success===");
-			//request.getSession().setAttribute("doTransferMsg", "회원권 양도가 완료되었습니다.");
+			request.getSession().setAttribute("doTransferMsg", "Y");
 		} else {
 			System.out.println("===doTransfer fail===");
 		}
@@ -91,6 +95,7 @@ public class MypageServiceImpl implements MypageService {
 		SqlSession sql = sqlSessionFactory.openSession(true);
 		MypageMapper mypage = sql.getMapper(MypageMapper.class);
 		List<MembershipPayHisDTO> list = mypage.checkTransfer(sessionUserNo);
+		sql.close();
 		
 		request.setAttribute("list", list);
 		request.getRequestDispatcher("mypage-transfer.jsp").forward(request, response);

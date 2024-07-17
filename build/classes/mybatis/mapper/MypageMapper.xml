@@ -16,8 +16,8 @@
 		values(membership_pay_his_seq.nextval, #{userNo}, #{endDate}, 'R', sysdate, #{membershipPayNo})
 	</insert>
 	
-	<update id="updateRemarkTransferState" parameterType="int">
-		update membership_pay_his set remark_transfer_status = 'G' where user_no = #{sessionUserNo}
+	<update id="updateRemarkTransferState" parameterType="com.phgym.mypage.model.MembershipPayHisDTO">
+		update membership_pay_his set remark_transfer_status = 'G' where membership_pay_no = #{membershipPayNo} and user_no = #{userNo}
 	</update>
 	
 	<select id="selectEndDate">
@@ -25,6 +25,6 @@
 	</select>
 	
 	<select id="checkTransfer" parameterType="int" resultType="com.phgym.mypage.model.MembershipPayHisDTO">
-		select * from membership_pay_his where user_no = #{sessionUserNo} and remark_transfer_status is null
+		select * from membership_pay_his where user_no = #{sessionUserNo} and remark_transfer_status is null order by membership_pay_no
 	</select>
 </mapper>

@@ -73,6 +73,12 @@
 			submit.style.cursor = "none";
 			submit.style.backgroundColor = "#8c8c8c";
 		}
+	    
+	    var doTransferMsg = "${sessionScope.doTransferMsg}";
+	    if(doTransferMsg) {
+	    	alert("회원권 양도가 완료되셨습니다.");
+	    }
+	    <c:remove var="doTransferMsg" scope="session"/>
 	</script>
     <script type="text/javascript" src="js/mypage-transfer.js"></script>
     <script type="text/javascript" src="../include/js/main-navigation.js"></script>

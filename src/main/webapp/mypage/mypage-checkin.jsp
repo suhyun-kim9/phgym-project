@@ -39,12 +39,12 @@
             <p class="clock"></p>
             <button type="button" onclick="location.href='doCheckin.mypage'" class="checkin">출석하기</button>
             <p class="quote"></p>
-            <p class="author"></p>
+            <p class="author"></p>${doTransferMsg}
         </div>
     </section>
     
     <script type="text/javascript">
-	    if("${msg}" == "Y") {
+	    if("${checkCheckinResult}" == "Y") {
 			var checkin = document.querySelector(".checkin");
 			checkin.innerHTML = "출석완료";
 			checkin.disabled = true;
