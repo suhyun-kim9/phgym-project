@@ -29,6 +29,10 @@
                 </tr>
             </thead>
             <tbody>
+            
+            	<c:forEach var="dto" items="${list }">
+            	
+            	</c:forEach>
                 <tr>
                     <td>6</td>
                     <td>안녕하세요</td>
