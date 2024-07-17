@@ -1,7 +1,6 @@
 package com.phgym.controller;
 
 import java.io.IOException;
-
 import com.phgym.mypage.service.MypageService;
 import com.phgym.mypage.service.MypageServiceImpl;
 
@@ -13,6 +12,8 @@ import jakarta.servlet.http.HttpServletResponse;
 
 @WebServlet("*.join")
 public class JoinController extends HttpServlet {
+	
+	//asdfasdfsadf0717ㅁㄴㅇㄻㄴㄹㄴㅇㄹㅇㄹㄴㅇ
 	
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
