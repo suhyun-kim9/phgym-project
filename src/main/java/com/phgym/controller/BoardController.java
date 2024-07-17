@@ -2,6 +2,8 @@ package com.phgym.controller;
 
 import java.io.IOException;
 
+import com.phgym.board.service.BoardService;
+import com.phgym.board.service.BoardServiceImpl;
 import com.phgym.mypage.service.MypageService;
 import com.phgym.mypage.service.MypageServiceImpl;
 
@@ -26,5 +28,40 @@ public class BoardController extends HttpServlet {
 	
 	protected void doAction(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//코드 작성
+		
+		// 24.07.17
+		request.setCharacterEncoding("utf-8");
+		
+		String uri = request.getRequestURI();
+		String path = request.getContextPath();
+		String command = uri.substring( path.length() );
+		
+		BoardService service;
+		
+		if(command.equals("/board/list.board")) { // 목록화면
+			
+			service = new BoardServiceImpl();
+			service.getList(request, response);
+			
+		}
+		
 	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
