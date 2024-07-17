@@ -1,8 +1,8 @@
 package com.phgym.controller;
 
 import java.io.IOException;
-import com.phgym.mypage.service.MypageService;
-import com.phgym.mypage.service.MypageServiceImpl;
+import com.phgym.join.service.JoinService;
+import com.phgym.join.service.JoinServiceImpl;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -12,20 +12,34 @@ import jakarta.servlet.http.HttpServletResponse;
 
 @WebServlet("*.join")
 public class JoinController extends HttpServlet {
-	
-	//asdfasdfsadf0717ㅁㄴㅇㄻㄴㄹㄴㅇㄹㅇㄹㄴㅇ
-	
+
 	@Override
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		doAction(request, response);
 	}
-	
+
 	@Override
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		doAction(request, response);
 	}
-	
-	protected void doAction(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//코드 작성
+
+	protected void doAction(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		String uri = request.getRequestURI();
+		String path = request.getContextPath();
+		String command = uri.substring(path.length());
+
+		System.out.println(command);
+
+		JoinService service = null;
+
+		if (command.equals("/join/pwFind.join")) { // 비밀번호찾기
+			service = new JoinServiceImpl();
+			service.pwFind(request, response);
+		}
+
 	}
 }
