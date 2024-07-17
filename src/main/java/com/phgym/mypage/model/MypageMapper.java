@@ -11,7 +11,7 @@ public interface MypageMapper {
 	
 	public int doTransfer(MembershipPayHisDTO dto);
 	
-	public int updateRemarkTransferState(int sessionUserNo);
+	public int updateRemarkTransferState(MembershipPayHisDTO sessionUserNo);
 	
 	public LocalDate selectEndDate(int membershipPayNo);
 	
