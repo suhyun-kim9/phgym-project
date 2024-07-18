@@ -3,10 +3,18 @@
 	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.phgym.join.model.JoinMapper">
-	<select id = "pwFind" resultType = "String">
-		SELECT PW FROM ADMIN
-		WHERE ADMIN_ID = 'aaa'
-		and EMAIL = 'aaa@naver.com'
-		and PHONE = '010-0000-0000'
+
+	<select id = "adminPwFind" resultType = "String" parameterType = "com.phgym.join.model.AdminJoinDTO">
+		SELECT PW FROM ADMIN_INFO
+		WHERE ADMIN_ID = #{adminId}
+		and EMAIL = #{email}
+		and PHONE = #{phone}
+	</select>
+	
+	<select id="userPwFind" resultType="String" parameterType = "com.phgym.join.model.UserJoinDTO">
+		SELECT PW FROM USER_INFO
+		WHERE USER_ID = #{userId}
+		AND EMAIL = #{email}
+		AND PHONE = #{phone}
 	</select> 
 </mapper>
