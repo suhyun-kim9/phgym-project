@@ -3,11 +3,15 @@ package com.phgym.mypage.service;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
+import com.phgym.mypage.model.CheckinHisDTO;
+import com.phgym.mypage.model.CheckinListDTO;
 import com.phgym.mypage.model.MembershipPayHisDTO;
 import com.phgym.mypage.model.MypageMapper;
 import com.phgym.util.mybatis.MybatisUtil;
@@ -99,5 +103,29 @@ public class MypageServiceImpl implements MypageService {
 		
 		request.setAttribute("list", list);
 		request.getRequestDispatcher("mypage-transfer.jsp").forward(request, response);
+	}
+
+	@Override
+	public void statistics(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		int sessionUserNo = (int)request.getSession().getAttribute("sessionUserNo");
+		
+		SqlSession sql = sqlSessionFactory.openSession(true);
+		MypageMapper mypage = sql.getMapper(MypageMapper.class);
+		
+		//출석내역 가져오기
+		List<CheckinListDTO> checkinList = null;
+		List<CheckinHisDTO> checkinHisList = mypage.getCheckinList(sessionUserNo);
+		for(CheckinHisDTO dto : checkinHisList) {
+			checkinList = mypage.getMembershipPeriod(dto);
+		}
+		
+		//요일별 출석률 가져오기
+		
+		
+		sql.close();
+		
+		request.setAttribute("checkinList", checkinList);
+		request.getRequestDispatcher("mypage-statistics.jsp").forward(request, response);
 	}
 }

@@ -1,7 +1,15 @@
+@font-face {
+    font-family: 'SUIT-Regular';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    font-family: 'SUIT-Regular';
 }
 
 ul, li, ol, dl, dd {
@@ -19,30 +27,39 @@ img {
 }
 
 .content > .wrap {
-    width: 60%;
-    margin: 0 auto;
+    width: 70%;
+    margin: 100px auto 0;
+    text-align: center;
+    box-shadow: 0 8px 16px #ff7f56;
+    padding: 50px 0;
 }
 
 /* ===그래프=== */
 .content > .wrap > .graph_box {
     display: flex;
+    justify-content: space-around;
     text-align: center;
-}
-
-.content > .wrap > .graph_box img {
-    border: 1px solid #F97316;
 }
 
 /* ===출석내역=== */
-.content > .wrap > .checkin_list > table {
-    margin: 0 auto;
-    border: 1px solid #F97316;
-    width: 100%;
+.content > .wrap > .checkin_list {
+	margin-top: 20px;
 }
 
-.content > .wrap > .checkin_list > table tr th {
+.content > .wrap > .checkin_list > div {
+	height: 150px;
+	overflow: auto;
+}
+
+.content > .wrap > .checkin_list > div > table {
+    margin: 10px auto 0;
+    border: 1px solid #ff7f56;
+    width: 90%;
+}
+
+.content > .wrap > .checkin_list > div > table tr th {
     text-align: center;
-    border-bottom: 1px solid #F97316;
+    border-bottom: 1px solid #ff7f56;
 }
 
 .content .wrap > .checkin_list > table tr td {

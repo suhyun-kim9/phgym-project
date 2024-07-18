@@ -27,4 +27,16 @@
 	<select id="checkTransfer" parameterType="int" resultType="com.phgym.mypage.model.MembershipPayHisDTO">
 		select * from membership_pay_his where user_no = #{sessionUserNo} and remark_transfer_status is null order by membership_pay_no
 	</select>
+	
+	<select id="getCheckinList" parameterType="int" resultType="com.phgym.mypage.model.CheckinHisDTO">
+		select * from checkin_his where user_no = #{sessionUserNo} order by checkin_date desc
+	</select>
+	
+	<select id="getMembershipPeriod" parameterType="com.phgym.mypage.model.CheckinHisDTO" resultType="com.phgym.mypage.model.CheckinListDTO">
+		select to_char(a.checkin_date, 'yyyy-mm-dd') as checkin_date, to_char(a.checkin_date, 'hh24:mi:ss') as checkin_time, to_char(b.start_date, 'yyyy-mm-dd') as start_date, to_char(b.end_date, 'yyyy-mm-dd') as end_date
+		from checkin_his a
+		left join membership_pay_his b
+		on a.user_no = b.user_no
+		where a.user_no = #{userNo} and a.checkin_date between b.start_date and b.end_date order by checkin_date desc
+	</select>
 </mapper>

@@ -14,7 +14,7 @@ public class MembershipPayHisDTO {
 	private int payAmount;
 	private String refundBankname;
 	private String refundBankAccount;
-	private int remarkTransferStatus;
+	private String remarkTransferStatus;
 	private LocalDate remarkTransferDate;
 	private int remarkPayNo;
 	
@@ -24,7 +24,7 @@ public class MembershipPayHisDTO {
 
 	public MembershipPayHisDTO(int membershipPayNo, int userNo, LocalDate payDate, LocalDate startDate,
 			LocalDate endDate, String payMethod, int payCnt, int payAmount, String refundBankname,
-			String refundBankAccount, int remarkTransferStatus, LocalDate remarkTransferDate, int remarkPayNo) {
+			String refundBankAccount, String remarkTransferStatus, LocalDate remarkTransferDate, int remarkPayNo) {
 		super();
 		this.membershipPayNo = membershipPayNo;
 		this.userNo = userNo;
@@ -121,11 +121,11 @@ public class MembershipPayHisDTO {
 		this.refundBankAccount = refundBankAccount;
 	}
 
-	public int getRemarkTransferStatus() {
+	public String getRemarkTransferStatus() {
 		return remarkTransferStatus;
 	}
 
-	public void setRemarkTransferStatus(int remarkTransferStatus) {
+	public void setRemarkTransferStatus(String remarkTransferStatus) {
 		this.remarkTransferStatus = remarkTransferStatus;
 	}
 

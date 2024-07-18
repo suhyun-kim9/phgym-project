@@ -27,15 +27,14 @@ img {
 }
 
 .content > .wrap {
-    width: 60%;
+    width: 70%;
     margin: 100px auto 0;
     text-align: center;
     box-shadow: 0 8px 16px #ff7f56;
-    padding-bottom: 50px;
+    padding: 50px 0;
 }
 
 .content > .wrap > .content_title {
-	padding-top: 50px;
 	font-size: 30px;
 }
 
