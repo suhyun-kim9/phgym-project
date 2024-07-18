@@ -15,4 +15,6 @@ public interface MypageService {
 	public void doTransfer(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException;
 	
 	public void checkTransfer(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException;
+	
+	public void statistics(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException;
 }

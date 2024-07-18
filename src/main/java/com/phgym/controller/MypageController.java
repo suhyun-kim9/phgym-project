@@ -47,6 +47,9 @@ public class MypageController extends HttpServlet {
 		} else if(command.equals("/mypage/doTransfer.mypage")) {
 			service = new MypageServiceImpl();
 			service.doTransfer(request, response);
+		} else if(command.equals("/mypage/statistics.mypage")) {
+			service = new MypageServiceImpl();
+			service.statistics(request, response);
 		}
 	}
 }
