@@ -43,6 +43,14 @@ public class JoinController extends HttpServlet {
 		} else if(command.equals("/join/userPwFind.join")) { // 회원 비밀번호찾기
 			service = new JoinServiceImpl();
 			service.userPwFind(request, response);
+			
+		} else if(command.equals("/join/adminIdFind.join")) { // 관리자 아이디찾기
+			service = new JoinServiceImpl();
+			service.adminIdFind(request, response);
+			
+		} else if(command.equals("/join/userIdFind.join")) { // 회원 아이디찾기
+			service = new JoinServiceImpl();
+			service.userIdFind(request,response);
 		}
 	}
 }
