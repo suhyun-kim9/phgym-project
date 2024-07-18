@@ -36,10 +36,13 @@ public class JoinController extends HttpServlet {
 
 		JoinService service = null;
 
-		if (command.equals("/join/pwFind.join")) { // 비밀번호찾기
+		if(command.equals("/join/adminPwFind.join")) { // 관리자 비밀번호찾기
 			service = new JoinServiceImpl();
-			service.pwFind(request, response);
+			service.adminPwFind(request, response);
+			
+		} else if(command.equals("/join/userPwFind.join")) { // 회원 비밀번호찾기
+			service = new JoinServiceImpl();
+			service.userPwFind(request, response);
 		}
-
 	}
 }

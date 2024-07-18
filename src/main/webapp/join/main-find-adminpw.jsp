@@ -14,7 +14,7 @@
 		<h3>관리자 비밀번호 찾기</h3>
 		<div class="login_page">
 			<div class="login_wrap">
-				<form action = "pwFind.join" method = "post">
+				<form action = "adminPwFind.join" method = "post">
 					<div class="id">
 						<p>아이디</p>
 						<input type="text" name="adminid" placeholder="아이디를 입력하세요."
@@ -39,13 +39,11 @@
 	</div>
 	
 	<script>
-	var pwFind = ${!empty pwFind};
-	if(pwFind) {
-		alert("${pwFind}");
+	var adminPwFind = ${!empty adminPwFind};
+	if(adminPwFind) {
+		alert("${adminPwFind}");
 	}
 		
-		
-	
 	</script>
 </body>
 </html>
