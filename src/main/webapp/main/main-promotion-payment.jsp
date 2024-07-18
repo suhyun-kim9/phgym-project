@@ -1,12 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-
+    <link rel="stylesheet" href="../include/css/main-navigation.css">
+    
     <style>
     @font-face {
         font-family: 'SUIT-Regular';
@@ -50,14 +52,15 @@
         width: 20%; background-color: #f97316; color: #000;
     }
     </style>
-
+    
 </head>
+
 <body>
     
-   <section>
+   <form action="promotion-payment.main" method="post">
     <div class="pay-wrap">
         <p>주문결제</p>
-        <div class="content">
+         <div class="content">
             <div>
                 <a>이름</a>
                 <input type="text" name="id">
@@ -94,12 +97,13 @@
                 <a>최종결제금액</a>
                 <input type="text" name="total">
             </div>
-        </div>
-        <button type="submit">결제하기</button>
+        </div> 
+        <input type="submit" value="결제하기"/>
+        <input type="reset" value="취소하기"/>
     </div>
-   </section>
+   </form>
 
 
-
+<script type="text/javascript" src="../include/js/main-navigation.js"></script>
 </body>
 </html>
