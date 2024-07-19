@@ -6,7 +6,7 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import com.phgym.join.model.AdminJoinDTO;
 import com.phgym.join.model.JoinMapper;
-import com.phgym.join.model.UserJoinDTO;
+import com.phgym.join.model.UserInfoDTO;
 import com.phgym.util.mybatis.MybatisUtil;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -57,7 +57,7 @@ public class JoinServiceImpl implements JoinService {
 		System.out.println("email = " + email);
 		System.out.println("number = " + number);
 
-		UserJoinDTO dto = new UserJoinDTO();
+		UserInfoDTO dto = new UserInfoDTO();
 		dto.setUserId(userid);
 		dto.setEmail(email);
 		dto.setPhone(number);
@@ -118,7 +118,7 @@ public class JoinServiceImpl implements JoinService {
 		String email = request.getParameter("email");
 		String number = request.getParameter("number");
 		
-		UserJoinDTO dto = new UserJoinDTO();
+		UserInfoDTO dto = new UserInfoDTO();
 		
 		dto.setName(userName);
 		dto.setEmail(email);

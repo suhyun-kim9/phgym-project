@@ -30,7 +30,7 @@ public class MainController extends HttpServlet {
 	
 	protected void doAction(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//코드 작성
-		request.getSession().setAttribute("sessionUserNo", 123);
+		request.getSession().setAttribute("sessionUserNo", 1); //삭제예정
 		
 		request.setCharacterEncoding("utf-8");
         String uri = request.getRequestURI();
@@ -41,8 +41,13 @@ public class MainController extends HttpServlet {
         
         if(command.equals("/main/promotion-payment.main")) {
             service = new MainServiceImpl();
-            service.buy(request,response);
-            System.out.print("작동됨 컨트롤러");
+            service.buyPromotion(request,response);
+        } else if(command.equals("/main/promotionList.main")) {
+        	service = new MainServiceImpl();
+            service.goPromotionList(request,response);
+        } else if(command.equals("/main/goPromotionPay.main")) {
+        	service = new MainServiceImpl();
+            service.goPromotionPay(request,response);
         }
 		
 		

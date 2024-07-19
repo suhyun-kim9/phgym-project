@@ -9,7 +9,7 @@ public class MembershipPayHisDTO {
 	private LocalDate payDate; //결제일
 	private LocalDate startDate; //시작일
 	private LocalDate endDate; //종료일
-	private String payMethod; //결제방식
+	private String payMethod; //결제방법
 	private int payCnt; //결제수량
 	private int payAmount; //결제금액
 	private String refundBankname; //환불(은행명)

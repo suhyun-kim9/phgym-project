@@ -9,5 +9,9 @@ import jakarta.servlet.http.HttpServletResponse;
 public interface MainService {
 
 	//프로모션 결제내역
-	void buy(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException;
+	void buyPromotion(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException;
+
+	void goPromotionList(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException;
+
+	void goPromotionPay(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException;
 }
