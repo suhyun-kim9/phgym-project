@@ -2,7 +2,7 @@ package com.phgym.join.model;
 
 import java.time.LocalDateTime;
 
-public class UserJoinDTO {
+public class UserInfoDTO {
 
 	private int userNo;
 	private String userId;
@@ -16,11 +16,11 @@ public class UserJoinDTO {
 	private LocalDateTime regDate;
 	private String profile;
 	
-	public UserJoinDTO() {
+	public UserInfoDTO() {
 		
 	}
 	
-	public UserJoinDTO(int userNo, String userId, String pw, String name, LocalDateTime birth, String gender,
+	public UserInfoDTO(int userNo, String userId, String pw, String name, LocalDateTime birth, String gender,
 			String phone, String email, String address, LocalDateTime regDate, String profile) {
 		super();
 		this.userNo = userNo;

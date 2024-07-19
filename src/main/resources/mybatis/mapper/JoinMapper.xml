@@ -11,7 +11,7 @@
 		and PHONE = #{phone}
 	</select>
 	
-	<select id="userPwFind" resultType="String" parameterType = "com.phgym.join.model.UserJoinDTO">
+	<select id="userPwFind" resultType="String" parameterType = "com.phgym.join.model.UserInfoDTO">
 		SELECT PW FROM USER_INFO
 		WHERE USER_ID = #{userId}
 		AND EMAIL = #{email}
@@ -27,7 +27,7 @@
 		
 	</select>
 	
-	<select id="userIdFind" resultType="String" parameterType="com.phgym.join.model.UserJoinDTO">
+	<select id="userIdFind" resultType="String" parameterType="com.phgym.join.model.UserInfoDTO">
 	
 		SELECT USER_ID FROM USER_INFO
 		WHERE NAME = #{name}

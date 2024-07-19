@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,7 +11,7 @@
     
     <style>
     @font-face {
-        font-family: 'SUIT-Regular';
+        font-family: 'SUIT-Regular                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             ';
         src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Regular.woff2') format('woff2');
         font-weight: 500;
         font-style: normal;
@@ -56,54 +56,80 @@
 </head>
 
 <body>
+   
+   <nav class="main_nav_bar">
+       <ul class="main_nav">
+            <a><img src="../include/img/logo-light2.png"></a>
+            <li><a> 헬스장 소개 </a></li>
+            <li><a> 프로모션 </a></li>
+            <li><a> 문의 / 고객센터 </a></li>
+            <li><a> 오시는 길 </a></li>
+            <li class="dropdown"><a> 마이페이지 </a><i class="bi bi-caret-down-fill"></i></li>
+            <ul class="dropdownContent">
+                <li><i class="bi bi-check-lg"></i><a href="/PHGYM/mypage/checkin.mypage"> 출석체크 </a></li>
+            	<li><i class="bi bi-bar-chart-line"></i><a href="/PHGYM/mypage/statistics.mypage"> 통계확인 </a></li>
+				<li><i class="bi bi-calendar-check"></i><a> PT예약하기 </a></li>
+				<li><i class="bi bi-send"></i><a href="/PHGYM/mypage/transfer.mypage"> 회원권양도 </a></li>
+				<li><i class="bi bi-person-circle"></i><a> 회원정보 </a></li>
+            </ul>
+            <li class="gnb">  
+                <!-- <input type="button" value="마이페이지"> -->
+                <!-- <input type="button" value="회원가입"> -->
+                <input type="button" value="로그아웃">
+            </li>
+            <div class="animation"></div>
+        </ul>
+    </nav>
     
    <form action="promotion-payment.main" method="post">
-    <div class="pay-wrap">
+     <div class="pay-wrap">
         <p>주문결제</p>
-         <div class="content">
+          <div class="content">
             <div>
                 <a>이름</a>
-                <input type="text" name="id">
+                <input type="text" name="name" value="${result.name}" disabled="disabled">
             </div>
             <div>
                 <a>연락처</a>
-                <input type="text" name="phone">
+                <input type="text" name="phone" value="${result.phone}" disabled="disabled">
             </div>
             <div>
                 <a>이메일</a>
-                <input type="text" name="email">
+                <input type="text" name="email" value="${result.email}" disabled="disabled">
             </div>
             <div>
                 <a>이용가능기간</a>
                 <div>
-                    <input type="date" name="first-date">
+                    <input type="date" name="startDate" id="startDate">
                     <a> ~ </a>
-                    <input type="date" name="last-date">
+                    <input type="date" name="endDate" id="endDate">
                 </div>
             </div>
             <div>
                 <a>결제방법</a>
-                <input type="text" name="method">
+                <input type="text" name="payMethod">
             </div>
             <div>
                 <a>상품금액</a>
-                <input type="text" name="price">
+                <input type="text" name="payAmount">
             </div>
             <div>
                 <a>구매수량</a>
-                <input type="number" name="number">
+                <input type="text" name="payCnt">
             </div>
             <div>
-                <a>최종결제금액</a>
-                <input type="text" name="total">
+                <a>환불은행명</a>
+                <input type="text" name="refundBankname">
             </div>
-        </div> 
+            <div>
+                <a>환불계좌</a>
+                <input type="text" name="refundBankAccount">
+            </div>
+        </div>
         <input type="submit" value="결제하기"/>
         <input type="reset" value="취소하기"/>
-    </div>
+    </div>  
    </form>
-
-
 <script type="text/javascript" src="../include/js/main-navigation.js"></script>
 </body>
 </html>
