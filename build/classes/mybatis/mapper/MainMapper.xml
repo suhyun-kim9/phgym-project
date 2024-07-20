@@ -6,8 +6,8 @@
 	<!-- 쿼리 작성 -->
 	
 	<insert id="buyPromotion" parameterType="com.phgym.mypage.model.MembershipPayHisDTO" >
-		INSERT INTO MEMBERSHIP_PAY_HIS(MEMBERSHIP_PAY_NO, USER_NO, PAY_DATE, START_DATE, END_DATE, PAY_METHOD, REFUND_BANKNAME, REFUND_BANKACCOUNT, PAY_CNT, PAY_AMOUNT)
-		VALUES(membership_pay_his_seq.nextval, #{userNo}, sysdate, #{startDate}, #{endDate}, #{payMethod}, #{refundBankname}, #{refundBankAccount}, #{payCnt}, #{payAmount})
+		INSERT INTO MEMBERSHIP_PAY_HIS(MEMBERSHIP_PAY_NO, USER_NO, PAY_DATE, START_DATE, END_DATE, PAY_METHOD, REFUND_BANKNAME, REFUND_BANKACCOUNT, PAY_AMOUNT)
+		VALUES(membership_pay_his_seq.nextval, #{userNo}, sysdate, #{startDate}, #{endDate}, #{payMethod}, #{refundBankname}, #{refundBankAccount}, #{payAmount})
 	</insert>
 	
 	

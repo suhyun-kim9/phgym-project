@@ -29,9 +29,9 @@
 
         /* 프로모션 */
         .list-wrap > .prom {
-            display: flex;
-            height: 400px;
-            justify-content: space-between;
+            display: flex; justify-content: space-between;
+            height: 400px; position: relative; top: 100px;
+            
         }
         .list-wrap > .prom > div {
             text-align: center;
@@ -68,11 +68,11 @@
 <body>
 	<nav class="main_nav_bar">
         <ul class="main_nav">
-            <a><img src="../include/img/logo-light2.png"></a>
-            <li><a> 헬스장 소개 </a></li>
-            <li><a> 프로모션 </a></li>
+            <a href="/PHGYM/main/userhome.main"><img src="../include/img/logo-light2.png"></a>
+            <li><a href="/PHGYM/main/introduction.main"> 헬스장 소개 </a></li>
+            <li><a href="/PHGYM/main/promotionList.main"> 프로모션 </a></li>
             <li><a> 문의 / 고객센터 </a></li>
-            <li><a> 오시는 길 </a></li>
+            <li><a href="/PHGYM/main/map.main"> 오시는 길 </a></li>
             <li class="dropdown"><a> 마이페이지 </a><i class="bi bi-caret-down-fill"></i></li>
             <ul class="dropdownContent">
                 <li><i class="bi bi-check-lg"></i><a href="/PHGYM/mypage/checkin.mypage"> 출석체크 </a></li>
@@ -117,7 +117,7 @@
                         회원 멤버십가 우선 제공 기회
                     </p>
                     <p>￦240,000 / 6개월</p>
-                    <button type="submit">선택</button>
+                    <button type="submit" onclick="location.href='goPromotionPay.main?month=12'">선택</button>
                 </div>
                 <div>
                     <img src="img/부럽.WEBP" alt="">
@@ -129,7 +129,7 @@
                         이용 당일 회원권 결제 시 2주 추가 증정
                     </p>
                     <p>￦15,000 / 1일</p>
-                    <button type="submit">선택</button>
+                    <button type="submit" onclick="location.href='goPromotionPay.main?month=12'">선택</button>
                 </div>
                 <div>
                     <img src="img/슬픔.WEBP" alt="">
@@ -141,7 +141,7 @@
                         30회 결제 시 PT 추가 증정 이벤트
                     </p>
                     <p>￦50,000 / 회</p>
-                    <button type="submit">선택</button>
+                    <button type="submit" onclick="location.href='goPromotionPay.main?month=12'">선택</button>
                 </div>
 
             </div>

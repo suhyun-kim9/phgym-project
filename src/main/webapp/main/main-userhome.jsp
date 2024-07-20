@@ -27,20 +27,23 @@
         /* 메인사진 */
         .main-wrap > .main-img > img {
             display: inline-block;
-            border: 3px solid black; border-radius: 10px;
+            border: 1px solid black; border-radius: 10px;
             width: 100%; height: 400px;
+            position: relative; top: 100px;
         }
 
         /* 프로모션 */
         .main-wrap > .main-prom {
             border: 0px solid red;
-            height: 200px;margin-top: 10px;
-            display: flex; 
+            height: 200px; margin-top: 150px;
+            width: 1083px; position: relative;
+            left: -30px;
+            
         }
         .main-wrap > .main-prom > span {
-            border: 2px solid black; border-radius: 10px;
+            border: 1px solid black; border-radius: 10px;
             display: inline-block; 
-            width: 28%; height: 100%;
+            width: 300px; height: 100%;
         }
         #prom-list {
             display: flex; justify-content: left;
@@ -48,6 +51,8 @@
         .main-wrap > .main-prom img {
             position: relative;
             width: 100%; height: 70%;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
         }
         .main-wrap > .main-prom p {
             margin: 5px 5px;
@@ -56,7 +61,8 @@
 
         /* 이벤트 */
         .main-wrap > .main-event {
-            display: flex;
+            display: flex; position: relative;
+            left: -25px; width: 1074px;
         }
         .main-wrap > .main-event > span {
             margin-top: 80px;
@@ -77,7 +83,7 @@
     
     <nav class="main_nav_bar">
         <ul class="main_nav">
-            <a><img src="../include/img/logo-light2.png"></a>
+            <a href="/PHGYM/main/userhome.main"><img src="../include/img/logo-light2.png"></a>
             <li><a href="/PHGYM/main/introduction.main"> 헬스장 소개 </a></li>
             <li><a href="/PHGYM/main/promotionList.main"> 프로모션 </a></li>
             <li><a> 문의 / 고객센터 </a></li>
@@ -102,21 +108,21 @@
     <section>
         <div class="main-wrap">
             <div class="main-img">
-                <img src="img/단체.png" alt="">
+                <img src="img/main2.png" alt="main">
             </div>
             <div class="main-prom" id="prom-list">
                 <span class="prom1">
-                    <img src="img/기쁨.WEBP" alt="img1">
+                    <img src="img/nutrition.jpg" alt="img1">
                     <p>Nutrition</p>
                     <p>식단 및 영양 정보 제공</p>
                 </span>
                 <span class="prom2">
-                    <img src="img/불안.WEBP" alt="">
+                    <img src="img/웨이트.jpg" alt="">
                     <p>Fitness</p>
                     <p>1:1 맞춤 PT 진행중</p>
                 </span>
                 <span class="prom3">
-                    <img src="img/슬픔.WEBP" alt="">
+                    <img src="img/clean.jpg" alt="">
                     <p>Health</p>
                     <p>매일 3회 이상 소독</p>
                 </span>

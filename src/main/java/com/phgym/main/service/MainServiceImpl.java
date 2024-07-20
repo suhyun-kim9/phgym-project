@@ -33,7 +33,6 @@ public class MainServiceImpl implements MainService {
         String payMethod =  request.getParameter("payMethod"); //결제방법
         String refundBackname = request.getParameter("refundBankname"); //환불(은행명)
         String refundBankAccount =  request.getParameter("refundBankAccount"); //환불(계좌번호)
-        int payCnt = Integer.parseInt(request.getParameter("payCnt")); //구매수량
         int payAmount = Integer.parseInt(request.getParameter("payAmount")); //상품금액
         LocalDate startDate = LocalDate.parse(request.getParameter("startDate"), DateTimeFormatter.ISO_DATE);
         LocalDate endDate = LocalDate.parse(request.getParameter("endDate"), DateTimeFormatter.ISO_DATE);
@@ -45,7 +44,6 @@ public class MainServiceImpl implements MainService {
         dto.setPayMethod(payMethod);
         dto.setRefundBankname(refundBackname);
         dto.setRefundBankAccount(refundBankAccount);
-        dto.setPayCnt(payCnt);
         dto.setPayAmount(payAmount);
         dto.setStartDate(startDate);
         dto.setEndDate(endDate);
@@ -66,14 +64,13 @@ public class MainServiceImpl implements MainService {
 
 	@Override //main-promotion-list로 이동하기
 	public void goPromotionList(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+		   throws ServletException, IOException {
 		request.getRequestDispatcher("main-promotion-list.jsp").forward(request, response);
 		
 	}
 
 	@Override
-	public void goPromotionPay(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	public void goPromotionPay(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int sessionUserNo = (int)request.getSession().getAttribute("sessionUserNo");
 		
 		SqlSession sql = sqlSessionFactory.openSession(true);
@@ -84,12 +81,21 @@ public class MainServiceImpl implements MainService {
 		request.setAttribute("result", result);
 		request.getRequestDispatcher("main-promotion-payment.jsp").forward(request, response);
 	}
-
+	
+	
 	@Override //main-introduction으로 이동하기
-	public void goIntroduction(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		System.out.println("gointroduction동작됨");
+	public void goIntroduction(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.getRequestDispatcher("main-introduction.jsp").forward(request, response);
+	}
+
+	@Override //main-map으로 이동하기
+	public void goMap(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.getRequestDispatcher("main-map.jsp").forward(request, response);
+	}
+
+	@Override //main-userhome으로 이동하기
+	public void goMain(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.getRequestDispatcher("main-userhome.jsp").forward(request, response);
 		
 	}
 	

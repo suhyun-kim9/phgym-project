@@ -10,7 +10,6 @@ public class MembershipPayHisDTO {
 	private LocalDate startDate; //시작일
 	private LocalDate endDate; //종료일
 	private String payMethod; //결제방법
-	private int payCnt; //결제수량
 	private int payAmount; //결제금액
 	private String refundBankname; //환불(은행명)
 	private String refundBankAccount; //환불(계좌번호)
@@ -23,7 +22,7 @@ public class MembershipPayHisDTO {
 	}
 
 	public MembershipPayHisDTO(int membershipPayNo, int userNo, LocalDate payDate, LocalDate startDate,
-			LocalDate endDate, String payMethod, int payCnt, int payAmount, String refundBankname,
+			LocalDate endDate, String payMethod, int payAmount, String refundBankname,
 			String refundBankAccount, int remarkTransferStatus, LocalDate remarkTransferDate, int remarkPayNo) {
 		super();
 		this.membershipPayNo = membershipPayNo;
@@ -32,7 +31,6 @@ public class MembershipPayHisDTO {
 		this.startDate = startDate;
 		this.endDate = endDate;
 		this.payMethod = payMethod;
-		this.payCnt = payCnt;
 		this.payAmount = payAmount;
 		this.refundBankname = refundBankname;
 		this.refundBankAccount = refundBankAccount;
@@ -89,14 +87,6 @@ public class MembershipPayHisDTO {
 		this.payMethod = payMethod;
 	}
 
-	public int getPayCnt() {
-		return payCnt;
-	}
-
-	public void setPayCnt(int payCnt) {
-		this.payCnt = payCnt;
-	}
-
 	public int getPayAmount() {
 		return payAmount;
 	}
@@ -148,9 +138,11 @@ public class MembershipPayHisDTO {
 	@Override
 	public String toString() {
 		return "MembershipPayHisDTO [membershipPayNo=" + membershipPayNo + ", userNo=" + userNo + ", payDate=" + payDate
-				+ ", startDate=" + startDate + ", endDate=" + endDate + ", payMethod=" + payMethod + ", payCnt="
-				+ payCnt + ", payAmount=" + payAmount + ", refundBankname=" + refundBankname + ", refundBankAccount="
-				+ refundBankAccount + ", remarkTransferStatus=" + remarkTransferStatus + ", remarkTransferDate="
-				+ remarkTransferDate + ", remarkPayNo=" + remarkPayNo + "]";
+				+ ", startDate=" + startDate + ", endDate=" + endDate + ", payMethod=" + payMethod + ", payAmount="
+				+ payAmount + ", refundBankname=" + refundBankname + ", refundBankAccount=" + refundBankAccount
+				+ ", remarkTransferStatus=" + remarkTransferStatus + ", remarkTransferDate=" + remarkTransferDate
+				+ ", remarkPayNo=" + remarkPayNo + "]";
 	}
+
+	
 }
