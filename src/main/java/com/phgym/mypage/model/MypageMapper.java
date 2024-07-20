@@ -20,4 +20,6 @@ public interface MypageMapper {
 	public List<CheckinHisDTO> getCheckinList(int sessionUserNo);
 
 	public List<CheckinListDTO> getMembershipPeriod(CheckinHisDTO checkinHisDto);
+
+	public List<PtReservationHisDTO> getTimeList(PtReservationHisDTO dto);
 }

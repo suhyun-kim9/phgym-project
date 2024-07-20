@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
-import com.phgym.board.model.BoardDTO;
 import com.phgym.board.model.BoardMapper;
 import com.phgym.util.mybatis.MybatisUtil;
 
@@ -26,11 +25,11 @@ public class BoardServiceImpl implements BoardService {
 		SqlSession sql = sqlSessionFactory.openSession();
 		BoardMapper board = sql.getMapper(BoardMapper.class);
 		
-		ArrayList<BoardDTO> list = board.getList();
+		//ArrayList<BoardDTO> list = board.getList();
 		
 		sql.close();
 		
-		request.setAttribute("list", list);
+//		/request.setAttribute("list", list);
 		request.getRequestDispatcher("main-exerciseinfo-list").forward(request, response);
 		
 	}

@@ -17,4 +17,12 @@ public interface MypageService {
 	public void checkTransfer(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException;
 	
 	public void statistics(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException;
+
+	public void reservationTrainer(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException;
+
+	public void reservationDate(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException;
+
+	public void reservationTime(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException;
+
+	public void doReservation(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException;
 }

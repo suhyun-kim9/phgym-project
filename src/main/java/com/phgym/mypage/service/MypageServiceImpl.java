@@ -14,6 +14,8 @@ import com.phgym.mypage.model.CheckinHisDTO;
 import com.phgym.mypage.model.CheckinListDTO;
 import com.phgym.mypage.model.MembershipPayHisDTO;
 import com.phgym.mypage.model.MypageMapper;
+import com.phgym.mypage.model.PtReservationHisDTO;
+import com.phgym.mypage.util.MypageStatisticsUtil;
 import com.phgym.util.mybatis.MybatisUtil;
 
 import jakarta.servlet.ServletException;
@@ -120,12 +122,61 @@ public class MypageServiceImpl implements MypageService {
 			checkinList = mypage.getMembershipPeriod(dto);
 		}
 		
+		MypageStatisticsUtil util = new MypageStatisticsUtil();
 		//요일별 출석률 가져오기
+		double[] dayPercent = util.dayPercent(checkinHisList);
 		
+		//시간별 출석률 가져오기
+		double[] timePercnet = util.timePercnet(checkinHisList);
 		
 		sql.close();
-		
+				
+		request.setAttribute("timePercnet", timePercnet);
+		request.setAttribute("dayPercent", dayPercent);
 		request.setAttribute("checkinList", checkinList);
 		request.getRequestDispatcher("mypage-statistics.jsp").forward(request, response);
+	}
+
+	@Override
+	public void reservationTrainer(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		request.getRequestDispatcher("mypage-reservation-trainer.jsp").forward(request, response);
+	}
+
+	@Override
+	public void reservationDate(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		request.getRequestDispatcher("mypage-reservation-date.jsp").forward(request, response);
+	}
+
+	@Override
+	public void reservationTime(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		int adminNo = (Integer)request.getSession().getAttribute("adminNo");
+		int year = Integer.parseInt(request.getParameter("year"));
+		int month = Integer.parseInt(request.getParameter("month"));
+		int day = Integer.parseInt(request.getParameter("day"));
+		LocalDateTime date = LocalDateTime.of(year, month, day, 0, 0, 0);
+		
+		PtReservationHisDTO dto = new PtReservationHisDTO();
+		dto.setAdminNo(adminNo);
+		dto.setReservationDate(date);
+		
+		SqlSession sql = sqlSessionFactory.openSession(true);
+		MypageMapper mypage = sql.getMapper(MypageMapper.class);
+		List<PtReservationHisDTO> list = mypage.getTimeList(dto);
+		List<Integer> times = new ArrayList<>();
+		for(PtReservationHisDTO ptReservationHisDto : list) {
+			times.add(ptReservationHisDto.getReservationDate().toLocalTime().getHour());
+		}
+		
+		request.setAttribute("times", times);
+		request.getRequestDispatcher("mypage-reservation-time.jsp").forward(request, response);
+	}
+
+	@Override
+	public void doReservation(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		
 	}
 }

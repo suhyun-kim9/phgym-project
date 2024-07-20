@@ -11,4 +11,3 @@ public interface JoinMapper {
 	public String userIdFind(UserInfoDTO dto);
 
 	public AdminInfoDTO adminLogin(AdminInfoDTO dto);
-}

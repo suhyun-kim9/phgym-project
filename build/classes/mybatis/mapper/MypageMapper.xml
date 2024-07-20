@@ -39,4 +39,8 @@
 		on a.user_no = b.user_no
 		where a.user_no = #{userNo} and a.checkin_date between b.start_date and b.end_date order by checkin_date desc
 	</select>
+	
+	<select id="getTimeList" parameterType="com.phgym.mypage.model.PtReservationHisDTO" resultType="com.phgym.mypage.model.PtReservationHisDTO">
+		select * from pt_reservation_his where admin_no = #{adminNo} and #{reservationDate} = trunc(reservation_date)
+	</select>
 </mapper>

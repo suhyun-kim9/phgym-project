@@ -5,8 +5,9 @@
 <mapper namespace="com.phgym.board.model.BoardMapper">
 	<!-- 쿼리 작성 -->
 	
+	<!--
 	<insert id="getList" parameterType="com.phgym.board.model.BoardDTO">
 		SELECT * FROM EXERCISE_INFO ORDER BY INFO_NO DESC;
 	</insert>
-	
+	-->
 </mapper>

@@ -124,5 +124,3 @@ public class UserInfoDTO {
 		this.profile = profile;
 	}
 	
-	
-}
