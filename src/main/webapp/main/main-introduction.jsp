@@ -10,8 +10,6 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
     <style>
-    
-    
         @font-face {
             font-family: 'SUIT-Regular';
             src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Regular.woff2') format('woff2');
@@ -28,18 +26,19 @@
         }
 
         
-        /* 소개 내용 선택 구성 */
+        /* 소개 주제 선택하기(헬스장소개 or 트레이너소개) */
         .intro-wrap > .intro-name {
-            border: 1px solid #000; border-radius: 10px;
-            width: 50%; height: 5%;
-            display: flex; position: relative; top: 20px;
+            border: 0px solid #000;
+            display: flex; position: relative;
+            width: 400px; top: 45px;
         }
-        .intro-wrap > .intro-name > div {
+        .intro-wrap > .intro-name > button {
             border: 1px solid #000;
             width: 50%; line-height: 42.5px;
             text-indent: 10px; font-size: 25px;
+            
         }
-        .intro-wrap > .intro-name > div:nth-of-type(1) {
+        .intro-wrap > .intro-name > button:nth-of-type(1) {
             background-color: #f97316;
         }
 
@@ -59,6 +58,7 @@
         }
         .intro-wrap > .intro-content > div > img {
             width: 100%; height: 100%; justify-content: center;
+            object-fit: cover;
         }
         .intro-wrap > .intro-content p:nth-of-type(1) {
             position: absolute; top: 260px; left: 15px; display: inline-block;
@@ -79,11 +79,11 @@
 <body>
     <nav class="main_nav_bar">
         <ul class="main_nav">
-            <a><img src="../include/img/logo-light2.png"></a>
-            <li><a> 헬스장 소개 </a></li>
-            <li><a> 프로모션 </a></li>
+            <a href="/PHGYM/main/userhome.main"><img src="../include/img/logo-light2.png"></a>
+            <li><a href="/PHGYM/main/introduction.main"> 헬스장 소개 </a></li>
+            <li><a href="/PHGYM/main/promotionList.main"> 프로모션 </a></li>
             <li><a> 문의 / 고객센터 </a></li>
-            <li><a> 오시는 길 </a></li>
+            <li><a href="/PHGYM/main/map.main"> 오시는 길 </a></li>
             <li class="dropdown"><a> 마이페이지 </a><i class="bi bi-caret-down-fill"></i></li>
             <ul class="dropdownContent">
                 <li><i class="bi bi-check-lg"></i><a href="/PHGYM/mypage/checkin.mypage"> 출석체크 </a></li>
@@ -104,27 +104,27 @@
     <section>
         <div class="intro-wrap">
             <div class="intro-name">
-                <div>센터소개</div>
-                <div>트레이너소개</div>
+            	<a href="main-introduction.jsp">센터소개</a>
+            	<a href="main-introduction.jsp">센터소개</a>
             </div>
             <div class="intro-content">
                 <div>
-                    <img src="img/당황.WEBP" alt="">
+                    <img src="img/프리웨이트존.png" alt="">
                     <p>프리웨이트존</p>
                     <p>프리웨이트존에 대한 내용~~</p>
                 </div>
                 <div>
-                    <img src="img/슬픔.WEBP" alt="">
+                    <img src="img/유산소존.png" alt="">
                     <p>유산소존</p>
                     <p>유산소존에 대한 내용~~</p>
                 </div>
                 <div>
-                    <img src="img/부럽.WEBP" alt="">
+                    <img src="img/pt개인지도.jpg" alt="">
                     <p>PT 개인지도</p>
                     <p>PT 개인지도에 대한 내용~~</p>
                 </div>
                 <div>
-                    <img src="img/기쁨.WEBP" alt="">
+                    <img src="img/인포데스크.jpg" alt="">
                     <p>인포데스크</p>
                     <p>인포데스크에 대한 내용~~</p>
                 </div>

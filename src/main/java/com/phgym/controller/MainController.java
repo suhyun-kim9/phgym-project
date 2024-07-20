@@ -55,7 +55,15 @@ public class MainController extends HttpServlet {
         	service = new MainServiceImpl();
             service.goIntroduction(request,response);
             
-        }
+        } else if(command.equals("/main/map.main")) {
+        	service = new MainServiceImpl();
+            service.goMap(request,response);
+            
+        } else if(command.equals("/main/userhome.main")) {
+        	service = new MainServiceImpl();
+            service.goMain(request,response);
+        
+        } 
 		
 		
 	}

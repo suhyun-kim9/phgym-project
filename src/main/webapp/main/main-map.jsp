@@ -29,18 +29,18 @@
 
         /* 지도 이미지 파일 */
         .map-wrap > .map-img {
-            position: relative;
+            position: relative; border-radius: 10px;
             border: 1px solid #000;
-            width: 45%; height: 50%; top: 210px;
+            width: 45%; height: 50%; top: 100px;
         }
         .map-wrap > .map-img > img {
-            width: 100%;  height: 100%;
+            width: 100%;  height: 100%; border-radius: 10px;
         }
 
         /* 오시는길 소개란 */
         .map-wrap > .map-info {
             position: relative;
-            width: 45%; height: 50%; top: 210px;
+            width: 45%; height: 50%; top: 100px;
             border: 0px solid black;
             display: flex; flex-direction: column; justify-content: space-between;
         }
@@ -56,11 +56,11 @@
 <body>
     <nav class="main_nav_bar">
         <ul class="main_nav">
-            <a><img src="../include/img/logo-light2.png"></a>
-            <li><a> 헬스장 소개 </a></li>
-            <li><a> 프로모션 </a></li>
+            <a href="/PHGYM/main/userhome.main"><img src="../include/img/logo-light2.png"></a>
+            <li><a href="/PHGYM/main/introduction.main"> 헬스장 소개 </a></li>
+            <li><a href="/PHGYM/main/promotionList.main"> 프로모션 </a></li>
             <li><a> 문의 / 고객센터 </a></li>
-            <li><a> 오시는 길 </a></li>
+            <li><a href="/PHGYM/main/map.main"> 오시는 길 </a></li>
             <li class="dropdown"><a> 마이페이지 </a><i class="bi bi-caret-down-fill"></i></li>
             <ul class="dropdownContent">
                 <li><i class="bi bi-check-lg"></i><a href="/PHGYM/mypage/checkin.mypage"> 출석체크 </a></li>
