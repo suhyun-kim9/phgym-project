@@ -51,6 +51,10 @@ public class JoinController extends HttpServlet {
 		} else if(command.equals("/join/userIdFind.join")) { // 회원 아이디찾기
 			service = new JoinServiceImpl();
 			service.userIdFind(request,response);
+			
+		} else if(command.equals("/join/adminLogin.join")) { // 관리자 로그인
+			service = new JoinServiceImpl();
+			service.adminLogin(request,response);
 		}
 	}
 }
