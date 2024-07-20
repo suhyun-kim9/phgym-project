@@ -133,4 +133,4 @@ public class AdminInfoDTO {
 	public void setProfile(String profile) {
 		this.profile = profile;
 	}
-	
+}

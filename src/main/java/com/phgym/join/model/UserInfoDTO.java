@@ -123,4 +123,4 @@ public class UserInfoDTO {
 	public void setProfile(String profile) {
 		this.profile = profile;
 	}
-	
+}
