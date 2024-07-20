@@ -6,6 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+	<link rel="stylesheet" href="../include/css/main-navigation.css">
 
     <style>
         @font-face {
@@ -65,7 +66,30 @@
 
 </head>
 <body>
-
+	<nav class="main_nav_bar">
+        <ul class="main_nav">
+            <a><img src="../include/img/logo-light2.png"></a>
+            <li><a> 헬스장 소개 </a></li>
+            <li><a> 프로모션 </a></li>
+            <li><a> 문의 / 고객센터 </a></li>
+            <li><a> 오시는 길 </a></li>
+            <li class="dropdown"><a> 마이페이지 </a><i class="bi bi-caret-down-fill"></i></li>
+            <ul class="dropdownContent">
+                <li><i class="bi bi-check-lg"></i><a href="/PHGYM/mypage/checkin.mypage"> 출석체크 </a></li>
+            	<li><i class="bi bi-bar-chart-line"></i><a href="/PHGYM/mypage/statistics.mypage"> 통계확인 </a></li>
+				<li><i class="bi bi-calendar-check"></i><a> PT예약하기 </a></li>
+				<li><i class="bi bi-send"></i><a href="/PHGYM/mypage/transfer.mypage"> 회원권양도 </a></li>
+				<li><i class="bi bi-person-circle"></i><a> 회원정보 </a></li>
+            </ul>
+            <li class="gnb">  
+                <!-- <input type="button" value="마이페이지"> -->
+                <!-- <input type="button" value="회원가입"> -->
+                <input type="button" value="로그아웃">
+            </li>
+            <div class="animation"></div>
+        </ul>
+    </nav>
+    
     <div>
         <div class="list-wrap">
             <div class="prom">
@@ -80,7 +104,7 @@
                         회원 멤버십가 우선 제공 기회
                     </p>
                     <p>￦360,000 / 12개월</p>
-                    <button type="submit">선택</button>
+                    <button type="submit" onclick="location.href='goPromotionPay.main?month=12'">선택</button>
                 </div>
                 <div>
                     <img src="img/까칠.WEBP" alt="">

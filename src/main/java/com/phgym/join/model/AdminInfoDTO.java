@@ -134,4 +134,3 @@ public class AdminInfoDTO {
 		this.profile = profile;
 	}
 	
-}

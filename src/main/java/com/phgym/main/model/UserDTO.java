@@ -1,27 +1,26 @@
-package com.phgym.join.model;
+package com.phgym.main.model;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
-public class UserInfoDTO {
+public class UserDTO {
 
-	private int userNo;
-	private String userId;
-	private String pw;
-	private String name;
-	private LocalDateTime birth;
-	private String gender;
-	private String phone;
-	private String email;
-	private String address;
-	private LocalDateTime regDate;
-	private String profile;
+	private int userNo; //회원번호
+	private String userId; //아이디
+	private String pw; //비밀번호
+	private String name; //이름
+	private LocalDate birth; //생년월일
+	private String gender; //성별
+	private String phone; //연락처
+	private String address; //주소
+	private LocalDate regDate; //가입일
+	private String profile; //프로필
 	
-	public UserInfoDTO() {
+	public UserDTO() {
 		
 	}
-	
-	public UserInfoDTO(int userNo, String userId, String pw, String name, LocalDateTime birth, String gender,
-			String phone, String email, String address, LocalDateTime regDate, String profile) {
+
+	public UserDTO(int userNo, String userId, String pw, String name, LocalDate birth, String gender, String phone,
+			String address, LocalDate regDate, String profile) {
 		super();
 		this.userNo = userNo;
 		this.userId = userId;
@@ -30,12 +29,12 @@ public class UserInfoDTO {
 		this.birth = birth;
 		this.gender = gender;
 		this.phone = phone;
-		this.email = email;
 		this.address = address;
 		this.regDate = regDate;
 		this.profile = profile;
 	}
-
+	
+	//getter,setter
 	public int getUserNo() {
 		return userNo;
 	}
@@ -68,11 +67,11 @@ public class UserInfoDTO {
 		this.name = name;
 	}
 
-	public LocalDateTime getBirth() {
+	public LocalDate getBirth() {
 		return birth;
 	}
 
-	public void setBirth(LocalDateTime birth) {
+	public void setBirth(LocalDate birth) {
 		this.birth = birth;
 	}
 
@@ -92,14 +91,6 @@ public class UserInfoDTO {
 		this.phone = phone;
 	}
 
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
 	public String getAddress() {
 		return address;
 	}
@@ -108,11 +99,11 @@ public class UserInfoDTO {
 		this.address = address;
 	}
 
-	public LocalDateTime getRegDate() {
+	public LocalDate getRegDate() {
 		return regDate;
 	}
 
-	public void setRegDate(LocalDateTime regDate) {
+	public void setRegDate(LocalDate regDate) {
 		this.regDate = regDate;
 	}
 
@@ -123,4 +114,13 @@ public class UserInfoDTO {
 	public void setProfile(String profile) {
 		this.profile = profile;
 	}
+
+	@Override
+	public String toString() {
+		return "UserDTO [userNo=" + userNo + ", userId=" + userId + ", pw=" + pw + ", name=" + name + ", birth=" + birth
+				+ ", gender=" + gender + ", phone=" + phone + ", address=" + address + ", regDate=" + regDate
+				+ ", profile=" + profile + "]";
+	}
 	
+	
+}
