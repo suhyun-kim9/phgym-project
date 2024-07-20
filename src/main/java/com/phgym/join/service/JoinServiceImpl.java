@@ -5,7 +5,6 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
-import com.phgym.join.model.JoinDTO;
 import com.phgym.join.model.JoinMapper;
 import com.phgym.util.mybatis.MybatisUtil;
 import jakarta.servlet.ServletException;
@@ -26,7 +25,7 @@ public class JoinServiceImpl implements JoinService {
 		System.out.println("email = " + email);
 		System.out.println("number = " + number);
 		
-		JoinDTO dto = new JoinDTO();
+		//JoinDTO dto = new JoinDTO();
 		
 		try {
 			SqlSession sql = sqlSessionFactory.openSession();

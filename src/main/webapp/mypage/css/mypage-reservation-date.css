@@ -20,17 +20,98 @@ img {
 
 .content > .wrap {
     width: 70%;
-    margin: 0 auto;
+    margin: 100px auto 0;
+    text-align: center;
+    box-shadow: 0 8px 16px #ff7f56;
+    padding: 50px 0;
     display: flex;
-    border: 1px solid #999;
+    justify-content: space-around;
 }
 
-.content > .wrap > .trainer_box {
+.content > .wrap > .trainer_img {
     width: 40%;
-    border: 1px solid #999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.content > .wrap > .trainer_img > img {
+	width: 80%;
 }
 
 .content > .wrap > .date {
     width: 60%;
+}
+
+/* 캘린더 컨테이너 스타일 */
+.calendar {
+    width: 300px;
+    margin: 0 auto;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+/* 캘린더 헤더 스타일 */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+}
+
+/* 헤더 버튼 스타일 */
+.header button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* 요일과 날짜 컨테이너 스타일 */
+.weekdays, .days {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/* 요일과 날짜 각각의 칸 스타일 */
+.weekdays div, .days div {
+    width: 14.28%;  /* 각 칸의 너비를 100%의 7분의 1로 설정 */
     text-align: center;
+    padding: 10px 0;
+    box-sizing: border-box;  /* 패딩과 보더를 요소의 전체 너비와 높이에 포함시킴 */
+}
+
+/* 요일 칸 스타일 */
+.weekdays {
+    background-color: #f4f4f4;
+}
+
+/* 날짜 칸 스타일 */
+.days div {
+    border-bottom: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+}
+
+/* 각 주의 마지막 칸의 오른쪽 보더 제거 */
+.days div:nth-child(7n) {
+    border-right: none;
+}
+
+/* 날짜 링크 스타일 */
+.days a {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+    padding: 10px 0;
+}
+
+/* 날짜 링크 호버 스타일 */
+.days a:hover {
+    background-color: #f0f0f0;
 }

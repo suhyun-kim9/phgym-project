@@ -22,7 +22,7 @@
             <ul class="dropdownContent">
                 <li><i class="bi bi-check-lg"></i><a href="/PHGYM/mypage/checkin.mypage"> 출석체크 </a></li>
             	<li><i class="bi bi-bar-chart-line"></i><a href="/PHGYM/mypage/statistics.mypage"> 통계확인 </a></li>
-				<li><i class="bi bi-calendar-check"></i><a> PT예약하기 </a></li>
+				<li><i class="bi bi-calendar-check"></i><a href="/PHGYM/mypage/reservationTrainer.mypage"> PT예약하기 </a></li>
 				<li><i class="bi bi-send"></i><a href="/PHGYM/mypage/transfer.mypage"> 회원권양도 </a></li>
 				<li><i class="bi bi-person-circle"></i><a> 회원정보 </a></li>
             </ul>
@@ -38,69 +38,22 @@
     <section class="content">
         <p>PT 담당 트레이너</p>
         <div class="wrap">
-            <div class="trainer_box">
-                <div class="trainer_img">
-                    <img src="img/pngwing.com (1).png">
-                </div>
-                <div class="trainer_content">
-                    <div class="trainer_name">
-                        <p>박근영</p>
-                        <p>트레이너</p>
-                    </div>
-                    <ul>
-                        <li>앞구르기 대회 1등</li>
-                        <li>복싱 클럽 운영</li>
-                        <li>생활 스포츠 지도사 2급</li>
-                        <li>스포츠 마사지 1등</li>
-                        <li>태권도 3급</li>
-                    </ul>
-                    <div>
-                        <input type="button" value="예약하기">
-                    </div>
-                </div>
-            </div>
-            <div class="trainer_box">
-                <div class="trainer_img">
-                    <img src="img/pngwing.com (1).png">
-                </div>
-                <div class="trainer_content">
-                    <div class="trainer_name">
-                        <p>박근영</p>
-                        <p>트레이너</p>
-                    </div>
-                    <ul>
-                        <li>앞구르기 대회 1등</li>
-                        <li>복싱 클럽 운영</li>
-                        <li>생활 스포츠 지도사 2급</li>
-                        <li>스포츠 마사지 1등</li>
-                        <li>태권도 3급</li>
-                    </ul>
-                    <div>
-                        <input type="button" value="예약하기">
-                    </div>
-                </div>
-            </div>
-            <div class="trainer_box">
-                <div class="trainer_img">
-                    <img src="img/pngwing.com (1).png">
-                </div>
-                <div class="trainer_content">
-                    <div class="trainer_name">
-                        <p>박근영</p>
-                        <p>트레이너</p>
-                    </div>
-                    <ul>
-                        <li>앞구르기 대회 1등</li>
-                        <li>복싱 클럽 운영</li>
-                        <li>생활 스포츠 지도사 2급</li>
-                        <li>스포츠 마사지 1등</li>
-                        <li>태권도 3급</li>
-                    </ul>
-                    <div>
-                        <input type="button" value="예약하기">
-                    </div>
-                </div>
-            </div>
+			<div>
+				<img alt="트레이너" src="img/1.WEBP">
+				<button type="button" onclick="location.href='reservationDate.mypage?adminNo=1'">예약하기</button>
+			</div>
+			<div>
+				<img alt="트레이너" src="img/2.WEBP">
+				<button type="button" onclick="location.href='reservationDate.mypage?adminNo=2'">예약하기</button>
+			</div>
+			<div>
+				<img alt="트레이너" src="img/3.WEBP">
+				<button type="button" onclick="location.href='reservationDate.mypage?adminNo=3'">예약하기</button>
+			</div>
+			<div>
+				<img alt="트레이너" src="img/4.WEBP">
+				<button type="button" onclick="location.href='reservationDate.mypage?adminNo=4'">예약하기</button>
+			</div>
         </div>
     </section>
     

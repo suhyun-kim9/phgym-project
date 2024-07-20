@@ -20,14 +20,23 @@ img {
 
 .content > .wrap {
     width: 70%;
-    margin: 0 auto;
+    margin: 100px auto 0;
+    text-align: center;
+    box-shadow: 0 8px 16px #ff7f56;
+    padding: 50px 0;
     display: flex;
-    border: 1px solid #999;
+    justify-content: space-around;
 }
 
-.content > .wrap > .trainer_box {
+.content > .wrap > .trainer_img {
     width: 40%;
-    border: 1px solid #999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.content > .wrap > .trainer_img > img {
+	width: 80%;
 }
 
 .content > .wrap > .time {

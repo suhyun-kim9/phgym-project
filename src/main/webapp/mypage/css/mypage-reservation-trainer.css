@@ -20,22 +20,14 @@ img {
 
 .content > .wrap {
     width: 70%;
-    margin: 0 auto;
+    margin: 100px auto 0;
+    text-align: center;
+    box-shadow: 0 8px 16px #ff7f56;
+    padding: 50px 0;
     display: flex;
-    flex-wrap: wrap;
+    justify-content: space-around;
 }
 
-.content > .wrap > .trainer_box {
-    display: flex;
-    width: 50%;
-    border: 1px solid #999;
+.content > .wrap > div {
+	width: 20%;
 }
-
-.content > .wrap > .trainer_box > .trainer_img {
-    width: 40%;
-}
-
-.content > .wrap > .trainer_box > .trainer_content {
-    width: 60%;
-}
-

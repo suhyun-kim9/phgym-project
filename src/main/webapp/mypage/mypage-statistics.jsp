@@ -23,7 +23,7 @@
             <ul class="dropdownContent">
                 <li><i class="bi bi-check-lg"></i><a href="/PHGYM/mypage/checkin.mypage"> 출석체크 </a></li>
             	<li><i class="bi bi-bar-chart-line"></i><a href="/PHGYM/mypage/statistics.mypage"> 통계확인 </a></li>
-				<li><i class="bi bi-calendar-check"></i><a> PT예약하기 </a></li>
+				<li><i class="bi bi-calendar-check"></i><a href="/PHGYM/mypage/reservationTrainer.mypage"> PT예약하기 </a></li>
 				<li><i class="bi bi-send"></i><a href="/PHGYM/mypage/transfer.mypage"> 회원권양도 </a></li>
 				<li><i class="bi bi-person-circle"></i><a> 회원정보 </a></li>
             </ul>
@@ -83,8 +83,8 @@
 			data: {
 				labels: ['월', '화', '수', '목', '금', '토', '일'],
 				datasets: [{
-					label: 'Percent',
-					data: [12, 19, 3, 5, 2, 3, 2],
+					label: 'Percent(%)',
+					data: [${dayPercent[0]}, ${dayPercent[1]}, ${dayPercent[2]}, ${dayPercent[3]}, ${dayPercent[4]}, ${dayPercent[5]}, ${dayPercent[6]}],
 					backgroundColor: [
 	                    'rgba(255, 99, 132, 0.2)',
 	                    'rgba(54, 162, 235, 0.2)',
@@ -122,8 +122,8 @@
 			data: {
 				labels: ['0~4시', '4~8시', '8~12시', '12~16시', '16~20시', '20~24시'],
 				datasets: [{
-					label: 'Percent',
-					data: [12, 19, 3, 5, 2, 3],
+					label: 'Percent(%)',
+					data: [${timePercnet[0]}, ${timePercnet[1]}, ${timePercnet[2]}, ${timePercnet[3]}, ${timePercnet[4]}, ${timePercnet[5]}],
 					backgroundColor: [
 	                    'rgba(255, 99, 132, 0.2)',
 	                    'rgba(54, 162, 235, 0.2)',
