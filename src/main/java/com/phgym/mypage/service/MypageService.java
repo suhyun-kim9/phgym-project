@@ -24,5 +24,5 @@ public interface MypageService {
 
 	public void reservationTime(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException;
 
-	public void doReservation(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException;
+	public void doPtReservation(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException;
 }

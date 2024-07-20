@@ -75,6 +75,13 @@
 			submit.style.backgroundColor = "#8c8c8c";
 		}
 	    
+	    var checkUserInfoMsg = ${empty sessionScope.checkUserInfoMsg};
+	    console.log(checkUserInfoMsg);
+	    if(!checkUserInfoMsg) {
+	    	alert("존재하지 않는 회원번호입니다.");
+	    }
+	    <c:remove var="checkUserInfoMsg" scope="session"/>
+	    
 	    var doTransferMsg = "${sessionScope.doTransferMsg}";
 	    if(doTransferMsg) {
 	    	alert("회원권 양도가 완료되셨습니다.");

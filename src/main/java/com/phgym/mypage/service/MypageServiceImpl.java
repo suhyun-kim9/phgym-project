@@ -14,6 +14,7 @@ import com.phgym.mypage.model.CheckinHisDTO;
 import com.phgym.mypage.model.CheckinListDTO;
 import com.phgym.mypage.model.MembershipPayHisDTO;
 import com.phgym.mypage.model.MypageMapper;
+import com.phgym.mypage.model.MypageUserInfoDTO;
 import com.phgym.mypage.model.PtReservationHisDTO;
 import com.phgym.mypage.util.MypageStatisticsUtil;
 import com.phgym.util.mybatis.MybatisUtil;
@@ -66,25 +67,35 @@ public class MypageServiceImpl implements MypageService {
 		int userNo = Integer.parseInt(request.getParameter("userNo"));
 		int membershipPayNo = Integer.parseInt(request.getParameter("membershipPayNo"));
 		
-		MembershipPayHisDTO dto = null;
-		dto = new MembershipPayHisDTO();
-		dto.setMembershipPayNo(membershipPayNo);
-		dto.setUserNo(sessionUserNo);
-		
 		SqlSession sql = sqlSessionFactory.openSession(true);
 		MypageMapper mypage = sql.getMapper(MypageMapper.class);
-		mypage.updateRemarkTransferState(dto);
+		
+		//회원 유무 기능
+		MypageUserInfoDTO userInfoDto = mypage.checkUserInfo(userNo);
+		if(userInfoDto == null) {
+			System.out.println("===checkUserInfo fail===");
+			request.getSession().setAttribute("checkUserInfoMsg", "false");
+			response.sendRedirect("/PHGYM/mypage/transfer.mypage");
+			return;
+		}
+		
+		//회원권 양도 기능
+		MembershipPayHisDTO memberShipHisdto = new MembershipPayHisDTO();
+		memberShipHisdto.setMembershipPayNo(membershipPayNo);
+		memberShipHisdto.setUserNo(sessionUserNo);
+		
+		mypage.updateRemarkTransferState(memberShipHisdto);
 		LocalDate dt = mypage.selectEndDate(membershipPayNo);
 		
-		dto = new MembershipPayHisDTO();
-		dto.setUserNo(userNo);
-		dto.setMembershipPayNo(membershipPayNo);
-		dto.setEndDate(dt);
+		memberShipHisdto = new MembershipPayHisDTO();
+		memberShipHisdto.setUserNo(userNo);
+		memberShipHisdto.setMembershipPayNo(membershipPayNo);
+		memberShipHisdto.setEndDate(dt);
 		
-		int result = mypage.doTransfer(dto);
+		int result = mypage.doTransfer(memberShipHisdto);
 		if(result == 1) {
 			System.out.println("===doTransfer success===");
-			request.getSession().setAttribute("doTransferMsg", "Y");
+			request.getSession().setAttribute("doTransferMsg", "true");
 		} else {
 			System.out.println("===doTransfer fail===");
 		}
@@ -156,6 +167,9 @@ public class MypageServiceImpl implements MypageService {
 		int year = Integer.parseInt(request.getParameter("year"));
 		int month = Integer.parseInt(request.getParameter("month"));
 		int day = Integer.parseInt(request.getParameter("day"));
+		request.getSession().setAttribute("year", year);
+		request.getSession().setAttribute("month", month);
+		request.getSession().setAttribute("day", day);
 		LocalDateTime date = LocalDateTime.of(year, month, day, 0, 0, 0);
 		
 		PtReservationHisDTO dto = new PtReservationHisDTO();
@@ -169,14 +183,45 @@ public class MypageServiceImpl implements MypageService {
 		for(PtReservationHisDTO ptReservationHisDto : list) {
 			times.add(ptReservationHisDto.getReservationDate().toLocalTime().getHour());
 		}
+		sql.close();
 		
 		request.setAttribute("times", times);
 		request.getRequestDispatcher("mypage-reservation-time.jsp").forward(request, response);
 	}
 
 	@Override
-	public void doReservation(HttpServletRequest request, HttpServletResponse response)
+	public void doPtReservation(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		int adminNo = (Integer)request.getSession().getAttribute("adminNo");
+		int sessionUserNo = (int)request.getSession().getAttribute("sessionUserNo");
+		int year = (int)request.getSession().getAttribute("year");
+		int month = (int)request.getSession().getAttribute("month");
+		int day = (int)request.getSession().getAttribute("day");
+		int time = Integer.parseInt(request.getParameter("time"));
+		LocalDateTime dateTime = LocalDateTime.of(year, month, day, time, 0);
 		
+		PtReservationHisDTO dto = new PtReservationHisDTO();
+		dto.setUserNo(sessionUserNo);
+		dto.setAdminNo(adminNo);
+		dto.setReservationDate(dateTime);
+		
+		SqlSession sql = sqlSessionFactory.openSession(true);
+		MypageMapper mypage = sql.getMapper(MypageMapper.class);
+		int result = mypage.doPtReservation(dto);
+		if(result == 1) {
+			System.out.println("===doPtReservation success===");
+			request.getSession().setAttribute("doPtReservationMsg", "true");
+		} else {
+			System.out.println("===doPtReservation fail===");
+		}
+		sql.close();
+		
+		request.getSession().removeAttribute("adminNo");
+		request.getSession().removeAttribute("year");
+		request.getSession().removeAttribute("month");
+		request.getSession().removeAttribute("day");
+		
+		request.getSession().setAttribute("ptReservationResult", result);
+		response.sendRedirect("/PHGYM/mypage/reservationTrainer.mypage");
 	}
 }

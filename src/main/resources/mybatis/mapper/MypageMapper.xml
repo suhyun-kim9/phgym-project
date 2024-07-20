@@ -43,4 +43,12 @@
 	<select id="getTimeList" parameterType="com.phgym.mypage.model.PtReservationHisDTO" resultType="com.phgym.mypage.model.PtReservationHisDTO">
 		select * from pt_reservation_his where admin_no = #{adminNo} and #{reservationDate} = trunc(reservation_date)
 	</select>
+	
+	<insert id="doPtReservation" parameterType="com.phgym.mypage.model.PtReservationHisDTO">
+		insert into pt_reservation_his(user_no, admin_no, reservation_date) values (#{userNo}, #{adminNo}, #{reservationDate})
+	</insert>
+	
+	<select id="checkUserInfo" parameterType="int" resultType="com.phgym.mypage.model.MypageUserInfoDTO">
+		select * from user_info where user_no = #{userNo}
+	</select>
 </mapper>
