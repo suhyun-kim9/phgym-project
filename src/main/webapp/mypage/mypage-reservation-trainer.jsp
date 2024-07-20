@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -57,6 +58,13 @@
         </div>
     </section>
     
+    <script type="text/javascript">
+	    var doPtReservationMsg = "${sessionScope.doPtReservationMsg}";
+	    if(doPtReservationMsg) {
+	    	alert("PT 예약이 완료되셨습니다.");
+	    }
+	    <c:remove var="doPtReservationMsg" scope="session"/>
+    </script>
     <script type="text/javascript" src="../include/js/main-navigation.js"></script>
 </body>
 </html>

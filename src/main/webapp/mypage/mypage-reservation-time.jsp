@@ -63,20 +63,20 @@
 	                    	<c:if test="${fn:contains(times, 9)}">
 	                    		<li><button type="button" disabled="disabled">09:00</button></li>
 	                    	</c:if>
-	                        <c:if test="${!times.contains(9)}">
-	                    		<li><button type="button" onclick="location.href='doReservation.mypage?time=9'">09:00</button></li>
+	                        <c:if test="${!fn:contains(times, 9)}">
+	                    		<li><button type="button" onclick="location.href='doPtReservation.mypage?time=9'">09:00</button></li>
 	                    	</c:if>
 	                        <c:if test="${fn:contains(times, 10)}">
 	                    		<li><button type="button" disabled="disabled">10:00</button></li>
 	                    	</c:if>
-	                        <c:if test="${!times.contains(10)}">
-	                    		<li><button type="button" onclick="location.href='doReservation.mypage?time=10'">10:00</button></li>
+	                        <c:if test="${!fn:contains(times, 10)}">
+	                    		<li><button type="button" onclick="location.href='doPtReservation.mypage?time=10'">10:00</button></li>
 	                    	</c:if>
 	                        <c:if test="${fn:contains(times, 11)}">
 	                    		<li><button type="button" disabled="disabled">11:00</button></li>
 	                    	</c:if>
-	                        <c:if test="${!times.contains(11)}">
-	                    		<li><button type="button" onclick="location.href='doReservation.mypage?time=11'">11:00</button></li>
+	                        <c:if test="${!fn:contains(times, 11)}">
+	                    		<li><button type="button" onclick="location.href='doPtReservation.mypage?time=11'">11:00</button></li>
 	                    	</c:if>
 	                    </ul>
 	                </div>
@@ -86,68 +86,68 @@
 	                        <c:if test="${fn:contains(times, 12)}">
 	                    		<li><button type="button" disabled="disabled">12:00</button></li>
 	                    	</c:if>
-	                        <c:if test="${!times.contains(12)}">
-	                    		<li><button type="button" onclick="location.href='doReservation.mypage.mypage?time=12'">12:00</button></li>
+	                        <c:if test="${!fn:contains(times, 12)}">
+	                    		<li><button type="button" onclick="location.href='doPtReservation.mypage?time=12'">12:00</button></li>
 	                    	</c:if>
 	                         <c:if test="${fn:contains(times, 13)}">
 	                    		<li><button type="button" disabled="disabled">13:00</button></li>
 	                    	</c:if>
-	                        <c:if test="${!times.contains(13)}">
-	                    		<li><button type="button" onclick="location.href='doReservation.mypage?time=13'">13:00</button></li>
+	                        <c:if test="${!fn:contains(times, 13)}">
+	                    		<li><button type="button" onclick="location.href='doPtReservation.mypage?time=13'">13:00</button></li>
 	                    	</c:if>
-	                         <c:if test="${fn:contains(times, 14)}">
+	                        <c:if test="${fn:contains(times, 14)}">
 	                    		<li><button type="button" disabled="disabled">14:00</button></li>
 	                    	</c:if>
-	                        <c:if test="${!times.contains(14)}">
-	                    		<li><button type="button" onclick="location.href='doReservation.mypage?time=14'">14:00</button></li>
+	                        <c:if test="${!fn:contains(times, 14)}">
+	                    		<li><button type="button" onclick="location.href='doPtReservation.mypage?time=14'">14:00</button></li>
 	                    	</c:if>
 	                        <c:if test="${fn:contains(times, 15)}">
 	                    		<li><button type="button" disabled="disabled">15:00</button></li>
 	                    	</c:if>
-	                        <c:if test="${!times.contains(15)}">
-	                    		<li><button type="button" onclick="location.href='doReservation.mypage?time=15'">15:00</button></li>
+	                        <c:if test="${!fn:contains(times, 15)}">
+	                    		<li><button type="button" onclick="location.href='doPtReservation.mypage?time=15'">15:00</button></li>
 	                    	</c:if>
 	                        <c:if test="${fn:contains(times, 16)}">
 	                    		<li><button type="button" disabled="disabled">16:00</button></li>
 	                    	</c:if>
-	                        <c:if test="${!times.contains(16)}">
-	                    		<li><button type="button" onclick="location.href='doReservation.mypage?time=16'">16:00</button></li>
+	                        <c:if test="${!fn:contains(times, 16)}">
+	                    		<li><button type="button" onclick="location.href='doPtReservation.mypage?time=16'">16:00</button></li>
 	                    	</c:if>
 	                        <c:if test="${fn:contains(times, 17)}">
 	                    		<li><button type="button" disabled="disabled">17:00</button></li>
 	                    	</c:if>
-	                        <c:if test="${!times.contains(17)}">
-	                    		<li><button type="button" onclick="location.href='doReservation.mypage?time=17'">17:00</button></li>
+	                        <c:if test="${!fn:contains(times, 17)}">
+	                    		<li><button type="button" onclick="location.href='doPtReservation.mypage?time=17'">17:00</button></li>
 	                    	</c:if>
 	                        <c:if test="${fn:contains(times, 18)}">
 	                    		<li><button type="button" disabled="disabled">18:00</button></li>
 	                    	</c:if>
-	                        <c:if test="${!times.contains(18)}">
-	                    		<li><button type="button" onclick="location.href='doReservation.mypage?time=18'">18:00</button></li>
+	                        <c:if test="${!fn:contains(times, 18)}">
+	                    		<li><button type="button" onclick="location.href='doPtReservation.mypage?time=18'">18:00</button></li>
 	                    	</c:if>
 	                        <c:if test="${fn:contains(times, 19)}">
 	                    		<li><button type="button" disabled="disabled">19:00</button></li>
 	                    	</c:if>
-	                        <c:if test="${!times.contains(19)}">
-	                    		<li><button type="button" onclick="location.href='doReservation.mypage?time=19'">19:00</button></li>
+	                        <c:if test="${!fn:contains(times, 19)}">
+	                    		<li><button type="button" onclick="location.href='doPtReservation.mypage?time=19'">19:00</button></li>
 	                    	</c:if>
 	                        <c:if test="${fn:contains(times, 20)}">
 	                    		<li><button type="button" disabled="disabled">20:00</button></li>
 	                    	</c:if>
-	                        <c:if test="${!times.contains(20)}">
-	                    		<li><button type="button" onclick="location.href='doReservation.mypage?time=20'">20:00</button></li>
+	                        <c:if test="${!fn:contains(times, 20)}">
+	                    		<li><button type="button" onclick="location.href='doPtReservation.mypage?time=20'">20:00</button></li>
 	                    	</c:if>
 	                        <c:if test="${fn:contains(times, 21)}">
 	                    		<li><button type="button" disabled="disabled">21:00</button></li>
 	                    	</c:if>
-	                        <c:if test="${!times.contains(21)}">
-	                    		<li><button type="button" onclick="location.href='doReservation.mypage?time=21'">21:00</button></li>
+	                        <c:if test="${!fn:contains(times, 21)}">
+	                    		<li><button type="button" onclick="location.href='doPtReservation.mypage?time=21'">21:00</button></li>
 	                    	</c:if>
 	                        <c:if test="${fn:contains(times, 22)}">
 	                    		<li><button type="button" disabled="disabled">22:00</button></li>
 	                    	</c:if>
-	                        <c:if test="${!times.contains(22)}">
-	                    		<li><button type="button" onclick="location.href='doReservation.mypage?time=22'">22:00</button></li>
+	                        <c:if test="${!fn:contains(times, 22)}">
+	                    		<li><button type="button" onclick="location.href='doPtReservation.mypage?time=22'">22:00</button></li>
 	                    	</c:if>
 	                    </ul>
 	                </div>

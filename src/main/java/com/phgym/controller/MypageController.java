@@ -59,9 +59,9 @@ public class MypageController extends HttpServlet {
 		} else if(command.equals("/mypage/reservationTime.mypage")) {
 			service = new MypageServiceImpl();
 			service.reservationTime(request, response);
-		} else if(command.equals("/mypage/doReservation.mypage")) {
+		} else if(command.equals("/mypage/doPtReservation.mypage")) {
 			service = new MypageServiceImpl();
-			service.doReservation(request, response);
+			service.doPtReservation(request, response);
 		}
 	}
 }
