@@ -2,31 +2,31 @@ package com.phgym.join.model;
 
 import java.time.LocalDateTime;
 
-public class AdminJoinDTO {
+public class AdminInfoDTO {
 
-	private int adminNo;
-	private String adminId;
-	private String pw;
-	private String name;
-	private LocalDateTime birth;
-	private String gender;
-	private String phone;
-	private String email;
-	private LocalDateTime hireDate;
-	private String jobTitle;
-	private String careerHis;
-	private String profile;
+	private int adminNo; // 관리자번호
+	private String adminId; // 아이디
+	private String adminPw; // 비밀번호
+	private String name; // 이름
+	private LocalDateTime birth; // 생년월일
+	private String gender; // 성별
+	private String phone; // 연락처
+	private String email; // 이메일
+	private LocalDateTime hireDate; // 입사일
+	private String jobTitle; // 직책
+	private String careerHis; // 경력사항
+	private String profile; // 프로필
 	
-	public AdminJoinDTO() {
-		// TODO Auto-generated constructor stub
+	public AdminInfoDTO() {
+		
 	}
 
-	public AdminJoinDTO(int adminNo, String adminId, String pw, String name, LocalDateTime birth, String gender,
+	public AdminInfoDTO(int adminNo, String adminId, String adminPw, String name, LocalDateTime birth, String gender,
 			String phone, String email, LocalDateTime hireDate, String jobTitle, String careerHis, String profile) {
 		super();
 		this.adminNo = adminNo;
 		this.adminId = adminId;
-		this.pw = pw;
+		this.adminPw = adminPw;
 		this.name = name;
 		this.birth = birth;
 		this.gender = gender;
@@ -54,12 +54,12 @@ public class AdminJoinDTO {
 		this.adminId = adminId;
 	}
 
-	public String getPw() {
-		return pw;
+	public String getAdminPw() {
+		return adminPw;
 	}
 
-	public void setPw(String pw) {
-		this.pw = pw;
+	public void setAdminPw(String adminPw) {
+		this.adminPw = adminPw;
 	}
 
 	public String getName() {
@@ -133,7 +133,5 @@ public class AdminJoinDTO {
 	public void setProfile(String profile) {
 		this.profile = profile;
 	}
-	
-	
 	
 }
