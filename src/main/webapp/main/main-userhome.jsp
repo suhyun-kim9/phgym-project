@@ -78,10 +78,10 @@
     <nav class="main_nav_bar">
         <ul class="main_nav">
             <a><img src="../include/img/logo-light2.png"></a>
-            <li><a> 헬스장 소개 </a></li>
+            <li><a href="/PHGYM/main/introduction.main"> 헬스장 소개 </a></li>
             <li><a href="/PHGYM/main/promotionList.main"> 프로모션 </a></li>
             <li><a> 문의 / 고객센터 </a></li>
-            <li><a> 오시는 길 </a></li>
+            <li><a href="/PHGYM/main/map.main"> 오시는 길 </a></li>
             <li class="dropdown"><a> 마이페이지 </a><i class="bi bi-caret-down-fill"></i></li>
             <ul class="dropdownContent">
                 <li><i class="bi bi-check-lg"></i><a href="/PHGYM/mypage/checkin.mypage"> 출석체크 </a></li>

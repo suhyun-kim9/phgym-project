@@ -64,7 +64,7 @@ public class MainServiceImpl implements MainService {
         response.sendRedirect("/PHGYM/main/main-promotion-list.jsp"); //
 	}
 
-	@Override
+	@Override //main-promotion-list로 이동하기
 	public void goPromotionList(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		request.getRequestDispatcher("main-promotion-list.jsp").forward(request, response);
@@ -83,6 +83,14 @@ public class MainServiceImpl implements MainService {
 		
 		request.setAttribute("result", result);
 		request.getRequestDispatcher("main-promotion-payment.jsp").forward(request, response);
+	}
+
+	@Override //main-introduction으로 이동하기
+	public void goIntroduction(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		System.out.println("gointroduction동작됨");
+		request.getRequestDispatcher("main-introduction.jsp").forward(request, response);
+		
 	}
 	
 }
