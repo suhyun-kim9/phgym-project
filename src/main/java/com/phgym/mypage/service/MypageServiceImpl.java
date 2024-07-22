@@ -160,6 +160,7 @@ public class MypageServiceImpl implements MypageService {
 		request.getRequestDispatcher("mypage-reservation-date.jsp").forward(request, response);
 	}
 
+	//시간예약화면로직
 	@Override
 	public void reservationTime(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -189,6 +190,7 @@ public class MypageServiceImpl implements MypageService {
 		request.getRequestDispatcher("mypage-reservation-time.jsp").forward(request, response);
 	}
 
+	//예약로직
 	@Override
 	public void doPtReservation(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
