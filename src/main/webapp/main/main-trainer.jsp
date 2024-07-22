@@ -57,11 +57,11 @@
             display: inline-block; width: 650px; height: 200px;
         }
         .intro-wrap > .intro-profile > .intro-content > p {
-            margin: 10px; text-indent: 5px; position: relative; top: 5px;
+            margin: 9px; text-indent: 5px; position: relative; top: 5px;
         }
         .intro-wrap > .intro-profile > .intro-content > p:nth-of-type(1) {
-            background-color: #f97316; width: 150px; height: 20px;
-            position: relative; text-indent: 5px; top: 3px; left: 3px;
+            background-color: #f97316; width: 140px; height: 25px; border-radius: 5px;
+            position: relative; text-indent: 7px; top: 3px; left: 3px; line-height: 25px;
         }
     </style>
 </head>
@@ -103,11 +103,11 @@
                 </div>
                 <div class="intro-content">
                   <p>✔︎ 김강함 트레이너</p>
-                  <p>• 앞구르기 대회 1등</p>
-                  <p>• 복싱 클럽 운영</p>
-                  <p>• 생활 스포츠 지도사 2급</p>
-                  <p>• 스포츠 마사지 1급</p>
-                  <p>• 태권도 3단</p>
+                  <p>• 한국체육대학교 사회체육학과 전공</p>
+                  <p>• 생활 스포츠 지도사 2급 (보디빌딩)</p>
+                  <p>• KATA ATC (한국선수트레이너협회)</p>
+                  <p>• NSCA 스포츠 영양코치 Level.1</p>
+                  <p>• 현)파워하우스 퍼스널트레이너</p>
                 </div>
             </div>
             <div class="intro-profile">
@@ -116,11 +116,11 @@
                 </div>
                 <div class="intro-content">
                   <p>✔︎ 김강함 트레이너</p>
-                  <p>• 앞구르기 대회 1등</p>
-                  <p>• 복싱 클럽 운영</p>
-                  <p>• 생활 스포츠 지도사 2급</p>
-                  <p>• 스포츠 마사지 1급</p>
-                  <p>• 태권도 3단</p>
+                  <p>• 생활 스포츠 지도사 2급 (보디빌딩)</p>
+                  <p>• 피돌로지 영양 전문가 과정 수료</p>
+                  <p>• 독일 블랙롤 국제자격 과정 수료</p>
+                  <p>• 2020 INFC 피지크 오픈 6위</p>
+                  <p>• 현)파워하우스 퍼스널트레이너</p>
                 </div>
             </div>
             <div class="intro-profile">
@@ -129,11 +129,11 @@
                 </div>
                 <div class="intro-content">
                   <p>✔︎ 김강함 트레이너</p>
-                  <p>• 앞구르기 대회 1등</p>
-                  <p>• 복싱 클럽 운영</p>
+                  <p>• 계명대학교 사회체육학과 전공</p>
+                  <p>• 생활 스포츠 지도사 2급 (보디빌딩)</p>
                   <p>• 생활 스포츠 지도사 2급</p>
                   <p>• 스포츠 마사지 1급</p>
-                  <p>• 태권도 3단</p>
+                  <p>• 현)파워하우스 퍼스널트레이너</p>
                 </div>
             </div> 
             <div class="intro-profile">
@@ -142,11 +142,11 @@
                 </div>
                 <div class="intro-content">
                   <p>✔︎ 김강함 트레이너</p>
-                  <p>• 앞구르기 대회 1등</p>
-                  <p>• 복싱 클럽 운영</p>
-                  <p>• 생활 스포츠 지도사 2급</p>
-                  <p>• 스포츠 마사지 1급</p>
-                  <p>• 태권도 3단</p>
+                  <p>• 생활 스포츠 지도사 2급 (보디빌딩)</p>
+                  <p>• 바디밸런스 필라테스 교육과정 수료</p>
+                  <p>• 바디아티스트 교정운동전문가 교육 이수</p>
+                  <p>• L&K 교정운동 교육과정 이수</p>
+                  <p>• 현)파워하우스 퍼스널트레이너</p>
                 </div>
             </div>
             <div class="intro-profile">
@@ -159,7 +159,7 @@
                   <p>• 복싱 클럽 운영</p>
                   <p>• 생활 스포츠 지도사 2급</p>
                   <p>• 스포츠 마사지 1급</p>
-                  <p>• 태권도 3단</p>
+                  <p>• 현)파워하우스 퍼스널트레이너</p>
                 </div>
             </div>
 

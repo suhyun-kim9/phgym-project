@@ -23,10 +23,15 @@ public interface MainService {
 	// 4.오시는길로 이동
 	void goMap(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException;
 	
-	//프로모션 결제하기
+	//프로모션 선택 후 결제하러가기
+	void goPromotionPay1(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException;
+	void goPromotionPay2(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException;
+	void goPromotionPay3(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException;
+	void goPromotionPay4(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException;
+	
+	//프로모션 최종결제하기
 	void buyPromotion(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException;
 
 	
-	//프로모션 선택 후 결제하러가기
-	void goPromotionPay(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException;
+	
 }

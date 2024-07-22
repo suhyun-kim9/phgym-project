@@ -11,7 +11,19 @@
 	</insert>
 	
 	
-	<select id="goPromotionPay" parameterType="int" resultType="com.phgym.join.model.UserInfoDTO">
+	<select id="goPromotionPay1" parameterType="int" resultType="com.phgym.main.model.UserInfoDTO">
+		SELECT * FROM USER_INFO WHERE USER_NO = #{sessionUserNo}
+	</select>
+	
+	<select id="goPromotionPay2" parameterType="int" resultType="com.phgym.main.model.UserInfoDTO">
+		SELECT * FROM USER_INFO WHERE USER_NO = #{sessionUserNo}
+	</select>
+	
+	<select id="goPromotionPay3" parameterType="int" resultType="com.phgym.main.model.UserInfoDTO">
+		SELECT * FROM USER_INFO WHERE USER_NO = #{sessionUserNo}
+	</select>
+	
+	<select id="goPromotionPay4" parameterType="int" resultType="com.phgym.main.model.UserInfoDTO">
 		SELECT * FROM USER_INFO WHERE USER_NO = #{sessionUserNo}
 	</select>
 </mapper>

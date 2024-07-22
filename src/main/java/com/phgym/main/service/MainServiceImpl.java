@@ -1,19 +1,15 @@
 package com.phgym.main.service;
 
 import java.io.IOException;
-import java.sql.Date;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
-import com.phgym.join.model.UserInfoDTO;
+import com.phgym.main.model.UserInfoDTO;
 import com.phgym.main.model.MainMapper;
 import com.phgym.main.model.MembershipPayHisDTO;
-import com.phgym.mypage.model.MypageMapper;
 import com.phgym.util.mybatis.MybatisUtil;
 
 import jakarta.servlet.ServletException;
@@ -68,19 +64,62 @@ public class MainServiceImpl implements MainService {
 		request.getRequestDispatcher("main-promotion-list.jsp").forward(request, response);
 		
 	}
-
-	@Override
-	public void goPromotionPay(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+/*----------------------------------------------------------------------------------------------------------------*/
+	@Override //프로모션 1 결제하러가기
+	public void goPromotionPay1(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int sessionUserNo = (int)request.getSession().getAttribute("sessionUserNo");
 		
 		SqlSession sql = sqlSessionFactory.openSession(true);
 		MainMapper main = sql.getMapper(MainMapper.class);
-		UserInfoDTO result = main.goPromotionPay(sessionUserNo);
+		UserInfoDTO result = main.goPromotionPay1(sessionUserNo);
 		System.out.println("result = " + result);
 		
 		request.setAttribute("result", result);
-		request.getRequestDispatcher("main-promotion-payment.jsp").forward(request, response);
+		request.getRequestDispatcher("main-promotion-payment1.jsp").forward(request, response);
 	}
+	
+	@Override //프로모션 2 결제하러가기
+	public void goPromotionPay2(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		int sessionUserNo = (int)request.getSession().getAttribute("sessionUserNo");
+		
+		SqlSession sql = sqlSessionFactory.openSession(true);
+		MainMapper main = sql.getMapper(MainMapper.class);
+		UserInfoDTO result = main.goPromotionPay2(sessionUserNo);
+		System.out.println("result = " + result);
+		
+		request.setAttribute("result", result);
+		request.getRequestDispatcher("main-promotion-payment2.jsp").forward(request, response);
+		
+	}
+
+	@Override //프로모션 3 결제하러가기
+	public void goPromotionPay3(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		int sessionUserNo = (int)request.getSession().getAttribute("sessionUserNo");
+		
+		SqlSession sql = sqlSessionFactory.openSession(true);
+		MainMapper main = sql.getMapper(MainMapper.class);
+		UserInfoDTO result = main.goPromotionPay3(sessionUserNo);
+		System.out.println("result = " + result);
+		
+		request.setAttribute("result", result);
+		request.getRequestDispatcher("main-promotion-payment3.jsp").forward(request, response);
+		
+	}
+
+	@Override //프로모션 4 결제하러가기
+	public void goPromotionPay4(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		int sessionUserNo = (int)request.getSession().getAttribute("sessionUserNo");
+		
+		SqlSession sql = sqlSessionFactory.openSession(true);
+		MainMapper main = sql.getMapper(MainMapper.class);
+		UserInfoDTO result = main.goPromotionPay4(sessionUserNo);
+		System.out.println("result = " + result);
+		
+		request.setAttribute("result", result);
+		request.getRequestDispatcher("main-promotion-payment4.jsp").forward(request, response);
+		
+	}
+/*----------------------------------------------------------------------------------------------------------------*/	
 	
 	
 	@Override //main-introduction으로 이동하기
@@ -98,5 +137,7 @@ public class MainServiceImpl implements MainService {
 		request.getRequestDispatcher("main-userhome.jsp").forward(request, response);
 		
 	}
+
+	
 	
 }

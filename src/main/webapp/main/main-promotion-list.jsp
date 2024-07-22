@@ -49,7 +49,7 @@
 
         /* 프로모션 종류 메인 */
         .list-wrap > .prom p:nth-of-type(1) { 
-            border: 1px solid #000; background-color: #f97316; border-radius: 8px;
+            border: 1px solid #000; background-color: #f97316; border-radius: 5px;
             position: relative; top: 25px; width: 65%; font-style: bold;
         }
         /* 프로모션 종류별 제공사항 설명 */
@@ -63,7 +63,7 @@
         }
         /* 프로모션 선택 버튼 */
         .list-wrap > .prom button {
-            position: relative; top: 50px;
+            position: relative; top: 40px; height: 30px;
             width: 80%; background-color: #000; color: #fff;
             font-size: 15px; border-radius: 8px;
         }
@@ -112,7 +112,7 @@
                         회원 멤버십가 우선 제공 기회
                     </p>
                     <p>￦360,000 / 12개월</p>
-                    <button type="submit" onclick="location.href='goPromotionPay.main?month=12'">구매하기</button>
+                    <button type="submit" onclick="location.href='goPromotionPay1.main'">구매하기</button>
                 </div>
                 <div>
                     <img src="img/workout(9).jpg" alt="">
@@ -125,7 +125,7 @@
                         회원 멤버십가 우선 제공 기회
                     </p>
                     <p>￦240,000 / 6개월</p>
-                    <button type="submit" onclick="location.href='goPromotionPay.main?month=12'">구매하기</button>
+                    <button type="submit" onclick="location.href='goPromotionPay2.main'">구매하기</button>
                 </div>
                 <div>
                     <img src="img/workout(11).png" alt="">
@@ -137,7 +137,7 @@
                         이용 당일 회원권 결제 시 2주 추가 증정
                     </p>
                     <p>￦15,000 / 1일</p>
-                    <button type="submit" onclick="location.href='goPromotionPay.main?month=12'">구매하기</button>
+                    <button type="submit" onclick="location.href='goPromotionPay3.main'">구매하기</button>
                 </div>
                 <div>
                     <img src="img/workout(5).jpg" alt="">
@@ -148,8 +148,8 @@
                         무제한 입장 가능<br>
                         30회 결제 시 PT 추가 증정 이벤트
                     </p>
-                    <p>￦50,000 / 회</p>
-                    <button type="submit" onclick="location.href='goPromotionPay.main?month=12'">구매하기</button>
+                    <p>￦250,000 / 5회</p>
+                    <button type="submit" onclick="location.href='goPromotionPay4.main'">구매하기</button>
                 </div>
 
             </div>

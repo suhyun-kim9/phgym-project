@@ -47,9 +47,21 @@ public class MainController extends HttpServlet {
         	service = new MainServiceImpl();
             service.goPromotionList(request,response);
             
-        } else if(command.equals("/main/goPromotionPay.main")) {
+        } else if(command.equals("/main/goPromotionPay1.main")) {
         	service = new MainServiceImpl();
-            service.goPromotionPay(request,response);
+            service.goPromotionPay1(request,response);
+            
+        } else if(command.equals("/main/goPromotionPay2.main")) {
+        	service = new MainServiceImpl();
+            service.goPromotionPay2(request, response);    
+        
+        } else if(command.equals("/main/goPromotionPay3.main")) {
+        	service = new MainServiceImpl();
+            service.goPromotionPay3(request,response);
+            
+        } else if(command.equals("/main/goPromotionPay4.main")) {
+        	service = new MainServiceImpl();
+            service.goPromotionPay4(request,response);    
             
         } else if(command.equals("/main/introduction.main")) {
         	service = new MainServiceImpl();
