@@ -13,11 +13,11 @@
 	</select>
 	
 		<!-- 유저 아이디 가져오기 -->
-	<select id="getUserId" parameterType="String" resultType="int">
+	<!-- <select id="getUserId" parameterType="String" resultType="int">
     	SELECT user_no
     	FROM user_info
     	WHERE user_name = #{userName}
-	</select>
+	</select> -->
 	
 	<!-- 관리자 정보 가져오기  -->
 	<select id="getAdminAccountForUserId" parameterType="int" resultType="com.phgym.admin.model.AdminAccountDTO">
@@ -58,6 +58,13 @@
 		ON u.user_no = p.user_no
 		WHERE p.admin_no = #{adminNo}
 	</select>
+	
+	<!-- <select id="getTrainerPtCheck" parameterType="LocalDateTime" resultType="com.phgym.mypage.model.PtReservationHisDTO">
+		SELECT pt_reservation_his_no, admin_no, user_no, reservation_date
+		FROM pt_reservation_his
+		WHERE trunc(reservation_date) = trunc(#{date})
+	</select>
+	 -->
 	
 	
 	

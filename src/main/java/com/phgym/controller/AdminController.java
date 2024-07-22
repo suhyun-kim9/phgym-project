@@ -37,6 +37,7 @@ public class AdminController extends HttpServlet {
 		
 			//세션 임의 생성
 			request.getSession().setAttribute("sessionAdminNo", 2); //삭제예정
+			request.getSession().setAttribute("sessionUserNo", 1); //삭제예정
 			
 		  	request.setCharacterEncoding("utf-8");
 	        String uri = request.getRequestURI();
@@ -46,7 +47,7 @@ public class AdminController extends HttpServlet {
 	        
 	        AdminService service = null;
 
-	        if(command.equals("/admin/account.admin")) { // 
+	        if(command.equals("/admin/account.admin")) {
 	            service = new AdminServiceImpl();
 	            service.getAdminAccount(request, response);
 	        }else if (command.equals("/admin/doModifyAdminAccount.admin")) {
@@ -67,7 +68,16 @@ public class AdminController extends HttpServlet {
 	        } else if(command.equals("/admin/user-find.admin")) {
 	        	service = new AdminServiceImpl();
 	        	service.goUserFind(request, response);
-	        }
+	        } else if(command.equals("/admin/doPtPlanCheck.admin")) {
+	        	service = new AdminServiceImpl();
+	        	service.doPtPlanCheck(request, response);
+	        } else if(command.equals("/admin/getUserPt.admin")) {
+	        	service = new AdminServiceImpl();
+	        	service.getUserPt(request, response);
+	        } else if(command.equals("/admin/getUserPt2.admin")) {
+	        	service = new AdminServiceImpl();
+	        	service.getUserPt2(request, response);
+	        } 
 		
 	}
 
