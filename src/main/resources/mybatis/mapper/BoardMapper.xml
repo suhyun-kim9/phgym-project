@@ -5,9 +5,28 @@
 <mapper namespace="com.phgym.board.model.BoardMapper">
 	<!-- 쿼리 작성 -->
 	
-	<!--
-	<insert id="getList" parameterType="com.phgym.board.model.BoardDTO">
-		SELECT * FROM EXERCISE_INFO ORDER BY INFO_NO DESC;
+	 <!-- 목록 가져오기 -->
+    <select id="getList" resultType="com.phgym.board.model.BoardDTO">
+        SELECT * FROM EXERCISE_INFO ORDER BY INFO_NO DESC
+    </select>
+
+	<insert id="regist" parameterType="com.phgym.board.model.BoardDTO">
+    	INSERT INTO EXERCISE_INFO (INFO_NO, ADMIN_NO, TITLE, WRITE_DATE, CONTENT)
+    	VALUES (EXERCISE_INFO_SEQ.NEXTVAL, #{admin_no}, #{title}, SYSDATE, #{content})
 	</insert>
-	-->
+	
+	<!-- 검색 결과 가져오기 -->
+    <select id="searchList" resultType="com.phgym.board.model.BoardDTO">
+        SELECT * FROM EXERCISE_INFO WHERE TITLE LIKE CONCAT('%', #{searchKeyword}, '%') ORDER BY INFO_NO DESC LIMIT #{startIndex}, #{pageSize}
+    </select>
+	
+	<select id="getTotalCount" resultType="int">
+    	SELECT COUNT(*) FROM EXERCISE_INFO
+	</select>
+
+ 	<select id="getSearchCount" resultType="int">
+    	SELECT COUNT(*) FROM EXERCISE_INFO
+    	WHERE TITLE LIKE CONCAT('%', #{searchKeyword}, '%')
+	</select>
+
 </mapper>

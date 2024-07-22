@@ -82,8 +82,14 @@ public class BoardDTO {
 
 	public void setFile(String file) {
 		this.file = file;
+
+	//==============================================================================================================
+	
+}
+
+	@Override
+	public String toString() {
+		return "BoardDTO [info_no=" + info_no + ", admin_no=" + admin_no + ", title=" + title + ", write_date="
+				+ write_date + ", content=" + content + ", hit=" + hit + ", file=" + file + "]";
 	}
-	
-	
-	
 }
