@@ -21,6 +21,7 @@ ul, li, ol, dl, dd {
 
 }
 
+
 .join_page .left {
     float: left;
     width: 50%;
@@ -93,69 +94,11 @@ ul, li, ol, dl, dd {
     resize: vertical;
 }
 
+.join_page .btn button {
+    width: 100px;
+    margin-top: 20px;
+}
 /*dsddafasfd*/
 
 
 
-#modify_btn {
-	
-    align-self: end;
-}
-#wrap {
-	display: flex;
-	 flex-direction: column;
-}
-
-.admin-account-table {
-	
-       border-collapse: collapse;
-       margin: 25px 0;
-       font-size: 1rem;
-       min-width: 60%;
-       height: 50px;
-       border-radius: 5px 5px 0 0;
-       overflow: hidden;
-       text-align : center;
-       align-self : center;
-          
-	
-       
-}
-
-.admin-account-table tbody tr.active-row {
-    font-weight: bold;
-    color: var(--main-color);
-  }
-
-.admin-account-tbody {
-	border: 1px solid #red;
-}
-
-.admin-account-tbody tr {
-	
-    border-bottom: 1px solid #ddd;
-    transition: all 0.1s ease-in;
-    
-  }
-  
-  
-  .admin-account-tbody th {
-	padding: 10px;
-  	text-align: left;
-  
-	 font-weight: bold;
-	  }
-  
-  
-
-.admin-account-tbody td {
-	width: 60%;
-    border-bottom: 1px solid #ddd;
-    
-    transition: all 0.1s ease-in;
-    text-align: center;
-  }
-  
-  
-    
-  

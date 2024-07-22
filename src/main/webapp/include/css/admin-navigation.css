@@ -7,6 +7,8 @@
 }
 
 
+
+
 .admin_main_name {
     font-size: 30px;
     font-weight: bold;
@@ -17,7 +19,7 @@
 
 
 .aside {
-    width: 250px;
+    width: 255px;
     height: 100%;
     position: fixed;
     z-index: 1;
@@ -38,14 +40,17 @@
 
 .logo {
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 .logo > img {
 	margin-top : 20px;
-    height: 150px;
+    width: 120px;
 }
 
+.nav_1 li a{
+	color : #fff;
+}
 
 .nav_1 {
     color: white;
@@ -53,8 +58,10 @@
 
 .nav_1 > li {
     padding: 20px;
-    font-size: 1.3em;
+    font-size: 1.1em;
     cursor: pointer;
+    
+    
 }
 
 .nav_1 > li:hover {
@@ -75,7 +82,7 @@
 #nav_2 {
     display: none;
     padding: 20px;
-    font-size: 1.2em;
+    font-size: 1.0em;
     cursor: pointer;
     background-color: #36384bd1;
 }
@@ -84,15 +91,19 @@
     margin-bottom: 30px;
 }
 
+#nav_2 > li {
+	margin-left : 15px;
+}
+
 .bi-chevron-compact-right{
-    margin-left: 50px;
+    
 }
 
 .nav_logout{
     color : white;
     margin-top: 5dvh;
     cursor: pointer;
-    margin-left: 20px;
+    margin-left: 30px;
 }
 
 
@@ -101,4 +112,51 @@
 }
 
 
+input[type=text] {
+  border: none;
+  border-bottom: 2px solid #f97316;
+}
+
+.btn-hover.color-4 {
+	background-color : #ff7f56;
+    /* background-image: linear-gradient(to right, #fc6076, #ff9a44, #ef9d43, #e75516); */
+  /*   box-shadow: 0 4px 15px 0 rgba(252, 104, 110, 0.75); */
+}
+
+.btn {
+	height: 30px;
+    width: 100px;
+}
+
+
+.btn-hover {
+    width: 200px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+    cursor: pointer;
+    margin: 20px;
+    height: 55px;
+    text-align:center;
+    border: none;
+    background-size: 300% 100%;
+
+    border-radius: 50px;
+    moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+}
+
+.btn-hover:hover {
+    background-position: 100% 0;
+    moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+}
+
+.btn-hover:focus {
+    outline: none;
+}
 
