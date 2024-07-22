@@ -1,5 +1,6 @@
 package com.phgym.admin.model;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,8 +11,9 @@ public interface AdminMapper {
 		// 관리자 정보 조회
 		public AdminAccountDTO getAdminAccount(int adminNo);
 		
-		// (사용자이름)으로 유저 아이디 가져오기
-		public int getUserId(String userName);
+		
+//		// (사용자이름)으로 유저 아이디 가져오기
+//		public int getUserId(int userNo);
 		
 		// 유저 아이디로 관리자 정보 가져오기
 		public AdminAccountDTO getAdminAccountForUserId(int userId);
@@ -25,6 +27,11 @@ public interface AdminMapper {
 		//관리자 스케쥴 조회
 		public List<PtReservationHisDTO> getTrainerPtCheck (int adminNo);
 
+		// 중복 
 		public UserAccountDTO getUserAccount2(int userNo);
+		
+		
+
+//		public PtReservationHisDTO doPtPlanCheck (PtReservationHisDTO dto);
 
 }

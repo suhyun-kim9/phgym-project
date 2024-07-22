@@ -58,17 +58,25 @@
           
          
                  <!--  회원 정보 간략하게 -->
-          <form action="getUserAccount.admin" method="post">
+          <form action="getUserPt.admin" method="post">
           <div class="main_content">
                 <h2>
                  		스케쥴 조회 할 회원의 이름을 입력해주세요. 😀
                   </h2>
  
                   <div class="search_bar">
-                      <input type="text"  placeholder="이름을 입력하세요">
-                      <input type="submit" class="btn-hover color-4" name="userName" value="조회">
-                      <div class="dot"></div>
+                      <input type="text"  name="userName" placeholder="이름을 입력하세요">
+                      <input type="submit" class="btn-hover color-4"  value="조회">
                   </div>
+                  
+                     
+                 <ul>
+                 	<c:if test="${!empty list}">
+                 		<c:forEach var="dto" items="${list}">
+	                 		<li><a href="getUserPt2.admin?userNo=${dto.userNo}">${dto.userName} / ${dto.userNo}</a></li>
+	                 	</c:forEach>
+                 	</c:if>
+                 </ul>
           </div>
           </form>
     </div>

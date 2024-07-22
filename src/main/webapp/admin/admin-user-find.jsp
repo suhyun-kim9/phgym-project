@@ -61,16 +61,16 @@
           <form action="getUserAccount.admin" method="post" id="form">
           <div>
                 <div >
-                 		정보 조회 할 회원 이름을 입력해주세요.
+                 		정보 조회 할 회원 이름을 입력해주세요.  😀
                   </div>
   
                   <div class="search_bar">
                       <input type="text" name="userName" placeholder="이름을 입력하세요">
-                      <input type="submit"  value="조회">
+                      <input type="submit" value="조회">
                   </div>
                   <!-- select -->
                   
-           <%--        <div id="userName"> ${u.userName} </div> --%>
+           <%-- <div id="userName"> ${u.userName} </div> --%>
                   
                  <ul>
                  	<c:if test="${!empty list}">

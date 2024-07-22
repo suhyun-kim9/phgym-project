@@ -61,7 +61,7 @@
                  <form action="getUserAccount.admin" method="post">
                  <div class="search_box">
                          <div class="search_name">
-                            <b>${userName}</b>  님 (<b>${userNo}</b>)
+                            <b>${dto.userName}</b>  님 (<b>${dto.userNo}</b>)
                          </div>
          				  
                          <div class="search_bar">
@@ -74,29 +74,29 @@
        			
        			 <!-- 회원 정보 -->
        			 <div class="pt_user">
-       			 <div> <p> pt 스케쥴  </p></div>
+       			 <div> <p> 회원 정보 </p></div>
                      <div class="user_box">
 					<table class="admin-account-table">
 					    <tbody class="admin-account-tbody">
 					        <tr>
 					            <th> 이름 </th>
-					            <td> <div> asdfasdfadsfdsaf</div> </td>
+					            <td> <div>${dto.userName} </div> </td>
 					        </tr>  
 					        <tr>
 					            <th> 아이디 </th>
-					            <td> <div> asdfasdfsdfdsaf </div> </td>
+					            <td> <div>${dto.userNo}</div> </td>
 					        </tr> 
 					        <tr >
 					            <th> 생년월일 </th>
-					            <td> <div> asdfasdfsadfsad </div> </td>
+					            <td> <div> ${dto.userBirth} </div> </td>
 					        </tr>  
 					            <tr >
 					            <th> 연락처 </th>
-					            <td> <div> asdfasdfsadfsad </div> </td>
+					            <td> <div>  ${dto.userPhone} </div> </td>
 					        </tr>  
 					          <tr >
 					            <th> 성별 </th>
-					            <td> <div> asdfsdafsdsfsd</div> </td>
+					            <td> <div>${dto.userGender}</div> </td>
 					        </tr>  
 			        	</tbody>
 			        </table>
@@ -107,20 +107,13 @@
                  <div class="pt_trainer">
                      <div> <p> PT 담당 트레이너 </p></div>
                      <div class="trainer_box">
-                         <img src="img/pngwing.com (1).png">
+                         <!-- <img src="img/pngwing.com (1).png"> -->
                          <div class="trainer_box2">
                              <div class="trainer_name">
-                                 <p> 박근영 </p>
+                                 <p> ${adminDto.adminName} </p>
                                  <p> 트레이너 </p>
                              </div>
-                             
-                             <ul>
-                                 <li> {앞구르기 대회 1등}</li>
-                                 <li> {복싱 클럽 운영}</li>
-                                 <li> {생활 스포츠 지도사 2급}</li>
-                                 <li> {스포츠 마사지 1등}</li>
-                                 <li> {태권도 3급}</li>
-                             </ul>
+                     
          
                              <!-- <div class="trainner_reservation_btn">
                                  <input type="button" value="예약하기">
@@ -134,16 +127,41 @@
                  <div class="pt_plan">
                      <div><p> PT 일정 </p></div>
                      <div class="pt_planer">
-                         <img src="img/calendar-1847346_1920.png">
-                         <p> 스케쥴 표 / 리스트로 표시 예정 </p>
-                         
-                     </div>
-                 </div>
+                <div class="pt_date">
+                    <!-- 캘린더 전체 컨테이너 -->
+				    <div class="calendar">
+				        <!-- 헤더 부분: 이전, 다음 버튼과 월/연 표시 -->
+				        <div class="header">
+				            <button id="prevMonth">&lt;</button>
+				            <div class="month-year" id="monthYear"></div>
+				            <button id="nextMonth">&gt;</button>
+				        </div>
+				        <!-- 요일 이름 표시 -->
+				        <div class="weekdays">
+				            <div>Sun</div>
+				            <div>Mon</div>
+				            <div>Tue</div>
+				            <div>Wed</div>
+				            <div>Thu</div>
+				            <div>Fri</div>
+				            <div>Sat</div>
+				        </div>
+				        <!-- 날짜 표시 -->
+				        <div class="days" id="days"></div>
+				         
+				    </div>
+				     <div class="pt_list"> </div>
+				    
+                </div>
+              
+            </div>
+                       
+           </div>
     </div>
 
 
 </div>
-
+	<script type="text/javascript" src="js/admin-reservation-date.js"> </script>
     <script type="text/javascript" src="../include/js/admin-navigation.js"> </script>
  
 </body>
