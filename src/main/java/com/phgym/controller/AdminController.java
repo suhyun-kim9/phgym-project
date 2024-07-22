@@ -29,6 +29,8 @@ public class AdminController extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doAction(request, response);
+
+		
 	}
 	
 	protected void doAction(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -56,6 +58,15 @@ public class AdminController extends HttpServlet {
 	        } else if(command.equals("/admin/getUserAccount.admin")) {
 	        	service = new AdminServiceImpl();
 	        	service.getUserAccount(request, response);
+	        } else if(command.equals("/admin/getUserAccount2.admin")) {
+	        	service = new AdminServiceImpl();
+	        	service.getUserAccount2(request, response);
+	        } else if(command.equals("/admin/trainer-pt-check.admin")) {
+	        	service = new AdminServiceImpl();
+	        	service.getTrainerPtCheck(request, response);
+	        } else if(command.equals("/admin/user-find.admin")) {
+	        	service = new AdminServiceImpl();
+	        	service.goUserFind(request, response);
 	        }
 		
 	}

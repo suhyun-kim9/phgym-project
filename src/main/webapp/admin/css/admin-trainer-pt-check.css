@@ -1,0 +1,116 @@
+* {
+    margin : 0;
+    padding: 0;
+    list-style-type: none;
+    text-decoration: none;
+
+}
+
+
+.admin_main_name {
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 30px;
+    border-bottom: 3px solid #000000;
+    color: #f97316;
+}
+
+.search_box {
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.search_name {
+    font-size: 30px;
+}
+
+.search_bar > input:nth-child(1) {
+    height: 30px;
+}
+.search_bar > input:nth-child(2) {
+    height: 30px;
+    width: 50px;
+}
+
+
+.pt_trainer > div:nth-child(1) , .pt_plan > div:nth-child(1) , .pt_user > div:nth-child(1){
+    border-bottom: 2px solid #f97316;
+    margin-bottom: 30px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.pt_planer , .trainer_box{
+    border: 1px solid #bbb;    
+    margin-bottom: 20px;
+}
+
+
+.pt_planer  {
+    text-align: center;
+    padding : 10px;
+    
+    
+}
+
+.pt_planer > img {
+    height: 300px;
+}
+
+.trainer_box > img{
+    height: 300px;
+}
+
+.user_box {
+	
+    padding : 10px;
+    display: flex;
+    justify-content: center;
+    flex-direction : column;
+    margin-bottom : 30px;
+    
+}
+.trainer_box {
+    height: 300px;
+    padding : 10px;
+    display: flex;
+    justify-content: center;
+}
+.trainer_box2{
+    display: flex;
+    flex-direction: column;
+    
+}
+.trainer_name {
+    margin-bottom: 30px;
+}
+.trainer_name > p:nth-child(1){
+    display: inline;
+    font-size: 30px;
+    font-weight: bold;
+    
+}
+
+.trainer_name > p{
+    display: inline;
+}
+
+.trainner_reservation_btn{
+    align-self: flex-end;
+}
+
+.pt_trainer_box{
+	border: 1px solid #ddd;
+	width: 100%;
+	height : 500px;
+	}
+	
+.mini_header {
+  border-bottom: 2px solid #f97316;
+  margin-bottom: 30px;
+  font-size: 20px;
+  font-weight: bold;}
+
+

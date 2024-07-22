@@ -1,6 +1,9 @@
 package com.phgym.admin.model;
 
+import java.util.ArrayList;
 import java.util.List;
+
+import com.phgym.mypage.model.PtReservationHisDTO;
 
 public interface AdminMapper {
 	
@@ -17,9 +20,11 @@ public interface AdminMapper {
 		public int modifyAdminAccount(AdminAccountDTO dto); 
 		
 		// 회원 정보 조회
-		public UserAccountDTO getUserAccount(String userName);
+		public ArrayList<UserAccountDTO> getUserAccount(String userName);
 		
-//		// 회원 스케쥴 조회
-//		public List<UserAccountDTO> getPtcheck  (String userName);
+		//관리자 스케쥴 조회
+		public List<PtReservationHisDTO> getTrainerPtCheck (int adminNo);
+
+		public UserAccountDTO getUserAccount2(int userNo);
 
 }
