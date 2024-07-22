@@ -16,4 +16,11 @@ public interface JoinService {
 	void userPwFind(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException; // 회원 비밀번호찾기
 
 	void adminLogin(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException; // 관리자 로그인
+
+	void userLogin(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException; // 유저 로그인
+
+	void adminJoin(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException; // 관리자 회원가입
+
+	void adminIdCheck(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException; // 관리자 아이디 중복체크
+	
 }
