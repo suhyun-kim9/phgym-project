@@ -27,22 +27,22 @@
 }
 
 .search_bar > input:nth-child(1) {
-    font-size: 1.2em;
+    height: 30px;
 }
 .search_bar > input:nth-child(2) {
-	font-size: 1.2em;
     height: 30px;
-    width: 100px;
+    width: 50px;
 }
 
-.pt_trainer > div:nth-child(1) , .pt_plan > div:nth-child(1) {
+
+.pt_trainer > div:nth-child(1) , .pt_plan > div:nth-child(1) , .pt_user > div:nth-child(1){
     border-bottom: 2px solid #f97316;
     margin-bottom: 30px;
     font-size: 20px;
     font-weight: bold;
 }
 
-.pt_planer , .trainer_box {
+.pt_planer , .trainer_box{
     border: 1px solid #bbb;    
     margin-bottom: 20px;
 }
@@ -51,6 +51,8 @@
 .pt_planer  {
     text-align: center;
     padding : 10px;
+    
+    
 }
 
 .pt_planer > img {
@@ -61,6 +63,15 @@
     height: 300px;
 }
 
+.user_box {
+	
+    padding : 10px;
+    display: flex;
+    justify-content: center;
+    flex-direction : column;
+    margin-bottom : 30px;
+    
+}
 .trainer_box {
     height: 300px;
     padding : 10px;
@@ -92,13 +103,29 @@
 
 
 
-.main_content {
-	/* border : 1px solid #ddd; */
-	text-align: center;
-	margin-top: 50px;
+
+
+.admin-account-table {
+	min-witdh : 100%;
+     border-collapse: collapse;
+     margin: 25px 0;
+     font-size: 1rem;
+     
+     border-radius: 5px 5px 0 0;
+     overflow: hidden;
+     box-shadow: 0 0 20px rgba(0, 0, 0, 0.25);
 }
 
-.main_content > h2 {
-	margin-bottom: 50px;
+.admin-account-table tbody tr.active-row {
+    font-weight: bold;
+    color: var(--main-color);
+  }
+
+.admin-account-tbody {
+	witdh : 100%;
 }
 
+.admin-account-tbody tr {
+    border-bottom: 1px solid #ddd;
+    transition: all 0.1s ease-in;
+  }

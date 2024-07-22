@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+    
+    
+    
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,20 +22,21 @@
     <div class="aside">
         <nav>
         <ul class="nav_1">
-            <div class="logo"> <img src="nav/logo_dark.webp"> </div>
-            <li> <i class="bi bi-person-fill"></i> <a> 관리자 계정 </a> </li>
+            <div class="logo"> <img src="../include/img/logo-light.png"> </div>
+            <li> <i class="bi bi-person-fill"></i> <a href="/PHGYM/admin/account.admin"> 관리자 계정 </a> </li>
             <li> 
                 <div id="dropdown">
-                    <i class="bi bi-search"></i> <a> 회원 조회</a> <i class="bi bi-chevron-compact-right"></i></i>
+                    <i class="bi bi-search"></i> <a> 회원 조회</a> <i class="bi bi-chevron-compact-right"></i>
                 </div>
             </li>
             <ul id="nav_2">
-                <li><i class="bi bi-person-circle"></i> <a> 회원 정보 조회 </a>  </li>
-                <li> <i class="bi bi-calendar-check"></i> <a>  회원 스케쥴 조회 </a></li>
+                <li><i class="bi bi-person-circle"></i> <a href="/PHGYM/admin/user-find.admin"> 회원 정보 조회 </a>  </li>
+                <li> <i class="bi bi-calendar-check"></i> <a href="admin-pt-check.jsp">  회원 스케쥴 조회 </a></li>
             </ul>
             <li> <i class="bi bi-calendar4-event"></i> <a> 스케쥴 관리 </a></li>
-            <li> <i class="bi bi-bell"></i> <a> 공지사항 </a></li>
-            <li> <i class="bi bi-archive"></i> <a> 운동정보 </a></li>
+            <li><i class="bi bi-send"></i><a href="/PHGYM/mypage/transfer.mypage"> 회원권양도 </a></li>
+            <li> <i class="bi bi-bell"></i> <a href="/PHGYM/admin/notice.admin"> 공지사항 </a></li>
+            <li> <i class="bi bi-archive"></i> <a href="/PHGYM/admin/exerciseinfo-list.admin" > 운동정보 </a></li>
 
         </ul>
         <div class="nav_logout">
@@ -42,78 +47,58 @@
 
 
 <!--  여기에 넣어주시면 됩니다. -->
-        <div class="main">
-            <section id="wrap">
+<div class="main">
+<section id="wrap">
         
-                <div class="join_page">
-                  
-  <div class="admin_main_name">
-    관리자 계정 (내 정보)
-</div>
-                        <div class="left">
-                            <div>
-                                <img src="img/image 01.png" alt="">
-                                <button>+</button>
-                            </div>
-                            <button class="gender">남</button>
-                            <button class="gender">여</button>
-                            <div class="name">
-                                <p>이름</p>
-                                <input type="text" name="이름" style="text-align: left;">
-                            </div>
-                            <div class="date">
-                                <p>생년월일</p>
-                                <input type="date" name="date" style="text-align: left;">
-                            </div>
-                            <div class="number">
-                                <p>연락처</p>
-                                <input type="text" name="연락처" style="text-align: left;">
-                            </div>
-                        </div>
-    
-                        <div class="right">
-                            <div class="">
-                            <div class="id">
-                                <p>아이디</p>
-                                <input type="text" name="id" style="text-align: left;">
-                                <button>중복확인</button>
-                            </div>
-                            <div class="pw">
-                                <p>패스워드</p>
-                                <input type="password" name="pw" style="text-align: left;">
-                            </div>
-                            <div class="pw">
-                                <p>비밀번호확인</p>
-                                <input type="password" name="pw" style="text-align: left;">
-                            </div>
-                            <div class="job">
-                                <p>직책</p>
-                                <input type="text" name="job" style="text-align: left;">
-                            </div>
-                            <div class="date">
-                                <p>입사일</p>
-                                <input type="date" name="date" style="text-align: left;">
-                            </div>
-                            <div class="email">
-                                <p>이메일</p>
-                                <input type="email" name="email" style="text-align: left;">
-                            </div>
-                            </div>
-                        </div>
-                        
-                    <div class="bottom"> 
-                        <div class="license">
-                            <p>경력 및 자격사항</p>
-                            <textarea name="" id=""></textarea>
-                        </div>
-                    </div>
-                
-                <div class="btn">
-                    <button>가입</button>
-                    <button>취소</button>
-                </div>
-            </div>
-        </section>
+
+<h1 class="admin_main_name">
+    <i class="bi bi-person-fill"></i> <span> 관리자 계정 (내 정보) </span>
+</h1>
+
+<table class="admin-account-table">
+    <tbody class="admin-account-tbody">
+        <tr>
+            <th> 이름 </th>
+            <td> <div> ${dto.adminName} </div> </td>
+        </tr>  
+        <tr >
+            <th> 생년월일 </th>
+            <td> <div> ${dto.adminBirth}</div> </td>
+        </tr>  
+          <tr >
+            <th> 성별 </th>
+            <td> <div> ${dto.adminGender}</div> </td>
+        </tr>  
+        <tr >
+            <th> 연락처 </th>
+            <td><div>  ${dto.adminPhone}</div> </td>
+        </tr>  
+        <tr >
+            <th> 아이디 </th>
+            <td> <div>  ${dto.adminId}</div> </td>
+        </tr>  
+        <tr >
+            <th> 직책 </th>
+            <td> <div>  ${dto.adminJobTitle}</div> </td>
+        </tr>  
+        <tr >
+            <th> 입사일 </th>
+            <td><div> ${dto.adminCareerHis}</div> </td>
+        </tr> 
+        <tr >
+            <th> 이메일 </th>
+            <td> <div> ${dto.adminEmail}</div> </td>
+        </tr> 
+        <tr >
+            <th> 경력 및 자격사항 </th>
+            <td> <div> ${dto.adminCareerHis} </div> </td>
+        </tr> 
+        
+    </tbody>
+</table>
+
+<input type="submit" value="수정하기" class="btn-hover color-4" id="modify_btn" onclick="location.href='doModifyAdminAccount.admin'">
+</section>
 <!--  -------------. -->
 
 </div>
