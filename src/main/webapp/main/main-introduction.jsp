@@ -26,22 +26,20 @@
         }
 
         
-        /* 소개 주제 선택하기(헬스장소개 or 트레이너소개) */
-        .intro-wrap > .intro-name {
-            border: 0px solid #000;
-            display: flex; position: relative;
-            width: 400px; top: 45px;
+         /* 소개 내용 선택 구성 */
+         .intro-wrap > .intro-name {
+            border: 1px solid #000; border-radius: 10px;
+            width: 50%; height: 5%;
+            display: flex; position: relative; top: 20px;
         }
-        .intro-wrap > .intro-name > button {
+        .intro-wrap > .intro-name > div {
             border: 1px solid #000;
             width: 50%; line-height: 42.5px;
             text-indent: 10px; font-size: 25px;
-            
         }
-        .intro-wrap > .intro-name > button:nth-of-type(1) {
+        .intro-wrap > .intro-name > div:nth-of-type(1) {
             background-color: #f97316;
         }
-
 
         /* 소개 내용 */
         .intro-wrap > .intro-content {
@@ -51,25 +49,30 @@
             position: relative;
         }
         .intro-wrap > .intro-content > div {
-            border: 1px solid #000; border-radius: 10px;
+            border: 2px solid #000; border-radius: 10px;
             position: relative; top: 100px; 
-            display: flex; flex-direction: column;
+            display: flex; flex-direction: column; overflow: hidden;
             width: 23%; height: 80%; justify-content: space-between;
         }
+        /* 센터소개 메인 이미지 */
         .intro-wrap > .intro-content > div > img {
             width: 100%; height: 100%; justify-content: center;
             object-fit: cover;
         }
+
+        /* 센터소개 메인 타이틀 */
         .intro-wrap > .intro-content p:nth-of-type(1) {
             position: absolute; top: 260px; left: 15px; display: inline-block;
-            font-size: 10px; background-color: bisque; border-radius: 8px;
-            height: 8%; width: 90%; border: 2px solid tomato;
-            text-align: center; font-size: 25px; font-weight: 700;
+            font-size: 10px; background-color: #000; border-radius: 8px;
+            height: 8%; width: 90%; border: 0.5px solid #f97316; color: #fff;
+            text-align: center; font-size: 20px; font-weight: 600; line-height: 32px;
         }
+        /* 센터소개 상세내용 */
         .intro-wrap > .intro-content p:nth-of-type(2) {
             position: absolute; top: 310px; left: 15px; display: inline-block;
-            font-size: 10px; background-color: bisque; border-radius: 8px;
-            height: 90px; width: 90%; text-indent: 10px; border: 2px solid tomato;
+            font-size: 10px; background-color: #000; border-radius: 8px; color: #fff;
+            height: 90px; width: 90%; text-indent: 10px; border: 0.5px solid #f97316;
+            
         }
 
 
@@ -104,8 +107,8 @@
     <section>
         <div class="intro-wrap">
             <div class="intro-name">
-            	<a href="main-introduction.jsp">센터소개</a>
-            	<a href="main-introduction.jsp">센터소개</a>
+                <div>센터소개</div>
+                <div>트레이너소개</div>
             </div>
             <div class="intro-content">
                 <div>

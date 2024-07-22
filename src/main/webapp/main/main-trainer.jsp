@@ -42,21 +42,26 @@
 
 
         /* 트레이너 소개 내용 */
-        .intro-wrap > .intro-content {
-            border: 0px solid #000;
-            width: 100%; height: 40%;
+        .intro-wrap > .intro-profile {
+            border: 0px solid black; display: flex;
             position: relative; top: 100px;
-            display: flex; flex-direction: column; justify-content: space-between;
+            width: 100%; height: 200px;
+            margin-bottom: 30px;
         }
-        .intro-wrap > .intro-content img {
-            display: inline-block;
-            border: 2px solid #000;  border-radius: 10px;
-            width: 10%; height: 80%;
+        .intro-wrap > .intro-profile img {
+            border: 2px solid black; border-radius: 10px;
+            position: relative; width: 250px; height: 200px; right: -50px;
         }
-        .intro-wrap > .intro-content p {
-            display: inline-block;  position: relative; left: 50px;
-            border: 2px solid #f97316; border-radius: 10px;
-            width: 80%; height: 80%; padding: 10px;
+        .intro-wrap > .intro-profile > .intro-content {
+            border: 2px solid black; border-radius: 10px;
+            display: inline-block; width: 650px; height: 200px;
+        }
+        .intro-wrap > .intro-profile > .intro-content > p {
+            margin: 10px; text-indent: 5px; position: relative; top: 5px;
+        }
+        .intro-wrap > .intro-profile > .intro-content > p:nth-of-type(1) {
+            background-color: #f97316; width: 150px; height: 20px;
+            position: relative; text-indent: 5px; top: 3px; left: 3px;
         }
     </style>
 </head>
@@ -91,30 +96,74 @@
                 <div>센터소개</div>
                 <div>트레이너소개</div>
             </div>
-            <div class="intro-content">
+            
+            <div class="intro-profile">
                 <div>
-                    <img src="img/기쁨.WEBP" alt="">
-                    <p>
-                        김강함 트레이너<br>
-                        앞구르기 대회 1등<br>
-                        복싱 클럽 운영<br>
-                        생활 스포츠 지도사 2급<br>
-                        스포츠 마사지 1급<br>
-                        태권도 3단<br>
-                    </p>
+                  <img src="img/Trainer(1).webp">
                 </div>
-                <div>
-                    <img src="img/기쁨.WEBP" alt="">
-                    <p>
-                        김강함 트레이너<br>
-                        앞구르기 대회 1등<br>
-                        복싱 클럽 운영<br>
-                        생활 스포츠 지도사 2급<br>
-                        스포츠 마사지 1급<br>
-                        태권도 3단<br>
-                    </p>
+                <div class="intro-content">
+                  <p>✔︎ 김강함 트레이너</p>
+                  <p>• 앞구르기 대회 1등</p>
+                  <p>• 복싱 클럽 운영</p>
+                  <p>• 생활 스포츠 지도사 2급</p>
+                  <p>• 스포츠 마사지 1급</p>
+                  <p>• 태권도 3단</p>
                 </div>
             </div>
+            <div class="intro-profile">
+                <div>
+                  <img src="img/Trainer(2).webp">
+                </div>
+                <div class="intro-content">
+                  <p>✔︎ 김강함 트레이너</p>
+                  <p>• 앞구르기 대회 1등</p>
+                  <p>• 복싱 클럽 운영</p>
+                  <p>• 생활 스포츠 지도사 2급</p>
+                  <p>• 스포츠 마사지 1급</p>
+                  <p>• 태권도 3단</p>
+                </div>
+            </div>
+            <div class="intro-profile">
+                <div>
+                  <img src="img/Trainer(3).jpg">
+                </div>
+                <div class="intro-content">
+                  <p>✔︎ 김강함 트레이너</p>
+                  <p>• 앞구르기 대회 1등</p>
+                  <p>• 복싱 클럽 운영</p>
+                  <p>• 생활 스포츠 지도사 2급</p>
+                  <p>• 스포츠 마사지 1급</p>
+                  <p>• 태권도 3단</p>
+                </div>
+            </div> 
+            <div class="intro-profile">
+                <div>
+                  <img src="img/Trainer(4).jpg">
+                </div>
+                <div class="intro-content">
+                  <p>✔︎ 김강함 트레이너</p>
+                  <p>• 앞구르기 대회 1등</p>
+                  <p>• 복싱 클럽 운영</p>
+                  <p>• 생활 스포츠 지도사 2급</p>
+                  <p>• 스포츠 마사지 1급</p>
+                  <p>• 태권도 3단</p>
+                </div>
+            </div>
+            <div class="intro-profile">
+                <div>
+                  <img src="img/Trainer(5).jpg">
+                </div>
+                <div class="intro-content">
+                  <p>✔︎ 김강함 트레이너</p>
+                  <p>• 앞구르기 대회 1등</p>
+                  <p>• 복싱 클럽 운영</p>
+                  <p>• 생활 스포츠 지도사 2급</p>
+                  <p>• 스포츠 마사지 1급</p>
+                  <p>• 태권도 3단</p>
+                </div>
+            </div>
+
+            
         </div>
     </section>
 
