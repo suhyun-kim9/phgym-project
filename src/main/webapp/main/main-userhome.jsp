@@ -27,21 +27,21 @@
         /* 메인사진 */
         .main-wrap > .main-img > img {
             display: inline-block;
-            border: 1px solid black; border-radius: 10px;
-            width: 100%; height: 400px;
+            border: 3px solid black; border-radius: 10px;
+            width: 100%; height: 460px;
             position: relative; top: 100px;
         }
 
         /* 프로모션 */
         .main-wrap > .main-prom {
             border: 0px solid red;
-            height: 200px; margin-top: 150px;
+            height: 280px; margin-top: 120px;
             width: 1083px; position: relative;
             left: -30px;
             
         }
         .main-wrap > .main-prom > span {
-            border: 1px solid black; border-radius: 10px;
+            border: 3px solid black; border-radius: 10px;
             display: inline-block; 
             width: 300px; height: 100%;
         }
@@ -50,29 +50,51 @@
         }
         .main-wrap > .main-prom img {
             position: relative;
-            width: 100%; height: 70%;
+            width: 100%; height: 67%;
             border-top-left-radius: 10px;
             border-top-right-radius: 10px;
         }
         .main-wrap > .main-prom p {
-            margin: 5px 5px;
-            font-weight: 600;
+            font-weight: 600; position: relative; left: 10px; margin-top: 8px;
+        }
+        .main-wrap > .main-prom .satisfaction {
+            position: relative; color: darkgrey;
+            bottom: 5px; font-size: 14px; top: 1px;
         }
 
         /* 이벤트 */
         .main-wrap > .main-event {
             display: flex; position: relative;
-            left: -25px; width: 1074px;
+            left: -25px; width: 1074px; top: -55px;
         }
         .main-wrap > .main-event > span {
             margin-top: 80px;
-            border: 1px solid black; border-radius: 10px;
-            width: 45%; height: 70px;
+            border: 3px solid black; border-radius: 10px;
+            width: 45%; height: 100px;
             display: inline-block;
         }
+        .main-wrap > .main-event > span:nth-of-type(1) { /* event 1 */
+            background-image: linear-gradient(to right,#FF78A9, #fff, #FF78A9)
+        }
+        .main-wrap > .main-event > span:nth-of-type(2) { /* event 2 */
+            background-image: linear-gradient(to right, #5A9CFF, #fff, #781CC7);
+        }
         .main-wrap > .main-event p {
-            margin: 5px 10px;
+            position: relative; text-align: left; 
+            top: 15px; left: 18px; font-size : 20px;
+        }
+        .main-wrap > .main-event p:nth-of-type(1) {
+            font-size : 30px;
+            margin-bottom: 5px;
             font-weight: 600;
+        }
+        .main-wrap > .main-event div > img {
+            width: 100px; height: 100px; position: relative;
+            left: 395px; top: -75px;
+        }
+        .main-wrap > .main-event > .event2 div > img {
+            width: 100px; height: 80px; 
+            left: 370px; top: -60px;
         }
         
 
@@ -115,26 +137,31 @@
                     <img src="img/nutrition.jpg" alt="img1">
                     <p>Nutrition</p>
                     <p>식단 및 영양 정보 제공</p>
+                    <p class="satisfaction">⭐️ 고객만족도 4.9  🕒주 2회 제공</p>
                 </span>
                 <span class="prom2">
                     <img src="img/웨이트.jpg" alt="">
                     <p>Fitness</p>
                     <p>1:1 맞춤 PT 진행중</p>
+                    <p class="satisfaction">⭐️ 고객만족도 4.9  🕒70분 진행</p>
                 </span>
                 <span class="prom3">
                     <img src="img/clean.jpg" alt="">
                     <p>Health</p>
                     <p>매일 3회 이상 소독</p>
+                    <p class="satisfaction">⭐️ 고객만족도 5.0  🕒일 3회</p>
                 </span>
             </div>
             <div class="main-event">
                 <span class="event1">
                     <p>PT 30회 할인 이벤트 진행중</p>
-                    <p>선착순 5명 모집!</p>
+                    <p>선착순 5명 모집 !</p>
+                    <div><img src="img/event1.webp" alt=""></div>
                 </span>
                 <span class="event2">
                     <p>연말 프로모션 진행중</p>
-                    <p>선착순 모집</p>
+                    <p>선착순 모집 !!</p>
+                    <div><img src="img/event2.webp" alt=""></div>
                 </span>
             </div>
         </div>

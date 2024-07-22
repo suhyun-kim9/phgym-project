@@ -36,32 +36,40 @@
         .list-wrap > .prom > div {
             text-align: center;
             display: inline-block;
-            border: 1px solid black;
+            border: 2px solid #f97316; background-color: #000;
             border-radius: 10px;
             height: 100%; width: 23%;
         }
+        /* 프로모션 종류별 대표사진 */
         .list-wrap > .prom img {
-            width: 50%; height: 30%;
+            width: 65%; height: 32%;
             border: 2px solid #000; border-radius: 10px;
             position: relative; top: 10px;
         }
 
-        .list-wrap > .prom p:nth-of-type(1) {
-            border: 1px solid #000; background-color: pink; border-radius: 10px;
-            position: relative; top: 20px; width: 50%; font-weight: 600;
+        /* 프로모션 종류 메인 */
+        .list-wrap > .prom p:nth-of-type(1) { 
+            border: 1px solid #000; background-color: #f97316; border-radius: 8px;
+            position: relative; top: 25px; width: 65%; font-style: bold;
         }
+        /* 프로모션 종류별 제공사항 설명 */
         .list-wrap > .prom p:nth-of-type(2) {
-            position: relative; top: 30px; height: 35%; 
+            position: relative; top: 45px; height: 35%;
+            font-weight: 400; color: #fff;
         }
+        /* 프로모션 종류별 가격 및 기간 */
         .list-wrap > .prom p:nth-of-type(3) {
-            position: relative; top: 30px; font-weight: 600;
+            position: relative; top: 30px; font-weight: 600;  color: #fff;
         }
+        /* 프로모션 선택 버튼 */
         .list-wrap > .prom button {
             position: relative; top: 50px;
             width: 80%; background-color: #000; color: #fff;
-            font-size: 15px; border-radius: 10px;
+            font-size: 15px; border-radius: 8px;
         }
-
+        .list-wrap > .prom button:hover {
+            color: #f97316; border: 1px solid #f97316;
+        }
     </style>
 
 </head>
@@ -94,7 +102,7 @@
         <div class="list-wrap">
             <div class="prom">
                 <div>
-                    <img src="img/소심.WEBP" alt="">
+                    <img src="img/workout(7).jpg" alt="">
                     <p>연말프로모션</p>
                     <p>
                         헬스복/수건 무상제공<br>
@@ -104,10 +112,10 @@
                         회원 멤버십가 우선 제공 기회
                     </p>
                     <p>￦360,000 / 12개월</p>
-                    <button type="submit" onclick="location.href='goPromotionPay.main?month=12'">선택</button>
+                    <button type="submit" onclick="location.href='goPromotionPay.main?month=12'">구매하기</button>
                 </div>
                 <div>
-                    <img src="img/까칠.WEBP" alt="">
+                    <img src="img/workout(9).jpg" alt="">
                     <p>기본 정액가</p>
                     <p>
                         헬스복/수건 무상제공<br>
@@ -117,10 +125,10 @@
                         회원 멤버십가 우선 제공 기회
                     </p>
                     <p>￦240,000 / 6개월</p>
-                    <button type="submit" onclick="location.href='goPromotionPay.main?month=12'">선택</button>
+                    <button type="submit" onclick="location.href='goPromotionPay.main?month=12'">구매하기</button>
                 </div>
                 <div>
-                    <img src="img/부럽.WEBP" alt="">
+                    <img src="img/workout(11).png" alt="">
                     <p>일일이용권</p>
                     <p>
                         헬스복/수건 무상제공<br>
@@ -129,10 +137,10 @@
                         이용 당일 회원권 결제 시 2주 추가 증정
                     </p>
                     <p>￦15,000 / 1일</p>
-                    <button type="submit" onclick="location.href='goPromotionPay.main?month=12'">선택</button>
+                    <button type="submit" onclick="location.href='goPromotionPay.main?month=12'">구매하기</button>
                 </div>
                 <div>
-                    <img src="img/슬픔.WEBP" alt="">
+                    <img src="img/workout(5).jpg" alt="">
                     <p>PT회원권</p>
                     <p>
                         헬스복/수건 무상제공<br>
@@ -141,7 +149,7 @@
                         30회 결제 시 PT 추가 증정 이벤트
                     </p>
                     <p>￦50,000 / 회</p>
-                    <button type="submit" onclick="location.href='goPromotionPay.main?month=12'">선택</button>
+                    <button type="submit" onclick="location.href='goPromotionPay.main?month=12'">구매하기</button>
                 </div>
 
             </div>
