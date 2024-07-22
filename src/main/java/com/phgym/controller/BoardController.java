@@ -23,30 +23,48 @@ public class BoardController extends HttpServlet {
 	
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("utf-8");
+		String searchKeyword = request.getParameter("searchKeyword");
 		doAction(request, response);
 	}
 	
 	protected void doAction(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//코드 작성
 		
-		// 24.07.17
 		request.setCharacterEncoding("utf-8");
 		
 		String uri = request.getRequestURI();
 		String path = request.getContextPath();
 		String command = uri.substring( path.length() );
+
+		BoardService service = new BoardServiceImpl();
 		
-		BoardService service;
-		
-		if(command.equals("/board/list.board")) { // 목록화면
+		if(command.equals("/board/main_exe_list.board")) { // 목록
 			
 			service = new BoardServiceImpl();
 			service.getList(request, response);
+			request.getRequestDispatcher("main-exerciseinfo-list.jsp").forward(request, response);
+			
+		} else if(command.equals("/board/main_exe_post.board")) { // 작성
+			
+			request.getRequestDispatcher("main-exerciseinfo-post.jsp").forward(request, response);
+			
+		} else if(command.equals("/board/main_exe_post_regist.board")) { // 등록
+			
+			service = new BoardServiceImpl();
+			service.regist(request, response);
+			
+		} else if(command.equals("main_exe_search.board")) { // 검색
+			
+			String searchKeyword = request.getParameter("searchKeyword");
+			service = new BoardServiceImpl();
+			service.searchList(request, response, searchKeyword);
 			
 		}
 		
+		
 	}
 }
+
 
 
 

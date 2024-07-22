@@ -1,12 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-
+    <title>운동정보</title>
     <link rel="stylesheet" href="css/main-exerciseinfo-list.css">
 </head>
 <body>
@@ -14,86 +16,63 @@
     <div class="container">
         <h1>운동정보</h1>
         <div class="search-bar">
-            <input type="text" placeholder="검색">
-            <button>조회</button>
+            <form action="searchList.board" method="get">
+                <input type="text" name="searchKeyword" placeholder="검색" value="${searchKeyword}">
+                <button type="submit">조회</button>
+            </form>
         </div>
-        <table>
-            <thead>
-                <tr>
-                    <th>번호</th>
-                    <th>제목</th>
-                    <th>이름</th>
-                    <th>아이디</th>
-                    <th>작성일</th>
-                    <th>조회수</th>
-                </tr>
-            </thead>
-            <tbody>
-            
-            	<c:forEach var="dto" items="${list }">
-            	
-            	</c:forEach>
-                <tr>
-                    <td>6</td>
-                    <td>안녕하세요</td>
-                    <td>홍길동</td>
-                    <td>abc123</td>
-                    <td>2024-07-08</td>
-                    <td>100</td>
-                </tr>
-                <tr>
-                    <td>5</td>
-                    <td>반갑습니다</td>
-                    <td>홍길자</td>
-                    <td>abc123</td>
-                    <td>2024-07-08</td>
-                    <td>100</td>
-                </tr>
-                <tr>
-                    <td>4</td>
-                    <td>반갑습니다</td>
-                    <td>이순신</td>
-                    <td>abc123</td>
-                    <td>2024-07-08</td>
-                    <td>100</td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>반갑습니다</td>
-                    <td>홍길순</td>
-                    <td>abc123</td>
-                    <td>2024-07-08</td>
-                    <td>100</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>반갑습니다</td>
-                    <td>신사임당</td>
-                    <td>abc123</td>
-                    <td>2024-07-08</td>
-                    <td>100</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>반갑습니다</td>
-                    <td>세종대왕</td>
-                    <td>abc123</td>
-                    <td>2024-07-08</td>
-                    <td>100</td>
-                </tr>
-            </tbody>
-        </table>
+        
+        <c:if test="${not empty list}">
+            <p>검색 결과: ${fn:length(list)}건</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>번호</th>
+                        <th>제목</th>
+                        <th>이름</th>
+                        <th>작성일</th>
+                        <th>조회수</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <c:forEach var="dto" items="${list}">
+                        <tr>
+                            <td>${dto.info_no}</td>
+                            <td><a href="getContent.board?info_no=${dto.info_no}">${dto.title}</a></td>
+                            <td>${dto.admin_no}</td>
+                            <td><fmt:formatDate value="${dto.write_date}" pattern="yyyy년 MM월 dd일 HH시 mm분 ss초"/></td>
+                            <td>${dto.hit}</td>
+                        </tr>
+                    </c:forEach>
+                </tbody>
+            </table>
+        </c:if>
+        
+        <c:if test="${empty list}">
+            <p>검색 결과가 없습니다.</p>
+        </c:if>
+
         <div class="pagination">
-            <button>◀ Previous</button>
-            <button>1</button>
-            <button>2</button>
-            <button>3</button>
-            <span>...</span>
-            <button>67</button>
-            <button>Next ▶</button>
+            <c:if test="${page > 1}">
+                <a href="main_exe_list.board?page=${page - 1}">Previous</a>
+            </c:if>
+            <c:forEach var="i" begin="1" end="${totalPages}">
+                <c:choose>
+                    <c:when test="${page == i}">
+                        <span class="current">${i}</span>
+                    </c:when>
+                    <c:otherwise>
+                        <a href="main_exe_list.board?page=${i}">${i}</a>
+                    </c:otherwise>
+                </c:choose>
+            </c:forEach>
+            <c:if test="${page < totalPages}">
+                <a href="main_exe_list.board?page=${page + 1}">Next</a>
+            </c:if>
         </div>
+        
         <div class="buttons">
-            <button>등록</button>
+            <input type="button" value="등록" class="combtn" onclick="location.href='main_exe_post.board';">
         </div>
     </div>
 
