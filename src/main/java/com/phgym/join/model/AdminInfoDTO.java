@@ -1,5 +1,5 @@
 package com.phgym.join.model;
-
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 public class AdminInfoDTO {
@@ -7,35 +7,34 @@ public class AdminInfoDTO {
 	private int adminNo; // 관리자번호
 	private String adminId; // 아이디
 	private String adminPw; // 비밀번호
-	private String name; // 이름
-	private LocalDateTime birth; // 생년월일
-	private String gender; // 성별
-	private String phone; // 연락처
-	private String email; // 이메일
-	private LocalDateTime hireDate; // 입사일
-	private String jobTitle; // 직책
-	private String careerHis; // 경력사항
-	private String profile; // 프로필
+	private String adminName; // 이름
+	private LocalDate adminBirth; // 생년월일
+	private String adminGender; // 성별
+	private String adminPhone; // 연락처
+	private String adminEmail; // 이메일
+	private LocalDate adminHireDate; // 입사일
+	private String adminJobTitle; // 직책
+	private String adminCareerHis; // 경력사항
 	
 	public AdminInfoDTO() {
-		
+		// TODO Auto-generated constructor stub
 	}
 
-	public AdminInfoDTO(int adminNo, String adminId, String adminPw, String name, LocalDateTime birth, String gender,
-			String phone, String email, LocalDateTime hireDate, String jobTitle, String careerHis, String profile) {
+	public AdminInfoDTO(int adminNo, String adminId, String adminPw, String adminName, LocalDate adminBirth,
+						String adminGender, String adminPhone, String adminEmail, LocalDate adminHireDate, String adminJobTitle,
+						String adminCareerHis) {
 		super();
 		this.adminNo = adminNo;
 		this.adminId = adminId;
 		this.adminPw = adminPw;
-		this.name = name;
-		this.birth = birth;
-		this.gender = gender;
-		this.phone = phone;
-		this.email = email;
-		this.hireDate = hireDate;
-		this.jobTitle = jobTitle;
-		this.careerHis = careerHis;
-		this.profile = profile;
+		this.adminName = adminName;
+		this.adminBirth = adminBirth;
+		this.adminGender = adminGender;
+		this.adminPhone = adminPhone;
+		this.adminEmail = adminEmail;
+		this.adminHireDate = adminHireDate;
+		this.adminJobTitle = adminJobTitle;
+		this.adminCareerHis = adminCareerHis;
 	}
 
 	public int getAdminNo() {
@@ -62,75 +61,75 @@ public class AdminInfoDTO {
 		this.adminPw = adminPw;
 	}
 
-	public String getName() {
-		return name;
+	public String getAdminName() {
+		return adminName;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setAdminName(String adminName) {
+		this.adminName = adminName;
 	}
 
-	public LocalDateTime getBirth() {
-		return birth;
+	public LocalDate getAdminBirth() {
+		return adminBirth;
 	}
 
-	public void setBirth(LocalDateTime birth) {
-		this.birth = birth;
+	public void setAdminBirth(LocalDate adminBirth) {
+		this.adminBirth = adminBirth;
 	}
 
-	public String getGender() {
-		return gender;
+	public String getAdminGender() {
+		return adminGender;
 	}
 
-	public void setGender(String gender) {
-		this.gender = gender;
+	public void setAdminGender(String adminGender) {
+		this.adminGender = adminGender;
 	}
 
-	public String getPhone() {
-		return phone;
+	public String getAdminPhone() {
+		return adminPhone;
 	}
 
-	public void setPhone(String phone) {
-		this.phone = phone;
+	public void setAdminPhone(String adminPhone) {
+		this.adminPhone = adminPhone;
 	}
 
-	public String getEmail() {
-		return email;
+	public String getAdminEmail() {
+		return adminEmail;
 	}
 
-	public void setEmail(String email) {
-		this.email = email;
+	public void setAdminEmail(String adminEmail) {
+		this.adminEmail = adminEmail;
 	}
 
-	public LocalDateTime getHireDate() {
-		return hireDate;
+	public LocalDate getAdminHireDate() {
+		return adminHireDate;
 	}
 
-	public void setHireDate(LocalDateTime hireDate) {
-		this.hireDate = hireDate;
+	public void setAdminHireDate(LocalDate adminHireDate) {
+		this.adminHireDate = adminHireDate;
 	}
 
-	public String getJobTitle() {
-		return jobTitle;
+	public String getAdminJobTitle() {
+		return adminJobTitle;
 	}
 
-	public void setJobTitle(String jobTitle) {
-		this.jobTitle = jobTitle;
+	public void setAdminJobTitle(String adminJobTitle) {
+		this.adminJobTitle = adminJobTitle;
 	}
 
-	public String getCareerHis() {
-		return careerHis;
+	public String getAdminCareerHis() {
+		return adminCareerHis;
 	}
 
-	public void setCareerHis(String careerHis) {
-		this.careerHis = careerHis;
+	public void setAdminCareerHis(String adminCareerHis) {
+		this.adminCareerHis = adminCareerHis;
 	}
 
-	public String getProfile() {
-		return profile;
-	}
-
-	public void setProfile(String profile) {
-		this.profile = profile;
+	@Override
+	public String toString() {
+		return "AdminInfoDTO [adminNo=" + adminNo + ", adminId=" + adminId + ", adminPw=" + adminPw + ", adminName="
+				+ adminName + ", adminBirth=" + adminBirth + ", adminGender=" + adminGender + ", adminPhone="
+				+ adminPhone + ", adminEmail=" + adminEmail + ", adminHireDate=" + adminHireDate + ", adminJobTitle="
+				+ adminJobTitle + ", adminCareerHis=" + adminCareerHis + "]";
 	}
 }
