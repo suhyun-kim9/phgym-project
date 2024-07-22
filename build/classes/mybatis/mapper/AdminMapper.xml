@@ -25,7 +25,7 @@
     	FROM admin_info a 
     	JOIN pt_pay_his p
     	ON a.admin_no = p.admin_no
-    	WHERE p.user_no = #{userNo};
+    	WHERE p.user_no = #{userNo}
 	</select>
 	
 	<!-- 관리자 정보 수정하기 -->
@@ -44,6 +44,20 @@
 		WHERE user_name = #{userName}
 	</select>
 	
+	<select id="getUserAccount2" parameterType="int" resultType="com.phgym.admin.model.UserAccountDTO">
+		SELECT user_no, user_id, user_name, user_Birth, user_email, user_address, user_Gender, user_Phone, user_reg_date
+		FROM user_info
+		WHERE user_no = #{userNo}
+	</select>
+	
+	<!-- 관리자 본인 스케쥴 확인하기 -->
+	<select id="getTrainerPtCheck" parameterType="int" resultType="com.phgym.mypage.model.PtReservationHisDTO">
+		SELECT p.admin_no, p.user_no, u.user_name, p.reservation_date, p.progress_status, p.content
+		FROM user_info u
+		JOIN pt_reservation_his p
+		ON u.user_no = p.user_no
+		WHERE p.admin_no = #{adminNo}
+	</select>
 	
 	
 	

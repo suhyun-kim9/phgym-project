@@ -3,6 +3,7 @@ package com.phgym.admin.service;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
@@ -11,6 +12,7 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import com.phgym.admin.model.AdminAccountDTO;
 import com.phgym.admin.model.AdminMapper;
 import com.phgym.admin.model.UserAccountDTO;
+import com.phgym.mypage.model.PtReservationHisDTO;
 import com.phgym.util.mybatis.MybatisUtil;
 
 import jakarta.servlet.ServletException;
@@ -99,6 +101,7 @@ public class AdminServiceImpl implements AdminService {
 	}
 	
 	
+	
 	// 회원 정보 조회하기
 	@Override
 	public void getUserAccount(HttpServletRequest request, HttpServletResponse response)
@@ -109,21 +112,45 @@ public class AdminServiceImpl implements AdminService {
 		SqlSession sql = sqlSessionFactory.openSession(true); //db
 		AdminMapper admin = sql.getMapper(AdminMapper.class);
 		System.out.println("2");
-		UserAccountDTO dto = admin.getUserAccount(userName);
+		List<UserAccountDTO> list = admin.getUserAccount(userName);
 		sql.close();
-		request.setAttribute("dto", dto);
-		request.getRequestDispatcher("admin-user-find-info.jsp").forward(request, response);
-		
+		System.out.println(list.size());
+		                       
+		if(list.size() == 1) {
+			for(UserAccountDTO dto : list) {
+				request.setAttribute("dto", dto);  
+			}
+			request.getRequestDispatcher("admin-user-find-info.jsp").forward(request, response);
+		} else if(list.size() >= 2) {
+			request.setAttribute("list", list);  
+			request.getRequestDispatcher("admin-user-find.jsp").forward(request, response);
+		}
 		
 		
 	}
+	
+	// 회원 정보2
+	@Override
+	public void getUserAccount2(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		int userNo = Integer.parseInt(request.getParameter("userNo"));
+		
+		SqlSession sql = sqlSessionFactory.openSession(true); //db
+		AdminMapper admin = sql.getMapper(AdminMapper.class);
+		UserAccountDTO dto = admin.getUserAccount2(userNo);
+		sql.close();
+		
+		request.setAttribute("dto", dto);
+		request.getRequestDispatcher("admin-user-find-info.jsp").forward(request, response);
+	}
 
 
-	//
+	
+	
+	// 회원 스케쥴 조회하기
 	@Override
 	public void getPtCheck(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
 		
 		String userName = request.getParameter("userName");
 		SqlSession sql = sqlSessionFactory.openSession(true); //db
@@ -131,15 +158,13 @@ public class AdminServiceImpl implements AdminService {
 		AdminMapper admin = sql.getMapper(AdminMapper.class);
 		
 		// 유저 정보 가져오기
-		UserAccountDTO user_dto = admin.getUserAccount(userName);
+		ArrayList<UserAccountDTO> user_dto = admin.getUserAccount(userName);
 		int userNo = admin.getUserId(userName);
 	
 		// (담당트레이너) 관리자 정보 가져오기
 		AdminAccountDTO admin_dto = admin.getAdminAccountForUserId(userNo);
 		
 		//------------ pt 스케쥴 관련 db
-		
-		
 		
 		//------------ pt 스케쥴 관련 db
 		
@@ -150,13 +175,37 @@ public class AdminServiceImpl implements AdminService {
 		
 	}
 
+	// 관리자 스케쥴 확인 (트레이너 스케쥴 확인)
+	@Override
+	public void getTrainerPtCheck(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		
+		
+		int sessionAdminNo = (int)request.getSession().getAttribute("sessionAdminNo"); //controller
+		
+		SqlSession sql = sqlSessionFactory.openSession(true); //db
+		AdminMapper admin = sql.getMapper(AdminMapper.class);
+		
+		AdminAccountDTO adDto = admin.getAdminAccount(sessionAdminNo);
+		List<PtReservationHisDTO> reserDto = admin.getTrainerPtCheck(sessionAdminNo);
+		
+		sql.close();
+		request.setAttribute("adDto", adDto);
+		request.setAttribute("reserDto", reserDto);
+		
+		request.getRequestDispatcher("admin-trainer-pt-check.jsp").forward(request, response);
+		
+	}
 
 
 	@Override
-	public void getptCheckList(HttpServletRequest request, HttpServletResponse response)
+	public void goUserFind(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		System.out.println("impl 왔니?");
+		request.getRequestDispatcher("admin-user-find.jsp").forward(request, response);
 		
 	}
+
 
 
 

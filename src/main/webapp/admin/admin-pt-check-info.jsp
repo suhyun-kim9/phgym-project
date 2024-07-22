@@ -74,7 +74,7 @@
        			
        			 <!-- 회원 정보 -->
        			 <div class="pt_user">
-       			 <div> <p> 회원  정보 </p></div>
+       			 <div> <p> pt 스케쥴  </p></div>
                      <div class="user_box">
 					<table class="admin-account-table">
 					    <tbody class="admin-account-tbody">

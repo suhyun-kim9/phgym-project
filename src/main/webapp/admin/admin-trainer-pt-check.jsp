@@ -11,10 +11,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="../include/css/admin-navigation.css">
-     <link rel="stylesheet" href="css/admin-user-find.css">
+     <link rel="stylesheet" href="css/admin-trainer-pt-check.css">
      <link rel="stylesheet" href="css/admin-pt-check.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    
 
 
 </head>
@@ -52,39 +51,38 @@
         
 
          <!-- admin 페이지 헤더  -->
-                 <div class="admin_main_name">
-                     <i class="bi bi-person-circle"></i>
-                     <span>회원 정보 조회</span>
-                 </div>
+          <div class="admin_main_name">
+              스케쥴 확인
+          </div>
         
           <!--  회원 정보 간략하게 -->
-          <form action="getUserAccount.admin" method="post" id="form">
-          <div>
-                <div >
-                 		정보 조회 할 회원 이름을 입력해주세요.
+          
+          <!--  1) 다시 화면에 찍기 ?? -->
+          <form action="getUserAccount.admin" method="post">
+         <div class="search_box">
+                <div class="search_name">
+                     <b> ${adDto.adminName} </b>  트레이너 (<b>${adDto.adminNo}</b>)
                   </div>
   
-                  <div class="search_bar">
+                 <%--   <div class="search_bar">
                       <input type="text" name="userName" placeholder="이름을 입력하세요">
-                      <input type="submit"  value="조회">
-                  </div>
-                  <!-- select -->
-                  
-           <%--        <div id="userName"> ${u.userName} </div> --%>
-                  
-                 <ul>
-                 	<c:if test="${!empty list}">
-                 		<c:forEach var="dto" items="${list}">
-	                 		<li><a href="getUserAccount2.admin?userNo=${dto.userNo}">${dto.userName} / ${dto.userNo}</a></li>
-	                 	</c:forEach>
-                 	</c:if>
-                 </ul>
+                      <input type="submit"  class="btn-hover color-4" value="조회">
+                  </div> --%>
           </div>
           </form>
-    </section>
-   
-</div>
-
+          
+          <div class="mini_header"> <p> 회원  정보 </p></div>
+          <div class="pt_trainer_box">
+          	
+          
+          
+          	<img src="img/calendar-1847346_1920.png" style="width:500px;">
+          
+          </div>
+ </section>
+    
+    
+  
 
 
     <script type="text/javascript" src="../include/js/admin-navigation.js"> </script>
