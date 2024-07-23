@@ -25,21 +25,37 @@
             width: 1024px; height: 850px;
         }
 
-        
-         /* 소개 내용 선택 구성 */
-         .intro-wrap > .intro-name {
+        /* 소개 내용 선택 구성 */
+        .intro-wrap > .intro-name {
             border: 1px solid #000; border-radius: 10px;
-            width: 50%; height: 5%;
+            width: 500px;
+            height: 5%; line-height: 42.5px;
             display: flex; position: relative; top: 20px;
+        }
+        .intro-wrap > .intro-name a {
+            color: #000; 
+        }
+        .intro-wrap > .intro-name > a:nth-of-type(1) {
+            background-color: #f97316; width: 50%; height: 100%;
+            position: relative;
+            border-top-left-radius: 10px;
+            border-bottom-left-radius: 10px; text-align: center;
+        }
+        .intro-wrap > .intro-name > a:nth-of-type(2) {
+            background-color: #fff; width: 50%; height: 100%;
+            position: relative;
+            border-top-right-radius: 10px;
+            border-bottom-right-radius: 10px; text-align: center;
+        }
+        .intro-wrap > .intro-name a:hover {
+            color: #fff; pointer: cursor;
         }
         .intro-wrap > .intro-name > div {
             border: 1px solid #000;
             width: 50%; line-height: 42.5px;
             text-indent: 10px; font-size: 25px;
         }
-        .intro-wrap > .intro-name > div:nth-of-type(1) {
-            background-color: #f97316;
-        }
+        
 
         /* 소개 내용 */
         .intro-wrap > .intro-content {
@@ -63,15 +79,15 @@
         /* 센터소개 메인 타이틀 */
         .intro-wrap > .intro-content p:nth-of-type(1) {
             position: absolute; top: 260px; left: 15px; display: inline-block;
-            font-size: 10px; background-color: #000; border-radius: 8px;
-            height: 8%; width: 90%; border: 0.5px solid #f97316; color: #fff;
-            text-align: center; font-size: 20px; font-weight: 600; line-height: 32px;
+            font-size: 10px; background-color: #000;
+            height: 8%; width: 90%; color: #fff; letter-spacing: 5px;
+            text-align: center; font-size: 20px; font-weight: 400; line-height: 32px;
         }
         /* 센터소개 상세내용 */
         .intro-wrap > .intro-content p:nth-of-type(2) {
             position: absolute; top: 310px; left: 15px; display: inline-block;
-            font-size: 10px; background-color: #000; border-radius: 8px; color: #fff;
-            height: 90px; width: 90%; text-indent: 10px; border: 0.5px solid #f97316;
+            font-size: 13px; background-color: #000; color: #fff;
+            height: 90px; width: 90%; text-indent: 10px;
             
         }
 
@@ -107,8 +123,8 @@
     <section>
         <div class="intro-wrap">
             <div class="intro-name">
-                <div>센터소개</div>
-                <div>트레이너소개</div>
+                <a href="/PHGYM/main/introduction.main">센터소개</a>
+                <a href="/PHGYM/main/trainer.main">트레이너소개</a>
             </div>
             <div class="intro-content">
                 <div>
@@ -124,7 +140,9 @@
                 <div>
                     <img src="img/pt개인지도.jpg" alt="">
                     <p>PT 개인지도</p>
-                    <p>PT 개인지도에 대한 내용~~</p>
+                    <p>
+                    	1.상담 -> 2.PT배정 -> 3.기초체력측정 -> 4.프로그램설계 -> 5.시행 -> 6.정기적관리
+                    </p>
                 </div>
                 <div>
                     <img src="img/인포데스크.jpg" alt="">

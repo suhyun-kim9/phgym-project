@@ -137,6 +137,12 @@ public class MainServiceImpl implements MainService {
 		request.getRequestDispatcher("main-userhome.jsp").forward(request, response);
 		
 	}
+	/*----------------------------------------------------------------------------------------------------------------*/	
+	
+	@Override //main-trainer으로 이동
+	public void goTrainer(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.getRequestDispatcher("main-trainer.jsp").forward(request, response);
+	}
 
 	
 	
