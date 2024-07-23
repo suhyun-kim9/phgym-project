@@ -15,6 +15,7 @@ import com.phgym.admin.model.AdminMapper;
 import com.phgym.admin.model.UserAccountDTO;
 import com.phgym.mypage.model.MypageMapper;
 import com.phgym.mypage.model.PtReservationHisDTO;
+import com.phgym.mypage.model.PtReservationHisDTO2;
 import com.phgym.util.mybatis.MybatisUtil;
 
 import jakarta.servlet.ServletException;
@@ -162,7 +163,8 @@ public class AdminServiceImpl implements AdminService {
 		                       
 		if(list.size() == 1) {
 			for(UserAccountDTO dto : list) {
-				request.setAttribute("dto", dto);  
+				request.setAttribute("dto", dto);
+				request.getSession().setAttribute("doPtPlanCheckUserNo", dto.getUserNo());
 			}
 			request.getRequestDispatcher("admin-pt-check-info.jsp").forward(request, response);
 		} else if(list.size() >= 2) {
@@ -178,6 +180,7 @@ public class AdminServiceImpl implements AdminService {
 	public void getUserPt2(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		int userNo = Integer.parseInt(request.getParameter("userNo"));
+		request.getSession().setAttribute("doPtPlanCheckUserNo", userNo);
 		
 		SqlSession sql = sqlSessionFactory.openSession(true); //db
 		AdminMapper admin = sql.getMapper(AdminMapper.class);
@@ -205,8 +208,7 @@ public class AdminServiceImpl implements AdminService {
 	
 		// (담당트레이너) 관리자 정보 가져오기
 		
-		
-		
+
 		
 		request.getRequestDispatcher("admin-pt-check-info.jsp").forward(request, response);
 	}
@@ -241,20 +243,26 @@ public class AdminServiceImpl implements AdminService {
 	@Override
 	public void doPtPlanCheck(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
+		//지윤 수정
+		int doPtPlanCheckUserNo = (int)request.getSession().getAttribute("doPtPlanCheckUserNo");
+		System.out.println("doPtPlanCheckUserNo = " + doPtPlanCheckUserNo);
 		int sessionAdminNo = (Integer)request.getSession().getAttribute("sessionAdminNo");
-		int year = Integer.parseInt(request.getParameter("year"));
-		int month = Integer.parseInt(request.getParameter("month"));
-		int day = Integer.parseInt(request.getParameter("day"));
-		LocalDateTime date = LocalDateTime.of(year, month, day, 0, 0, 0);
+		System.out.println("sessionAdminNo = " + sessionAdminNo);
+		String reservationDate = request.getParameter("date");
+		System.out.println("reservationDate = " + reservationDate);
 		
-		PtReservationHisDTO dto = new PtReservationHisDTO();
+		PtReservationHisDTO2 dto = new PtReservationHisDTO2();
+		dto.setUserNo(doPtPlanCheckUserNo);
 		dto.setAdminNo(sessionAdminNo);
-		dto.setReservationDate(date);
+		dto.setReservationDate(reservationDate);
 
 		SqlSession sql = sqlSessionFactory.openSession(true);
 		AdminMapper admin = sql.getMapper(AdminMapper.class);
-//		List<PtReservationHisDTO> list = admin.doPtPlanCheck(dto);
+		PtReservationHisDTO2 result = admin.doPtPlanCheck(dto);
+		System.out.println(result);
+		
+		request.setAttribute("result", result);
+		request.getRequestDispatcher("admin-pt-check-info.jsp").forward(request, response);
 	}
 
 	

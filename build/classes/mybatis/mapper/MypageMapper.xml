@@ -41,7 +41,10 @@
 	</select>
 	
 	<select id="getTimeList" parameterType="com.phgym.mypage.model.PtReservationHisDTO" resultType="com.phgym.mypage.model.PtReservationHisDTO">
-		select * from pt_reservation_his where admin_no = #{adminNo} and #{reservationDate} = trunc(reservation_date)
+		select * 
+		from pt_reservation_his
+		where admin_no = #{adminNo}
+		and to_char(reservation_date, 'yyyy-MM-dd' ) = to_char(#{reservationDate}, 'yyyy-MM-dd' ) 
 	</select>
 	
 	<insert id="doPtReservation" parameterType="com.phgym.mypage.model.PtReservationHisDTO">

@@ -77,7 +77,7 @@ public class AdminController extends HttpServlet {
 	        } else if(command.equals("/admin/getUserPt2.admin")) {
 	        	service = new AdminServiceImpl();
 	        	service.getUserPt2(request, response);
-	        } 
+	        }
 		
 	}
 

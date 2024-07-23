@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="../include/css/admin-navigation.css">
      <link rel="stylesheet" href="css/admin-trainer-pt-check.css">
      <link rel="stylesheet" href="css/admin-pt-check.css">
+     <link rel="stylesheet" href="css/calender.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
 
@@ -71,12 +72,75 @@
           </div>
           </form>
           
-          <div class="mini_header"> <p> 회원  정보 </p></div>
+          <div class="mini_header"> <p> 스케쥴 관리 </p></div>
+          
+          
+          
+          
           <div class="pt_trainer_box">
           	
           
           
-          	<img src="img/calendar-1847346_1920.png" style="width:500px;">
+          	           <!-- pt 일정 -->
+                 <div class="pt_plan">
+                     <div class="pt_planer">
+ 
+                    <!-- 캘린더 전체 컨테이너 -->
+				     <!-- 캘린더 전체 컨테이너 -->
+    <div class="calendar">
+        <!-- 헤더 부분: 이전, 다음 버튼과 월/연 표시 -->
+        <div class="header">
+            <button id="prevMonth">&lt;</button>
+            <div class="month-year" id="monthYear"></div>
+            <button id="nextMonth">&gt;</button>
+        </div>
+        <!-- 요일 이름 표시 -->
+        <div class="weekdays">
+            <div>Sun</div>
+            <div>Mon</div>
+            <div>Tue</div>
+            <div>Wed</div>
+            <div>Thu</div>
+            <div>Fri</div>
+            <div>Sat</div>
+        </div>
+
+
+        
+
+        <div>
+            <label for="type">날짜 : </label>
+            <input type="text" id="date" readonly />
+        </div>
+        <!-- 날짜 표시 -->
+        <div class="days" id="days"></div>
+
+        <div class="list_box">
+            <div class="pt_content">
+               <table>
+                <tbody>
+                    <tr>
+                        <th> 예약일 :  </th>
+                        <td>${result.reservationDate}  </td>
+                    </tr>
+                    <tr>
+                        <th>  PT 내용 : </th>
+                        <td> <textarea type="text" rows="4" cols="50"> ${result.content} </textarea></td>
+                    </tr>
+
+                </tbody>
+                </table>
+
+            </div>
+
+        </div>
+    </div>
+              
+            </div>
+                       
+           </div>
+    </div>
+
           
           </div>
  </section>

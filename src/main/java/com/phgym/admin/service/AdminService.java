@@ -38,12 +38,12 @@ public interface AdminService {
 	//*** 트레이너 스케쥴 확인 페이지 ***
 	public void getTrainerPtCheck(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException;
 	
-	
-	
-	
 	// *** 페이지 전환 ***
 	public void goUserFind(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException;
 	public void goPtCheckInfo(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException;
+	
+	
+	
 
 	
 	
