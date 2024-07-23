@@ -14,6 +14,8 @@ public interface BoardService {
 
 	void searchList(HttpServletRequest request, HttpServletResponse response, String searchKeyword) throws ServletException, IOException;
 
+	void getContent(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException;
+
 
 	//코드 작성
 	

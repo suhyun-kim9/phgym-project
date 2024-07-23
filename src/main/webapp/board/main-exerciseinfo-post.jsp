@@ -13,7 +13,7 @@
     
     <div class="form-container">
         <div class="header">
-            <button class="back-btn">←</button>
+            <input type="button" value="←" onclick="location.href='main_exe_list.board'">
             <span class="header-title">글 작성하기</span>
             <div class="header-icons">
                 <button class="icon-btn">⋮</button>
@@ -21,7 +21,7 @@
         </div>
         <form action="main_exe_post_regist.board" method="post">
             <input type="text" id="title" name="title" placeholder="제목을 입력하세요">
-            <input type="text" id="writer" name="admin_no" size="10" placeholder="이름을 입력하세요" required>
+            <input type="text" id="writer" name="adminNo" size="10" placeholder="이름을 입력하세요" required>
 
             <label for="content"></label>
             <textarea id="content" name="content" placeholder="내용을 입력하세요"></textarea>

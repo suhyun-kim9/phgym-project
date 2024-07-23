@@ -16,7 +16,7 @@
     <div class="container">
         <h1>운동정보</h1>
         <div class="search-bar">
-            <form action="searchList.board" method="get">
+            <form action="main_exe_search.board" method="get">
                 <input type="text" name="searchKeyword" placeholder="검색" value="${searchKeyword}">
                 <button type="submit">조회</button>
             </form>
@@ -37,10 +37,10 @@
                 <tbody>
                     <c:forEach var="dto" items="${list}">
                         <tr>
-                            <td>${dto.info_no}</td>
-                            <td><a href="getContent.board?info_no=${dto.info_no}">${dto.title}</a></td>
-                            <td>${dto.admin_no}</td>
-                            <td><fmt:formatDate value="${dto.write_date}" pattern="yyyy년 MM월 dd일 HH시 mm분 ss초"/></td>
+                            <td>${dto.infoNo}</td>
+                            <td><a href="main_exe_content.board?infoNo=${dto.infoNo}">${dto.title}</a></td>
+                            <td>${dto.adminNo}</td>
+                            <td><fmt:formatDate value="${dto.writeDate}" pattern="yyyy년 MM월 dd일 HH시 mm분 ss초"/></td>
                             <td>${dto.hit}</td>
                         </tr>
                     </c:forEach>

@@ -4,10 +4,10 @@ import java.sql.Timestamp;
 
 public class BoardDTO {
 	
-	private int info_no;
-	private int admin_no;
+	private int infoNo;
+	private int adminNo;
 	private String title;
-	private Timestamp write_date;
+	private Timestamp writeDate;
 	private String content;
 	private int hit;
 	private String file;
@@ -15,33 +15,38 @@ public class BoardDTO {
 	public BoardDTO() {
 		super();
 	}
-	
-	public BoardDTO(int info_no, int admin_no, String title, Timestamp write_date, String content, int hit,
-			String file) {
+
+	public BoardDTO(int infoNo, int adminNo, String title, Timestamp writeDate, String content, int hit, String file) {
 		super();
-		this.info_no = info_no;
-		this.admin_no = admin_no;
+		this.infoNo = infoNo;
+		this.adminNo = adminNo;
 		this.title = title;
-		this.write_date = write_date;
+		this.writeDate = writeDate;
 		this.content = content;
 		this.hit = hit;
 		this.file = file;
 	}
 
-	public int getInfo_no() {
-		return info_no;
+	@Override
+	public String toString() {
+		return "BoardDTO [infoNo=" + infoNo + ", adminNo=" + adminNo + ", title=" + title + ", writeDate=" + writeDate
+				+ ", content=" + content + ", hit=" + hit + ", file=" + file + "]";
 	}
 
-	public void setInfo_no(int info_no) {
-		this.info_no = info_no;
+	public int getInfoNo() {
+		return infoNo;
 	}
 
-	public int getAdmin_no() {
-		return admin_no;
+	public void setInfoNo(int infoNo) {
+		this.infoNo = infoNo;
 	}
 
-	public void setAdmin_no(int admin_no) {
-		this.admin_no = admin_no;
+	public int getAdminNo() {
+		return adminNo;
+	}
+
+	public void setAdminNo(int adminNo) {
+		this.adminNo = adminNo;
 	}
 
 	public String getTitle() {
@@ -52,12 +57,12 @@ public class BoardDTO {
 		this.title = title;
 	}
 
-	public Timestamp getWrite_date() {
-		return write_date;
+	public Timestamp getWriteDate() {
+		return writeDate;
 	}
 
-	public void setWrite_date(Timestamp write_date) {
-		this.write_date = write_date;
+	public void setWriteDate(Timestamp writeDate) {
+		this.writeDate = writeDate;
 	}
 
 	public String getContent() {
@@ -82,14 +87,7 @@ public class BoardDTO {
 
 	public void setFile(String file) {
 		this.file = file;
-
-	//==============================================================================================================
-	
-}
-
-	@Override
-	public String toString() {
-		return "BoardDTO [info_no=" + info_no + ", admin_no=" + admin_no + ", title=" + title + ", write_date="
-				+ write_date + ", content=" + content + ", hit=" + hit + ", file=" + file + "]";
 	}
+	
+
 }
