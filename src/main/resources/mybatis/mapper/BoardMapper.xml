@@ -6,19 +6,36 @@
 	<!-- 쿼리 작성 -->
 	
 	 <!-- 목록 가져오기 -->
-    <select id="getList" resultType="com.phgym.board.model.BoardDTO">
+    <!-- <select id="getList" resultType="com.phgym.board.model.BoardDTO">
         SELECT * FROM EXERCISE_INFO ORDER BY INFO_NO DESC
-    </select>
+    </select> -->
+    
+    <select id="getList" resultType="com.phgym.board.model.BoardDTO">
+    	SELECT * FROM (
+        	SELECT a.*, ROW_NUMBER() OVER (ORDER BY INFO_NO DESC) AS rnum
+        	FROM EXERCISE_INFO a
+   		)
+    	WHERE rnum BETWEEN #{startIndex} AND #{endIndex}
+	</select>
 
 	<insert id="regist" parameterType="com.phgym.board.model.BoardDTO">
     	INSERT INTO EXERCISE_INFO (INFO_NO, ADMIN_NO, TITLE, WRITE_DATE, CONTENT)
-    	VALUES (EXERCISE_INFO_SEQ.NEXTVAL, #{admin_no}, #{title}, SYSDATE, #{content})
+    	VALUES (EXERCISE_INFO_SEQ.NEXTVAL, #{adminNo}, #{title}, SYSDATE, #{content})
 	</insert>
 	
 	<!-- 검색 결과 가져오기 -->
-    <select id="searchList" resultType="com.phgym.board.model.BoardDTO">
+    <!-- <select id="searchList" resultType="com.phgym.board.model.BoardDTO">
         SELECT * FROM EXERCISE_INFO WHERE TITLE LIKE CONCAT('%', #{searchKeyword}, '%') ORDER BY INFO_NO DESC LIMIT #{startIndex}, #{pageSize}
-    </select>
+    </select> -->
+    
+    <select id="searchList" resultType="com.phgym.board.model.BoardDTO">
+    	SELECT * FROM (
+        	SELECT a.*, ROW_NUMBER() OVER (ORDER BY INFO_NO DESC) AS rnum
+        	FROM EXERCISE_INFO a
+        	WHERE TITLE LIKE '%' || #{searchKeyword} || '%'
+    	)
+    	WHERE rnum BETWEEN #{startIndex} AND #{endIndex}
+	</select>
 	
 	<select id="getTotalCount" resultType="int">
     	SELECT COUNT(*) FROM EXERCISE_INFO
@@ -26,7 +43,15 @@
 
  	<select id="getSearchCount" resultType="int">
     	SELECT COUNT(*) FROM EXERCISE_INFO
-    	WHERE TITLE LIKE CONCAT('%', #{searchKeyword}, '%')
+    	WHERE TITLE LIKE '%' || #{searchKeyword} || '%'
 	</select>
+	
+	<select id="getContent" parameterType="int" resultType="com.phgym.board.model.BoardDTO">
+    	SELECT * FROM EXERCISE_INFO WHERE INFO_NO = #{infoNo}
+	</select>
+	
+	<update id="increaseHit" parameterType="int">
+		UPDATE EXERCISE_INFO SET HIT = HIT + 1 WHERE INFO_NO = #{infoNo}
+	</update>
 
 </mapper>

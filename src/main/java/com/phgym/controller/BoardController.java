@@ -53,33 +53,22 @@ public class BoardController extends HttpServlet {
 			service = new BoardServiceImpl();
 			service.regist(request, response);
 			
-		} else if(command.equals("main_exe_search.board")) { // 검색
+		} else if(command.equals("/board/main_exe_search.board")) { // 검색
 			
+//			service = new BoardServiceImpl();
 			String searchKeyword = request.getParameter("searchKeyword");
-			service = new BoardServiceImpl();
 			service.searchList(request, response, searchKeyword);
+			
+		} else if(command.equals("/board/main_exe_content.board")) { // 조회
+			
+			service = new BoardServiceImpl();
+			service.getContent(request, response);
+			request.getRequestDispatcher("main-exerciseinfo-content.jsp").forward(request, response);
 			
 		}
 		
 		
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
