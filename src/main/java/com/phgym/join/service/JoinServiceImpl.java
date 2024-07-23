@@ -49,17 +49,17 @@ public class JoinServiceImpl implements JoinService {
 	public void userPwFind(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		String userid = request.getParameter("userid");
-		String email = request.getParameter("email");
-		String number = request.getParameter("number");
+		String userid = request.getParameter("userId");
+		String useremail = request.getParameter("userEmail");
+		String userphone = request.getParameter("userPhone");
 		System.out.println("userid = " + userid);
-		System.out.println("email = " + email);
-		System.out.println("number = " + number);
+		System.out.println("email = " + useremail);
+		System.out.println("number = " + userphone);
 
 		UserInfoDTO dto = new UserInfoDTO();
 		dto.setUserId(userid);
-		dto.setEmail(email);
-		dto.setPhone(number);
+		dto.setUserEmail(useremail);
+		dto.setUserPhone(userphone);
 
 		SqlSession sql = sqlSessionFactory.openSession();
 		JoinMapper mapper = sql.getMapper(JoinMapper.class);
@@ -98,15 +98,15 @@ public class JoinServiceImpl implements JoinService {
 	public void userIdFind(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		String userName = request.getParameter("userName");
-		String email = request.getParameter("email");
-		String number = request.getParameter("number");
+		String username = request.getParameter("userName");
+		String useremail = request.getParameter("userEmail");
+		String userphone = request.getParameter("userPhone");
 		
 		UserInfoDTO dto = new UserInfoDTO();
 		
-		dto.setName(userName);
-		dto.setEmail(email);
-		dto.setPhone(number);
+		dto.setUserName(username);
+		dto.setUserEmail(useremail);
+		dto.setUserPhone(userphone);
 		
 		SqlSession sql = sqlSessionFactory.openSession();
 		JoinMapper mapper = sql.getMapper(JoinMapper.class);
@@ -173,12 +173,12 @@ public class JoinServiceImpl implements JoinService {
 			
 		} else { // 로그인 성공
 			request.setAttribute("userLogin", userLogin);
-			request.getSession().setAttribute("userName", userLogin.getName());
+			request.getSession().setAttribute("userName", userLogin.getUserName());
 			request.getRequestDispatcher("/main/main-userhome.jsp").forward(request, response);
 			
 			HttpSession session = request.getSession();
 			session.setAttribute("sessionUserId", dto.getUserId());
-			session.setAttribute("sessionUserName", dto.getName());
+			session.setAttribute("sessionUserName", dto.getUserName());
 			session.setAttribute("sessionUserNo",dto.getUserNo());
 		}
 		
@@ -255,5 +255,76 @@ public class JoinServiceImpl implements JoinService {
 		}
 		
 		request.getRequestDispatcher("main-join-admin.jsp").forward(request, response);
+	}
+
+	@Override
+	public void userJoin(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		
+		String username = request.getParameter("userName");
+		LocalDate userbirth = LocalDate.parse(request.getParameter("userBirth"), DateTimeFormatter.ISO_DATE);
+		String userphone = request.getParameter("userPhone");
+		String usergender = request.getParameter("userGender");
+		String userid = request.getParameter("userId");
+		String userpw = request.getParameter("userPw");
+		String userpwre = request.getParameter("userPwre");
+		String useraddress = request.getParameter("userAddress");
+		String useremail = request.getParameter("userEmail");
+		
+		UserInfoDTO dto = new UserInfoDTO();
+		
+		dto.setUserName(username);
+		dto.setUserBirth(userbirth);
+		dto.setUserPhone(userphone);
+		dto.setUserGender(usergender);
+		dto.setUserId(userid);
+		dto.setUserPw(userpw);
+		dto.setUserAddress(useraddress);
+		dto.setUserEmail(useremail);
+		
+		System.out.println(dto);
+		
+		SqlSession sql = sqlSessionFactory.openSession(true);
+		JoinMapper mapper = sql.getMapper(JoinMapper.class);
+		int userResult = mapper.userJoin(dto);
+		sql.close();
+		
+		if(userResult == 1) { // 아이디중복
+			
+			request.setAttribute("msg", "이미 존재하는 회원입니다.");
+			request.getRequestDispatcher("main-join-user.jsp").forward(request, response);
+			
+			HttpSession session = request.getSession();
+			session.setAttribute("user_no",dto.getUserNo());
+			
+			
+		} else { // 중복 x - 회원가입
+			
+			response.sendRedirect("main-login-user.jsp");
+			
+		}
+		
+	}
+
+	@Override
+	public void userIdCheck(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		
+		String userId = request.getParameter("userId");
+		
+		SqlSession sql = sqlSessionFactory.openSession(true);
+		JoinMapper mapper = sql.getMapper(JoinMapper.class);
+		
+		UserInfoDTO userIdCheck = mapper.userIdCheck(userId);
+		
+		if(userIdCheck == null) { //회원가입 가능
+			request.setAttribute("msg", "Y");
+			
+		} else { //회원가입 불가능
+			request.setAttribute("msg", "N");
+		}
+		
+		request.getRequestDispatcher("main-join-user.jsp").forward(request, response);
+		
 	}
 }

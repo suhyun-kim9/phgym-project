@@ -70,4 +70,29 @@
 		
 	</select>
 	
+	<insert id="userJoin" parameterType="com.phgym.join.model.UserInfoDTO">
+	
+		INSERT
+		INTO USER_INFO(user_no, user_id, user_pw, user_name, user_birth,
+					   user_gender, user_phone, user_email,
+					   user_address, user_reg_date)
+	    VALUES(user_info_seq.nextval,
+	    #{userId},
+	    #{userPw},
+	    #{userName},
+	    #{userBirth},
+	    #{userGender},
+	    #{userPhone},
+	    #{userEmail},
+	    #{userAddress},
+	    sysdate)
+	    
+	</insert>
+	
+	<select id="userIdCheck" resultType= "com.phgym.join.model.UserInfoDTO" parameterType="String">
+	
+		SELECT * FROM USER_INFO WHERE USER_ID = #{userId}
+		
+	</select>
+	
 </mapper>

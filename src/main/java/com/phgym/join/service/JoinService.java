@@ -22,5 +22,9 @@ public interface JoinService {
 	void adminJoin(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException; // 관리자 회원가입
 
 	void adminIdCheck(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException; // 관리자 아이디 중복체크
+
+	void userJoin(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException; // 회원 회원가입
+
+	void userIdCheck(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException; // 회원 아이디 중복체크
 	
 }
