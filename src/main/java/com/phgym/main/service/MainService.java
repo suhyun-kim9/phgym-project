@@ -33,5 +33,7 @@ public interface MainService {
 	void buyPromotion(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException;
 
 	
+	/* 헬스장소개 - 트레이너소개 선택하기 */
+	void goTrainer(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException;
 	
 }

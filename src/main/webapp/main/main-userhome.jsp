@@ -17,11 +17,20 @@
 	    }
 
         * {margin: 0 auto; padding: 0; text-decoration: none; font-family: 'SUIT-Regular';}
-
+		
+		@keyframes fadeIn { /* 메인 이미지 슬라이드*/
+            from {
+                opacity: 0;
+            } to {
+                opacity: 1;
+            }
+        }
+		
         /* 모든 컨텐츠를 감싸는 클래스 */
         .main-wrap {
             width: 1024px; height: 800px;
             border: 0px solid #e3e3e3;
+            position: relative;
         }
         
         /* 메인사진 */
@@ -134,7 +143,7 @@
             </div>
             <div class="main-prom" id="prom-list">
                 <span class="prom1">
-                    <img src="img/nutrition.jpg" alt="img1">
+                    <img src="img/nutrition.jpg" class="main-img">
                     <p>Nutrition</p>
                     <p>식단 및 영양 정보 제공</p>
                     <p class="satisfaction">⭐️ 고객만족도 4.9  🕒주 2회 제공</p>
@@ -167,12 +176,7 @@
         </div>
     </section>
 
-	<script type="text/javascript" src="../include/js/main-navigation.js"></script>
-
-
-
-
-
+<script type="text/javascript" src="../include/js/main-navigation.js"></script>
 
 </body>
 </html>
