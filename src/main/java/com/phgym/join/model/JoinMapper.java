@@ -17,4 +17,8 @@ public interface JoinMapper {
 	public int adminJoin(AdminInfoDTO dto);
 
 	public AdminInfoDTO adminIdCheck(String string);
+
+	public int userJoin(UserInfoDTO dto);
+
+	public UserInfoDTO userIdCheck(String string);
 }

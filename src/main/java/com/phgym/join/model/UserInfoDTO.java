@@ -1,39 +1,36 @@
 package com.phgym.join.model;
-
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 public class UserInfoDTO {
 
 	private int userNo;
 	private String userId;
 	private String userPw;
-	private String name;
-	private LocalDateTime birth;
-	private String gender;
-	private String phone;
-	private String email;
-	private String address;
-	private LocalDateTime regDate;
-	private String profile;
+	private String userName;
+	private LocalDate userBirth;
+	private String userGender;
+	private String userPhone;
+	private String userEmail;
+	private String userAddress;
+	private LocalDate userRegDate;
 	
 	public UserInfoDTO() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public UserInfoDTO(int userNo, String userId, String userPw, String name, LocalDateTime birth, String gender,
-			String phone, String email, String address, LocalDateTime regDate, String profile) {
+	public UserInfoDTO(int userNo, String userId, String userPw, String userName, LocalDate userBirth,
+					   String userGender, String userPhone, String userEmail, String userAddress, LocalDate userRegDate) {
 		super();
 		this.userNo = userNo;
 		this.userId = userId;
 		this.userPw = userPw;
-		this.name = name;
-		this.birth = birth;
-		this.gender = gender;
-		this.phone = phone;
-		this.email = email;
-		this.address = address;
-		this.regDate = regDate;
-		this.profile = profile;
+		this.userName = userName;
+		this.userBirth = userBirth;
+		this.userGender = userGender;
+		this.userPhone = userPhone;
+		this.userEmail = userEmail;
+		this.userAddress = userAddress;
+		this.userRegDate = userRegDate;
 	}
 
 	public int getUserNo() {
@@ -60,68 +57,67 @@ public class UserInfoDTO {
 		this.userPw = userPw;
 	}
 
-	public String getName() {
-		return name;
+	public String getUserName() {
+		return userName;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 
-	public LocalDateTime getBirth() {
-		return birth;
+	public LocalDate getUserBirth() {
+		return userBirth;
 	}
 
-	public void setBirth(LocalDateTime birth) {
-		this.birth = birth;
+	public void setUserBirth(LocalDate userBirth) {
+		this.userBirth = userBirth;
 	}
 
-	public String getGender() {
-		return gender;
+	public String getUserGender() {
+		return userGender;
 	}
 
-	public void setGender(String gender) {
-		this.gender = gender;
+	public void setUserGender(String userGender) {
+		this.userGender = userGender;
 	}
 
-	public String getPhone() {
-		return phone;
+	public String getUserPhone() {
+		return userPhone;
 	}
 
-	public void setPhone(String phone) {
-		this.phone = phone;
+	public void setUserPhone(String userPhone) {
+		this.userPhone = userPhone;
 	}
 
-	public String getEmail() {
-		return email;
+	public String getUserEmail() {
+		return userEmail;
 	}
 
-	public void setEmail(String email) {
-		this.email = email;
+	public void setUserEmail(String userEmail) {
+		this.userEmail = userEmail;
 	}
 
-	public String getAddress() {
-		return address;
+	public String getUserAddress() {
+		return userAddress;
 	}
 
-	public void setAddress(String address) {
-		this.address = address;
+	public void setUserAddress(String userAddress) {
+		this.userAddress = userAddress;
 	}
 
-	public LocalDateTime getRegDate() {
-		return regDate;
+	public LocalDate getUserRegDate() {
+		return userRegDate;
 	}
 
-	public void setRegDate(LocalDateTime regDate) {
-		this.regDate = regDate;
+	public void setUserRegDate(LocalDate userRegDate) {
+		this.userRegDate = userRegDate;
 	}
 
-	public String getProfile() {
-		return profile;
-	}
-
-	public void setProfile(String profile) {
-		this.profile = profile;
+	@Override
+	public String toString() {
+		return "UserInfoDTO [userNo=" + userNo + ", userId=" + userId + ", userPw=" + userPw + ", userName=" + userName
+				+ ", userBirth=" + userBirth + ", userGender=" + userGender + ", userPhone=" + userPhone
+				+ ", userEmail=" + userEmail + ", userAddress=" + userAddress + ", userRegDate=" + userRegDate + "]";
 	}
 	
 }
