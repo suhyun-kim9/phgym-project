@@ -1,10 +1,10 @@
 package com.phgym.admin.model;
 
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
 import com.phgym.mypage.model.PtReservationHisDTO;
+import com.phgym.mypage.model.PtReservationHisDTO2;
 
 public interface AdminMapper {
 	
@@ -29,9 +29,7 @@ public interface AdminMapper {
 
 		// 중복 
 		public UserAccountDTO getUserAccount2(int userNo);
-		
-		
 
-//		public PtReservationHisDTO doPtPlanCheck (PtReservationHisDTO dto);
 
+		public PtReservationHisDTO2 doPtPlanCheck(PtReservationHisDTO2 dto);
 }

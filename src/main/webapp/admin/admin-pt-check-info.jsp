@@ -12,9 +12,8 @@
     <link rel="stylesheet" href="../include/css/admin-navigation.css">
     <link rel="stylesheet" href="css/admin-pt-check-info.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-
-
-
+ 	<link rel="stylesheet" href="css/calendar.css">
+	<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 </head>
 <body>
     <div class="content"> 
@@ -98,12 +97,16 @@
 					            <th> 성별 </th>
 					            <td> <div>${dto.userGender}</div> </td>
 					        </tr>  
+					         <tr >
+					            <th> 담당트레이너  </th>
+					            <td> <div>${dto.userGender}</div> </td>
+					        </tr>  
 			        	</tbody>
 			        </table>
 		        </div>
 		        </div>
          
-                 <!-- pt 담당 트레이너 -->
+<%--                  <!-- pt 담당 트레이너 -->
                  <div class="pt_trainer">
                      <div> <p> PT 담당 트레이너 </p></div>
                      <div class="trainer_box">
@@ -121,38 +124,62 @@
                          </div>
                      </div>
                      
-                 </div>
+                 </div> --%>
          
                  <!-- pt 일정 -->
                  <div class="pt_plan">
-                     <div><p> PT 일정 </p></div>
                      <div class="pt_planer">
-                <div class="pt_date">
+ 
                     <!-- 캘린더 전체 컨테이너 -->
-				    <div class="calendar">
-				        <!-- 헤더 부분: 이전, 다음 버튼과 월/연 표시 -->
-				        <div class="header">
-				            <button id="prevMonth">&lt;</button>
-				            <div class="month-year" id="monthYear"></div>
-				            <button id="nextMonth">&gt;</button>
-				        </div>
-				        <!-- 요일 이름 표시 -->
-				        <div class="weekdays">
-				            <div>Sun</div>
-				            <div>Mon</div>
-				            <div>Tue</div>
-				            <div>Wed</div>
-				            <div>Thu</div>
-				            <div>Fri</div>
-				            <div>Sat</div>
-				        </div>
-				        <!-- 날짜 표시 -->
-				        <div class="days" id="days"></div>
-				         
-				    </div>
-				     <div class="pt_list"> </div>
-				    
-                </div>
+				     <!-- 캘린더 전체 컨테이너 -->
+    <div class="calendar">
+        <!-- 헤더 부분: 이전, 다음 버튼과 월/연 표시 -->
+        <div class="header">
+            <button id="prevMonth">&lt;</button>
+            <div class="month-year" id="monthYear"></div>
+            <button id="nextMonth">&gt;</button>
+        </div>
+        <!-- 요일 이름 표시 -->
+        <div class="weekdays">
+            <div>Sun</div>
+            <div>Mon</div>
+            <div>Tue</div>
+            <div>Wed</div>
+            <div>Thu</div>
+            <div>Fri</div>
+            <div>Sat</div>
+        </div>
+
+
+        
+
+        <div>
+            <label for="type">날짜 : </label>
+            <input type="text" id="date" readonly />
+        </div>
+        <!-- 날짜 표시 -->
+        <div class="days" id="days"></div>
+
+        <div class="list_box">
+            <div class="pt_content">
+               <table>
+                <tbody>
+                    <tr>
+                        <th> 예약일 :  </th>
+                        <td>${result.reservationDate}  </td>
+                    </tr>
+                    <tr>
+                        <th>  PT 내용 : </th>
+                        <td> <textarea type="text" rows="4" cols="50"> ${result.content} </textarea></td>
+                    </tr>
+
+                </tbody>
+                </table>
+
+            </div>
+
+        </div>
+    </div>
               
             </div>
                        
@@ -161,8 +188,14 @@
 
 
 </div>
-	<script type="text/javascript" src="js/admin-reservation-date.js"> </script>
+	    <script type="text/javascript" src="js/calendar.js"> </script>
     <script type="text/javascript" src="../include/js/admin-navigation.js"> </script>
- 
+ 	<script type="text/javascript">
+ 		var result = "${result}";
+ 		var listBox = document.querySelector(".list_box");
+ 		if(result == null || result == "") {
+ 			listBox.style.display = "none";
+ 		}
+ 	</script>
 </body>
 </html>

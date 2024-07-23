@@ -59,6 +59,13 @@
 		WHERE p.admin_no = #{adminNo}
 	</select>
 	
+	<select id="doPtPlanCheck" parameterType="com.phgym.mypage.model.PtReservationHisDTO2" resultType="com.phgym.mypage.model.PtReservationHisDTO2">
+		select * from pt_reservation_his 
+	    where admin_no = #{adminNo} 
+	    and user_no = #{userNo} 
+	    and trunc(reservation_date) = #{reservationDate}
+	</select>
+	
 	<!-- <select id="getTrainerPtCheck" parameterType="LocalDateTime" resultType="com.phgym.mypage.model.PtReservationHisDTO">
 		SELECT pt_reservation_his_no, admin_no, user_no, reservation_date
 		FROM pt_reservation_his
