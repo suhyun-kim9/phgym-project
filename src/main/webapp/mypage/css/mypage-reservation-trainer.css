@@ -22,12 +22,19 @@ img {
     width: 100%;
     margin: 100px auto 0;
     text-align: center;
-    box-shadow: 0 8px 16px #ff7f56;
+    box-shadow: 0 8px 16px #ddd;
     padding: 50px 0;
-    display: flex;
-    justify-content: space-around;
+        border: 1px solid #ddd;
+    border-radius: 10px;
+    
 }
 
-.content > .wrap > div {
+.content > .wrap > .trainer_box {
+	display: flex;
+    justify-content: space-around;
+    padding-top: 20px;
+}
+
+.content > .wrap > .trainer_box > div {
 	width: 20%;
 }

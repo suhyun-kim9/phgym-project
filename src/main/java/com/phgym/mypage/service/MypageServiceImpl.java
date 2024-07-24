@@ -151,6 +151,17 @@ public class MypageServiceImpl implements MypageService {
 	@Override
 	public void reservationTrainer(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		int sessionUserNo = (int)request.getSession().getAttribute("sessionUserNo");
+		
+		SqlSession sql = sqlSessionFactory.openSession(true);
+		MypageMapper mypage = sql.getMapper(MypageMapper.class);
+		int totalPtCnt = mypage.getTotalPtCnt(sessionUserNo);
+		System.out.println("totalPtCnt = " + totalPtCnt);
+		int didPtCnt = mypage.getDidPtCnt(sessionUserNo);
+		System.out.println("didPtCnt = " + didPtCnt);
+		int remainingPtCnt = totalPtCnt - didPtCnt;
+		
+		request.setAttribute("remainingPtCnt", remainingPtCnt);
 		request.getRequestDispatcher("mypage-reservation-trainer.jsp").forward(request, response);
 	}
 
