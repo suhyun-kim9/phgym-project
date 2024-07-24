@@ -142,7 +142,7 @@
                 <div>
 			        <input type="date" name="startDate" id="startDate" onchange="onChangeCal(this)">
 			        <a> ~ </a>
-			        <input type="date" name="endDate" id="endDate">
+			        <input type="date" name="endDate" id="endDate" readonly>
 		    	</div>
             </div>
             <div id="right">

@@ -120,7 +120,7 @@
         </ul>
     </nav>
     
-   <form action="promotion-payment1.main" method="post">
+   <form action="promotion-payment2.main" method="post">
      <div class="pay-wrap">
         <p> ✔︎ 주문결제</p>
         <div class="prom-name">기본 정액가(6개월)</div>
@@ -142,7 +142,7 @@
                 <div>
 			        <input type="date" name="startDate" id="startDate" onchange="onChangeCal(this)">
 			        <a> ~ </a>
-			        <input type="date" name="endDate" id="endDate">
+			        <input type="date" name="endDate" id="endDate" readonly>
 		    	</div>
             </div>
             <div id="right">
