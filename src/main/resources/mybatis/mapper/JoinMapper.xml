@@ -89,6 +89,12 @@
 	    
 	</insert>
 	
+	<select id="checkUserIdExists" parameterType="String" resultType="int">
+	
+    	SELECT COUNT(*) FROM USER_INFO WHERE USER_ID = #{userId}
+    	
+	</select>
+	
 	<select id="userIdCheck" resultType= "com.phgym.join.model.UserInfoDTO" parameterType="String">
 	
 		SELECT * FROM USER_INFO WHERE USER_ID = #{userId}

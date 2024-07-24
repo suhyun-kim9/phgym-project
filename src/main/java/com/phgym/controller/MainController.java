@@ -30,8 +30,6 @@ public class MainController extends HttpServlet {
 	
 	protected void doAction(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//코드 작성
-		request.getSession().setAttribute("sessionUserNo", 1); //삭제예정
-		
 		request.setCharacterEncoding("utf-8");
         String uri = request.getRequestURI();
         String path = request.getContextPath();

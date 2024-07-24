@@ -75,6 +75,34 @@ public class JoinController extends HttpServlet {
 		} else if(command.equals("/join/userIdCheck.join")) { // 회원 아이디 중복체크
 			service = new JoinServiceImpl();
 			service.userIdCheck(request,response);
+			
+		} else if(command.equals("/join/LoginPage.join")) { // home -> 유저 및 관리자 로그인 선택 페이지로 이동
+			service = new JoinServiceImpl();
+			service.LoginPage(request,response);
+			
+		} else if(command.equals("/join/JoinPage.join")) { // home -> 유저 및 관리자 회원가입 선택 페이지로 이동
+			service = new JoinServiceImpl();
+			service.JoinPage(request,response);
+			
+		} else if(command.equals("/join/loginUser.join")) { // 로그인 선택페이지에서 회원 로그인하기
+			service = new JoinServiceImpl();
+			service.loginUserPage(request,response);
+			
+		} else if(command.equals("/join/loginAdmin.join")) { // 로그인 선택페이지에서 관리자 로그인하기
+			service = new JoinServiceImpl();
+			service.loginAdminPage(request,response);
+			
+		} else if(command.equals("/join/joinUser.join")) { // 회원가입 선택페이지에서 회원 회원가입 하기
+			service = new JoinServiceImpl();
+			service.joinUserPage(request,response);
+			
+		} else if(command.equals("/join/joinAdmin.join")) { // 회원가입 선택페이지에서 관리자 회원가입 하기
+			service = new JoinServiceImpl();
+			service.joinAdminPage(request,response);
+			
+		} else if(command.equals("/join/Logout.join")) { // 로그인 성공시 로그아웃하기
+			service = new JoinServiceImpl();
+			service.logoutUser(request,response);
 		}
 	}
 }

@@ -15,6 +15,7 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import jakarta.websocket.Session;
 
 public class JoinServiceImpl implements JoinService {
 
@@ -172,14 +173,12 @@ public class JoinServiceImpl implements JoinService {
 			request.getRequestDispatcher("main-login-user.jsp").forward(request, response);
 			
 		} else { // 로그인 성공
-			request.setAttribute("userLogin", userLogin);
-			request.getSession().setAttribute("userName", userLogin.getUserName());
-			request.getRequestDispatcher("/main/main-userhome.jsp").forward(request, response);
-			
 			HttpSession session = request.getSession();
-			session.setAttribute("sessionUserId", dto.getUserId());
-			session.setAttribute("sessionUserName", dto.getUserName());
-			session.setAttribute("sessionUserNo",dto.getUserNo());
+			session.setAttribute("sessionUserNo",userLogin.getUserNo());
+			session.setAttribute("sessionUserId", userLogin.getUserId());
+			session.setAttribute("sessionUserName", userLogin.getUserName());
+			
+			request.getRequestDispatcher("/main/main-userhome.jsp").forward(request, response);
 		}
 		
 	}
@@ -259,51 +258,58 @@ public class JoinServiceImpl implements JoinService {
 
 	@Override
 	public void userJoin(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		
-		String username = request.getParameter("userName");
-		LocalDate userbirth = LocalDate.parse(request.getParameter("userBirth"), DateTimeFormatter.ISO_DATE);
-		String userphone = request.getParameter("userPhone");
-		String usergender = request.getParameter("userGender");
-		String userid = request.getParameter("userId");
-		String userpw = request.getParameter("userPw");
-		String userpwre = request.getParameter("userPwre");
-		String useraddress = request.getParameter("userAddress");
-		String useremail = request.getParameter("userEmail");
-		
-		UserInfoDTO dto = new UserInfoDTO();
-		
-		dto.setUserName(username);
-		dto.setUserBirth(userbirth);
-		dto.setUserPhone(userphone);
-		dto.setUserGender(usergender);
-		dto.setUserId(userid);
-		dto.setUserPw(userpw);
-		dto.setUserAddress(useraddress);
-		dto.setUserEmail(useremail);
-		
-		System.out.println(dto);
-		
-		SqlSession sql = sqlSessionFactory.openSession(true);
-		JoinMapper mapper = sql.getMapper(JoinMapper.class);
-		int userResult = mapper.userJoin(dto);
-		sql.close();
-		
-		if(userResult == 1) { // 아이디중복
-			
-			request.setAttribute("msg", "이미 존재하는 회원입니다.");
-			request.getRequestDispatcher("main-join-user.jsp").forward(request, response);
-			
-			HttpSession session = request.getSession();
-			session.setAttribute("user_no",dto.getUserNo());
-			
-			
-		} else { // 중복 x - 회원가입
-			
-			response.sendRedirect("main-login-user.jsp");
-			
-		}
-		
+	        throws ServletException, IOException {
+	    
+	    String username = request.getParameter("userName");
+	    LocalDate userbirth = LocalDate.parse(request.getParameter("userBirth"), DateTimeFormatter.ISO_DATE);
+	    String userphone = request.getParameter("userPhone");
+	    String usergender = request.getParameter("userGender");
+	    String userid = request.getParameter("userId");
+	    String userpw = request.getParameter("userPw");
+	    String userpwre = request.getParameter("userPwre");
+	    String useraddress = request.getParameter("userAddress");
+	    String useremail = request.getParameter("userEmail");
+	    
+	    UserInfoDTO dto = new UserInfoDTO();
+	    
+	    dto.setUserName(username);
+	    dto.setUserBirth(userbirth);
+	    dto.setUserPhone(userphone);
+	    dto.setUserGender(usergender);
+	    dto.setUserId(userid);
+	    dto.setUserPw(userpw);
+	    dto.setUserAddress(useraddress);
+	    dto.setUserEmail(useremail);
+	    
+	    System.out.println(dto);
+	    
+	    SqlSession sql = sqlSessionFactory.openSession(true);
+	    JoinMapper mapper = sql.getMapper(JoinMapper.class);
+	    
+	    // 아이디 중복 검사
+	    int idCheckResult = mapper.checkUserIdExists(userid);
+	    
+	    if(idCheckResult == 1) { // 아이디 중복
+	    	
+	        sql.close();
+	        request.setAttribute("msg", "이미 존재하는 회원입니다.");
+	        request.getRequestDispatcher("main-join-user.jsp").forward(request, response);
+	        
+	    } else { // 중복 x - 회원가입 진행
+	    	
+	        int userResult = mapper.userJoin(dto);
+	        sql.close();
+	        
+	        if(userResult == 1) { // 회원가입 성공
+	            HttpSession session = request.getSession();
+	            session.setAttribute("user_no", dto.getUserNo());
+	            request.getRequestDispatcher("main-login-user.jsp").forward(request, response);
+	            
+	        } else { // 회원가입 실패
+	            request.setAttribute("msg", "회원가입에 실패했습니다. 다시 시도해주세요.");
+	            request.getRequestDispatcher("main-join-user.jsp").forward(request, response);
+	        }
+	    }
 	}
 
 	@Override
@@ -325,6 +331,67 @@ public class JoinServiceImpl implements JoinService {
 		}
 		
 		request.getRequestDispatcher("main-join-user.jsp").forward(request, response);
+		
+	}
+
+	@Override
+	public void LoginPage(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		
+		request.getRequestDispatcher("main-login-page.jsp").forward(request, response);
+		
+	}
+
+	@Override
+	public void JoinPage(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		
+		request.getRequestDispatcher("main-join-page.jsp").forward(request, response);
+		
+	}
+
+	@Override
+	public void loginUserPage(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		
+		request.getRequestDispatcher("main-login-user.jsp").forward(request, response);
+		
+	}
+
+	@Override
+	public void loginAdminPage(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		
+		request.getRequestDispatcher("main-login-admin.jsp").forward(request, response);
+	}
+
+	
+	@Override
+	public void joinUserPage(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		
+		request.getRequestDispatcher("main-join-user.jsp").forward(request, response);
+		
+	}
+
+	
+	@Override
+	public void joinAdminPage(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		
+		request.getRequestDispatcher("main-join-admin.jsp").forward(request, response);
+		
+	}
+
+	@Override
+	public void logoutUser(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		
+		request.getSession().removeAttribute("sessionUserNo");
+		request.getSession().removeAttribute("sessionUserName");
+		request.getSession().removeAttribute("sessionUserId");
+		
+		response.sendRedirect("/PHGYM/main/userhome.main");
 		
 	}
 }

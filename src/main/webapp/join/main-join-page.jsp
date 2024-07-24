@@ -15,12 +15,12 @@
             <div class="btn">
                 <div class="user">
                     <img src="#" alt="#">
-                    <a href="#">일반회원</a>
+                    <a href="joinUser.join">일반회원</a>
                 </div>
         
                 <div class="admin">
                     <img src="#" alt="#">
-                    <a href="#">관리자</a>
+                    <a href="joinAdmin.join">관리자</a>
                 </div>
             </div>
         </div>
