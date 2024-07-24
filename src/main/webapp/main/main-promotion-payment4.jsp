@@ -85,7 +85,7 @@
 
     /* 제출하기 버튼 */
     .pay-wrap > input {
-        position: absolute; top: 535px; left: 862px;
+        position: absolute; top: 627px; left: 862px;
         border: 2px solid #000; border-radius: 5px;
         width: 16%; height: 30px; font-weight: 500; letter-spacing: 6px;
         background-color: #f97316; color: #000;
@@ -123,7 +123,7 @@
    <form action="promotion-payment4.main" method="post">
      <div class="pay-wrap">
         <p> ✔︎ 주문결제</p>
-        <div class="prom-name">PT회원권(5회)</div>
+        <div class="prom-name">PT회원권</div>
           <div class="content">
             <div>
                 <a>이름</a> 
@@ -152,8 +152,12 @@
                     </select>
                 </div>
                 <div>
+                	 <a>PT 개수</a>
+                    <input name="payCnt" type="number" value="0" id="payCnt" onchange="myCnt(this.value)">
+                </div>
+                <div>
                     <a>결제금액</a>
-                    <input type="text" name="payAmount" value="15000" readonly>
+                    <input type="text" name="payPrice" value="0" id="payPrice" readonly>
                 </div>
                 <div class="refund-name">
                     <a>환불은행명</a>
@@ -178,6 +182,7 @@
     </div>  
     </form>
 
+<script type="text/javascript" src="js/main-promotion-payment4.js"></script>
 <script type="text/javascript" src="js/main-promotion-payment.js"></script>
 <script type="text/javascript" src="../include/js/main-navigation.js"></script>
 </body>

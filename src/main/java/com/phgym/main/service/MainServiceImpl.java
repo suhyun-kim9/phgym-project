@@ -10,6 +10,7 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import com.phgym.main.model.UserInfoDTO;
 import com.phgym.main.model.MainMapper;
 import com.phgym.main.model.MembershipPayHisDTO;
+import com.phgym.main.model.PtPayHisDTO;
 import com.phgym.util.mybatis.MybatisUtil;
 
 import jakarta.servlet.ServletException;
@@ -110,6 +111,8 @@ public class MainServiceImpl implements MainService {
         int payAmount = Integer.parseInt(request.getParameter("payAmount")); //상품금액
         LocalDate startDate = LocalDate.parse(request.getParameter("startDate"), DateTimeFormatter.ISO_DATE);
         
+
+        
         System.out.println("작동1");
         
         MembershipPayHisDTO dto = new MembershipPayHisDTO();
@@ -121,6 +124,7 @@ public class MainServiceImpl implements MainService {
         dto.setStartDate(startDate);
         System.out.println(dto);
         
+        System.out.println(dto.toString());
         System.out.print("작동됨 서비스0");
 
 
@@ -140,22 +144,26 @@ public class MainServiceImpl implements MainService {
 
 	@Override
 	public void buyPromotion4(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		int sessionUserNo = (int)request.getSession().getAttribute("sessionUserNo");
+		System.out.println("impl 도착!!");
+		int sessionUserNo = (int)request.getSession().getAttribute("sessionUserNo"); //회원번호
 
         String payMethod =  request.getParameter("payMethod"); //결제방법
+        int payCnt =  Integer.parseInt(request.getParameter("payCnt")); //구매개수
+        int payPrice = Integer.parseInt(request.getParameter("payPrice")); //결제금액
         String refundBackname = request.getParameter("refundBankname"); //환불(은행명)
         String refundBankAccount =  request.getParameter("refundBankAccount"); //환불(계좌번호)
-        int payAmount = Integer.parseInt(request.getParameter("payAmount")); //상품금액
+        
         
         System.out.println("작동1");
         
-        MembershipPayHisDTO dto = new MembershipPayHisDTO();
+        PtPayHisDTO dto = new PtPayHisDTO();
         dto.setUserNo(sessionUserNo);
         dto.setPayMethod(payMethod);
+        dto.setPayCnt(payCnt);
+        dto.setPayPrice(payPrice);
         dto.setRefundBankname(refundBackname);
         dto.setRefundBankAccount(refundBankAccount);
-        dto.setPayAmount(payAmount);
+        
         System.out.println(dto);
         
         System.out.print("작동됨 서비스0");
@@ -260,11 +268,6 @@ public class MainServiceImpl implements MainService {
 	}
 
 
-	
-	
-	
-	
-	
 	@Override
 	public void getUserPeriod(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		

@@ -8,7 +8,7 @@ public interface MainMapper {
 	public int buyPromotion1(MembershipPayHisDTO dto);
 	public int buyPromotion2(MembershipPayHisDTO dto);
 	public int buyPromotion3(MembershipPayHisDTO dto);
-	public int buyPromotion4(MembershipPayHisDTO dto);
+	public int buyPromotion4(PtPayHisDTO dto);
 	
 	public UserInfoDTO goPromotionPay1(int sessionUserNo);
 	public UserInfoDTO goPromotionPay2(int sessionUserNo);
