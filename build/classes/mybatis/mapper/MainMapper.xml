@@ -20,9 +20,9 @@
 		VALUES(membership_pay_his_seq.nextval, #{userNo}, sysdate, #{startDate}, #{payMethod}, #{refundBankname}, #{refundBankAccount}, #{payAmount})
 	</insert>
 	
-	<insert id="buyPromotion4" parameterType="com.phgym.mypage.model.MembershipPayHisDTO" >
-		INSERT INTO MEMBERSHIP_PAY_HIS(MEMBERSHIP_PAY_NO, USER_NO, PAY_DATE, PAY_METHOD, REFUND_BANKNAME, REFUND_BANKACCOUNT, PAY_AMOUNT)
-		VALUES(membership_pay_his_seq.nextval, #{userNo}, sysdate, #{payMethod}, #{refundBankname}, #{refundBankAccount}, #{payAmount})
+	<insert id="buyPromotion4" parameterType="com.phgym.main.model.PtPayHisDTO" >
+		INSERT INTO PT_PAY_HIS(PT_PAY_NO, USER_NO, PAY_DATE, PAY_METHOD, PAY_CNT, PAY_PRICE, REFUND_BANKNAME, REFUND_BANKACCOUNT)
+		VALUES(pt_pay_his_seq.nextval, #{userNo}, sysdate, #{payMethod}, #{payCnt}, #{payPrice}, #{refundBankname}, #{refundBankAccount})
 	</insert>
 	
 	
