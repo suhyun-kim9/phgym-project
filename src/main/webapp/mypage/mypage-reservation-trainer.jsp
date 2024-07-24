@@ -37,28 +37,39 @@
     </nav>
 
     <section class="content">
-        <p>PT 담당 트레이너</p>
         <div class="wrap">
-			<div>
-				<img alt="트레이너" src="img/1.WEBP">
-				<button type="button" onclick="location.href='reservationDate.mypage?adminNo=1'">예약하기</button>
-			</div>
-			<div>
-				<img alt="트레이너" src="img/2.WEBP">
-				<button type="button" onclick="location.href='reservationDate.mypage?adminNo=2'">예약하기</button>
-			</div>
-			<div>
-				<img alt="트레이너" src="img/3.WEBP">
-				<button type="button" onclick="location.href='reservationDate.mypage?adminNo=3'">예약하기</button>
-			</div>
-			<div>
-				<img alt="트레이너" src="img/4.WEBP">
-				<button type="button" onclick="location.href='reservationDate.mypage?adminNo=4'">예약하기</button>
+        	<p>PT 담당 트레이너</p>
+        	<p>${sessionScope.sessionUserName}님의 잔여횟수는 ${remainingPtCnt}회 입니다.</p>
+			<div class="trainer_box">
+				<div>
+					<img alt="트레이너" src="img/1.WEBP">
+					<button type="button" onclick="location.href='reservationDate.mypage?adminNo=1'" disabled="disabled">예약하기</button>
+				</div>
+				<div>
+					<img alt="트레이너" src="img/2.WEBP">
+					<button type="button" onclick="location.href='reservationDate.mypage?adminNo=2'" disabled="disabled">예약하기</button>
+				</div>
+				<div>
+					<img alt="트레이너" src="img/3.WEBP">
+					<button type="button" onclick="location.href='reservationDate.mypage?adminNo=3'" disabled="disabled">예약하기</button>
+				</div>
+				<div>
+					<img alt="트레이너" src="img/4.WEBP">
+					<button type="button" onclick="location.href='reservationDate.mypage?adminNo=4'" disabled="disabled">예약하기</button>
+				</div>
 			</div>
         </div>
     </section>
     
     <script type="text/javascript">
+    	var btn = document.querySelectorAll("button");
+    	var remainingPtCnt = ${remainingPtCnt};
+    	if(remainingPtCnt > 0) {
+    		for(var i = 0; i < btn.length; i++) {
+    			btn[i].removeAttribute("disabled");
+    		}
+    	}
+    
 	    var doPtReservationMsg = "${sessionScope.doPtReservationMsg}";
 	    if(doPtReservationMsg) {
 	    	alert("PT 예약이 완료되셨습니다.");

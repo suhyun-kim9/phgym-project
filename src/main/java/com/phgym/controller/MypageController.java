@@ -35,31 +35,31 @@ public class MypageController extends HttpServlet {
 		request.getSession().setAttribute("sessionUserNo", 1); //삭제예정
 		
 		MypageService service = null;
-		if(command.equals("/mypage/checkin.mypage")) {
+		if(command.equals("/mypage/checkin.mypage")) { //출석체크 페이지 이동
 			service = new MypageServiceImpl();
 			service.checkCheckin(request, response);
-		} else if(command.equals("/mypage/doCheckin.mypage")) {
+		} else if(command.equals("/mypage/doCheckin.mypage")) { //출석체크 기능
 			service = new MypageServiceImpl();
 			service.doCheckin(request, response);
-		} else if(command.equals("/mypage/transfer.mypage")) {
+		} else if(command.equals("/mypage/transfer.mypage")) { //회원권양도 페이지 이동
 			service = new MypageServiceImpl();
 			service.checkTransfer(request, response);
-		} else if(command.equals("/mypage/doTransfer.mypage")) {
+		} else if(command.equals("/mypage/doTransfer.mypage")) { //회원권양도 기능
 			service = new MypageServiceImpl();
 			service.doTransfer(request, response);
-		} else if(command.equals("/mypage/statistics.mypage")) {
+		} else if(command.equals("/mypage/statistics.mypage")) { //통계확인 페이지 이동
 			service = new MypageServiceImpl();
 			service.statistics(request, response);
-		} else if(command.equals("/mypage/reservationTrainer.mypage")) {
+		} else if(command.equals("/mypage/reservationTrainer.mypage")) { //PT예약하기(트레이너) 페이지 이동
 			service = new MypageServiceImpl();
 			service.reservationTrainer(request, response);
-		} else if(command.equals("/mypage/reservationDate.mypage")) {
+		} else if(command.equals("/mypage/reservationDate.mypage")) { //PT예약하기(날짜) 페이지 이동
 			service = new MypageServiceImpl();
 			service.reservationDate(request, response);
-		} else if(command.equals("/mypage/reservationTime.mypage")) {
+		} else if(command.equals("/mypage/reservationTime.mypage")) { //PT예약하기(시간) 페이지 이동
 			service = new MypageServiceImpl();
 			service.reservationTime(request, response);
-		} else if(command.equals("/mypage/doPtReservation.mypage")) {
+		} else if(command.equals("/mypage/doPtReservation.mypage")) { //PT예약하기 기능
 			service = new MypageServiceImpl();
 			service.doPtReservation(request, response);
 		}

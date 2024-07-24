@@ -51,4 +51,12 @@
 	<select id="checkUserInfo" parameterType="int" resultType="com.phgym.mypage.model.MypageUserInfoDTO">
 		select * from user_info where user_no = #{userNo}
 	</select>
+	
+	<select id="getTotalPtCnt" parameterType="int" resultType="int">
+		select nvl(sum(pay_cnt), 0) from pt_pay_his where user_no = ${sessionUserNo}
+	</select>
+	
+	<select id="getDidPtCnt" parameterType="int" resultType="int">
+		select count(*) from pt_reservation_his where user_no = #{sessionUserNo} and (progress_status = 'Y' or progress_status is null)
+	</select>
 </mapper>
