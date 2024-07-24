@@ -120,7 +120,7 @@
         </ul>
     </nav>
     
-   <form action="promotion-payment1.main" method="post">
+   <form action="promotion-payment3.main" method="post">
      <div class="pay-wrap">
         <p> ✔︎ 주문결제</p>
         <div class="prom-name">일일 이용권</div>
