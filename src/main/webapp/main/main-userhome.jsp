@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -111,7 +112,7 @@
 
 </head>
 <body>
-    
+	${sessionScope.sessionUserNo}
     <nav class="main_nav_bar">
         <ul class="main_nav">
             <a href="/PHGYM/main/userhome.main"><img src="../include/img/logo-light2.png"></a>
@@ -130,7 +131,13 @@
             <li class="gnb">  
                 <!-- <input type="button" value="마이페이지"> -->
                 <!-- <input type="button" value="회원가입"> -->
-                <input type="button" value="로그아웃">
+                <c:if test="${sessionScope.sessionUserNo == null || sessionScope.sessionUserNo == ''}">
+                	<input type="button" value="로그인" onclick="location.href='../join/LoginPage.join'">
+                	<input type="button" value="회원가입" onclick="location.href='../join/JoinPage.join'">
+                </c:if>
+                <c:if test="${sessionScope.sessionUserNo != null && sessionScope.sessionUserNo != ''}">
+                	<input type="button" value="로그아웃" onclick="location.href='../join/Logout.join'">
+                </c:if>
             </li>
             <div class="animation"></div>
         </ul>

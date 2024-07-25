@@ -13,7 +13,7 @@
 <link rel="stylesheet" href="../include/css/admin-navigation.css">
 <link rel="stylesheet" href="css/admin-account.css">
 <link rel="stylesheet"
-	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
 
 
@@ -36,7 +36,7 @@
 						<li><i class="bi bi-person-circle"></i> <a href="/PHGYM/admin/user-find.admin"> 회원 정보 조회 </a></li>
 						<li><i class="bi bi-calendar-check"></i> <a href="admin-pt-check.jsp"> 회원 스케쥴 조회 </a></li>
 					</ul>
-					<li><i class="bi bi-calendar4-event"></i> <a> 스케쥴 관리 </a></li>
+					<li><i class="bi bi-calendar4-event"></i> <a href="/PHGYM/admin/trainer-pt-check.admin"> 스케쥴 관리 </a></li>
 					<li><i class="bi bi-send"></i><a href="/PHGYM/mypage/transfer.mypage"> 회원권양도 </a></li>
 					<li><i class="bi bi-bell"></i> <a href="/PHGYM/admin/notice.admin"> 공지사항 </a></li>
 					<li><i class="bi bi-archive"></i> <a href="/PHGYM/admin/exerciseinfo-list.admin"> 운동정보 </a></li>
@@ -121,8 +121,10 @@
 
 		</div>
 
-		<script type="text/javascript" src="../include/js/admin-navigation.js">
-			
-		</script>
+		<script type="text/javascript" src="../include/js/admin-navigation.js"> </script>
+		
+		
+		
+		
 </body>
 </html>
