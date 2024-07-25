@@ -116,7 +116,7 @@
     <nav class="main_nav_bar">
         <ul class="main_nav">
             <a href="/PHGYM/main/userhome.main"><img src="../include/img/logo-light2.png"></a>
-            <li><a href="/PHGYM/main/introduction.main"> 헬스장 소개 </a></li>
+            <li><a href="/PHGYM/main/introduction.main" style="color: #000;"> 헬스장 소개 </a></li>
             <li><a href="/PHGYM/main/promotionList.main"> 프로모션 </a></li>
             <li><a> 문의 / 고객센터 </a></li>
             <li><a href="/PHGYM/main/map.main"> 오시는 길 </a></li>
