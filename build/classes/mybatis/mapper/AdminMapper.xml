@@ -7,17 +7,17 @@
 
 	<!-- 관리자 정보 가져오기  -->
 	<select id="getAdminAccount" parameterType="int" resultType="com.phgym.admin.model.AdminAccountDTO">
-    	SELECT admin_name, admin_birth, admin_gender, admin_phone, admin_id, admin_job_title, admin_hire_date, admin_email, admin_career_his 
+    	SELECT *
     	FROM admin_info 
     	WHERE admin_no = #{adminNo}
 	</select>
 	
 		<!-- 유저 아이디 가져오기 -->
-	<!-- <select id="getUserId" parameterType="String" resultType="int">
+	 <select id="getUserId" parameterType="String" resultType="int">
     	SELECT user_no
     	FROM user_info
     	WHERE user_name = #{userName}
-	</select> -->
+	</select> 
 	
 	<!-- 관리자 정보 가져오기  -->
 	<select id="getAdminAccountForUserId" parameterType="int" resultType="com.phgym.admin.model.AdminAccountDTO">
@@ -49,15 +49,30 @@
 		FROM user_info
 		WHERE user_no = #{userNo}
 	</select>
-	
+
+
 	<!-- 관리자 본인 스케쥴 확인하기 -->
-	<select id="getTrainerPtCheck" parameterType="int" resultType="com.phgym.mypage.model.PtReservationHisDTO">
-		SELECT p.admin_no, p.user_no, u.user_name, p.reservation_date, p.progress_status, p.content
-		FROM user_info u
-		JOIN pt_reservation_his p
-		ON u.user_no = p.user_no
+	<select id="doTrainerPtCheck" parameterType="com.phgym.mypage.model.PtReservationHisDTO2" resultType="com.phgym.mypage.model.PtReservationHisDTO2">
+		SELECT *
+		FROM pt_reservation_his p
+		WHERE p.admin_no = #{adminNo}
+		 and trunc(reservation_date) = #{reservationDate}
+		
+	</select>
+	
+	<select id="doTrainerPtCheck2" parameterType="int" resultType="com.phgym.mypage.model.PtReservationHisDTO2">
+		SELECT *
+		FROM pt_reservation_his p
 		WHERE p.admin_no = #{adminNo}
 	</select>
+	
+	<select id="getTrainerPtCheck2" parameterType="com.phgym.mypage.model.PtReservationHisDTO2" resultType="com.phgym.mypage.model.PtReservationHisDTO2">
+		SELECT *
+		FROM pt_reservation_his p
+		WHERE p.admin_no = #{adminNo}
+		 and trunc(reservation_date) = #{reservationDate}
+	</select>
+	
 	
 	<select id="doPtPlanCheck" parameterType="com.phgym.mypage.model.PtReservationHisDTO2" resultType="com.phgym.mypage.model.PtReservationHisDTO2">
 		select * from pt_reservation_his 
@@ -65,14 +80,6 @@
 	    and user_no = #{userNo} 
 	    and trunc(reservation_date) = #{reservationDate}
 	</select>
-	
-	<!-- <select id="getTrainerPtCheck" parameterType="LocalDateTime" resultType="com.phgym.mypage.model.PtReservationHisDTO">
-		SELECT pt_reservation_his_no, admin_no, user_no, reservation_date
-		FROM pt_reservation_his
-		WHERE trunc(reservation_date) = trunc(#{date})
-	</select>
-	 -->
-	
 	
 	
 </mapper>
