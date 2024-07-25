@@ -53,9 +53,6 @@
                  <div class="admin_main_name">
                      <i class="bi bi-calendar-check"></i> <span>회원 스케쥴 조회</span>    
                  </div>
-         
-          
-         
                  <!--  회원 정보 간략하게 -->
                  <form action="getUserAccount.admin" method="post">
                  <div class="search_box">
@@ -105,26 +102,6 @@
 			        </table>
 		        </div>
 		        </div>
-         
-<%--                  <!-- pt 담당 트레이너 -->
-                 <div class="pt_trainer">
-                     <div> <p> PT 담당 트레이너 </p></div>
-                     <div class="trainer_box">
-                         <!-- <img src="img/pngwing.com (1).png"> -->
-                         <div class="trainer_box2">
-                             <div class="trainer_name">
-                                 <p> ${adminDto.adminName} </p>
-                                 <p> 트레이너 </p>
-                             </div>
-                     
-         
-                             <!-- <div class="trainner_reservation_btn">
-                                 <input type="button" value="예약하기">
-                             </div> -->
-                         </div>
-                     </div>
-                     
-                 </div> --%>
          
                  <!-- pt 일정 -->
                  <div class="pt_plan">
