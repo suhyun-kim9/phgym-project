@@ -144,8 +144,10 @@ public class JoinServiceImpl implements JoinService {
 			
 			
 		} else { //로그인 성공
-			request.setAttribute("adminLogin", adminLogin); // 1회용
-			request.getSession().setAttribute("adminName", adminLogin.getAdminName()); //필요한 세션값은 혜주님과 이야기 해보고 추가하기
+			HttpSession session = request.getSession();
+			session.setAttribute("sessionAdminNo", adminLogin.getAdminNo());
+			session.setAttribute("sessionAdminId", adminLogin.getAdminId());
+			session.setAttribute("sessionAdminName", adminLogin.getAdminName());
 			request.getRequestDispatcher("/admin/admin-account.jsp").forward(request, response);
 		}
 		
@@ -391,6 +393,53 @@ public class JoinServiceImpl implements JoinService {
 		request.getSession().removeAttribute("sessionUserId");
 		
 		response.sendRedirect("/PHGYM/main/userhome.main");
+		
+	}
+
+	@Override
+	public void logoutAdmin(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		
+		request.getSession().removeAttribute("sessionAdminNo");
+		request.getSession().removeAttribute("sessionAdminId");
+		request.getSession().removeAttribute("sessionAdminName");
+		
+		response.sendRedirect("/PHGYM/main/userhome.main");
+		
+	}
+
+	@Override
+	public void findAdminId(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		
+		request.getRequestDispatcher("main-find-adminid.jsp").forward(request, response);
+		
+	}
+
+	
+	@Override
+	public void findAdminPw(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		
+		request.getRequestDispatcher("main-find-adminpw.jsp").forward(request, response);
+		
+	}
+
+	
+	@Override
+	public void findUserId(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		
+		request.getRequestDispatcher("main-find-userid.jsp").forward(request, response);
+		
+	}
+
+	
+	@Override
+	public void findUserPw(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		
+		request.getRequestDispatcher("main-find-userpw.jsp").forward(request, response);
 		
 	}
 }

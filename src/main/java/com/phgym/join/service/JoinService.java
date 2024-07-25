@@ -39,6 +39,16 @@ public interface JoinService {
 
 	void joinAdminPage(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException; // 회원가입 선택페이지에서 관리자 회원가입 선택시
 
-	void logoutUser(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException; // 로그인 성공시 로그아웃 하기
+	void logoutUser(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException; // 회원 로그인 성공시 로그아웃 하기
+
+	void logoutAdmin(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException; // 관리자 로그인 성공시 로그아웃 하기
+
+	void findAdminId(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException; // 관리자 로그인 페이지에서 아이디 찾기
+
+	void findAdminPw(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException; // 관리자 로그인 페이지에서 비밀번호 찾기
+
+	void findUserId(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException; // 회원 로그인 페이지에서 아이디 찾기
+
+	void findUserPw(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException; // 회원 로그인 페이지에서 비밀번호 찾기
 	
 }
