@@ -29,8 +29,6 @@ public class MainController extends HttpServlet {
 	}
 	
 	protected void doAction(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//코드 작성
-        request.getSession().setAttribute("sessionUserNo", 4); //삭제예정
 		
 		request.setCharacterEncoding("utf-8");
         String uri = request.getRequestURI();
@@ -39,11 +37,23 @@ public class MainController extends HttpServlet {
         System.out.println(command);
         MainService service;
         
-        if(command.equals("/main/promotion-payment.main")) {
+        if(command.equals("/main/promotion-payment1.main")) {
             service = new MainServiceImpl();
-            service.buyPromotion(request,response);
+            service.buyPromotion1(request,response);
             
-        } else if(command.equals("/main/promotionList.main")) {
+        } else if(command.equals("/main/promotion-payment2.main")) {
+        	service = new MainServiceImpl();
+        	service.buyPromotion2(request,response);
+	
+		} else if(command.equals("/main/promotion-payment3.main")) {
+	        service = new MainServiceImpl();
+	        service.buyPromotion3(request,response);
+        
+		} else if(command.equals("/main/promotion-payment4.main")) {
+        	service = new MainServiceImpl();
+        	service.buyPromotion4(request,response);
+    
+		} else if(command.equals("/main/promotionList.main")) {
         	service = new MainServiceImpl();
             service.goPromotionList(request,response);
             
@@ -75,7 +85,10 @@ public class MainController extends HttpServlet {
         	service = new MainServiceImpl();
             service.goMain(request,response);
         
-        } 
+        } else if(command.equals("/main/trainer.main")) {
+        	service = new MainServiceImpl();
+            service.goTrainer(request,response);
+        }
 		
 		
 	}

@@ -102,3 +102,11 @@
 	margin-bottom: 50px;
 }
 
+
+.tbody_list > tr , td , th{
+	padding : 10px;
+	border : 1px solid red;
+}
+.table_list {
+	border : 1px solid red;
+}

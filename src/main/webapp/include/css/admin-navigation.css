@@ -73,7 +73,7 @@
     display: none;
     
 }
-.nav_1 > li:nth-child(3):hover > .nav_2 {
+.nav_1 > li:nth-child(3): > .nav_2 {
     display: block;
 } */
 

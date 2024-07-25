@@ -26,4 +26,8 @@ public interface MypageMapper {
 	public int doPtReservation(PtReservationHisDTO dto);
 
 	public MypageUserInfoDTO checkUserInfo(int userNo);
+
+	public int getTotalPtCnt(int sessionUserNo);
+
+	public int getDidPtCnt(int sessionUserNo);
 }

@@ -15,7 +15,7 @@ public interface MainService {
 	// 1.헬스장 소개로 이동
 	void goIntroduction(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException;
 	
-	// 2.프로모션으로 이동
+	// 2.프로모션으로 이동 (
 	void goPromotionList(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException;
 	
 	// 3.문의/고객센터로 이동
@@ -30,8 +30,18 @@ public interface MainService {
 	void goPromotionPay4(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException;
 	
 	//프로모션 최종결제하기
-	void buyPromotion(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException;
-
+	void buyPromotion1(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException;
+	void buyPromotion2(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException;
+	void buyPromotion3(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException;
+	void buyPromotion4(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException;
+	
+	/* 헬스장소개 - 트레이너소개 선택하기 */
+	void goTrainer(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException;
+	
+	/* 회원권 기간 조회 */
+	void getUserPeriod(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException;
 	
 	
-}
+	
+	
+ }

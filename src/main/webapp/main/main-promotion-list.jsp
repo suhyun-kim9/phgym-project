@@ -22,7 +22,7 @@
         /* 전체 틀 */
         .list-wrap {
             position: relative;
-            width: 1024px;
+            width: 1050px;
             border: 0px solid green;
         }
 
@@ -69,6 +69,7 @@
         }
         .list-wrap > .prom button:hover {
             color: #f97316; border: 1px solid #f97316;
+           	cursor: pointer;
         }
     </style>
 
@@ -148,7 +149,7 @@
                         무제한 입장 가능<br>
                         30회 결제 시 PT 추가 증정 이벤트
                     </p>
-                    <p>￦250,000 / 5회</p>
+                    <p>￦50,000 / 1회</p>
                     <button type="submit" onclick="location.href='goPromotionPay4.main'">구매하기</button>
                 </div>
 

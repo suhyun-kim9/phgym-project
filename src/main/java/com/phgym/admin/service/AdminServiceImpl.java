@@ -15,6 +15,7 @@ import com.phgym.admin.model.AdminMapper;
 import com.phgym.admin.model.UserAccountDTO;
 import com.phgym.mypage.model.MypageMapper;
 import com.phgym.mypage.model.PtReservationHisDTO;
+import com.phgym.mypage.model.PtReservationHisDTO2;
 import com.phgym.util.mybatis.MybatisUtil;
 
 import jakarta.servlet.ServletException;
@@ -162,7 +163,8 @@ public class AdminServiceImpl implements AdminService {
 		                       
 		if(list.size() == 1) {
 			for(UserAccountDTO dto : list) {
-				request.setAttribute("dto", dto);  
+				request.setAttribute("dto", dto);
+				request.getSession().setAttribute("doPtPlanCheckUserNo", dto.getUserNo());
 			}
 			request.getRequestDispatcher("admin-pt-check-info.jsp").forward(request, response);
 		} else if(list.size() >= 2) {
@@ -177,12 +179,14 @@ public class AdminServiceImpl implements AdminService {
 	@Override
 	public void getUserPt2(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		int sessionAdminNo = (int)request.getSession().getAttribute("sessionAdminNo"); //controller
 		int userNo = Integer.parseInt(request.getParameter("userNo"));
+		request.getSession().setAttribute("doPtPlanCheckUserNo", userNo);
 		
 		SqlSession sql = sqlSessionFactory.openSession(true); //db
 		AdminMapper admin = sql.getMapper(AdminMapper.class);
 		UserAccountDTO dto = admin.getUserAccount2(userNo);
-		AdminAccountDTO admin_dto = admin.getAdminAccountForUserId(userNo);
+		AdminAccountDTO admin_dto = admin.getAdminAccount(sessionAdminNo);
 		sql.close();
 		
 		request.setAttribute("dto", dto); //회원
@@ -191,71 +195,85 @@ public class AdminServiceImpl implements AdminService {
 		
 	}
 	
-	
-	
-	// 회원 스케쥴 조회하기
-	@Override
-	public void getPtCheck(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
 
-		SqlSession sql = sqlSessionFactory.openSession(true); //db
-		
-		AdminMapper admin = sql.getMapper(AdminMapper.class);
-		
 	
-		// (담당트레이너) 관리자 정보 가져오기
+	//회원 스케쥴 조회 (플래너)
+	@Override
+	public void doPtPlanCheck(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		//지윤 수정
+		int doPtPlanCheckUserNo = (int)request.getSession().getAttribute("doPtPlanCheckUserNo");
+		int sessionAdminNo = (Integer)request.getSession().getAttribute("sessionAdminNo");
+		String reservationDate = request.getParameter("date");
 		
+		PtReservationHisDTO2 dto = new PtReservationHisDTO2();
+		dto.setUserNo(doPtPlanCheckUserNo);
+		dto.setAdminNo(sessionAdminNo);
+		dto.setReservationDate(reservationDate);
+
+		SqlSession sql = sqlSessionFactory.openSession(true);
+		AdminMapper admin = sql.getMapper(AdminMapper.class);
+		PtReservationHisDTO2 result = admin.doPtPlanCheck(dto);
+		System.out.println(result);
 		
-		
-		
+		request.setAttribute("result", result);
 		request.getRequestDispatcher("admin-pt-check-info.jsp").forward(request, response);
 	}
 
-	
 	
 	// 관리자 스케쥴 확인 (트레이너 스케쥴 확인)
 	@Override
 	public void getTrainerPtCheck(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		int sessionAdminNo = (int)request.getSession().getAttribute("sessionAdminNo"); 
+	
+		SqlSession sql = sqlSessionFactory.openSession(true);
+		AdminMapper admin = sql.getMapper(AdminMapper.class);
+		List<PtReservationHisDTO2> dateDto = admin.doTrainerPtCheck2(sessionAdminNo); // 관리자 정보 가져오기doTrainerPtCheck2
+		AdminAccountDTO adDto = admin.getAdminAccount(sessionAdminNo); // 관리자 정보 가져오기
+		
+		request.setAttribute("adDto", adDto); // 관리자 정보 조회
+		request.setAttribute("dateDto", dateDto); // 관리자 정보 조회
+
+		sql.close();
+		request.getRequestDispatcher("admin-trainer-pt-check.jsp").forward(request, response);
+	}
+
+	
+	
+	
+	
+	//관리자 스케쥴 조회 (플래너)
+	@Override
+	public void doTrainerPtCheck(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		
 		
-		int sessionAdminNo = (int)request.getSession().getAttribute("sessionAdminNo"); //controller
-		
-		SqlSession sql = sqlSessionFactory.openSession(true); //db
+		System.out.println("이힝히잏이힝힝히이");
+		int sessionAdminNo = (int)request.getSession().getAttribute("sessionAdminNo"); 
+		String reservationDate = request.getParameter("date"); // 클릭한 날짜값
+
+		SqlSession sql = sqlSessionFactory.openSession(true);
 		AdminMapper admin = sql.getMapper(AdminMapper.class);
 		
-		AdminAccountDTO adDto = admin.getAdminAccount(sessionAdminNo);
-		List<PtReservationHisDTO> reserDto = admin.getTrainerPtCheck(sessionAdminNo);
+		PtReservationHisDTO2 dto = new PtReservationHisDTO2();
+		dto.setAdminNo(sessionAdminNo);
+		dto.setReservationDate(reservationDate);
 		
-		sql.close();
-		request.setAttribute("adDto", adDto);
+		List<PtReservationHisDTO2> reserDto = admin.doTrainerPtCheck(dto);
+		
+		AdminAccountDTO adDto = admin.getAdminAccount(sessionAdminNo); // 관리자 정보 가져오기
+		
+		request.setAttribute("adDto", adDto); // 관리자 정보 조회
+		
+		System.out.println(reserDto);
 		request.setAttribute("reserDto", reserDto);
 		
 		request.getRequestDispatcher("admin-trainer-pt-check.jsp").forward(request, response);
 		
 	}
-
-
-
-	//회원 스케쥴 조회 (플래너)
-	@Override
-	public void doPtPlanCheck(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		
-		int sessionAdminNo = (Integer)request.getSession().getAttribute("sessionAdminNo");
-		int year = Integer.parseInt(request.getParameter("year"));
-		int month = Integer.parseInt(request.getParameter("month"));
-		int day = Integer.parseInt(request.getParameter("day"));
-		LocalDateTime date = LocalDateTime.of(year, month, day, 0, 0, 0);
-		
-		PtReservationHisDTO dto = new PtReservationHisDTO();
-		dto.setAdminNo(sessionAdminNo);
-		dto.setReservationDate(date);
-
-		SqlSession sql = sqlSessionFactory.openSession(true);
-		AdminMapper admin = sql.getMapper(AdminMapper.class);
-//		List<PtReservationHisDTO> list = admin.doPtPlanCheck(dto);
-	}
+	
+	
 
 	
 	
@@ -274,6 +292,19 @@ public class AdminServiceImpl implements AdminService {
 		
 	}
 
+
+
+	// 회원 스케쥴 조회하기
+	@Override
+	public void getPtCheck(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		SqlSession sql = sqlSessionFactory.openSession(true); //db
+		
+		AdminMapper admin = sql.getMapper(AdminMapper.class);
+		
+		request.getRequestDispatcher("admin-pt-check-info.jsp").forward(request, response);
+	}
 
 	
 

@@ -28,16 +28,32 @@
         /* 소개 내용 선택 구성 */
         .intro-wrap > .intro-name {
             border: 1px solid #000; border-radius: 10px;
-            width: 50%; height: 5%;
+            width: 500px;
+            height: 5%; line-height: 42.5px;
             display: flex; position: relative; top: 20px;
+        }
+        .intro-wrap > .intro-name a {
+            color: #000; 
+        }
+        .intro-wrap > .intro-name > a:nth-of-type(1) {
+            background-color: #f97316; width: 50%; height: 100%;
+            position: relative;
+            border-top-left-radius: 10px;
+            border-bottom-left-radius: 10px; text-align: center;
+        }
+        .intro-wrap > .intro-name > a:nth-of-type(2) {
+            background-color: #fff; width: 50%; height: 100%;
+            position: relative;
+            border-top-right-radius: 10px;
+            border-bottom-right-radius: 10px; text-align: center;
+        }
+        .intro-wrap > .intro-name a:hover {
+            color: #fff; pointer: cursor;
         }
         .intro-wrap > .intro-name > div {
             border: 1px solid #000;
             width: 50%; line-height: 42.5px;
             text-indent: 10px; font-size: 25px;
-        }
-        .intro-wrap > .intro-name > div:nth-of-type(1) {
-            background-color: #f97316;
         }
 
 
@@ -93,8 +109,8 @@
     <section>
         <div class="intro-wrap">
             <div class="intro-name">
-                <div>센터소개</div>
-                <div>트레이너소개</div>
+                <a href="/PHGYM/main/introduction.main">센터소개</a>
+                <a href="/PHGYM/main/trainer.main">트레이너소개</a>
             </div>
             
             <div class="intro-profile">

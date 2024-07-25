@@ -1,10 +1,10 @@
 package com.phgym.admin.model;
 
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
 import com.phgym.mypage.model.PtReservationHisDTO;
+import com.phgym.mypage.model.PtReservationHisDTO2;
 
 public interface AdminMapper {
 	
@@ -12,8 +12,8 @@ public interface AdminMapper {
 		public AdminAccountDTO getAdminAccount(int adminNo);
 		
 		
-//		// (사용자이름)으로 유저 아이디 가져오기
-//		public int getUserId(int userNo);
+		// (사용자이름)으로 유저 아이디 가져오기
+		public int getUserId(int userNo);
 		
 		// 유저 아이디로 관리자 정보 가져오기
 		public AdminAccountDTO getAdminAccountForUserId(int userId);
@@ -23,15 +23,21 @@ public interface AdminMapper {
 		
 		// 회원 정보 조회
 		public ArrayList<UserAccountDTO> getUserAccount(String userName);
-		
-		//관리자 스케쥴 조회
-		public List<PtReservationHisDTO> getTrainerPtCheck (int adminNo);
-
-		// 중복 
+	
+		// 회원 정보 조회 (유저 아이디로)
 		public UserAccountDTO getUserAccount2(int userNo);
 		
+		//관리자  (스케쥴)
+		public List<PtReservationHisDTO2> doTrainerPtCheck (PtReservationHisDTO2 dto);
 		
-
-//		public PtReservationHisDTO doPtPlanCheck (PtReservationHisDTO dto);
-
+		//관리자 스케쥴 전부
+		public List<PtReservationHisDTO2> doTrainerPtCheck2 (int sessionAdminNo);
+		
+		//관리자
+		public List<PtReservationHisDTO2> getTrainerPtCheck2 (PtReservationHisDTO2 dto);
+		
+	
+		
+		// 회원 스케쥴 가져오기
+		public PtReservationHisDTO2 doPtPlanCheck(PtReservationHisDTO2 dto);
 }
