@@ -26,7 +26,7 @@ public class MainServiceImpl implements MainService {
 	public void buyPromotion1(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		int sessionUserNo = (int)request.getSession().getAttribute("sessionUserNo");
-        
+        System.out.println("sessionUserNo = " + sessionUserNo);
         
         String payMethod =  request.getParameter("payMethod"); //결제방법
         String refundBackname = request.getParameter("refundBankname"); //환불(은행명)
