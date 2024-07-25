@@ -64,6 +64,13 @@
         
 	</insert>
 	
+	<select id="checkAdminIdExists" parameterType="String" resultType="int">
+	
+    	SELECT COUNT(*) FROM ADMIN_INFO WHERE ADMIN_ID = #{adminId}
+    	
+	</select>
+	
+	
 	<select id="adminIdCheck" resultType= "com.phgym.join.model.AdminInfoDTO" parameterType="String">
 	
 		SELECT * FROM ADMIN_INFO WHERE ADMIN_ID = #{adminId}

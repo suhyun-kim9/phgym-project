@@ -185,54 +185,55 @@ public class JoinServiceImpl implements JoinService {
 
 	@Override
 	public void adminJoin(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		
-		String adminname = request.getParameter("adminName");
-		LocalDate adminbirth = LocalDate.parse(request.getParameter("adminBirth"), DateTimeFormatter.ISO_DATE);
-		String adminphone = request.getParameter("adminPhone");
-		String adminid = request.getParameter("adminId");
-		String adminpw = request.getParameter("adminPw");
-		String admingender = request.getParameter("adminGender");
-		String adminpwre = request.getParameter("adminPwre");
-		LocalDate adminhiredate = LocalDate.parse(request.getParameter("adminHireDate"), DateTimeFormatter.ISO_DATE);
-		String adminemail = request.getParameter("adminEmail");
-		String adminCareerHis = request.getParameter("adminCareerHis");
-		String adminJobTitle = request.getParameter("adminJobTitle");
-		
-		AdminInfoDTO dto = new AdminInfoDTO();
-		
-		dto.setAdminName(adminname);
-		dto.setAdminBirth(adminbirth);
-		dto.setAdminPhone(adminphone);
-		dto.setAdminId(adminid);
-		dto.setAdminPw(adminpw);
-		dto.setAdminHireDate(adminhiredate);
-		dto.setAdminEmail(adminemail);
-		dto.setAdminGender(admingender);
-		dto.setAdminCareerHis(adminCareerHis);
-		dto.setAdminJobTitle(adminJobTitle);
-		System.out.println(dto);
-		
-		SqlSession sql = sqlSessionFactory.openSession(true);
-		JoinMapper mapper = sql.getMapper(JoinMapper.class);
-		int adminResult = mapper.adminJoin(dto);
-		System.out.println("adminResult = " + adminResult);
-		sql.close();
-		
-		if(adminResult == 1) { // 아이디중복
-			
-			request.setAttribute("msg", "이미 존재하는 회원입니다.");
-			request.getRequestDispatcher("main-join-admin.jsp").forward(request, response);
-			
-			HttpSession session = request.getSession();
-			session.setAttribute("admin_no",dto.getAdminNo());
-			
-			
-		} else { // 중복 x - 회원가입
-			
-			response.sendRedirect("main-login-admin.jsp");
-			
-		}
+	        throws ServletException, IOException {
+
+	    String adminname = request.getParameter("adminName");
+	    LocalDate adminbirth = LocalDate.parse(request.getParameter("adminBirth"), DateTimeFormatter.ISO_DATE);
+	    String adminphone = request.getParameter("adminPhone");
+	    String adminid = request.getParameter("adminId");
+	    String adminpw = request.getParameter("adminPw");
+	    String admingender = request.getParameter("adminGender");
+	    String adminpwre = request.getParameter("adminPwre");
+	    LocalDate adminhiredate = LocalDate.parse(request.getParameter("adminHireDate"), DateTimeFormatter.ISO_DATE);
+	    String adminemail = request.getParameter("adminEmail");
+	    String adminCareerHis = request.getParameter("adminCareerHis");
+	    String adminJobTitle = request.getParameter("adminJobTitle");
+
+	    AdminInfoDTO dto = new AdminInfoDTO();
+
+	    dto.setAdminName(adminname);
+	    dto.setAdminBirth(adminbirth);
+	    dto.setAdminPhone(adminphone);
+	    dto.setAdminId(adminid);
+	    dto.setAdminPw(adminpw);
+	    dto.setAdminHireDate(adminhiredate);
+	    dto.setAdminEmail(adminemail);
+	    dto.setAdminGender(admingender);
+	    dto.setAdminCareerHis(adminCareerHis);
+	    dto.setAdminJobTitle(adminJobTitle);
+
+	    System.out.println(dto);
+
+	    try (SqlSession sql = sqlSessionFactory.openSession(true)) {
+	        JoinMapper mapper = sql.getMapper(JoinMapper.class);
+
+	        // 아이디 중복 검사
+	        int idCheckResult = mapper.checkAdminIdExists(adminid); // Assuming there's a method checkAdminIdExists()
+
+	        if (idCheckResult == 1) { // 아이디 중복
+	            request.setAttribute("msg", "이미 존재하는 회원입니다.");
+	            request.getRequestDispatcher("main-join-admin.jsp").forward(request, response);
+	        } else { // 중복 x - 회원가입 진행
+	            int adminResult = mapper.adminJoin(dto);
+
+	            if (adminResult == 1) { // 회원가입 성공
+	                request.getRequestDispatcher("main-login-admin.jsp").forward(request, response);
+	            } else { // 회원가입 실패
+	                request.setAttribute("msg", "회원가입에 실패했습니다. 다시 시도해주세요.");
+	                request.getRequestDispatcher("main-join-admin.jsp").forward(request, response);
+	            }
+	        }
+	    }
 	}
 
 	@Override
@@ -365,7 +366,6 @@ public class JoinServiceImpl implements JoinService {
 		request.getRequestDispatcher("main-login-admin.jsp").forward(request, response);
 	}
 
-	
 	@Override
 	public void joinUserPage(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -374,7 +374,6 @@ public class JoinServiceImpl implements JoinService {
 		
 	}
 
-	
 	@Override
 	public void joinAdminPage(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {

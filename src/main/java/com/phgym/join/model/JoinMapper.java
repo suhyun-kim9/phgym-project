@@ -23,6 +23,8 @@ public interface JoinMapper {
 	public int checkUserIdExists(String userid);
 	
 	public int userJoin(UserInfoDTO dto);
+
+	public int checkAdminIdExists(String adminid);
 	
 	
 }
