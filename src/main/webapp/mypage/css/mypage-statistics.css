@@ -54,14 +54,16 @@ img {
 .content > .wrap > .checkin_list > div > table {
     margin: 10px auto 0;
     border: 1px solid #ff7f56;
-    width: 90%;
+    width: 60%;
 }
 
 .content > .wrap > .checkin_list > div > table tr th {
     text-align: center;
     border-bottom: 1px solid #ff7f56;
+    width: 25%;
 }
 
 .content .wrap > .checkin_list > table tr td {
     text-align: center;
+    width: 25%;
 }

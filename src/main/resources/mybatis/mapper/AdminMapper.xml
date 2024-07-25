@@ -81,5 +81,7 @@
 	    and trunc(reservation_date) = #{reservationDate}
 	</select>
 	
-	
+	<select id="getPtPerDay" parameterType="int" resultType="com.phgym.admin.model.PtPerDayDTO">
+		select count(*) as cnt, trunc(reservation_date) as localDate from pt_reservation_his where admin_no = #{sessionAdminNo} group by trunc(reservation_date)
+	</select>
 </mapper>

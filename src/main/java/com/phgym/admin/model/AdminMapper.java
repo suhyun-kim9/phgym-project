@@ -39,5 +39,8 @@ public interface AdminMapper {
 	
 		
 		// 회원 스케쥴 가져오기
-		public PtReservationHisDTO2 doPtPlanCheck(PtReservationHisDTO2 dto);
+		public List<PtReservationHisDTO2> doPtPlanCheck(PtReservationHisDTO2 dto);
+
+		//관리자 하루 PT갯수
+		public List<PtPerDayDTO> getPtPerDay(int sessionAdminNo);
 }
