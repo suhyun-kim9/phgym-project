@@ -141,14 +141,16 @@
             <div class="pt_content">
                <table>
                 <tbody>
-                    <tr>
-                        <th> 예약일 :  </th>
-                        <td>${result.reservationDate}  </td>
-                    </tr>
-                    <tr>
-                        <th>  PT 내용 : </th>
-                        <td> <textarea type="text" rows="4" cols="50"> ${result.content} </textarea></td>
-                    </tr>
+                    <c:forEach var="i" items="${result}">
+                    	<tr>
+	                        <th> 예약일 :  </th>
+	                        <td>${i.reservationDate}  </td>
+	                    </tr>
+	                    <tr>
+	                        <th>  PT 내용 : </th>
+	                        <td> <textarea type="text" rows="4" cols="50"> ${i.content} </textarea></td>
+	                    </tr>
+                    </c:forEach>
 
                 </tbody>
                 </table>

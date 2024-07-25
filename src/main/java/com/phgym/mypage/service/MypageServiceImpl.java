@@ -127,10 +127,15 @@ public class MypageServiceImpl implements MypageService {
 		MypageMapper mypage = sql.getMapper(MypageMapper.class);
 		
 		//출석내역 가져오기
-		List<CheckinListDTO> checkinList = null;
+		List<CheckinListDTO> checkinList = new ArrayList<>();
 		List<CheckinHisDTO> checkinHisList = mypage.getCheckinList(sessionUserNo);
-		for(CheckinHisDTO dto : checkinHisList) {
-			checkinList = mypage.getMembershipPeriod(dto);
+		int i = 1;
+		for(CheckinHisDTO checkinHisDTO : checkinHisList) {
+			CheckinListDTO checkinListDTO = new CheckinListDTO();
+			checkinListDTO.setNo(i++);
+			checkinListDTO.setCheckinDate(checkinHisDTO.getCheckinDate().toLocalDate());
+			checkinListDTO.setCheckinTime(checkinHisDTO.getCheckinDate().toLocalTime());
+			checkinList.add(checkinListDTO);
 		}
 		
 		MypageStatisticsUtil util = new MypageStatisticsUtil();
