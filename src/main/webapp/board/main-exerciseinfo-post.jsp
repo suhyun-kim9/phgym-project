@@ -28,7 +28,7 @@
 
             <div class="buttons">
                 <input type="submit" value="등록" class="reset-btn" style="width: 50px">
-                <input type="reset" value="삭제" class="submit-btn" style="width: 50px">
+                <input type="reset" value="다시" class="submit-btn" style="width: 50px">
             </div>
         </form>
     </div>

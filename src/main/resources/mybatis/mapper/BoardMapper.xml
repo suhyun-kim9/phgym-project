@@ -10,18 +10,29 @@
         SELECT * FROM EXERCISE_INFO ORDER BY INFO_NO DESC
     </select> -->
     
-    <select id="getList" resultType="com.phgym.board.model.BoardDTO">
+
+
+	<!--  1.2.3 -> 테이블, 컬럼명 싹다 다시 가져옴. -->
+	<!-- 문의글은  user세션값(로그인상태) 가져올거임 -->
+
+	<!--  조회하는 테이블이 달라지니까 , 운동,공지,문의 각각 만들어야함. 
+	테이블명, 컬럼명만 잘 신경쓰면 됨 . -->
+
+
+	<insert id="regist" parameterType="com.phgym.board.model.BoardDTO">
+    	INSERT INTO EXERCISE_INFO (INFO_NO, ADMIN_NO, TITLE, WRITE_DATE, CONTENT)
+    	VALUES (EXERCISE_INFO_SEQ.NEXTVAL, #{adminNo}, #{title}, SYSDATE, #{content})
+	</insert>
+	
+
+	    <select id="getList" resultType="com.phgym.board.model.BoardDTO">
     	SELECT * FROM (
         	SELECT a.*, ROW_NUMBER() OVER (ORDER BY INFO_NO DESC) AS rnum
         	FROM EXERCISE_INFO a
    		)
     	WHERE rnum BETWEEN #{startIndex} AND #{endIndex}
 	</select>
-
-	<insert id="regist" parameterType="com.phgym.board.model.BoardDTO">
-    	INSERT INTO EXERCISE_INFO (INFO_NO, ADMIN_NO, TITLE, WRITE_DATE, CONTENT)
-    	VALUES (EXERCISE_INFO_SEQ.NEXTVAL, #{adminNo}, #{title}, SYSDATE, #{content})
-	</insert>
+	
 	
 	<!-- 검색 결과 가져오기 -->
     <!-- <select id="searchList" resultType="com.phgym.board.model.BoardDTO">
@@ -36,7 +47,6 @@
     	)
     	WHERE rnum BETWEEN #{startIndex} AND #{endIndex}
 	</select>
-	
 	<select id="getTotalCount" resultType="int">
     	SELECT COUNT(*) FROM EXERCISE_INFO
 	</select>
@@ -45,13 +55,77 @@
     	SELECT COUNT(*) FROM EXERCISE_INFO
     	WHERE TITLE LIKE '%' || #{searchKeyword} || '%'
 	</select>
-	
+
 	<select id="getContent" parameterType="int" resultType="com.phgym.board.model.BoardDTO">
     	SELECT * FROM EXERCISE_INFO WHERE INFO_NO = #{infoNo}
 	</select>
-	
+
 	<update id="increaseHit" parameterType="int">
 		UPDATE EXERCISE_INFO SET HIT = HIT + 1 WHERE INFO_NO = #{infoNo}
 	</update>
+	
+	 <delete id="delete" parameterType="int">
+        DELETE FROM EXERCISE_INFO WHERE INFO_NO = #{infoNo}
+    </delete>
+    
+    
+    <!-- ===========================문 의 글============================================= -->
+    <insert id="regist1" parameterType="com.phgym.board.model.QnaDTO">
+    	INSERT INTO INQUIRY (INQUIRY_NO, WRITER, TITLE, PW, WRITE_DATE, CONTENT)
+    	VALUES (INQUIRY_SEQ.NEXTVAL, #{writer}, #{title}, #{pw}, SYSDATE, #{content}) <!-- 수정예정 -->
+	</insert>
+	
+
+	    <select id="getList1" resultType="com.phgym.board.model.QnaDTO">
+    	SELECT * FROM (
+        	SELECT a.*, ROW_NUMBER() OVER (ORDER BY INQUIRY_NO DESC) AS rnum
+        	FROM INQUIRY a
+   		)
+    	WHERE rnum BETWEEN #{startIndex} AND #{endIndex}
+	</select>
+    
+    <select id="searchList1" resultType="com.phgym.board.model.QnaDTO">
+    	SELECT * FROM (
+        	SELECT a.*, ROW_NUMBER() OVER (ORDER BY INQUIRY_NO DESC) AS rnum
+        	FROM INQUIRY a
+        	WHERE TITLE LIKE '%' || #{searchKeyword} || '%'
+    	)
+    	WHERE rnum BETWEEN #{startIndex} AND #{endIndex}
+	</select>
+	<select id="getTotalCount1" resultType="int">
+    	SELECT COUNT(*) FROM INQUIRY
+	</select>
+
+ 	<select id="getSearchCount1" resultType="int">
+    	SELECT COUNT(*) FROM INQUIRY
+    	WHERE TITLE LIKE '%' || #{searchKeyword} || '%'
+	</select>
+
+	<select id="getContent1" parameterType="int" resultType="com.phgym.board.model.QnaDTO">
+    	SELECT * FROM INQUIRY WHERE INQUIRY_NO = #{inquiryNo} ORDER BY WRITE_DATE DESC
+	</select>
+
+	<update id="increaseHit1" parameterType="int">
+		UPDATE INQUIRY SET HIT = HIT + 1 WHERE INQUIRY_NO = #{inquiryNo}
+	</update>
+	
+	 <delete id="delete1" parameterType="com.phgym.board.model.QnaDTO">
+        DELETE FROM INQUIRY WHERE INQUIRY_NO = #{inquiryNo} AND PW = #{pw}
+    </delete>
+    <!-- ========================================= -->
+	<update id="replyRegist" parameterType="com.phgym.board.model.QnaDTO">
+		UPDATE INQUIRY SET ADMIN_NO = #{adminNo}, REPLY_DATE = SYSDATE, REPLY_CONTENT = #{replyContent} WHERE INQUIRY_NO = #{inquiryNo}
+	</update>
+	
+	 <!-- 댓글 삭제 -->
+    <update id="deleteReply" parameterType="com.phgym.board.model.QnaDTO">
+         update inquiry set admin_no = null, reply_date = null, reply_content = null where inquiry_no = #{inquiryNo} And admin_no = #{adminNo}
+    </update>
+
+    <!-- 댓글 수정 -->
+    <update id="updateReply" parameterType="com.phgym.board.model.QnaDTO">
+        UPDATE INQUIRY SET REPLY_CONTENT = #{replyContent}, REPLY_DATE = SYSDATE WHERE INQUIRY_NO = #{inquiryNo} AND ADMIN_NO = #{adminNo}
+    </update>
+	
 
 </mapper>

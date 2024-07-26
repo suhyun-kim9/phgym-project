@@ -17,7 +17,7 @@
 }
 
 body{
-	    font-weight : bold;
+  font-weight : bold;
 }
 
 .content1 {
@@ -60,10 +60,17 @@ body{
     text-align: left;
 }
 
+.dropdownContent2 > li  {
+    text-align: left;
+}
 
-.main_nav li:hover{
+ .dropdownContent > li:hover > a  , .dropdownContent > li:hover > i {
 	color: #ff7f56;
 }
+.dropdownContent2 > li:hover > a  , .dropdownContent2 > li:hover > i {
+	color: #ff7f56;
+}
+
 
 .main_nav li a { 
 }
@@ -113,17 +120,19 @@ body{
 }
 
 .my_nav > li > i {
-    color: #f97316;
+
 }
 
-.dropdownContent li a{
-    color : #000;
-}
+
 .main_nav li:nth-of-type(1){
 	 position : relative;
 }
 
 .dropdownContent > li > i {
+	margin-right:10px;
+}
+
+.dropdownContent2> li > i {
 	margin-right:10px;
 }
 
@@ -135,13 +144,33 @@ body{
 	display:none;
 	padding: 10px;
 	top : 100px;
-	left : 771px;
+	left : 760px;
 	position : absolute;
 	flex: none;
-	padding-left : 50px;
-	padding-right: 30px;
+	padding-left : 43px;
+	padding-right: 15px;
 	font-size: 0.9em;
 	background-color : #fafafa;
+	z-index : 9;
+}
+
+
+.dropdownContent2{
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    border: 1px solid #e3e3e3;
+   display:none;
+   padding: 10px;
+   top : 100px;
+   left : 464px;
+   position : absolute;
+   flex: none;
+   padding-left : 44px;
+   padding-right: 8px;
+   font-size: 0.9em;
+   background-color : #fafafa;
+   z-index : 9;
 }
 
 .dropdownContent > li {
@@ -150,19 +179,42 @@ body{
 }
 
 
+.dropdownContent2 > li {
+	margin-top : 30px;
+	margin-bottom: 30px;
+}
+
+
 .dropdown {
 	position: relative;
-    
-	
 }
+
 .bi-caret-down-fill {
 	position: absolute;
 	top:0;
-	left:131px;
-	
+	left:130px;	
 }
 
+
+.dropdown2 {
+	position: relative;
+}
+
+.dropdown2 > .bi{
+	position: absolute;
+	top:0;
+	left:143px;
+}
+
+
+
 .dropdownContent li a {
+   
+	padding : 0px;
+	text-align : center;
+}
+
+.dropdownContent2 li a {
    
 	padding : 0px;
 	text-align : center;
@@ -182,6 +234,15 @@ body{
     background-color: #f97316;
     transition: 0.5s;
 }
+
+
+.dropdownContent li a{
+    color : #000;
+}
+.dropdownContent2 li a{
+    color : #000;
+}
+
 
 
 /* 

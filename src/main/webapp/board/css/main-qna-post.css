@@ -73,7 +73,7 @@ textarea {
 }
 
 textarea {
-    height: 580px;
+    height: 535px;
 }
 
 .buttons {
@@ -92,6 +92,7 @@ button {
 .reset-btn {
     background-color: #f97316;
     color: black;
+    margin-right: 5px;
 }
 
 .submit-btn {

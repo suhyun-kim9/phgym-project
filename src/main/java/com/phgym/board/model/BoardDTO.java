@@ -10,13 +10,12 @@ public class BoardDTO {
 	private Timestamp writeDate;
 	private String content;
 	private int hit;
-	private String file;
 	
 	public BoardDTO() {
 		super();
 	}
 
-	public BoardDTO(int infoNo, int adminNo, String title, Timestamp writeDate, String content, int hit, String file) {
+	public BoardDTO(int infoNo, int adminNo, String title, Timestamp writeDate, String content, int hit) {
 		super();
 		this.infoNo = infoNo;
 		this.adminNo = adminNo;
@@ -24,13 +23,12 @@ public class BoardDTO {
 		this.writeDate = writeDate;
 		this.content = content;
 		this.hit = hit;
-		this.file = file;
 	}
 
 	@Override
 	public String toString() {
 		return "BoardDTO [infoNo=" + infoNo + ", adminNo=" + adminNo + ", title=" + title + ", writeDate=" + writeDate
-				+ ", content=" + content + ", hit=" + hit + ", file=" + file + "]";
+				+ ", content=" + content + ", hit=" + hit  + "]";
 	}
 
 	public int getInfoNo() {
@@ -79,15 +77,6 @@ public class BoardDTO {
 
 	public void setHit(int hit) {
 		this.hit = hit;
-	}
-
-	public String getFile() {
-		return file;
-	}
-
-	public void setFile(String file) {
-		this.file = file;
-	}
-	
+	}	
 
 }

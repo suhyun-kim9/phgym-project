@@ -183,6 +183,9 @@
     </section>
 
 <script type="text/javascript" src="../include/js/main-navigation.js"></script>
-
+<script type="text/javascript">
+	var menu = '${menu}';
+	console.log(menu);
+</script>
 </body>
 </html>
