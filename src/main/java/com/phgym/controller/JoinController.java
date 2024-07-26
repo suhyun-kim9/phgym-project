@@ -95,6 +95,46 @@ public class JoinController extends HttpServlet {
 		} else if(command.equals("/join/ChangeAdmin.join")) { // 관리자 로그인 -> 회원 로그인으로 변경
 			service = new JoinServiceImpl();
 			service.ChangeAdmin(request,response);
+
+		} else if(command.equals("/join/loginUser.join")) { // 로그인 선택페이지에서 회원 로그인하기
+			service = new JoinServiceImpl();
+			service.loginUserPage(request,response);
+			
+		} else if(command.equals("/join/loginAdmin.join")) { // 로그인 선택페이지에서 관리자 로그인하기
+			service = new JoinServiceImpl();
+			service.loginAdminPage(request,response);
+			
+		} else if(command.equals("/join/joinUser.join")) { // 회원가입 선택페이지에서 회원 회원가입 하기
+			service = new JoinServiceImpl();
+			service.joinUserPage(request,response);
+			
+		} else if(command.equals("/join/joinAdmin.join")) { // 회원가입 선택페이지에서 관리자 회원가입 하기
+			service = new JoinServiceImpl();
+			service.joinAdminPage(request,response);
+			
+		} else if(command.equals("/join/LogoutUser.join")) { // 회원 로그인 성공시 로그아웃 하기
+			service = new JoinServiceImpl();
+			service.logoutUser(request,response);
+			
+		} else if(command.equals("/join/LogoutAdmin.join")) { // 관리자 로그인 성공시 로그아웃 하기
+			service = new JoinServiceImpl();
+			service.logoutAdmin(request,response);
+			
+		} else if(command.equals("/join/findAdminId.join")) { // 관리자 로그인 페이지에서 아이디찾기 클릭
+			service = new JoinServiceImpl();
+			service.findAdminId(request,response);
+			
+		} else if(command.equals("/join/findAdminPw.join")) { // 관리자 로그인 페이지에서 비밀번호 찾기 클릭
+			service = new JoinServiceImpl();
+			service.findAdminPw(request,response);
+			
+		} else if(command.equals("/join/findUserId.join")) {
+			service = new JoinServiceImpl();
+			service.findUserId(request,response);
+			
+		} else if(command.equals("/join/findUserPw.join")) {
+			service = new JoinServiceImpl();
+			service.findUserPw(request,response);
 		}
 	}
 }

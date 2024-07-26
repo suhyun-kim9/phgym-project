@@ -36,7 +36,7 @@ public class AdminController extends HttpServlet {
 	protected void doAction(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 			//세션 임의 생성
-			request.getSession().setAttribute("sessionAdminNo", 2); //삭제예정
+			request.getSession().setAttribute("sessionAdminNo", 3); //삭제예정
 			
 		  	request.setCharacterEncoding("utf-8");
 	        String uri = request.getRequestURI();

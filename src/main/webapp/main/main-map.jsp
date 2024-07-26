@@ -27,12 +27,11 @@
             display: flex; 
         }
 
-
         /* 지도 이미지 파일 */
         .map-wrap > .map-img {
             position: relative; border-radius: 10px;
             border: 1px solid #000;
-            width: 45%; height: 65%; top: 100px;
+            width: 45%; height: 65%; top: 100px; overflow: hidden;
         }
         .map-wrap > .map-img > div {
         	position: relative; width: 100%; height: 100%;

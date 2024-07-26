@@ -93,7 +93,3 @@ public class MainController extends HttpServlet {
 		
 	}
 }
-
-
-
-//모델에 dto만들기

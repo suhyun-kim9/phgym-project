@@ -12,7 +12,7 @@
 	<section id="wrap">
 		<div class="join_page">
 
-			<form action="userJoin.join" method="post">
+			<form id="userForm" action="userJoin.join" method="post">
 				<h3>회원 계정 생성</h3>
 				<div class="left">
 					<input type="radio" name="userGender" value="M" required="required">남
@@ -25,8 +25,7 @@
 					</div>
 					<div class="date">
 						<p>생년월일</p>
-						<input type="date" name="userBirth" style="text-align: left;"
-							required="required">
+						<input type="date" name="userBirth" style="text-align: left;" required="required">
 					</div>
 					<div class="number">
 						<p>연락처</p>
@@ -46,7 +45,7 @@
 						<p>아이디</p>
 						<input type="text" id="userId" name="userId" style="text-align: left;"
 							placeholder="아이디를 입력하세요." required="required" oninput="validateUserId()">
-						<button onclick="userIdCheck()">중복확인</button>
+						<button type="button" onclick="userIdCheck()">중복확인</button>
 						<div id="idResult"></div>
 					</div>
 					<div class="pw">
@@ -63,8 +62,7 @@
 					</div>
 					<div class="address">
 						<p>주소</p>
-						<input type="text" name="userAddress" style="text-align: left;"
-							placeholder="주소를 입력하세요." required="required">
+						<input type="text" name="userAddress" style="text-align: left;" placeholder="주소를 입력하세요." required="required">
 					</div>
 				</div>
 
@@ -78,9 +76,23 @@
 
 	<script type="text/javascript">
 		function userIdCheck() {
-			event.preventDefault();
-			var userId = document.getElementById("userId");
-			location.href = "userIdCheck.join?userId=" + userId.value;
+			var userId = document.getElementById("userId").value;
+			var xhr = new XMLHttpRequest();
+			xhr.open("GET", "userIdCheck.join?userId=" + userId, true);
+			xhr.onreadystatechange = function() {
+				if (xhr.readyState == 4 && xhr.status == 200) {
+					var response = xhr.responseText;
+					var idResult = document.getElementById("idResult");
+					if (response == "Y") {
+						idResult.innerHTML = "<span style='color: green; font-size: 12px;'>사용 가능한 아이디입니다.</span>";
+						document.getElementById("submitBtn").disabled = false;
+					} else {
+						idResult.innerHTML = "<span style='color: red; font-size: 12px;'>이미 사용중인 아이디입니다.</span>";
+						document.getElementById("submitBtn").disabled = true;
+					}
+				}
+			};
+			xhr.send();
 		}
 
 		function validateUserName() {

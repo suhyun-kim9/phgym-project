@@ -112,7 +112,6 @@
 
 </head>
 <body>
-	${sessionScope.sessionUserNo}
     <nav class="main_nav_bar">
         <ul class="main_nav">
             <a href="/PHGYM/main/userhome.main"><img src="../include/img/logo-light2.png"></a>
@@ -136,7 +135,7 @@
                 	<input type="button" value="회원가입" onclick="location.href='../join/JoinPage.join'">
                 </c:if>
                 <c:if test="${sessionScope.sessionUserNo != null && sessionScope.sessionUserNo != ''}">
-                	<input type="button" value="로그아웃" onclick="location.href='../join/Logout.join'">
+                	<input type="button" value="로그아웃" onclick="location.href='../join/LogoutUser.join'">
                 </c:if>
             </li>
             <div class="animation"></div>

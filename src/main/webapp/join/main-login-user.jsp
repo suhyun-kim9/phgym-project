@@ -82,7 +82,10 @@
                     <div class="find">
                         <a href="findUserId.join">아이디찾기</a>
                         <a href="findUserPw.join">비밀번호찾기</a>
+<<<<<<< HEAD
                         <a href="ChangeAdmin.join">관리자로그인</a>
+=======
+>>>>>>> a3d33d29bb7392ad0732bead103e875bded94b5c
                     </div>
                 </form>
             </div>

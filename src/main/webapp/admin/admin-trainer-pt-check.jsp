@@ -226,29 +226,46 @@
 	      
     
     var arr = [];
-		
-		 <c:forEach items="${dateDto}" var="date">
+		//지윤 여기다 뿌리기
+	/* 	 <c:forEach items="${dateDto}" var="date">
 		 arr.push({reservationDate:new Date("${date.reservationDate}")});
 		 </c:forEach>
 		 
-		 for (var i = 0; i < arr.length; i++) {
-			console.log(arr[i]);
-		   var startDate = arr[i].reservationDate;
+		  */
+		 
+		 
+			/* ${dto.cnt}
+			${dto.localDate}
+		  */
+		  
+		  var jiArr = [];
+		  var jiArr2 = [];
+		<c:forEach var="dto" items="${ptPerDayList}">
+		  console.log(${dto.cnt} , ${dto.localDate});
+			jiArr.push({reservationDate:new Date("${dto.localDate}")});
+			jiArr2.push("${dto.cnt}");
+		</c:forEach>
+		 
+		 for (var i = 0; i < jiArr.length; i++) {
+			 
+			console.log(jiArr[i]);
+			
+		   var startDate = jiArr[i].reservationDate;
 		   var day12 = startDate.getDate();
 		   console.log(day12);
 		   console.log('#'+day12);
 		   
-			let eventDiv = $('<span>').addClass('day_content').text("예약됨");
+			let eventDiv = $('<span>').addClass('day_content').text('예약건수 ' + jiArr2[i]);
 		    $('#'+ day12).append(eventDiv);
 		
 		 }
 		 
 		 $('.day_content').css('color','white');
-		 $('.day_content').css('border','1px solid green');
+		 $('.day_content').css('border','1px solid red');
 		 $('.day_content').css('font-size','10px');
 		 $('.day_content').css('text-align','center');
 		 $('.day_content').css('padding','3px 7px');
-		 $('.day_content').css('background-color','green');
+		 $('.day_content').css('background-color','red');
 		 $('.day_content').css('border-radius','100px');
 			    
 	    //----

@@ -42,7 +42,9 @@ href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.m
 					<li><i class="bi bi-archive"></i> <a href="/PHGYM/admin/exerciseinfo-list.admin"> 운동정보 </a></li>
 				</ul>
 				<div class="nav_logout">
-					<p>로그아웃</p>
+					<c:if test="${sessionScope.sessionAdminNo != null && sessionScope.sessionAdminNo != ''}">
+						<input type="button" value="로그아웃" onclick="location.href='../join/LogoutAdmin.join'">
+					</c:if>
 				</div>
 			</nav>
 		</div>

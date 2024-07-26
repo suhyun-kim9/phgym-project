@@ -3,16 +3,13 @@ package com.phgym.main.service;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
-
 import com.phgym.main.model.UserInfoDTO;
+import com.phgym.util.mybatis.MybatisUtil;
 import com.phgym.main.model.MainMapper;
 import com.phgym.main.model.MembershipPayHisDTO;
 import com.phgym.main.model.PtPayHisDTO;
-import com.phgym.util.mybatis.MybatisUtil;
-
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -26,7 +23,7 @@ public class MainServiceImpl implements MainService {
 	public void buyPromotion1(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		int sessionUserNo = (int)request.getSession().getAttribute("sessionUserNo");
-        
+        System.out.println("sessionUserNo = " + sessionUserNo);
         
         String payMethod =  request.getParameter("payMethod"); //결제방법
         String refundBackname = request.getParameter("refundBankname"); //환불(은행명)
