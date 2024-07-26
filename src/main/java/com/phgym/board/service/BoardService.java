@@ -7,7 +7,8 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 public interface BoardService {
-
+	
+	// mainExerciseInfo
 	void getList(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException;
 
 	void regist(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException;
@@ -16,7 +17,26 @@ public interface BoardService {
 
 	void getContent(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException;
 
+	void delete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException;
 
-	//코드 작성
+	//================================================================================
 	
+	// mainQna
+	void getList1(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException;
+
+	void regist1(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException;
+
+	void searchList1(HttpServletRequest request, HttpServletResponse response, String searchKeyword) throws ServletException, IOException;
+
+	void getContent1(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException;
+
+	void delete1(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException;
+	
+	void replyRegist(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException;
+	
+	void deleteReply(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException;
+	
+    void updateReply(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException;
+
+
 }

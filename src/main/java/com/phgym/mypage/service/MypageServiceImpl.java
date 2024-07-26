@@ -33,12 +33,7 @@ public class MypageServiceImpl implements MypageService {
 		
 		SqlSession sql = sqlSessionFactory.openSession(true);
 		MypageMapper mypage = sql.getMapper(MypageMapper.class);
-		int result = mypage.doCheckin(sessionUserNo);
-		if(result == 1) {
-			System.out.println("===doCheckin success===");
-		} else {
-			System.out.println("===doCheckin fail===");
-		}
+		mypage.doCheckin(sessionUserNo);
 		sql.close();
 		
 		response.sendRedirect("/PHGYM/mypage/checkin.mypage");
@@ -51,10 +46,17 @@ public class MypageServiceImpl implements MypageService {
 		
 		SqlSession sql = sqlSessionFactory.openSession(true);
 		MypageMapper mypage = sql.getMapper(MypageMapper.class);
-		int count = mypage.checkCheckin(sessionUserNo);
-		if(count != 0) {
-			request.setAttribute("checkCheckinResult", "Y"); //출석완료
+		int cnt = mypage.checkCheckin(sessionUserNo);
+		if(cnt != 0) {
+			request.setAttribute("msg", "Y"); //출석완료
 		}
+		
+		List<CheckinHisDTO> list = mypage.getCheckinList(sessionUserNo);
+		List<LocalDate> dates = new ArrayList<>();
+		for(CheckinHisDTO dto : list) {
+			dates.add(dto.getCheckinDate().toLocalDate());
+		}
+		request.setAttribute("dates", dates);
 		sql.close();
 		
 		request.getRequestDispatcher("mypage-checkin.jsp").forward(request, response);

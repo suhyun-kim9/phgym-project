@@ -29,6 +29,8 @@ public class BoardController extends HttpServlet {
 	}
 	
 	protected void doAction(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.getSession().setAttribute("sessionAdminNo", 1);
+		request.getSession().setAttribute("sessionAdminName", "홍길동");
 		
 		request.setCharacterEncoding("utf-8");
 		
@@ -38,7 +40,7 @@ public class BoardController extends HttpServlet {
 
 		BoardService service = new BoardServiceImpl();
 		
-		if(command.equals("/board/main_exe_list.board")) { // 목록
+		if(command.equals("/board/main_exe_list.board")) { // 메인 운동정보 목록
 			
 			service = new BoardServiceImpl();
 			service.getList(request, response);
@@ -55,7 +57,6 @@ public class BoardController extends HttpServlet {
 			
 		} else if(command.equals("/board/main_exe_search.board")) { // 검색
 			
-//			service = new BoardServiceImpl();
 			String searchKeyword = request.getParameter("searchKeyword");
 			service.searchList(request, response, searchKeyword);
 			
@@ -65,7 +66,48 @@ public class BoardController extends HttpServlet {
 			service.getContent(request, response);
 			request.getRequestDispatcher("main-exerciseinfo-content.jsp").forward(request, response);
 			
-		}
+		} else if(command.equals("/board/main_exe_delete.board")) { // 삭제
+			
+			service.delete(request, response);
+			//=================================================================================
+		} else if(command.equals("/board/main_qna_list.board")) { // QNA 목록
+			
+			service = new BoardServiceImpl();
+			service.getList1(request, response);
+			request.getRequestDispatcher("main-qna-list.jsp").forward(request, response);
+			
+		} else if(command.equals("/board/main_qna_post.board")) { // 작성
+			
+			request.getRequestDispatcher("main-qna-post.jsp").forward(request, response);
+			
+		} else if(command.equals("/board/main_qna_post_regist.board")) { // 등록
+			
+			service = new BoardServiceImpl();
+			service.regist1(request, response);
+			
+		} else if(command.equals("/board/main_qna_search.board")) { // 검색
+			service = new BoardServiceImpl();
+			String searchKeyword = request.getParameter("searchKeyword");
+			service.searchList1(request, response, searchKeyword);
+			
+		} else if(command.equals("/board/main_qna_content.board")) { // 조회
+			
+			service = new BoardServiceImpl();
+			service.getContent1(request, response);
+			request.getRequestDispatcher("main-qna-content.jsp").forward(request, response);
+			
+		} else if(command.equals("/board/main_qna_delete.board")) { // 삭제
+			service = new BoardServiceImpl();
+			service.delete1(request, response);
+			//=================================================================================
+		} else if(command.equals("/board/replyRegist.board")) { // 댓글 등록
+			service = new BoardServiceImpl();
+			service.replyRegist(request, response);
+		} else if (command.equals("/board/deleteReply.board")) {
+            service.deleteReply(request, response);
+        } else if (command.equals("/board/updateReply.board")) {
+            service.updateReply(request, response);
+        }
 		
 		
 	}
