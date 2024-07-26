@@ -18,10 +18,6 @@ setInterval(getClock, 1000);
 //quotes
 const quotes = [
   {
-    quote: "우리가 늙어서 운동을 그만두는 것이 아니라, 우리가 운동을 그만두기 때문에 늙는 것이다.",
-    author: "- 케너스 쿠퍼 -"
-  },
-  {
     quote: "독서는 마음을 위한 것이고, 운동은 몸을 위한 것이다.",
     author: "- 조셉 에디슨 -"
   },

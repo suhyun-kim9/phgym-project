@@ -142,6 +142,7 @@ body{
 	padding-right: 30px;
 	font-size: 0.9em;
 	background-color : #fafafa;
+	z-index: 9;
 }
 
 .dropdownContent > li {
