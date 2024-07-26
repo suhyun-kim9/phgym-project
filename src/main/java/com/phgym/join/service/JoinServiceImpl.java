@@ -339,7 +339,7 @@ public class JoinServiceImpl implements JoinService {
 	public void LoginPage(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		request.getRequestDispatcher("main-login-page.jsp").forward(request, response);
+		request.getRequestDispatcher("main-login-user.jsp").forward(request, response);
 		
 	}
 
@@ -347,38 +347,7 @@ public class JoinServiceImpl implements JoinService {
 	public void JoinPage(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		request.getRequestDispatcher("main-join-page.jsp").forward(request, response);
-		
-	}
-
-	@Override
-	public void loginUserPage(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		
-		request.getRequestDispatcher("main-login-user.jsp").forward(request, response);
-		
-	}
-
-	@Override
-	public void loginAdminPage(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		
-		request.getRequestDispatcher("main-login-admin.jsp").forward(request, response);
-	}
-
-	@Override
-	public void joinUserPage(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		
 		request.getRequestDispatcher("main-join-user.jsp").forward(request, response);
-		
-	}
-
-	@Override
-	public void joinAdminPage(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		
-		request.getRequestDispatcher("main-join-admin.jsp").forward(request, response);
 		
 	}
 
@@ -391,6 +360,22 @@ public class JoinServiceImpl implements JoinService {
 		request.getSession().removeAttribute("sessionUserId");
 		
 		response.sendRedirect("/PHGYM/main/userhome.main");
+		
+	}
+
+	@Override
+	public void ChangeAdmin(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		
+		request.getRequestDispatcher("main-login-admin.jsp").forward(request, response);
+		
+	}
+
+	@Override
+	public void ChangeUser(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		
+		request.getRequestDispatcher("main-login-user.jsp").forward(request, response);
 		
 	}
 }
