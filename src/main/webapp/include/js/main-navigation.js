@@ -1,27 +1,75 @@
 
-
 var dropdown = document.querySelector(".dropdown");
+
+var dr1 = document.querySelector(".dr1");
+var dr2 = document.querySelector(".dr2");
+var dr4 = document.querySelector(".dr4");
+
+var dropdown2 = document.querySelector(".dropdown2");
 var dropdownContent = document.querySelector(".dropdownContent");
+var dropdownContent2 = document.querySelector(".dropdownContent2");
+
+dr1.addEventListener("click", function() {
+    dropdownContent.style.display = "none";
+    dropdownContent2.style.display = "none";
+      
+  });
+
+  dr2.addEventListener("click", function() {
+    dropdownContent.style.display = "none";
+    dropdownContent2.style.display = "none";
+  });
+
+  dr4.addEventListener("click", function() {
+    dropdownContent.style.display = "none";
+    dropdownContent2.style.display = "none";
+  });
 
   dropdown.addEventListener("click", function() {
     if (dropdownContent.style.display === "block") {
       dropdownContent.style.display = "none";
     } else {
       dropdownContent.style.display = "block";
+      dropdownContent2.style.display = "none";
+    }
+  });
+
+  dropdown2.addEventListener("click", function() {
+    if (dropdownContent2.style.display === "block") {
+      dropdownContent2.style.display = "none";
+    } else {
+      dropdownContent2.style.display = "block";
+      dropdownContent.style.display = "none";
     }
   });
 
 
-  // var liElements = document.querySelectorAll('.main_nav > li');
+// var dr = document.querySelectorAll('.dr');
+// var dropdownContent2 = document.querySelector('.dropdownContent2');
+// var dropdownContent = document.querySelector('.dropdownContent');
 
-  // for (var i = 0; i<liElements.length; i++){
-  //   console.log(liElements[i]);
-  //   var target = liElements[i];
-  //   target.addEventListener("click", function(event){
-  //       event.target.classList.add('active'); 
-  //   });
-  // }
 
+
+// var mainNav =  document.querySelector(".main_nav");
+
+
+
+// mainNav.addEventListener("click", function(e){
+//     console.log(e.target);
+// });
+
+
+// for (var i = 0; i < dr.length; i++){
+//     dr[i].addEventListener("click", function(e){
+//         console.log(e.target.previousElementSibling);
+//         console.log(e.target.classList);
+//         console.log(e.target.classList.contains('dropdown'));
+//     });
+// }   
+ 
+// function myFunction2() {
+//     document.querySelector(".drdown2").classList.toggle("show");
+// }
 
 
   var li1 = document.querySelector(".main_nav > li:nth-of-type(1) > a");
@@ -46,7 +94,7 @@ var dropdownContent = document.querySelector(".dropdownContent");
 
   li3.addEventListener("click",function(){
     //li2.style.left = "340px";
-    ani.style.left = "492px";
+    ani.style.left = "490px";
     ani.style.width = "150px";
 
   })
@@ -60,23 +108,7 @@ var dropdownContent = document.querySelector(".dropdownContent");
   li5.addEventListener("click",function(){
     //li2.style.left = "340px";
     ani.style.left = "808px";
-    ani.style.width = "145px";
+    ani.style.width = "119px";
 
   })
 
-
-
-
-//   const handleToggleActive = (e) => {
-//     const target = e.target;
-//     liElements.forEach((li) => {
-//       li.classList.remove('active');
-//     });
-//     target.classList.add('active');
-//   };
-
-
-  
-//   liElements.forEach((li) => {
-//     li.addEventListener('click', handleToggleActive);
-//   });
