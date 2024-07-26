@@ -32,8 +32,6 @@ public class MypageController extends HttpServlet {
 		String command = uri.substring(path.length());
 		System.out.println("command = " + command);
 		
-		request.getSession().setAttribute("sessionUserNo", 1); //삭제예정
-		
 		MypageService service = null;
 		if(command.equals("/mypage/checkin.mypage")) { //출석체크 페이지 이동
 			service = new MypageServiceImpl();
