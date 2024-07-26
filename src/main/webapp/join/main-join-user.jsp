@@ -6,9 +6,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Document</title>
+<link rel="stylesheet" href="../include/css/main-navigation.css">
 <link rel="stylesheet" href="css/main-join-user.css">
 </head>
 <body>
+<jsp:include page="../include/main-navigation.jsp"/>
 	<section id="wrap">
 		<div class="join_page">
 

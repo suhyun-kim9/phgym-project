@@ -338,22 +338,6 @@ public class JoinServiceImpl implements JoinService {
 	}
 
 	@Override
-	public void LoginPage(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		
-		request.getRequestDispatcher("main-login-user.jsp").forward(request, response);
-		
-	}
-
-	@Override
-	public void JoinPage(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		
-		request.getRequestDispatcher("main-join-user.jsp").forward(request, response);
-		
-	}
-
-	@Override
 	public void logoutUser(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
@@ -366,12 +350,12 @@ public class JoinServiceImpl implements JoinService {
 	}
 
 	@Override
-<<<<<<< HEAD
 	public void ChangeAdmin(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
 		request.getRequestDispatcher("main-login-admin.jsp").forward(request, response);
-=======
+	}
+	
 	public void logoutAdmin(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
@@ -380,17 +364,15 @@ public class JoinServiceImpl implements JoinService {
 		request.getSession().removeAttribute("sessionAdminName");
 		
 		response.sendRedirect("/PHGYM/main/userhome.main");
->>>>>>> a3d33d29bb7392ad0732bead103e875bded94b5c
-		
 	}
 
 	@Override
-<<<<<<< HEAD
 	public void ChangeUser(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
 		request.getRequestDispatcher("main-login-user.jsp").forward(request, response);
-=======
+	}
+	
 	public void findAdminId(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
@@ -422,7 +404,7 @@ public class JoinServiceImpl implements JoinService {
 			throws ServletException, IOException {
 		
 		request.getRequestDispatcher("main-find-userpw.jsp").forward(request, response);
->>>>>>> a3d33d29bb7392ad0732bead103e875bded94b5c
 		
 	}
+
 }
