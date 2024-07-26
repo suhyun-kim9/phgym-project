@@ -338,53 +338,6 @@ public class JoinServiceImpl implements JoinService {
 	}
 
 	@Override
-	public void LoginPage(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		
-		request.getRequestDispatcher("main-login-page.jsp").forward(request, response);
-		
-	}
-
-	@Override
-	public void JoinPage(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		
-		request.getRequestDispatcher("main-join-page.jsp").forward(request, response);
-		
-	}
-
-	@Override
-	public void loginUserPage(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		
-		request.getRequestDispatcher("main-login-user.jsp").forward(request, response);
-		
-	}
-
-	@Override
-	public void loginAdminPage(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		
-		request.getRequestDispatcher("main-login-admin.jsp").forward(request, response);
-	}
-
-	@Override
-	public void joinUserPage(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		
-		request.getRequestDispatcher("main-join-user.jsp").forward(request, response);
-		
-	}
-
-	@Override
-	public void joinAdminPage(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		
-		request.getRequestDispatcher("main-join-admin.jsp").forward(request, response);
-		
-	}
-
-	@Override
 	public void logoutUser(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
@@ -397,6 +350,12 @@ public class JoinServiceImpl implements JoinService {
 	}
 
 	@Override
+	public void ChangeAdmin(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		
+		request.getRequestDispatcher("main-login-admin.jsp").forward(request, response);
+	}
+	
 	public void logoutAdmin(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
@@ -405,10 +364,15 @@ public class JoinServiceImpl implements JoinService {
 		request.getSession().removeAttribute("sessionAdminName");
 		
 		response.sendRedirect("/PHGYM/main/userhome.main");
-		
 	}
 
 	@Override
+	public void ChangeUser(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		
+		request.getRequestDispatcher("main-login-user.jsp").forward(request, response);
+	}
+	
 	public void findAdminId(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
@@ -442,4 +406,5 @@ public class JoinServiceImpl implements JoinService {
 		request.getRequestDispatcher("main-find-userpw.jsp").forward(request, response);
 		
 	}
+
 }

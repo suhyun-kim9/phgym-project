@@ -6,6 +6,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>회원 로그인</title>
+<link rel="stylesheet" href="../include/css/main-navigation.css">
 <link rel="stylesheet" href="css/main-login-user.css">
 
 <script type="text/javascript">
@@ -56,7 +57,7 @@
 
 </head>
 <body>
-
+<jsp:include page="../include/main-navigation.jsp"/>
     <div class="wrap">
         <h3>회원 로그인</h3>
         <div class="login_page">
@@ -82,6 +83,7 @@
                     <div class="find">
                         <a href="findUserId.join">아이디찾기</a>
                         <a href="findUserPw.join">비밀번호찾기</a>
+                        <a href="ChangeAdmin.join">관리자로그인</a>
                     </div>
                 </form>
             </div>

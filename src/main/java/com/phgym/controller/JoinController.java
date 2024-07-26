@@ -76,29 +76,17 @@ public class JoinController extends HttpServlet {
 			service = new JoinServiceImpl();
 			service.userIdCheck(request,response);
 			
-		} else if(command.equals("/join/LoginPage.join")) { // home -> 유저 및 관리자 로그인 선택 페이지로 이동
+		} else if(command.equals("/join/Logout.join")) { // 로그인 성공시 로그아웃하기
 			service = new JoinServiceImpl();
-			service.LoginPage(request,response);
+			service.logoutUser(request,response);
 			
-		} else if(command.equals("/join/JoinPage.join")) { // home -> 유저 및 관리자 회원가입 선택 페이지로 이동
+		} else if(command.equals("/join/ChangeUser.join")) { // 회원 로그인 -> 꽌리자 로그인으로 변경
 			service = new JoinServiceImpl();
-			service.JoinPage(request,response);
+			service.ChangeUser(request,response);
 			
-		} else if(command.equals("/join/loginUser.join")) { // 로그인 선택페이지에서 회원 로그인하기
+		} else if(command.equals("/join/ChangeAdmin.join")) { // 관리자 로그인 -> 회원 로그인으로 변경
 			service = new JoinServiceImpl();
-			service.loginUserPage(request,response);
-			
-		} else if(command.equals("/join/loginAdmin.join")) { // 로그인 선택페이지에서 관리자 로그인하기
-			service = new JoinServiceImpl();
-			service.loginAdminPage(request,response);
-			
-		} else if(command.equals("/join/joinUser.join")) { // 회원가입 선택페이지에서 회원 회원가입 하기
-			service = new JoinServiceImpl();
-			service.joinUserPage(request,response);
-			
-		} else if(command.equals("/join/joinAdmin.join")) { // 회원가입 선택페이지에서 관리자 회원가입 하기
-			service = new JoinServiceImpl();
-			service.joinAdminPage(request,response);
+			service.ChangeAdmin(request,response);
 			
 		} else if(command.equals("/join/LogoutUser.join")) { // 회원 로그인 성공시 로그아웃 하기
 			service = new JoinServiceImpl();
@@ -116,11 +104,11 @@ public class JoinController extends HttpServlet {
 			service = new JoinServiceImpl();
 			service.findAdminPw(request,response);
 			
-		} else if(command.equals("/join/findUserId.join")) {
+		} else if(command.equals("/join/findUserId.join")) { // 회원 로그인 페이지에서 아이디찾기 클릭
 			service = new JoinServiceImpl();
 			service.findUserId(request,response);
 			
-		} else if(command.equals("/join/findUserPw.join")) {
+		} else if(command.equals("/join/findUserPw.join")) { // 관리자 로그인 페이지에서 비밀번호 찾기 클릭
 			service = new JoinServiceImpl();
 			service.findUserPw(request,response);
 		}
