@@ -407,4 +407,20 @@ public class JoinServiceImpl implements JoinService {
 		
 	}
 
+	@Override
+	public void LoginPage(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		
+		request.getRequestDispatcher("main-login-user.jsp").forward(request, response);
+		
+	}
+
+	@Override
+	public void JoinPage(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		request.getRequestDispatcher("main-join-user.jsp").forward(request, response);
+		
+	}
+
 }

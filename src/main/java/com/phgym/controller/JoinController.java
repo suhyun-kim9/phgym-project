@@ -111,6 +111,14 @@ public class JoinController extends HttpServlet {
 		} else if(command.equals("/join/findUserPw.join")) { // 관리자 로그인 페이지에서 비밀번호 찾기 클릭
 			service = new JoinServiceImpl();
 			service.findUserPw(request,response);
+		
+		} else if(command.equals("/join/LoginPage.join")) { // 유저 홈 -> 로그인
+			service = new JoinServiceImpl();
+			service.LoginPage(request,response);
+			
+		} else if(command.equals("/join/JoinPage.join")) { // 유저 홈 -> 회원가입
+			service = new JoinServiceImpl();
+			service.JoinPage(request,response);
 		}
 	}
 }
