@@ -6,12 +6,11 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
-
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
-
 import com.phgym.admin.model.AdminAccountDTO;
 import com.phgym.admin.model.AdminMapper;
+import com.phgym.admin.model.PtPerDayDTO;
 import com.phgym.admin.model.UserAccountDTO;
 import com.phgym.mypage.model.MypageMapper;
 import com.phgym.mypage.model.PtReservationHisDTO;
@@ -203,8 +202,11 @@ public class AdminServiceImpl implements AdminService {
 			throws ServletException, IOException {
 		//지윤 수정
 		int doPtPlanCheckUserNo = (int)request.getSession().getAttribute("doPtPlanCheckUserNo");
+		System.out.println("doPtPlanCheckUserNo = " + doPtPlanCheckUserNo);
 		int sessionAdminNo = (Integer)request.getSession().getAttribute("sessionAdminNo");
+		System.out.println("sessionAdminNo = " + sessionAdminNo);
 		String reservationDate = request.getParameter("date");
+		System.out.println("reservationDate = " + reservationDate);
 		
 		PtReservationHisDTO2 dto = new PtReservationHisDTO2();
 		dto.setUserNo(doPtPlanCheckUserNo);
@@ -213,8 +215,8 @@ public class AdminServiceImpl implements AdminService {
 
 		SqlSession sql = sqlSessionFactory.openSession(true);
 		AdminMapper admin = sql.getMapper(AdminMapper.class);
-		PtReservationHisDTO2 result = admin.doPtPlanCheck(dto);
-		System.out.println(result);
+		List<PtReservationHisDTO2> result = admin.doPtPlanCheck(dto);
+		System.out.println(result.toString());
 		
 		request.setAttribute("result", result);
 		request.getRequestDispatcher("admin-pt-check-info.jsp").forward(request, response);
@@ -225,13 +227,20 @@ public class AdminServiceImpl implements AdminService {
 	@Override
 	public void getTrainerPtCheck(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		int sessionAdminNo = (int)request.getSession().getAttribute("sessionAdminNo"); 
+		int sessionAdminNo = (int)request.getSession().getAttribute("sessionAdminNo");
+		System.out.println("sessionAdminNo = " + sessionAdminNo);
 	
 		SqlSession sql = sqlSessionFactory.openSession(true);
 		AdminMapper admin = sql.getMapper(AdminMapper.class);
 		List<PtReservationHisDTO2> dateDto = admin.doTrainerPtCheck2(sessionAdminNo); // 관리자 정보 가져오기doTrainerPtCheck2
 		AdminAccountDTO adDto = admin.getAdminAccount(sessionAdminNo); // 관리자 정보 가져오기
+		List<PtPerDayDTO> ptPerDayList = admin.getPtPerDay(sessionAdminNo); //하루 PT 횟수
+		System.out.println("ptPerDayList = " + ptPerDayList.toString());
+//		for(PtPerDayDTO dto : ptPerDayList) {
+//			System.out.println(dto.toString());
+//		}
 		
+		request.setAttribute("ptPerDayList", ptPerDayList);
 		request.setAttribute("adDto", adDto); // 관리자 정보 조회
 		request.setAttribute("dateDto", dateDto); // 관리자 정보 조회
 

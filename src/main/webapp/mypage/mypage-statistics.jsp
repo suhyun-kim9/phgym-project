@@ -55,16 +55,16 @@
                 <div>
 	                <table>
 	                    <tr>
+	                    	<th>No</th>
 	                        <th>출석일자</th>
 	                        <th>출석시간</th>
-	                        <th>회원권 기간</th>
 	                        <th>비고</th>
 	                    </tr>
 	                    <c:forEach var="list" items="${checkinList}">
 	                    	<tr>
+	                    		<td>${list.no}</td>
 		                        <td>${list.checkinDate}</td>
 		                        <td>${list.checkinTime}</td>
-		                        <td>${list.startDate} ~ ${list.endDate}</td>
 		                        <td>-</td>
 		                    </tr>
 	                    </c:forEach>

@@ -29,8 +29,6 @@ public class MainController extends HttpServlet {
 	}
 	
 	protected void doAction(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//코드 작성
-		request.getSession().setAttribute("sessionUserNo", 4); //삭제예정
 		
 		request.setCharacterEncoding("utf-8");
         String uri = request.getRequestURI();
@@ -95,7 +93,3 @@ public class MainController extends HttpServlet {
 		
 	}
 }
-
-
-
-//모델에 dto만들기

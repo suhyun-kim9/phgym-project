@@ -1,59 +1,51 @@
 package com.phgym.mypage.model;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
+
 public class CheckinListDTO {
 
-	private String checkinDate;
-	private String checkinTime;
-	private String startDate;
-	private String endDate;
+	private int no;
+	private LocalDate checkinDate;
+	private LocalTime checkinTime;
 	
 	public CheckinListDTO() {
 		super();
 	}
-	
-	public CheckinListDTO(String checkinDate, String checkinTime, String startDate, String endDate) {
+
+	public CheckinListDTO(int no, LocalDate checkinDate, LocalTime checkinTime) {
 		super();
+		this.no = no;
 		this.checkinDate = checkinDate;
 		this.checkinTime = checkinTime;
-		this.startDate = startDate;
-		this.endDate = endDate;
 	}
-	
-	public String getCheckinDate() {
+
+	public int getNo() {
+		return no;
+	}
+
+	public void setNo(int no) {
+		this.no = no;
+	}
+
+	public LocalDate getCheckinDate() {
 		return checkinDate;
 	}
-	
-	public void setCheckinDate(String checkinDate) {
+
+	public void setCheckinDate(LocalDate checkinDate) {
 		this.checkinDate = checkinDate;
 	}
-	
-	public String getCheckinTime() {
+
+	public LocalTime getCheckinTime() {
 		return checkinTime;
 	}
-	
-	public void setCheckinTime(String checkinTime) {
+
+	public void setCheckinTime(LocalTime checkinTime) {
 		this.checkinTime = checkinTime;
 	}
-	
-	public String getStartDate() {
-		return startDate;
-	}
-	
-	public void setStartDate(String startDate) {
-		this.startDate = startDate;
-	}
-	
-	public String getEndDate() {
-		return endDate;
-	}
-	
-	public void setEndDate(String endDate) {
-		this.endDate = endDate;
-	}
-	
+
 	@Override
 	public String toString() {
-		return "CheckinListDTO [checkinDate=" + checkinDate + ", checkinTime=" + checkinTime + ", startDate="
-				+ startDate + ", endDate=" + endDate + "]";
+		return "CheckinListDTO [no=" + no + ", checkinDate=" + checkinDate + ", checkinTime=" + checkinTime + "]";
 	}
 }

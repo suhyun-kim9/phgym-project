@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -111,11 +112,10 @@
 
 </head>
 <body>
-    
     <nav class="main_nav_bar">
         <ul class="main_nav">
             <a href="/PHGYM/main/userhome.main"><img src="../include/img/logo-light2.png"></a>
-            <li><a href="/PHGYM/main/introduction.main"> 헬스장 소개 </a></li>
+            <li><a href="/PHGYM/main/introduction.main" style="color: #000;"> 헬스장 소개 </a></li>
             <li><a href="/PHGYM/main/promotionList.main"> 프로모션 </a></li>
             <li><a> 문의 / 고객센터 </a></li>
             <li><a href="/PHGYM/main/map.main"> 오시는 길 </a></li>
@@ -130,7 +130,13 @@
             <li class="gnb">  
                 <!-- <input type="button" value="마이페이지"> -->
                 <!-- <input type="button" value="회원가입"> -->
-                <input type="button" value="로그아웃">
+                <c:if test="${sessionScope.sessionUserNo == null || sessionScope.sessionUserNo == ''}">
+                	<input type="button" value="로그인" onclick="location.href='../join/LoginPage.join'">
+                	<input type="button" value="회원가입" onclick="location.href='../join/JoinPage.join'">
+                </c:if>
+                <c:if test="${sessionScope.sessionUserNo != null && sessionScope.sessionUserNo != ''}">
+                	<input type="button" value="로그아웃" onclick="location.href='../join/LogoutUser.join'">
+                </c:if>
             </li>
             <div class="animation"></div>
         </ul>

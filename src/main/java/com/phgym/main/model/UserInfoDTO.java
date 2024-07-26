@@ -6,34 +6,33 @@ public class UserInfoDTO {
 
 	private int userNo;
 	private String userId;
-	private String pw;
-	private String name;
-	private LocalDateTime birth;
-	private String gender;
-	private String phone;
-	private String email;
-	private String address;
-	private LocalDateTime regDate;
-	private String profile;
+	private String userPw;
+	private String userName;
+	private LocalDateTime userBirth;
+	private String userGender;
+	private String userPhone;
+	private String userEmail;
+	private String userAddress;
+	private LocalDateTime userRegDate;
 	
 	public UserInfoDTO() {
+		super();
 		
 	}
-	
-	public UserInfoDTO(int userNo, String userId, String pw, String name, LocalDateTime birth, String gender,
-			String phone, String email, String address, LocalDateTime regDate, String profile) {
+
+	public UserInfoDTO(int userNo, String userId, String userPw, String userName, LocalDateTime userBirth,
+			String userGender, String userPhone, String userEmail, String userAddress, LocalDateTime userRegDate) {
 		super();
 		this.userNo = userNo;
 		this.userId = userId;
-		this.pw = pw;
-		this.name = name;
-		this.birth = birth;
-		this.gender = gender;
-		this.phone = phone;
-		this.email = email;
-		this.address = address;
-		this.regDate = regDate;
-		this.profile = profile;
+		this.userPw = userPw;
+		this.userName = userName;
+		this.userBirth = userBirth;
+		this.userGender = userGender;
+		this.userPhone = userPhone;
+		this.userEmail = userEmail;
+		this.userAddress = userAddress;
+		this.userRegDate = userRegDate;
 	}
 
 	public int getUserNo() {
@@ -52,75 +51,77 @@ public class UserInfoDTO {
 		this.userId = userId;
 	}
 
-	public String getPw() {
-		return pw;
+	public String getUserPw() {
+		return userPw;
 	}
 
-	public void setPw(String pw) {
-		this.pw = pw;
+	public void setUserPw(String userPw) {
+		this.userPw = userPw;
 	}
 
-	public String getName() {
-		return name;
+	public String getUserName() {
+		return userName;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 
-	public LocalDateTime getBirth() {
-		return birth;
+	public LocalDateTime getUserBirth() {
+		return userBirth;
 	}
 
-	public void setBirth(LocalDateTime birth) {
-		this.birth = birth;
+	public void setUserBirth(LocalDateTime userBirth) {
+		this.userBirth = userBirth;
 	}
 
-	public String getGender() {
-		return gender;
+	public String getUserGender() {
+		return userGender;
 	}
 
-	public void setGender(String gender) {
-		this.gender = gender;
+	public void setUserGender(String userGender) {
+		this.userGender = userGender;
 	}
 
-	public String getPhone() {
-		return phone;
+	public String getUserPhone() {
+		return userPhone;
 	}
 
-	public void setPhone(String phone) {
-		this.phone = phone;
+	public void setUserPhone(String userPhone) {
+		this.userPhone = userPhone;
 	}
 
-	public String getEmail() {
-		return email;
+	public String getUserEmail() {
+		return userEmail;
 	}
 
-	public void setEmail(String email) {
-		this.email = email;
+	public void setUserEmail(String userEmail) {
+		this.userEmail = userEmail;
 	}
 
-	public String getAddress() {
-		return address;
+	public String getUserAddress() {
+		return userAddress;
 	}
 
-	public void setAddress(String address) {
-		this.address = address;
+	public void setUserAddress(String userAddress) {
+		this.userAddress = userAddress;
 	}
 
-	public LocalDateTime getRegDate() {
-		return regDate;
+	public LocalDateTime getUserRegDate() {
+		return userRegDate;
 	}
 
-	public void setRegDate(LocalDateTime regDate) {
-		this.regDate = regDate;
+	public void setUserRegDate(LocalDateTime userRegDate) {
+		this.userRegDate = userRegDate;
 	}
 
-	public String getProfile() {
-		return profile;
+	@Override
+	public String toString() {
+		return "UserInfoDTO [userNo=" + userNo + ", userId=" + userId + ", userPw=" + userPw + ", userName=" + userName
+				+ ", userBirth=" + userBirth + ", userGender=" + userGender + ", userPhone=" + userPhone
+				+ ", userEmail=" + userEmail + ", userAddress=" + userAddress + ", userRegDate=" + userRegDate + "]";
 	}
-
-	public void setProfile(String profile) {
-		this.profile = profile;
-	}
-}
+	
+	
+	
+}	

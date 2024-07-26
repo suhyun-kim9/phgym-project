@@ -6,6 +6,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=044c395910a2b889bf5c80a65ed0a100"></script>
+    
 	<link rel="stylesheet" href="../include/css/main-navigation.css">
 
     <style>
@@ -25,17 +27,20 @@
             display: flex; 
         }
 
-
         /* 지도 이미지 파일 */
         .map-wrap > .map-img {
             position: relative; border-radius: 10px;
             border: 1px solid #000;
-            width: 45%; height: 65%; top: 100px;
+            width: 45%; height: 65%; top: 100px; overflow: hidden;
         }
-        .map-wrap > .map-img > img {
+        .map-wrap > .map-img > div {
+        	position: relative; width: 100%; height: 100%;
+        }
+        
+/*        .map-wrap > .map-img > img {
             width: 100%;  height: 100%; border-radius: 10px; object-fit: cover;
             
-        }
+        } */
 
         /* 오시는길 소개란 */
         .map-wrap > .map-info {
@@ -87,7 +92,7 @@
     <section>
         <div class="map-wrap">
             <div class="map-img">
-                <img src="img/지도.png" alt="지도">
+                <div id="map"></div>
             </div>
             <div class="map-info">
                 <div>
@@ -114,12 +119,46 @@
             </div>
         </div>
     </section>
+	<script type="text/javascript">
+
+    /*링크참조 
+    https://apis.map.kakao.com/web/sample/ */
+   
+   var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+           mapOption = { 
+               center: new kakao.maps.LatLng(37.4996384, 127.0304606), // 지도의 중심좌표
+               level: 3 // 지도의 확대 레벨
+           };
+
+       var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+
+       // 일반 지도와 스카이뷰로 지도 타입을 전환할 수 있는 지도타입 컨트롤을 생성합니다
+       var mapTypeControl = new kakao.maps.MapTypeControl();
+
+       // 지도에 컨트롤을 추가해야 지도위에 표시됩니다
+       // kakao.maps.ControlPosition은 컨트롤이 표시될 위치를 정의하는데 TOPRIGHT는 오른쪽 위를 의미합니다
+       map.addControl(mapTypeControl, kakao.maps.ControlPosition.TOPRIGHT);
+
+       // 지도 확대 축소를 제어할 수 있는  줌 컨트롤을 생성합니다
+       var zoomControl = new kakao.maps.ZoomControl();
+       map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);
+
+       //2-마커
+       
+       // 마커가 표시될 위치입니다 
+       var markerPosition  = new kakao.maps.LatLng(37.4996384, 127.0304606); 
+
+       // 마커를 생성합니다
+       var marker = new kakao.maps.Marker({
+           position: markerPosition
+       });
+
+       // 마커가 지도 위에 표시되도록 설정합니다
+       marker.setMap(map);
 
 
 
-
-
-
-
+	</script>
+<script type="text/javascript" src="js/main-promotion-payment.js"></script>
 </body>
 </html>
