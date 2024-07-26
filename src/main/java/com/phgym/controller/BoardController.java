@@ -29,9 +29,6 @@ public class BoardController extends HttpServlet {
 	}
 	
 	protected void doAction(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getSession().setAttribute("sessionAdminNo", 1);
-		request.getSession().setAttribute("sessionAdminName", "홍길동");
-		
 		request.setCharacterEncoding("utf-8");
 		
 		String uri = request.getRequestURI();

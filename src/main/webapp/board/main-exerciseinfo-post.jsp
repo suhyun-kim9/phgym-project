@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>main-exerciseinfo-post</title>
+    <title>운동정보작성</title>
 
     <link rel="stylesheet" href="css/main-exerciseinfo-post.css">
 </head>
@@ -13,7 +13,7 @@
     
     <div class="form-container">
         <div class="header">
-            <input type="button" value="←" onclick="location.href='main_exe_list.board'">
+            <input type="button" value="←" style="width: 30px" onclick="location.href='main_exe_list.board'">
             <span class="header-title">글 작성하기</span>
             <div class="header-icons">
                 <button class="icon-btn">⋮</button>
