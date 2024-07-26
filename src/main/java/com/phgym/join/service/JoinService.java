@@ -43,5 +43,9 @@ public interface JoinService {
 
 	void findUserPw(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException; // 회원 로그인 페이지에서 비밀번호 찾기
 
+	void LoginPage(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException; // 유저 홈 -> 로그인
+
+	void JoinPage(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException; // 유저 홈 -> 회원가입
+
 	
 }
