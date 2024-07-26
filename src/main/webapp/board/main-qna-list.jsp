@@ -5,14 +5,24 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>문의글 목록</title>
+    
+    <title>문의글목록</title>
 
     <link rel="stylesheet" href="css/main-qna-list.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+     <link rel="stylesheet" href="../include/css/main-navigation.css">
+     
 </head>
 <body>
+
+
+<jsp:include page="../include/main-navigation.jsp"/>
+    
     
     <div class="container">
         <h1>문의글 목록</h1>
@@ -54,12 +64,12 @@
         </c:if>
 
         <div class="pagination">
-            <c:if test="${page > 1}">
-                <a href="main_qna_list.board?page=${page - 1}">Previous</a>
+            <c:if test="${pages > 1}">
+                <a href="main_qna_list.board?page=${pages - 1}">Previous</a>
             </c:if>
-            <c:forEach var="i" begin="1" end="${totalPages}">
+            <c:forEach var="i" begin="1" end="${totalPages1}">
                 <c:choose>
-                    <c:when test="${page == i}">
+                    <c:when test="${pages == i}">
                         <span class="current">${i}</span>
                     </c:when>
                     <c:otherwise>
@@ -67,8 +77,8 @@
                     </c:otherwise>
                 </c:choose>
             </c:forEach>
-            <c:if test="${page < totalPages}">
-                <a href="main_qna_list.board?page=${page + 1}">Next</a>
+            <c:if test="${pages < totalPages1}">
+                <a href="main_qna_list.board?page=${pages + 1}">Next</a>
             </c:if>
         </div>
         

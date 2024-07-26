@@ -193,17 +193,17 @@ public class BoardServiceImpl implements BoardService {
 	@Override
 	public void getList1(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		int page = 1;
+		int pages = 1;
 		int pageSize = 10;
 		
 		try {
-			page = Integer.parseInt(request.getParameter("page"));
+			pages = Integer.parseInt(request.getParameter("page"));
 		} catch (NumberFormatException e) {
 			e.printStackTrace();
 		}
 		
-		int startIndex = (page - 1) * pageSize;
-		int endIndex = page * pageSize;
+		int startIndex = (pages - 1) * pageSize;
+		int endIndex = pages * pageSize;
 		
 		SqlSession sql = sqlSessionFactory.openSession();
 		BoardMapper board = sql.getMapper(BoardMapper.class);
@@ -219,11 +219,11 @@ public class BoardServiceImpl implements BoardService {
 		
 		sql.close();
 		
-		int totalPages = (int) Math.ceil((double) totalCount1 / pageSize);
+		int totalPages1 = (int) Math.ceil((double) totalCount1 / pageSize);
 		
 		request.setAttribute("list", list);
-		request.setAttribute("page", page);
-		request.setAttribute("totalPages", totalPages);
+		request.setAttribute("pages", pages);
+		request.setAttribute("totalPages1", totalPages1);
 		request.getRequestDispatcher("main-qna-list.jsp").forward(request, response);
 		
 	}
@@ -232,17 +232,17 @@ public class BoardServiceImpl implements BoardService {
 	@Override
 	public void searchList1(HttpServletRequest request, HttpServletResponse response, String searchKeyword) throws ServletException, IOException {
 		System.out.println(1);
-		int page = 1;
+		int pages = 1;
 		int pageSize = 10;
 		
 		try {
-			page = Integer.parseInt(request.getParameter("page"));
+			pages = Integer.parseInt(request.getParameter("page"));
 		} catch (NumberFormatException e) {
 			e.printStackTrace();
 		}
 		
-		int startIndex = (page - 1) * pageSize;
-		int endIndex = page * pageSize;
+		int startIndex = (pages - 1) * pageSize;
+		int endIndex = pages * pageSize;
 		
 		SqlSession sql = sqlSessionFactory.openSession();
 		BoardMapper board = sql.getMapper(BoardMapper.class);
@@ -255,11 +255,11 @@ public class BoardServiceImpl implements BoardService {
 		
 		sql.close();
 
-		int totalPages = (int) Math.ceil((double) totalCount1 / pageSize);
+		int totalPages1 = (int) Math.ceil((double) totalCount1 / pageSize);
 		
 		request.setAttribute("list", list);
-		request.setAttribute("page", page);
-		request.setAttribute("totalPages", totalPages);
+		request.setAttribute("pages", pages);
+		request.setAttribute("totalPages1", totalPages1);
 		request.setAttribute("searchKeyword", searchKeyword);
 		request.getRequestDispatcher("main-qna-list.jsp").forward(request, response);
 		
