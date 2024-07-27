@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="../include/css/main-navigation.css">
     
     <style>
-    @font-face {
+   @font-face {
         font-family: 'SUIT-Regular                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             ';
         src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Regular.woff2') format('woff2');
         font-weight: 500;
@@ -21,7 +21,7 @@
     
     /* 전체 틀 */
     .pay-wrap {
-        position: relative; top: 100px;
+        position: relative; top: 50px;
         border: 0px solid #000;
         width: 1024px; height: 670px;
     }
@@ -37,18 +37,17 @@
         font-size: 20px;
     }
 
-    /* 결제 정보 내역 */
+    /* 결제 정보 내역 (왼쪽) */
     .pay-wrap > .content {
-        border: 0px solid #e3e3e3; border-radius: 10px;
         display: inline-block; font-size: 15px; 
-        width: 100%; height: 67%; position: relative; top: 40px;
+        width: 50%; height: 67%; position: relative; top: 20px;
     }
     .pay-wrap > .content a {
-        display:block; position: relative; top:5px; text-indent: 6px;
+        display:block; position: relative; top: 5px; text-indent: 6px;
     }
     .pay-wrap > .content > div {
         border: 0px solid palevioletred;
-        margin: 20px 0px 0px 30px;
+        margin: 30px 0px 0px 50px; 
     }
     .pay-wrap > .content > div:nth-of-type(2) {
         position: relative;
@@ -56,73 +55,147 @@
     .pay-wrap > .content input{
         width: 300px; height: 25px; margin-top: 7px; position: relative; text-indent: 6px;
     }
+    
+    /* 결제 정보 내역 (오른쪽) */
     #right {
-        border-top: 2px solid black;
-        border-bottom: 2px solid black;
-        position: relative; left: 545px; top: -271px;
-        margin: 10px; width : 46%;
+        /* border-top: 2px solid black;
+        border-bottom: 2px solid black;  */
+        /* border: 1px solid blue; */
+        left: 505px; top: -443px;
+        margin: 10px; width : 49.5%; height: 67%;
+        display: inline-block; font-size: 15px; position: relative; 
     }
-    #right div {
-        padding-bottom: 18px;
+    #right > div {
+        border: 0px solid palevioletred;
+        margin: 30px 0px 0px 50px; 
     }
-    /* 결제방법 */
-    .pay-wrap .pay-method .method-list {
-        width: 150px; height: 27px;
-        font-size: 15px; font-weight: 300;
-        box-sizing: border-box;
-        border-radius: 1px;
-        border: 1px solid #e3e3e3;
+    #right a {
+        display:block; position: relative; top: 5px; text-indent: 6px;  
+    }
+    #right > div:nth-of-type(2) {
+        position: relative;
     }
 
-    /* 환불은행명 */
-    .pay-wrap .name-list {
-        width: 150px; height: 27px;
-        font-size: 15px; font-weight: 300;
-        box-sizing: border-box;
-        border-radius: 1px;
-        border: 1px solid #e3e3e3;
+    #right input{
+        width: 300px; height: 25px; margin-top: 7px; position: relative; text-indent: 6px;
+    }
+    #right select {
+        display: inline-block;
+        width: 27%; height: 25%;
     }
 
     /* 제출하기 버튼 */
-    .pay-wrap > input {
-        position: absolute; top: 530px; left: 862px;
-        border: 2px solid #000; border-radius: 5px;
-        width: 16%; height: 30px; font-weight: 500; letter-spacing: 6px;
-        background-color: #f97316; color: #000;
-    } */
+    .button.button--wapasha {
+        border-radius: 5px; background: #f97316; color: #fff; 
+        top: -155px; left: 390px;
+        -webkit-transition: background-color 0.3s, color 0.3s;
+        transition: background-color 0.3s, color 0.3s;
+    }
+    .button--wapasha.button--inverted {
+        background: #fff;
+        color: #37474f;
+    }
+    .button--wapasha::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: 2px solid #f97316;
+        z-index: -1;
+        border-radius: inherit;
+        opacity: 0;
+        -webkit-transform: scale3d(0.6, 0.6, 1);
+        transform: scale3d(0.6, 0.6, 1);
+        -webkit-transition: -webkit-transform 0.3s, opacity 0.3s;
+        transition: transform 0.3s, opacity 0.3s;
+        -webkit-transition-timing-function: cubic-bezier(0.75, 0, 0.125, 1);
+        transition-timing-function: cubic-bezier(0.75, 0, 0.125, 1);
+    }
+    .button--wapasha.button--inverted::before {
+        
+    }
+    .button--wapasha:hover {
+        background-color: #fff;
+        color: #f97316;
+    }
+    .button--wapasha.button--inverted:hover {
+        background-color: #f97316;
+        color: #f97316;
+    }
+    .button--wapasha:hover::before {
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
+        opacity: 1;
+    }
+    .box {
+        margin-top: 100px;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        -webkit-justify-content: flex-end;
+        justify-content: flex-end;
+    }
+    .bg-1 {
+        color: #37474f; width : 250px; top: -150px; left: -185px;
+    }
+    /* Common button styles */
+    .button {
+        float: left;
+        min-width: 150px;
+        max-width: 250px;
+        display: block;
+        margin: 1em;
+        padding: 1em 2em;
+        border: none;
+        background: none;
+        color: inherit;
+        vertical-align: middle;
+        position: relative;
+        z-index: 1;
+        -webkit-backface-visibility: hidden;
+        -moz-osx-font-smoothing: grayscale;
+    }
+    
     </style>
     
 </head>
 
 <body>
    
-      <jsp:include page="../include/main-navigation.jsp"/>
+   <jsp:include page="../include/main-navigation.jsp"/>
     
    <form action="promotion-payment2.main" method="post">
      <div class="pay-wrap">
         <p> ✔︎ 주문결제</p>
         <div class="prom-name">기본 정액가(6개월)</div>
-          <div class="content">
-            <div>
-                <a>이름</a> 
-                <input type="text" name="name" value="${result.userName}" disabled="disabled">
-            </div>
-            <div>
-                <a>연락처</a>
-                <input type="text" name="phone" value="${result.userPhone}" disabled="disabled">
-            </div>
-            <div>
-                <a>이메일</a>
-                <input type="text" name="email" value="${result.userEmail}" disabled="disabled">
-            </div>
-            <div>    
-                <a>회원권 이용 기간</a>
+            <div class="content">
                 <div>
-			        <input type="date" name="startDate" id="startDate" onchange="onChangeCal(this)">
-			        <a> ~ </a>
-			        <input type="date" name="endDate" id="endDate" readonly>
-		    	</div>
+                    <a>이름</a> 
+                    <input type="text" name="name" value="${result.name}" disabled="disabled">
+                </div>
+                <div>
+                    <a>연락처</a>
+                    <input type="text" name="phone" value="${result.phone}" disabled="disabled">
+                </div>
+                <div>
+                    <a>이메일</a>
+                    <input type="text" name="email" value="${result.email}" disabled="disabled">
+                </div>
+                <div>    
+                    <a>회원권 이용 기간</a>
+                    <div>
+                        <input type="date" name="startDate" id="startDate" onchange="onChangeCal(this)">
+                        <a> ~ </a>
+                        <input type="date" name="endDate" id="endDate" readonly>
+                    </div>
+                </div>
             </div>
+
             <div id="right">
                 <div class="pay-method">
                     <a>결제방법</a>
@@ -160,12 +233,15 @@
                 </div>
             </div>
         </div>
-        <input type="submit" value="결제하기"/>
+        <div class="box bg-1">
+            <button class="button button--wapasha button--round-s">결제하기</button>
+        </div>
     </div>  
     </form>
 
 
 <script type="text/javascript" src="js/main-promotion-payment2.js"></script>
+<script type="text/javascript" src="../include/js/main-navigation.js"></script>
 
 
 </body>
