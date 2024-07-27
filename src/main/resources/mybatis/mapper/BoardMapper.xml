@@ -6,39 +6,38 @@
 	<!-- 쿼리 작성 -->
 	
 	 <!-- 목록 가져오기 -->
+	 
     <!-- <select id="getList" resultType="com.phgym.board.model.BoardDTO">
         SELECT * FROM EXERCISE_INFO ORDER BY INFO_NO DESC
     </select> -->
-    
-
 
 	<!--  1.2.3 -> 테이블, 컬럼명 싹다 다시 가져옴. -->
+	
 	<!-- 문의글은  user세션값(로그인상태) 가져올거임 -->
 
 	<!--  조회하는 테이블이 달라지니까 , 운동,공지,문의 각각 만들어야함. 
 	테이블명, 컬럼명만 잘 신경쓰면 됨 . -->
-
+	
+	<!-- 검색 결과 가져오기 -->
+	
+    <!-- <select id="searchList" resultType="com.phgym.board.model.BoardDTO">
+        SELECT * FROM EXERCISE_INFO WHERE TITLE LIKE CONCAT('%', #{searchKeyword}, '%') ORDER BY INFO_NO DESC LIMIT #{startIndex}, #{pageSize}
+    </select> -->
+	
 
 	<insert id="regist" parameterType="com.phgym.board.model.BoardDTO">
     	INSERT INTO EXERCISE_INFO (INFO_NO, ADMIN_NO, TITLE, WRITE_DATE, CONTENT)
     	VALUES (EXERCISE_INFO_SEQ.NEXTVAL, #{adminNo}, #{title}, SYSDATE, #{content})
 	</insert>
-	
 
-	    <select id="getList" resultType="com.phgym.board.model.BoardDTO">
+	<select id="getList" resultType="com.phgym.board.model.BoardDTO">
     	SELECT * FROM (
         	SELECT a.*, ROW_NUMBER() OVER (ORDER BY INFO_NO DESC) AS rnum
         	FROM EXERCISE_INFO a
    		)
     	WHERE rnum BETWEEN #{startIndex} AND #{endIndex}
 	</select>
-	
-	
-	<!-- 검색 결과 가져오기 -->
-    <!-- <select id="searchList" resultType="com.phgym.board.model.BoardDTO">
-        SELECT * FROM EXERCISE_INFO WHERE TITLE LIKE CONCAT('%', #{searchKeyword}, '%') ORDER BY INFO_NO DESC LIMIT #{startIndex}, #{pageSize}
-    </select> -->
-    
+
     <select id="searchList" resultType="com.phgym.board.model.BoardDTO">
     	SELECT * FROM (
         	SELECT a.*, ROW_NUMBER() OVER (ORDER BY INFO_NO DESC) AS rnum
@@ -47,6 +46,7 @@
     	)
     	WHERE rnum BETWEEN #{startIndex} AND #{endIndex}
 	</select>
+	
 	<select id="getTotalCount" resultType="int">
     	SELECT COUNT(*) FROM EXERCISE_INFO
 	</select>
@@ -68,7 +68,6 @@
         DELETE FROM EXERCISE_INFO WHERE INFO_NO = #{infoNo}
     </delete>
     
-    
     <!-- ===========================문 의 글============================================= -->
     <insert id="regist1" parameterType="com.phgym.board.model.QnaDTO">
     	INSERT INTO INQUIRY (INQUIRY_NO, WRITER, TITLE, PW, WRITE_DATE, CONTENT)
@@ -81,24 +80,24 @@
         	SELECT a.*, ROW_NUMBER() OVER (ORDER BY INQUIRY_NO DESC) AS rnum
         	FROM INQUIRY a
    		)
-    	WHERE rnum BETWEEN #{startIndex} AND #{endIndex}
+    	WHERE rnum BETWEEN #{startIndexs} AND #{endIndexs}
 	</select>
     
     <select id="searchList1" resultType="com.phgym.board.model.QnaDTO">
     	SELECT * FROM (
         	SELECT a.*, ROW_NUMBER() OVER (ORDER BY INQUIRY_NO DESC) AS rnum
         	FROM INQUIRY a
-        	WHERE TITLE LIKE '%' || #{searchKeyword} || '%'
+        	WHERE TITLE LIKE '%' || #{searchKeywords} || '%'
     	)
-    	WHERE rnum BETWEEN #{startIndex} AND #{endIndex}
+    	WHERE rnum BETWEEN #{startIndexs} AND #{endIndexs}
 	</select>
-	<select id="getTotalCount1" resultType="int">
+	<select id="getTotalCounts" resultType="int">
     	SELECT COUNT(*) FROM INQUIRY
 	</select>
 
- 	<select id="getSearchCount1" resultType="int">
+ 	<select id="getSearchCounts" resultType="int">
     	SELECT COUNT(*) FROM INQUIRY
-    	WHERE TITLE LIKE '%' || #{searchKeyword} || '%'
+    	WHERE TITLE LIKE '%' || #{searchKeywords} || '%'
 	</select>
 
 	<select id="getContent1" parameterType="int" resultType="com.phgym.board.model.QnaDTO">
@@ -126,6 +125,50 @@
     <update id="updateReply" parameterType="com.phgym.board.model.QnaDTO">
         UPDATE INQUIRY SET REPLY_CONTENT = #{replyContent}, REPLY_DATE = SYSDATE WHERE INQUIRY_NO = #{inquiryNo} AND ADMIN_NO = #{adminNo}
     </update>
+    
+    <!-- ==================================공지사항===================================================== -->
 	
+	<insert id="registN" parameterType="com.phgym.board.model.NoticeDTO">
+    	INSERT INTO NOTICE (NOTICE_NO, ADMIN_NO, TITLE, WRITE_DATE, CONTENT)
+    	VALUES (NOTICE_SEQ.NEXTVAL, #{adminNo}, #{title}, SYSDATE, #{content})
+	</insert>
+
+	<select id="getListN" resultType="com.phgym.board.model.NoticeDTO">
+    	SELECT * FROM (
+        	SELECT a.*, ROW_NUMBER() OVER (ORDER BY NOTICE_NO DESC) AS rnum
+        	FROM NOTICE a
+   		)
+    	WHERE rnum BETWEEN #{startIndexn} AND #{endIndexn}
+	</select>
+
+    <select id="searchListN" resultType="com.phgym.board.model.NoticeDTO">
+    	SELECT * FROM (
+        	SELECT a.*, ROW_NUMBER() OVER (ORDER BY NOTICE_NO DESC) AS rnum
+        	FROM NOTICE a
+        	WHERE TITLE LIKE '%' || #{searchKeywordn} || '%'
+    	)
+    	WHERE rnum BETWEEN #{startIndexn} AND #{endIndexn}
+	</select>
+	
+	<select id="getTotalCountN" resultType="int">
+    	SELECT COUNT(*) FROM NOTICE
+	</select>
+
+ 	<select id="getSearchCountN" resultType="int">
+    	SELECT COUNT(*) FROM NOTICE
+    	WHERE TITLE LIKE '%' || #{searchKeywordn} || '%'
+	</select>
+
+	<select id="getContentN" parameterType="int" resultType="com.phgym.board.model.NoticeDTO">
+    	SELECT * FROM NOTICE WHERE NOTICE_NO = #{noticeNo}
+	</select>
+
+	<update id="increaseHitN" parameterType="int">
+		UPDATE NOTICE SET HIT = HIT + 1 WHERE NOTICE_NO = #{noticeNo}
+	</update>
+	
+	 <delete id="deleteN" parameterType="int">
+        DELETE FROM NOTICE WHERE NOTICE_NO = #{noticeNo}
+    </delete>
 
 </mapper>

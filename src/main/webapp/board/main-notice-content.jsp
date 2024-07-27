@@ -1,29 +1,29 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
+	<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>운동정보내용</title>
+    <title>공지사항내용</title>
 
-    <link rel="stylesheet" href="css/main-exerciseinfo-content.css">
+    <link rel="stylesheet" href="css/main-notice-content.css">
     
-     <script>
-        function confirmDelete(infoNo) {
+    <script>
+        function confirmDelete(noticeNo) {
             if(confirm("삭제하시겠습니까?")) {
-                location.href = 'main_exe_delete.board?infoNo=' + infoNo;
+                location.href = 'main_exe_delete.board?noticeNo=' + noticeNo;
             }
         }
     </script>
     
 </head>
 <body>
-    
-    <div class="content">
+
+	<div class="content">
         <div class="inquiry-view">
             <div class="view-header">
-            	<input type="button" value="←" onclick="location.href='main_exe_list.board'">
+            	<input type="button" value="←" onclick="location.href='main_notice_list.board'">
                 <h2>글 내용</h2>
                 <div class="title-info">
                     <span>제목 [ ${dto.title} ]</span>
@@ -31,7 +31,7 @@
                     <span>작성일 [${dto.writeDate} ]</span>
                     <%-- <fmt:formatDate value="${dto.writeDate}" pattern="yyyy년 MM월 dd일 HH시 mm분 ss초"/>  --%>
                  <c:if test="${sessionScope.adminNo }">
-                    <input type="button" value="삭제" onclick="confirmDelete(${dto.infoNo})">                 
+                    <input type="button" value="삭제" onclick="confirmDelete(${dto.noticeNo})">                 
                  </c:if>   
                 </div>
             </div>

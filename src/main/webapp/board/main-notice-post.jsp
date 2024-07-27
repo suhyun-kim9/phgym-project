@@ -1,13 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
+	<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>운동정보작성</title>
-
-    <link rel="stylesheet" href="css/main-exerciseinfo-post.css">
+	<title>공지사항작성</title>
+	
+	<link rel="stylesheet" href="css/main-notice-post.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="../include/css/main-navigation.css">
     
     <script>
         function validateForm() {
@@ -22,19 +24,19 @@
             return true;
         }
     </script>
-    
+	
 </head>
 <body>
-    
-    <div class="form-container">
+
+	<div class="form-container">
         <div class="header">
-            <input type="button" value="←" style="width: 30px" onclick="location.href='main_exe_list.board'">
+            <input type="button" value="←" style="width: 30px" onclick="location.href='main_notice_list.board'">
             <span class="header-title">글 작성하기</span>
             <div class="header-icons">
                 <button class="icon-btn">⋮</button>
             </div>
         </div>
-        <form action="main_exe_post_regist.board" method="post" onsubmit="return validateForm()">
+        <form action="main_notice_post_regist.board" method="post" onsubmit="return validateForm()">
             <input type="text" id="title" name="title" placeholder="제목을 입력하세요">
             <input type="text" id="writer" name="adminNo" size="10" placeholder="관리자 번호를 입력하세요" required>
 
