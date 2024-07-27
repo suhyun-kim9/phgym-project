@@ -18,96 +18,73 @@ img {
     margin: 0 auto;
 }
 
-.content > .wrap {
-    width: 100%;
-    margin: 100px auto 0;
-    text-align: center;
-    box-shadow: 0 8px 16px #ff7f56;
-    padding: 50px 0;
-    display: flex;
-    justify-content: space-around;
+.content > .wrap-top {
+	padding: 40px 0 20px 0;
+	border-bottom: 1px solid #00000029;
 }
 
-.content > .wrap > .trainer_img {
-    width: 40%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.content > .wrap-top > h2 {
+	display: inline-block;
+	font-size: 40px;
 }
 
-.content > .wrap > .trainer_img > img {
-	width: 80%;
+.content > .wrap-top > p {
+	display: inline-block;
+	padding-left: 10px;
+	font-size: 20px;
 }
 
-/* 캘린더 컨테이너 스타일 */
-.calendar {
-    width: 100%;
-    margin: 0 auto;
-    background-color: white;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
+.content > .wrap-middle {
+	padding-top: 30px;
+	display: flex;
+	justify-content: space-between;
 }
 
-/* 캘린더 헤더 스타일 */
-.header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
-    background-color: #ff7f56;
-    color: white;
+.content > .wrap-middle > .wrap-middle-left {
+	width: 54%;
+	padding: 7px;
+	overflow: hidden;
+	border-radius: 18px;
+    box-shadow: 2px 4px 12px #00000014;
 }
 
-/* 헤더 버튼 스타일 */
-.header button {
-    background: none;
-    border: none;
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
+.fc-header-toolbar {
+	padding-top: 3px;
 }
 
-/* 요일과 날짜 컨테이너 스타일 */
-.weekdays, .days {
-    display: flex;
-    flex-wrap: wrap;
+.fc-col-header {
+	background-color: #ff7f56;
 }
 
-/* 요일과 날짜 각각의 칸 스타일 */
-.weekdays div, .days div {
-    width: 14.28%;  /* 각 칸의 너비를 100%의 7분의 1로 설정 */
-    text-align: center;
-    padding: 10px 0;
-    box-sizing: border-box;  /* 패딩과 보더를 요소의 전체 너비와 높이에 포함시킴 */
+.content > .wrap-middle > .wrap-middle-right {
+	width: 44%;
+	border-radius: 18px;
+    box-shadow: 2px 4px 12px #00000014;
 }
 
-/* 요일 칸 스타일 */
-.weekdays {
-    background-color: #f4f4f4;
+.am {
+	display: flex;
 }
 
-/* 날짜 칸 스타일 */
-.days div {
-    border-bottom: 1px solid #ddd;
-    border-right: 1px solid #ddd;
+.pm {
+	display: flex;
 }
 
-/* 각 주의 마지막 칸의 오른쪽 보더 제거 */
-.days div:nth-child(7n) {
-    border-right: none;
+.disabledBtn {
+	background-color: #2c3e50;
+	opacity: 0.65;
+	border: none;
+	border-radius: 0.25em;
+	padding: 6.4px 10.4px;
+	font-size: 16px;
+	color: white;
 }
 
-/* 날짜 링크 스타일 */
-.days a {
-    display: block;
-    color: inherit;
-    text-decoration: none;
-    padding: 10px 0;
-}
-
-/* 날짜 링크 호버 스타일 */
-.days div:hover {
-    background-color: #f0f0f0;
+.abledBtn {
+	background-color: #ff7f56;
+	border: none;
+	border-radius: 0.25em;
+	padding: 6.4px 10.4px;
+	font-size: 16px;
+	color: white;
 }
