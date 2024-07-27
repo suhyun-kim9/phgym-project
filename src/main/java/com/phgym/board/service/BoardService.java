@@ -8,7 +8,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 public interface BoardService {
 	
-	// mainExerciseInfo
+	// ExerciseInfo
 	void getList(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException;
 
 	void regist(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException;
@@ -37,6 +37,19 @@ public interface BoardService {
 	void deleteReply(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException;
 	
     void updateReply(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException;
+
+    //================================================================================
+    
+    // mainNotice
+    void getListN(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException;
+
+	void registN(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException;
+
+	void searchListN(HttpServletRequest request, HttpServletResponse response, String searchKeyword) throws ServletException, IOException;
+
+	void getContentN(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException;
+
+	void deleteN(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException;
 
 
 }

@@ -24,6 +24,7 @@ h1 {
     padding: 5px;
     font-size: 16px;
     border-radius: 5px;
+    border: 1px solid #ccc;
 }
 
 .search-bar button {
@@ -52,10 +53,11 @@ table {
 table th, table td {
     padding: 8px;
     text-align: center;
+    border: 1px solid #ccc;
 }
 
 table th {
-    border-bottom: 1px solid black;
+    border-bottom: 2px solid #333;
     color: black;
     font-size: 18px;
 }
@@ -66,23 +68,38 @@ table th {
     margin-bottom: 20px;
 }
 
-.pagination button, .pagination span {
+.pagination a, .pagination span {
     margin: 0 5px;
     padding: 5px 10px;
     font-size: 16px;
     border-radius: 5px;
+    border: 1px solid #ccc;
+    color: #333;
+    text-decoration: none;
 }
 
-.pagination button {
+.pagination a {
     background-color: #f97316;
     color: black;
     border: none;
     cursor: pointer;
 }
 
-.pagination button:hover {
+.pagination a:hover {
     border: 1px solid #f97316;
     background-color: #fff;
+}
+
+.pagination span {
+    background-color: #fff;
+    color: #333;
+    cursor: default;
+}
+
+.pagination .current {
+    font-weight: bold;
+    background-color: #333;
+    color: #fff;
 }
 
 .buttons {
@@ -90,7 +107,7 @@ table th {
     justify-content: flex-end;
 }
 
-.buttons button {
+.buttons input {
     padding: 10px 20px;
     font-size: 16px;
     margin-left: 10px;
@@ -101,7 +118,7 @@ table th {
     border-radius: 5px;
 }
 
-.buttons button:hover {
+.buttons input:hover {
     border: 1px solid #f97316;
     background-color: #fff;
-} 
+}

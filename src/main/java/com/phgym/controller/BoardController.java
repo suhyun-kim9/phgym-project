@@ -24,7 +24,7 @@ public class BoardController extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
-		String searchKeyword = request.getParameter("searchKeyword");
+//		String searchKeyword = request.getParameter("searchKeyword");
 		doAction(request, response);
 	}
 	
@@ -41,7 +41,7 @@ public class BoardController extends HttpServlet {
 			
 			service = new BoardServiceImpl();
 			service.getList(request, response);
-			request.getRequestDispatcher("main-exerciseinfo-list.jsp").forward(request, response);
+//			request.getRequestDispatcher("main-exerciseinfo-list.jsp").forward(request, response);
 			
 		} else if(command.equals("/board/main_exe_post.board")) { // 작성
 			
@@ -57,7 +57,7 @@ public class BoardController extends HttpServlet {
 			String searchKeyword = request.getParameter("searchKeyword");
 			service.searchList(request, response, searchKeyword);
 			
-		} else if(command.equals("/board/main_exe_content.board")) { // 조회
+		} else if(command.equals("/board/main_exe_content.board")) { // 글 내용
 			
 			service = new BoardServiceImpl();
 			service.getContent(request, response);
@@ -84,10 +84,10 @@ public class BoardController extends HttpServlet {
 			
 		} else if(command.equals("/board/main_qna_search.board")) { // 검색
 			service = new BoardServiceImpl();
-			String searchKeyword = request.getParameter("searchKeyword");
-			service.searchList1(request, response, searchKeyword);
+			String searchKeywords = request.getParameter("searchKeywords");
+			service.searchList1(request, response, searchKeywords);
 			
-		} else if(command.equals("/board/main_qna_content.board")) { // 조회
+		} else if(command.equals("/board/main_qna_content.board")) { // 글 내용
 			
 			service = new BoardServiceImpl();
 			service.getContent1(request, response);
@@ -96,15 +96,47 @@ public class BoardController extends HttpServlet {
 		} else if(command.equals("/board/main_qna_delete.board")) { // 삭제
 			service = new BoardServiceImpl();
 			service.delete1(request, response);
-			//=================================================================================
+			//=========================댓 글========================================================
 		} else if(command.equals("/board/replyRegist.board")) { // 댓글 등록
 			service = new BoardServiceImpl();
 			service.replyRegist(request, response);
-		} else if (command.equals("/board/deleteReply.board")) {
+		} else if(command.equals("/board/deleteReply.board")) {
             service.deleteReply(request, response);
-        } else if (command.equals("/board/updateReply.board")) {
+        } else if(command.equals("/board/updateReply.board")) {
             service.updateReply(request, response);
-        }
+            
+            //========================공지사항
+        } else if(command.equals("/board/main_notice_list.board")) { // 공지사항 목록
+        	
+        	service = new BoardServiceImpl();
+			service.getListN(request, response);
+			request.getRequestDispatcher("main-notice-list.jsp").forward(request, response);
+        	
+        } else if(command.equals("/board/main_notice_post.board")) { // 작성
+			
+			request.getRequestDispatcher("main-notice-post.jsp").forward(request, response);
+			
+		} else if(command.equals("/board/main_notice_post_regist.board")) { // 등록
+			
+			service = new BoardServiceImpl();
+			service.registN(request, response);
+			
+		} else if(command.equals("/board/main_notice_search.board")) { // 검색
+			service = new BoardServiceImpl();
+			String searchKeywordn = request.getParameter("searchKeywordn");
+			service.searchListN(request, response, searchKeywordn);
+			
+		} else if(command.equals("/board/main_notice_content.board")) { // 글 내용
+			
+			service = new BoardServiceImpl();
+			service.getContentN(request, response);
+			request.getRequestDispatcher("main-notice-content.jsp").forward(request, response);
+			
+		} else if(command.equals("/board/main_notice_delete.board")) { // 삭제
+			
+			service.deleteN(request, response);
+			//=================================================================================
+		}
 		
 		
 	}

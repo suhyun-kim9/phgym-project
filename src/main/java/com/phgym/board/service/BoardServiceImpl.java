@@ -12,6 +12,7 @@ import org.apache.ibatis.session.SqlSessionFactory;
 
 import com.phgym.board.model.BoardDTO;
 import com.phgym.board.model.BoardMapper;
+import com.phgym.board.model.NoticeDTO;
 import com.phgym.board.model.QnaDTO;
 import com.phgym.util.mybatis.MybatisUtil;
 
@@ -59,7 +60,7 @@ public class BoardServiceImpl implements BoardService {
 			e.printStackTrace();
 		}
 		
-		int startIndex = (page - 1) * pageSize;
+		int startIndex = (page - 1) * pageSize + 1;
 		int endIndex = page * pageSize;
 		
 		SqlSession sql = sqlSessionFactory.openSession();
@@ -98,7 +99,7 @@ public class BoardServiceImpl implements BoardService {
 		}
 		
 		//
-		int startIndex = (page - 1) * pageSize;
+		int startIndex = (page - 1) * pageSize + 1;
 		int endIndex = page * pageSize;
 		
 		SqlSession sql = sqlSessionFactory.openSession();
@@ -147,8 +148,9 @@ public class BoardServiceImpl implements BoardService {
 	public void delete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		int infoNo = Integer.parseInt(request.getParameter("infoNo"));
-	    int adminNo = (int) request.getSession().getAttribute("loggedInAdminNo");
-
+//	    int adminNo = (int) request.getSession().getAttribute("loggedInAdminNo");
+		int adminNo = 1;
+		
 	    SqlSession sql = sqlSessionFactory.openSession();
 	    BoardMapper mapper = sql.getMapper(BoardMapper.class);
 
@@ -156,9 +158,11 @@ public class BoardServiceImpl implements BoardService {
 
 	    if(dto.getAdminNo() == adminNo) {
 	        mapper.delete(infoNo);
+	        
 	        sql.commit();
 	    }
 	    sql.close();
+	    
 	    response.sendRedirect("main_exe_list.board");
 		
 	}
@@ -194,73 +198,73 @@ public class BoardServiceImpl implements BoardService {
 	public void getList1(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		int pages = 1;
-		int pageSize = 10;
+		int pageSizes = 10;
 		
 		try {
-			pages = Integer.parseInt(request.getParameter("page"));
+			pages = Integer.parseInt(request.getParameter("pages"));
 		} catch (NumberFormatException e) {
 			e.printStackTrace();
 		}
 		
-		int startIndex = (pages - 1) * pageSize;
-		int endIndex = pages * pageSize;
+		int startIndexs = (pages - 1) * pageSizes + 1;
+		int endIndexs = pages * pageSizes;
 		
 		SqlSession sql = sqlSessionFactory.openSession();
 		BoardMapper board = sql.getMapper(BoardMapper.class);
 		
 		//
 		Map<String, Object> params = new HashMap<>();
-	    params.put("startIndex", startIndex);
-	    params.put("endIndex", endIndex);
+	    params.put("startIndexs", startIndexs);
+	    params.put("endIndexs", endIndexs);
 		
-		ArrayList<QnaDTO> list = board.getList1(startIndex, endIndex);
+		ArrayList<QnaDTO> lists = board.getList1(startIndexs, endIndexs);
 		
-		int totalCount1 = board.getTotalCount();
+		int totalCounts = board.getTotalCounts();
 		
 		sql.close();
 		
-		int totalPages1 = (int) Math.ceil((double) totalCount1 / pageSize);
+		int totalPagess = (int) Math.ceil((double) totalCounts / pageSizes);
 		
-		request.setAttribute("list", list);
+		request.setAttribute("lists", lists);
 		request.setAttribute("pages", pages);
-		request.setAttribute("totalPages1", totalPages1);
+		request.setAttribute("totalPagess", totalPagess);
 		request.getRequestDispatcher("main-qna-list.jsp").forward(request, response);
 		
 	}
 
 
 	@Override
-	public void searchList1(HttpServletRequest request, HttpServletResponse response, String searchKeyword) throws ServletException, IOException {
+	public void searchList1(HttpServletRequest request, HttpServletResponse response, String searchKeywords) throws ServletException, IOException {
 		System.out.println(1);
 		int pages = 1;
-		int pageSize = 10;
+		int pageSizes = 10;
 		
 		try {
-			pages = Integer.parseInt(request.getParameter("page"));
+			pages = Integer.parseInt(request.getParameter("pages"));
 		} catch (NumberFormatException e) {
 			e.printStackTrace();
 		}
 		
-		int startIndex = (pages - 1) * pageSize;
-		int endIndex = pages * pageSize;
+		int startIndexs = (pages - 1) * pageSizes + 1;
+		int endIndexs = pages * pageSizes;
 		
 		SqlSession sql = sqlSessionFactory.openSession();
 		BoardMapper board = sql.getMapper(BoardMapper.class);
 		Map<String, Object> params = new HashMap<>();
-		params.put("searchKeyword", searchKeyword);
-		params.put("startIndex", startIndex);
-		params.put("pageSize", pageSize);
-		ArrayList<QnaDTO> list = board.searchList1(searchKeyword, startIndex, endIndex);
-		int totalCount1 = board.getSearchCount1(searchKeyword);
+		params.put("searchKeywords", searchKeywords);
+		params.put("startIndexs", startIndexs);
+		params.put("pageSizes", pageSizes);
+		ArrayList<QnaDTO> lists = board.searchList1(searchKeywords, startIndexs, endIndexs);
+		int totalCounts = board.getSearchCounts(searchKeywords);
 		
 		sql.close();
 
-		int totalPages1 = (int) Math.ceil((double) totalCount1 / pageSize);
+		int totalPagess = (int) Math.ceil((double) totalCounts / pageSizes);
 		
-		request.setAttribute("list", list);
+		request.setAttribute("lists", lists);
 		request.setAttribute("pages", pages);
-		request.setAttribute("totalPages1", totalPages1);
-		request.setAttribute("searchKeyword", searchKeyword);
+		request.setAttribute("totalPagess", totalPagess);
+		request.setAttribute("searchKeywords", searchKeywords);
 		request.getRequestDispatcher("main-qna-list.jsp").forward(request, response);
 		
 	}
@@ -365,32 +369,148 @@ public class BoardServiceImpl implements BoardService {
         sql.close();
         
         response.sendRedirect("/PHGYM/board/main_qna_content.board?inquiryNo=" + inquiryNo);
-    }	
+    }
+
+	// ================================================================================================
+	
+	// mainNotice
+	@Override
+	public void registN(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		int adminNo = Integer.parseInt(request.getParameter("adminNo"));
+		String title = request.getParameter("title");
+		String content = request.getParameter("content");
+		
+		NoticeDTO dto = new NoticeDTO();
+		dto.setAdminNo(adminNo);
+		dto.setTitle(title);
+		dto.setContent(content);
+		
+		SqlSession sql = sqlSessionFactory.openSession(true);
+		BoardMapper mapper = sql.getMapper(BoardMapper.class);
+        int result = mapper.registN(dto);
+
+		sql.close();
+		
+		response.sendRedirect("main_notice_list.board");
+		
+	}
+
+	@Override
+	public void getListN(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+		int pagen = 1;
+		int pageSizen = 10;
+		
+		try {
+			pagen = Integer.parseInt(request.getParameter("pagen"));
+		} catch (NumberFormatException e) {
+			e.printStackTrace();
+		}
+		
+		int startIndexn = (pagen - 1) * pageSizen + 1;
+		int endIndexn = pagen * pageSizen;
+		
+		SqlSession sql = sqlSessionFactory.openSession();
+		BoardMapper board = sql.getMapper(BoardMapper.class);
+		
+		//
+		Map<String, Object> params = new HashMap<>();
+	    params.put("startIndexn", startIndexn);
+	    params.put("endIndexn", endIndexn);
+		
+		ArrayList<NoticeDTO> listn = board.getListN(startIndexn, endIndexn);
+		
+		int totalCountn = board.getTotalCountN();
+		
+		sql.close();
+		
+		int totalPagesn = (int) Math.ceil((double) totalCountn / pageSizen);
+		
+		request.setAttribute("listn", listn);
+		request.setAttribute("pagen", pagen);
+		request.setAttribute("totalPagesn", totalPagesn);
+		request.getRequestDispatcher("main-notice-list.jsp").forward(request, response);
+		
+	}
+
+	@Override
+	public void searchListN(HttpServletRequest request, HttpServletResponse response, String searchKeywordn) throws ServletException, IOException {
+
+		int pagen = 1;
+		int pageSizen = 10;
+		
+		try {
+			pagen = Integer.parseInt(request.getParameter("pagen"));
+		} catch (NumberFormatException e) {
+			e.printStackTrace();
+		}
+		
+		//
+		int startIndexn = (pagen - 1) * pageSizen + 1;
+		int endIndexn = pagen * pageSizen;
+		
+		SqlSession sql = sqlSessionFactory.openSession();
+		BoardMapper board = sql.getMapper(BoardMapper.class);
+		
+		Map<String, Object> params = new HashMap<>();
+		params.put("searchKeywordn", searchKeywordn);
+		params.put("startIndexn", startIndexn);
+		params.put("pageSizen", pageSizen);
+		
+		ArrayList<NoticeDTO> listn = board.searchListN(searchKeywordn, startIndexn, endIndexn);
+		int totalCountn = board.getSearchCountN(searchKeywordn);
+		
+		sql.close();
+		
+		int totalPagesn = (int) Math.ceil((double) totalCountn / pageSizen);
+		
+		request.setAttribute("listn", listn);
+		request.setAttribute("pagen", pagen);
+		request.setAttribute("totalPagesn", totalPagesn);
+		request.setAttribute("searchKeywordn", searchKeywordn);
+		request.getRequestDispatcher("main-notice-list.jsp").forward(request, response);
+		
+		
+	}
+
+	@Override
+	public void getContentN(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+		int noticeNo = Integer.parseInt(request.getParameter("noticeNo"));
+		
+		SqlSession sql = sqlSessionFactory.openSession();
+	    BoardMapper board = sql.getMapper(BoardMapper.class);
+	    
+	    board.increaseHitN(noticeNo);
+	    
+	    sql.commit();
+	    
+	    NoticeDTO dto = board.getContentN(noticeNo);
+
+	    sql.close();
+	    request.setAttribute("dto", dto);
+	    request.getRequestDispatcher("main-notice-content.jsp").forward(request, response);
+		
+	}
+
+	@Override
+	public void deleteN(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+		int noticeNo = Integer.parseInt(request.getParameter("noticeNo"));
+		int adminNo = 1;
+	    SqlSession sql = sqlSessionFactory.openSession();
+	    BoardMapper mapper = sql.getMapper(BoardMapper.class);
+
+	    NoticeDTO dto = mapper.getContentN(noticeNo);
+	    System.out.println(noticeNo);
+	    if(dto.getAdminNo() == adminNo) {
+	        mapper.delete(noticeNo);
+	        sql.commit();
+	    }
+	    sql.close();
+	    response.sendRedirect("main_notice_list.board");
+		
+	}	
 	
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
