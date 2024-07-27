@@ -10,10 +10,9 @@
 
 	<link rel="stylesheet" href="../include/css/main-navigation.css">
     <style>
-	    @font-face {
+	     @font-face {
 	        font-family: 'SUIT-Regular';
 	        src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Regular.woff2') format('woff2');
-	        font-weight: 500;
 	        font-style: normal;
 	    }
 
@@ -26,35 +25,44 @@
                 opacity: 1;
             }
         }
-		
-        /* 모든 컨텐츠를 감싸는 클래스 */
-        .main-wrap {
-            width: 1024px; height: 800px;
-            border: 0px solid #e3e3e3;
-            position: relative;
-        }
         
-        /* 메인사진 */
-        .main-wrap > .main-img > img {
-            display: inline-block;
-            border: 3px solid black; border-radius: 10px;
-            width: 100%; height: 460px;
-            position: relative; top: 100px;
+        /* 모든 컨텐츠를 감싸는 클래스 */
+         .main-wrap {
+            width: 100%; height: 1200px; position: relative;
+            border: 0px solid red; 
+        }
+
+        /* 메인슬라이드 */
+		.swiper {
+            position: relative;
+            width: 100%; height: 560px; justify-content: space-between;
+        }
+        .swiper .swiper-slide {
+            position: relative; overflow: hidden;
+        }
+        .swiper .swiper-slide img {
+            position: absolute; width: 100%; height: 100%; object-fit: fit;
+        }
+        #swiper {
+            transition-duration: 0ms;
+            transform: translate3d(-2264px, 0px, 0px);
+            transition-delay: 0ms;
         }
 
         /* 프로모션 */
-        .main-wrap > .main-prom {
+         .main-wrap > .main-prom {
             border: 0px solid red;
-            height: 280px; margin-top: 120px;
-            width: 1083px; position: relative;
-            left: -30px;
+            height: 310px; margin-top: 10px;
+            width: 85%; position: relative; top: 20px; left: -2px;
+            
             
         }
         .main-wrap > .main-prom > span {
-            border: 3px solid black; border-radius: 10px;
-            display: inline-block; 
-            width: 300px; height: 100%;
+            border: 0px solid #e3e3e3; border-radius: 18px;
+            display: inline-block;  box-shadow: 2px 4px 12px #00000014;
+            width: 30%; height: 100%; left: 18px;
         }
+
         #prom-list {
             display: flex; justify-content: left;
         }
@@ -65,100 +73,151 @@
             border-top-right-radius: 10px;
         }
         .main-wrap > .main-prom p {
-            font-weight: 600; position: relative; left: 10px; margin-top: 8px;
+            position: relative; left: 10px; margin-top: 8px;
         }
         .main-wrap > .main-prom .satisfaction {
-            position: relative; color: darkgrey;
-            bottom: 5px; font-size: 14px; top: 1px;
-        }
+            position: relative; color: navy;
+            bottom: 5px; font-size: 14px; 
+        } */
 
         /* 이벤트 */
+        
         .main-wrap > .main-event {
-            display: flex; position: relative;
-            left: -25px; width: 1074px; top: -55px;
+            border: 1px solid blue; width: 100%; display: flex;
         }
-        .main-wrap > .main-event > span {
-            margin-top: 80px;
-            border: 3px solid black; border-radius: 10px;
-            width: 45%; height: 100px;
-            display: inline-block;
+        .main-wrap > .main-event > div {
+            display: inline-block; width: 39.7%;  position: relative;
+            top: 65px; height: 100px; left: 133px;
+            box-shadow: 2px 4px 12px #00000014; border-radius: 18px;
         }
-        .main-wrap > .main-event > span:nth-of-type(1) { /* event 1 */
+
+        .main-wrap > .main-event > div:nth-of-type(1) { 
             background-image: linear-gradient(to right,#FF78A9, #fff, #FF78A9)
         }
-        .main-wrap > .main-event > span:nth-of-type(2) { /* event 2 */
+        .main-wrap > .main-event > div:nth-of-type(2) {
             background-image: linear-gradient(to right, #5A9CFF, #fff, #781CC7);
+            left: 140px; top: 45px;
         }
-        .main-wrap > .main-event p {
-            position: relative; text-align: left; 
-            top: 15px; left: 18px; font-size : 20px;
-        }
-        .main-wrap > .main-event p:nth-of-type(1) {
-            font-size : 30px;
-            margin-bottom: 5px;
-            font-weight: 600;
-        }
+        
         .main-wrap > .main-event div > img {
-            width: 100px; height: 100px; position: relative;
-            left: 395px; top: -75px;
+            width: auto; height: 100px; position: relative;
+            left: 465px; top: -90px;
         }
         .main-wrap > .main-event > .event2 div > img {
             width: 100px; height: 80px; 
-            left: 370px; top: -60px;
-        }
+            left: 440px; top: -80px;
+        }  
         
-
+        .main-wrap > .main-event p {
+            margin: 13px; font-size: 20px; text-indent: 10px; letter-spacing: 5px;
+        }
     </style>
 
 </head>
 <body>
   
-     <jsp:include page="../include/main-navigation.jsp"/>
+	<jsp:include page="../include/main-navigation.jsp"/>
+	
+	
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    
     <section>
         <div class="main-wrap">
-            <div class="main-img">
-                <img src="img/main2.png" alt="main">
+            <div class="swiper">
+                <!-- Additional required wrapper -->
+                <div class="swiper-wrapper">
+                    <!-- Slides -->
+                    <div class="swiper-slide">
+                        <img src="img/slide2.jpg" alt="">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="img/slide1.jpg" alt="">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="img/slide3.jpg" alt="">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="img/slide4.jpg" alt="">
+                    </div>
+                </div>
+                <!-- If we need pagination -->
+                <div class="swiper-pagination"></div>
+            
+                <!-- If we need navigation buttons -->
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+            
+                <!-- If we need scrollbar -->
+                <!-- <div class="swiper-scrollbar"></div> -->
             </div>
             <div class="main-prom" id="prom-list">
                 <span class="prom1">
                     <img src="img/nutrition.jpg" class="main-img">
                     <p>Nutrition</p>
                     <p>식단 및 영양 정보 제공</p>
-                    <p class="satisfaction">⭐️ 고객만족도 4.9  🕒주 2회 제공</p>
+                    <p class="satisfaction">☆☆☆ 고객만족도 4.9  🕒주 2회 제공</p>
                 </span>
                 <span class="prom2">
                     <img src="img/웨이트.jpg" alt="">
                     <p>Fitness</p>
                     <p>1:1 맞춤 PT 진행중</p>
-                    <p class="satisfaction">⭐️ 고객만족도 4.9  🕒70분 진행</p>
+                    <p class="satisfaction">☆☆☆ 고객만족도 4.9  🕒70분 진행</p>
                 </span>
                 <span class="prom3">
                     <img src="img/clean.jpg" alt="">
                     <p>Health</p>
                     <p>매일 3회 이상 소독</p>
-                    <p class="satisfaction">⭐️ 고객만족도 5.0  🕒일 3회</p>
+                    <p class="satisfaction">☆☆☆ 고객만족도 5.0  🕒일 3회</p>
                 </span>
             </div>
             <div class="main-event">
-                <span class="event1">
+                <div class="event1">
                     <p>PT 30회 할인 이벤트 진행중</p>
                     <p>선착순 5명 모집 !</p>
                     <div><img src="img/event1.webp" alt=""></div>
-                </span>
-                <span class="event2">
+                </div>
+                <div class="event2">
                     <p>연말 프로모션 진행중</p>
                     <p>선착순 모집 !!</p>
                     <div><img src="img/event2.webp" alt=""></div>
-                </span>
+                </div>
             </div>
         </div>
     </section>
 
 
-<script type="text/javascript">
-	var menu = '${menu}';
-	console.log(menu);
-</script>
+	<script>
+
+        const swiper = new Swiper('.swiper', {
+        // Optional parameters
+        direction: 'horizontal',
+        loop: false,
+
+        autoplay: {
+            delay: 5000
+        },
+
+        // If we need pagination
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+
+        // Navigation arrows
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+
+        // And if we need scrollbar
+        // scrollbar: {
+        //     el: '.swiper-scrollbar',
+        // },
+        });
+
+    </script>
+
 
 </body>
 </html>
