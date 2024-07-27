@@ -168,7 +168,8 @@
 <body>
    
    <jsp:include page="../include/main-navigation.jsp"/>
-    
+   
+   ${sessionScope.sessionUserNo}
    <form action="promotion-payment1.main" method="post">
      <div class="pay-wrap">
         <p> ✔︎ 주문결제</p>
@@ -176,15 +177,15 @@
             <div class="content">
                 <div>
                     <a>이름</a> 
-                    <input type="text" name="name" value="${result.name}" disabled="disabled">
+                    <input type="text" name="name" value="${result.userName}" disabled="disabled">
                 </div>
                 <div>
                     <a>연락처</a>
-                    <input type="text" name="phone" value="${result.phone}" disabled="disabled">
+                    <input type="text" name="phone" value="${result.userPhone}" disabled="disabled">
                 </div>
                 <div>
                     <a>이메일</a>
-                    <input type="text" name="email" value="${result.email}" disabled="disabled">
+                    <input type="text" name="email" value="${result.userEmail}" disabled="disabled">
                 </div>
                 <div>    
                     <a>회원권 이용 기간</a>
