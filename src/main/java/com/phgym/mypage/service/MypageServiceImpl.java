@@ -1,15 +1,18 @@
 package com.phgym.mypage.service;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
+import com.google.gson.Gson;
 import com.phgym.mypage.model.CheckinHisDTO;
 import com.phgym.mypage.model.CheckinListDTO;
 import com.phgym.mypage.model.MembershipPayHisDTO;
@@ -175,6 +178,9 @@ public class MypageServiceImpl implements MypageService {
 	@Override
 	public void reservationDate(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		int adminNo = Integer.parseInt(request.getParameter("adminNo"));
+		
+		request.setAttribute("adminNo", adminNo);
 		request.getRequestDispatcher("mypage-reservation-date.jsp").forward(request, response);
 	}
 
@@ -182,43 +188,45 @@ public class MypageServiceImpl implements MypageService {
 	@Override
 	public void reservationTime(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		int adminNo = (Integer)request.getSession().getAttribute("adminNo");
-		int year = Integer.parseInt(request.getParameter("year"));
-		int month = Integer.parseInt(request.getParameter("month"));
-		int day = Integer.parseInt(request.getParameter("day"));
-		request.getSession().setAttribute("year", year);
-		request.getSession().setAttribute("month", month);
-		request.getSession().setAttribute("day", day);
-		LocalDateTime date = LocalDateTime.of(year, month, day, 0, 0, 0);
+		int adminNo = Integer.parseInt(request.getParameter("adminNo"));
+		String date = request.getParameter("date");
 		
-		PtReservationHisDTO dto = new PtReservationHisDTO();
-		dto.setAdminNo(adminNo);
-		dto.setReservationDate(date);
-		
-		SqlSession sql = sqlSessionFactory.openSession(true);
+		 // 날짜 형식을 정의
+        DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        // 문자열을 LocalDate로 변환
+        LocalDate localDate = LocalDate.parse(date, dateFormatter);
+        // LocalDate를 LocalDateTime으로 변환 (시간 부분은 00:00:00으로 설정됨)
+        LocalDateTime localDateTime = localDate.atStartOfDay();
+        
+        PtReservationHisDTO dto = new PtReservationHisDTO();
+        dto.setAdminNo(adminNo);
+        dto.setReservationDate(localDateTime);
+        
+        SqlSession sql = sqlSessionFactory.openSession(true);
 		MypageMapper mypage = sql.getMapper(MypageMapper.class);
 		List<PtReservationHisDTO> list = mypage.getTimeList(dto);
+		System.out.println(list.toString());
+		sql.close();
+		
 		List<Integer> times = new ArrayList<>();
 		for(PtReservationHisDTO ptReservationHisDto : list) {
 			times.add(ptReservationHisDto.getReservationDate().toLocalTime().getHour());
 		}
-		sql.close();
 		
-		request.setAttribute("times", times);
-		request.getRequestDispatcher("mypage-reservation-time.jsp").forward(request, response);
+		PrintWriter out = response.getWriter();
+		out.println(times);
 	}
 
 	//예약로직
 	@Override
 	public void doPtReservation(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		int adminNo = (Integer)request.getSession().getAttribute("adminNo");
 		int sessionUserNo = (int)request.getSession().getAttribute("sessionUserNo");
-		int year = (int)request.getSession().getAttribute("year");
-		int month = (int)request.getSession().getAttribute("month");
-		int day = (int)request.getSession().getAttribute("day");
-		int time = Integer.parseInt(request.getParameter("time"));
-		LocalDateTime dateTime = LocalDateTime.of(year, month, day, time, 0);
+		int adminNo = Integer.parseInt(request.getParameter("adminNo"));
+		String date = request.getParameter("date");
+		String[] split = date.split("-");
+		int hour = Integer.parseInt(request.getParameter("hour"));
+		LocalDateTime dateTime = LocalDateTime.of(Integer.parseInt(split[0]), Integer.parseInt(split[1]), Integer.parseInt(split[2]), hour, 0);
 		
 		PtReservationHisDTO dto = new PtReservationHisDTO();
 		dto.setUserNo(sessionUserNo);
