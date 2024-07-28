@@ -80,9 +80,9 @@ public class JoinController extends HttpServlet {
 			service = new JoinServiceImpl();
 			service.logoutUser(request,response);
 			
-		} else if(command.equals("/join/ChangeUser.join")) { // 회원 로그인 -> 꽌리자 로그인으로 변경
+		} else if(command.equals("/join/adminJoinPage.join")) { // 관리자 로그인 -> 꽌리자 회원가입
 			service = new JoinServiceImpl();
-			service.ChangeUser(request,response);
+			service.adminJoinPage(request,response);
 			
 		} else if(command.equals("/join/ChangeAdmin.join")) { // 관리자 로그인 -> 회원 로그인으로 변경
 			service = new JoinServiceImpl();
