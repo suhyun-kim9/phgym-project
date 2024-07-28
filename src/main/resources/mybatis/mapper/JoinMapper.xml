@@ -5,31 +5,31 @@
 <mapper namespace="com.phgym.join.model.JoinMapper">
 
 	<select id = "adminPwFind" resultType = "String" parameterType = "com.phgym.join.model.AdminInfoDTO">
-		SELECT PW FROM ADMIN_INFO
+		SELECT ADMIN_PW FROM ADMIN_INFO
 		WHERE ADMIN_ID = #{adminId}
-		and ADMIN_EMAIL = #{email}
-		and ADMIN_PHONE = #{phone}
+		AND ADMIN_EMAIL = #{adminEmail}
+		AND ADMIN_PHONE = #{adminPhone}
 	</select>
 	
 	<select id="userPwFind" resultType="String" parameterType = "com.phgym.join.model.UserInfoDTO">
-		SELECT PW FROM USER_INFO
+		SELECT USER_PW FROM USER_INFO
 		WHERE USER_ID = #{userId}
-		AND USER_EMAIL = #{email}
-		AND USER_PHONE = #{phone}
+		AND USER_EMAIL = #{userEmail}
+		AND USER_PHONE = #{userPhone}
 	</select>
 	
 	<select id="adminIdFind" resultType="String" parameterType="com.phgym.join.model.AdminInfoDTO">
 		SELECT ADMIN_ID FROM ADMIN_INFO
-		WHERE ADMIN_NAME = #{name}
-		AND ADMIN_EMAIL = #{email}
-		AND ADMIN_PHONE = #{phone}
+		WHERE ADMIN_NAME = #{adminName}
+		AND ADMIN_EMAIL = #{adminEmail}
+		AND ADMIN_PHONE = #{adminPhone}
 	</select>
 	
 	<select id="userIdFind" resultType="String" parameterType="com.phgym.join.model.UserInfoDTO">
 		SELECT USER_ID FROM USER_INFO
-		WHERE USER_NAME = #{name}
-		AND USER_EMAIL = #{email}
-		AND USER_PHONE = #{phone}
+		WHERE USER_NAME = #{userName}
+		AND USER_EMAIL = #{userEmail}
+		AND USER_PHONE = #{userPhone}
 	</select>
 	
 	<select id="adminLogin" resultType= "com.phgym.join.model.AdminInfoDTO" parameterType="com.phgym.join.model.AdminInfoDTO">
@@ -64,7 +64,7 @@
         
 	</insert>
 	
-	<select id="checkAdminIdExists" parameterType="String" resultType="int">
+	<select id="checkAdminIdExists" resultType="int" parameterType="String">
 	
     	SELECT COUNT(*) FROM ADMIN_INFO WHERE ADMIN_ID = #{adminId}
     	
@@ -96,7 +96,7 @@
 	    
 	</insert>
 	
-	<select id="checkUserIdExists" parameterType="String" resultType="int">
+	<select id="checkUserIdExists" resultType="int" parameterType="String">
 	
     	SELECT COUNT(*) FROM USER_INFO WHERE USER_ID = #{userId}
     	

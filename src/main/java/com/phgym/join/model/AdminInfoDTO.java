@@ -17,7 +17,7 @@ public class AdminInfoDTO {
 	private String adminCareerHis; // 경력사항
 	
 	public AdminInfoDTO() {
-		// TODO Auto-generated constructor stub
+		
 	}
 
 	public AdminInfoDTO(int adminNo, String adminId, String adminPw, String adminName, LocalDate adminBirth,

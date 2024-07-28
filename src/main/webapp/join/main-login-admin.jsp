@@ -68,14 +68,14 @@
                     </div>
 
                     <input type="checkbox" id="keepLoggedIn" name="check">
-                    <p class="login_situation">로그인 상태 유지</p>
+                    <p class="login_situation">아이디 기억하기</p>
 
                     <input type="submit" value="로그인">
 
                     <div class="find">
                         <a href="findAdminId.join">아이디찾기</a>
                         <a href="findAdminPw.join">비밀번호찾기</a>
-                        <a href="ChangeUser.join">회원로그인</a>
+                        <a href="adminJoinPage.join">관리자 회원가입</a>
                     </div>
                 </form>
             </div>
@@ -94,6 +94,23 @@
     %>  
 
     <script type="text/javascript">
+    
+		var adminIdFind = "${adminIdFind}";
+	    console.log("adminIdFind = " + adminIdFind);
+	    
+		if (adminIdFind != null  && adminIdFind != "") {
+	    	
+	    	alert("회원님의 아이디는: " + adminIdFind + "입니다");
+	    }
+		
+		var adminPwFind = "${adminPwFind}";
+	    console.log("adminPwFind = " + adminPwFind);
+	    
+		if (adminPwFind != null  && adminPwFind != "") {
+	    	
+	    	alert("회원님의 비밀번호는: " + adminPwFind + "입니다");
+	    }
+	
         // 폼 제출 시 쿠키 설정 함수
         function setAdminIdCookie() {
             if (document.getElementById("keepLoggedIn").checked) {
