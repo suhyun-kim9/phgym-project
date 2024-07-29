@@ -6,44 +6,60 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Document</title>
-
-<link rel="stylesheet"
-	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 <link rel="stylesheet" href="css/main-find-adminid.css">
 <link rel="stylesheet" href="../include/css/main-navigation.css">
 </head>
 <body>
 	<jsp:include page="../include/main-navigation.jsp" />
-	<section>
-
-		<div class="wrap">
-			<h3>관리자 아이디 찾기</h3>
-			<div class="login_page">
-				<div class="login_wrap">
-					<form action="adminIdFind.join" method="post">
-						<div class="id">
-							<p>이름</p>
-							<input type="text" id="adminName" name="adminName" placeholder="이름을 입력하세요." oninput="validateAdminName()">
-							<div id="nameResult"></div>
-						</div>
-
-						<div class="email">
-							<p>이메일</p>
-							<input type="email" id="adminEmail" name="adminEmail" placeholder="이메일을 입력하세요." oninput="validateAdminEmail()">
-							<div id="emailResult"></div>
-						</div>
-
-						<div class="number">
-							<p>연락처</p>
-							<input type="text" id="adminPhone" name="adminPhone" placeholder="연락처를 입력하세요." oninput="validateAdminPhone()">
-							<div id="phoneResult"></div>
-						</div>
-						<input type="submit" value="아이디찾기" id="submitBtn"disabled="disabled">
-					</form>
-				</div>
-			</div>
+		<div class="section">
+		<div class="container">
+			<div class="row full-height justify-content-center">
+				<div class="col-12 text-center align-self-center py-5">
+					<div class="section pb-5 pt-5 pt-sm-2 text-center">
+						<div class="card-3d-wrap mx-auto">
+							<div class="card-3d-wrapper">
+							<form action="adminIdFind.join" method="post">
+								<div class="card-front">
+                                    <div>
+                                        <div class="wave"></div>
+                                        <div class="wave"></div>
+                                        <div class="wave"></div>
+                                     </div>
+								 <h4 class="mb-4 pb-3"> 관리자 아이디 찾기 </h4>
+								 <div class="form-group">
+	                       			  <div> 이름 </div>
+									  <input type="text" name="adminName" class="form-style input2" placeholder="이름을 입력하세요." id="adminName" autocomplete="off" oninput="validateAdminName()" required="required">
+									  <div id="nameResult"></div>
+									  <i class="input-icon uil uil-at"></i>
+								  </div>
+								  	
+								  <div class="form-group mt-2">
+                     				  <div> 이메일 </div>
+									  <input type="text" name="adminEmail" class="form-style input2" placeholder="이메일을 입력하세요." id="adminEmail" autocomplete="off" oninput="validateAdminEmail()" required="required">
+									  <div id="emailResult"></div>
+									  <i class="input-icon uil uil-lock-alt"></i>
+								  </div>
+								  
+			                      <div class="form-group mt-2">
+                     				  <div> 연락처 </div>
+									  <input type="text" name="adminPhone" class="form-style input2" placeholder="연락처를 입력하세요." id="adminPhone" autocomplete="off" oninput="validateAdminPhone()" required="required">
+									  <div id="phoneResult"></div>
+									  <i class="input-icon uil uil-lock-alt"></i>
+								  </div>
+			
+			                      <div class="box bg-1">
+			                          <input type="submit" value="아이디찾기" id="submitBtn" disabled="disabled" class="button button--wapasha button--round-s">
+			                      </div>
+				      			</div>
+				      			</form>
+				      		</div>		
+				      	</div>
+			      	</div>
+		      	</div>
+		    </div>
 		</div>
-	</section>
+	</div>
 
 	<script type="text/javascript">
 	

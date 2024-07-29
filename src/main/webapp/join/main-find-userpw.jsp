@@ -11,31 +11,53 @@
 </head>
 <body>
 <jsp:include page="../include/main-navigation.jsp"/>
-	<div class="wrap">
-		<h3>회원 비밀번호 찾기</h3>
-		<div class="login_page">
-			<div class="login_wrap">
-				<form action="userPwFind.join" method="post">
-					<div class="id">
-						<p>아이디</p>
-						<input type="text" id="userId" name="userId" placeholder="아이디를 입력하세요." oninput="validateUserId()">
-						<div id="idResult"></div>
-					</div>
-
-					<div class="email">
-						<p>이메일</p>
-						<input type="email" id="userEmail" name="userEmail" placeholder="이메일을 입력하세요." oninput="validateUserEmail()">
-						<div id="emailResult"></div>
-					</div>
-
-					<div class="number">
-						<p>연락처</p>
-						<input type="text" id="userPhone" name="userPhone" placeholder="연락처를 입력하세요." oninput="validateUserPhone()">
-						<div id="phoneResult"></div>
-					</div>
-					<input type="submit" value="비밀번호찾기" id="submitBtn" disabled="disabled">
-				</form>
-			</div>
+		
+		<div class="section">
+		<div class="container">
+			<div class="row full-height justify-content-center">
+				<div class="col-12 text-center align-self-center py-5">
+					<div class="section pb-5 pt-5 pt-sm-2 text-center">
+						<div class="card-3d-wrap mx-auto">
+							<div class="card-3d-wrapper">
+							<form action="userPwFind.join" method="post">
+								<div class="card-front">
+                                    <div>
+                                        <div class="wave"></div>
+                                        <div class="wave"></div>
+                                        <div class="wave"></div>
+                                     </div>
+								 <h4 class="mb-4 pb-3"> 회원 비밀번호 찾기 </h4>
+								 <div class="form-group">
+	                       			  <div> 아이디 </div>
+									  <input type="text" name="userId" class="form-style input2" placeholder="아이디를 입력하세요." id="userId" autocomplete="off" oninput="validateUserId()" required="required">
+									  <div id="idResult"></div>
+									  <i class="input-icon uil uil-at"></i>
+								  </div>
+								  	
+								  <div class="form-group mt-2">
+                     				  <div> 이메일 </div>
+									  <input type="text" name="userEmail" class="form-style input2" placeholder="이메일을 입력하세요." id="userEmail" autocomplete="off" oninput="validateUserEmail()" required="required">
+									  <div id="emailResult"></div>
+									  <i class="input-icon uil uil-lock-alt"></i>
+								  </div>
+								  
+			                      <div class="form-group mt-2">
+                     				  <div> 연락처 </div>
+									  <input type="text" name="userPhone" class="form-style input2" placeholder="연락처를 입력하세요." id="userPhone" autocomplete="off" oninput="validateUserPhone()" required="required">
+									  <div id="phoneResult"></div>
+									  <i class="input-icon uil uil-lock-alt"></i>
+								  </div>
+			
+			                      <div class="box bg-1">
+			                          <input type="submit" value="비밀번호찾기" id="submitBtn" disabled="disabled" class="button button--wapasha button--round-s">
+			                      </div>
+				      			</div>
+				      			</form>
+				      		</div>		
+				      	</div>
+			      	</div>
+		      	</div>
+		    </div>
 		</div>
 	</div>
 
