@@ -68,13 +68,14 @@
 			          	<label for="reg-log"> </label>
 						<div class="card-3d-wrap mx-auto">
 							<div class="card-3d-wrapper">
-							<form action="userLogin.join" method="post" onsubmit="setUserIdCookie()">
+							
 								<div class="card-front">
-                                    <div>
-                                        <div class="wave"></div>
-                                        <div class="wave"></div>
-                                        <div class="wave"></div>
-                                     </div>
+									<form action="userLogin.join" method="post" onsubmit="setUserIdCookie()">
+	                                    <div>
+	                                        <div class="wave"></div>
+	                                        <div class="wave"></div>
+	                                        <div class="wave"></div>
+	                                     </div>
 											<h4 class="mb-4 pb-3"> 회원 로그인 </h4>
 											<div class="form-group">
 												<input type="text" id="userId" name="userId" class="form-style input2" placeholder="아이디를 입력하세요." autocomplete="off">
@@ -91,13 +92,12 @@
                                           
                                             <div class="box bg-1">
                                             	<input type="submit" value="로그인" class="button button--wapasha button--round-s">
-                                            </div>
-			      				</div>
-			      				</form>
+                                            </div></form>
+			      					</div> 
 			      				
 			      	
 								<div class="card-back">
-											<form action="adminLogin.join" method="post" onsubmit="setAdminIdCookie()">
+									<form action="adminLogin.join" method="post" onsubmit="setAdminIdCookie()">
 											<h4 class="mb-4 pb-3"> 관리자 로그인</h4>
 											<div class="form-group">
 												<input type="text" id="adminId" name="adminId" class="form-style input2" placeholder="아이디를 입력하세요." autocomplete="off">
@@ -115,9 +115,9 @@
                                             
                                             <div class="box2 bg-2">
                                             	<input type="submit" value="로그인" class="admin_btn button2 button--wapasha2 button--round-s2">
-                                            </div>
+                                            </div></form>
 			      					</div>
-			      				</form>
+			      				
 			      			</div>
 			      		</div>
 			      	</div>
