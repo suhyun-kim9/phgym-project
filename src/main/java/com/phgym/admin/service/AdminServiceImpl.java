@@ -1,6 +1,7 @@
 package com.phgym.admin.service;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -8,11 +9,12 @@ import java.util.ArrayList;
 import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
+
+import com.google.gson.Gson;
 import com.phgym.admin.model.AdminAccountDTO;
 import com.phgym.admin.model.AdminMapper;
 import com.phgym.admin.model.PtPerDayDTO;
 import com.phgym.admin.model.UserAccountDTO;
-import com.phgym.mypage.model.MypageMapper;
 import com.phgym.mypage.model.PtReservationHisDTO;
 import com.phgym.mypage.model.PtReservationHisDTO2;
 import com.phgym.util.mybatis.MybatisUtil;
@@ -103,7 +105,7 @@ public class AdminServiceImpl implements AdminService {
 	}
 	
 	
-	
+	//---------------------------------------------
 	// 회원 정보 조회하기
 	@Override
 	public void getUserAccount(HttpServletRequest request, HttpServletResponse response)
@@ -113,24 +115,20 @@ public class AdminServiceImpl implements AdminService {
 		
 		SqlSession sql = sqlSessionFactory.openSession(true); //db
 		AdminMapper admin = sql.getMapper(AdminMapper.class);
-		System.out.println("2");
 		List<UserAccountDTO> list = admin.getUserAccount(userName);
 		sql.close();
 		System.out.println(list.size());
 		                       
-		if(list.size() == 1) {
-			for(UserAccountDTO dto : list) {
-				request.setAttribute("dto", dto);  
-			}
-			request.getRequestDispatcher("admin-user-find-info.jsp").forward(request, response);
-		} else if(list.size() >= 2) {
+		if(list.size() == 0) { // 조회 실패
+			response.sendRedirect("/PHGYM/admin/user-find.admin");
+		} else {
 			request.setAttribute("list", list);  
 			request.getRequestDispatcher("admin-user-find.jsp").forward(request, response);
 		}
-		
-		
 	}
 	
+	
+	//---------------------------------------------
 	// 회원 정보 조회 (중복)
 	@Override
 	public void getUserAccount2(HttpServletRequest request, HttpServletResponse response)
@@ -140,9 +138,32 @@ public class AdminServiceImpl implements AdminService {
 		SqlSession sql = sqlSessionFactory.openSession(true); //db
 		AdminMapper admin = sql.getMapper(AdminMapper.class);
 		UserAccountDTO dto = admin.getUserAccount2(userNo);
+		
+		// --------------pt 진행내역
+		List<PtReservationHisDTO> list= admin.getUserPt3(userNo);
+		
+		
+		List <LocalDate> list2 = new ArrayList<>();
+		
+		for (PtReservationHisDTO li : list) {
+			list2.add(li.getReservationDate().toLocalDate());	
+		}
+		
+		int num1 = admin.getTotalPtCnt2(userNo); 
+		int num2 = admin.getDidPtCnt2(userNo); 
+		
+		int num3 = num1 - num2;
+		
+		
+		System.out.println(list.toString());
+		
+		
+
 		sql.close();
 		
 		request.setAttribute("dto", dto);
+		request.setAttribute("list", list2);
+		request.setAttribute("num", num3);
 		request.getRequestDispatcher("admin-user-find-info.jsp").forward(request, response);
 	}
 
@@ -159,21 +180,20 @@ public class AdminServiceImpl implements AdminService {
 		List<UserAccountDTO> list = admin.getUserAccount(userName);
 		sql.close();
 		System.out.println(list.size());
-		                       
-		if(list.size() == 1) {
+		
+		if (list.size() == 0) {
+			request.setAttribute("msg", "N");
+			request.getRequestDispatcher("admin-pt-check.jsp").forward(request, response);
+		}else {
 			for(UserAccountDTO dto : list) {
 				request.setAttribute("dto", dto);
 				request.getSession().setAttribute("doPtPlanCheckUserNo", dto.getUserNo());
 			}
-			request.getRequestDispatcher("admin-pt-check-info.jsp").forward(request, response);
-		} else if(list.size() >= 2) {
 			request.setAttribute("list", list);  
 			request.getRequestDispatcher("admin-pt-check.jsp").forward(request, response);
-		}
-		
+		} 			
 		
 	}
-
 	// 회원 스케쥴 조회 (중복) 
 	@Override
 	public void getUserPt2(HttpServletRequest request, HttpServletResponse response)
@@ -236,9 +256,11 @@ public class AdminServiceImpl implements AdminService {
 		AdminAccountDTO adDto = admin.getAdminAccount(sessionAdminNo); // 관리자 정보 가져오기
 		List<PtPerDayDTO> ptPerDayList = admin.getPtPerDay(sessionAdminNo); //하루 PT 횟수
 		System.out.println("ptPerDayList = " + ptPerDayList.toString());
-//		for(PtPerDayDTO dto : ptPerDayList) {
-//			System.out.println(dto.toString());
-//		}
+		for(PtPerDayDTO dto : ptPerDayList) {
+			System.out.println(dto.toString());
+		}
+		
+		
 		
 		request.setAttribute("ptPerDayList", ptPerDayList);
 		request.setAttribute("adDto", adDto); // 관리자 정보 조회
@@ -289,6 +311,7 @@ public class AdminServiceImpl implements AdminService {
 	@Override
 	public void goUserFind(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
 		request.getRequestDispatcher("admin-user-find.jsp").forward(request, response);
 		
 	}
@@ -302,6 +325,7 @@ public class AdminServiceImpl implements AdminService {
 	}
 
 
+	//
 
 	// 회원 스케쥴 조회하기
 	@Override
@@ -309,18 +333,59 @@ public class AdminServiceImpl implements AdminService {
 			throws ServletException, IOException {
 
 		SqlSession sql = sqlSessionFactory.openSession(true); //db
-		
 		AdminMapper admin = sql.getMapper(AdminMapper.class);
 		
-		request.getRequestDispatcher("admin-pt-check-info.jsp").forward(request, response);
+		request.getRequestDispatcher("admin-pt-check.jsp").forward(request, response);
+	}
+
+
+
+	@Override
+	public void doUserAccount(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		SqlSession sql = sqlSessionFactory.openSession(true);
+		AdminMapper admin = sql.getMapper(AdminMapper.class);
+		
+		List<UserAccountDTO> userlist = admin.doUserAccount();
+		
+	
+		sql.close();
+		request.setAttribute("userlist", userlist);
+		request.getRequestDispatcher("admin-user-find.jsp").forward(request, response);
+		
+	}
+
+
+	@Override
+	public void doPtCheck(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void select2(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// pt 회원여부
+		
+		SqlSession sql = sqlSessionFactory.openSession(true);
+		AdminMapper admin = sql.getMapper(AdminMapper.class);
+		
+		List<UserAccountDTO> userlist = admin.doUserAccount();
+		
+	
+		sql.close();
+		request.setAttribute("userlist", userlist);
+		request.getRequestDispatcher("admin-user-find.jsp").forward(request, response);
+	}
+
+
+	@Override
+	public void select3(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		
 	}
 
 	
-
-
-
-
-
-
-
+	
 }

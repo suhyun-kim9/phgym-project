@@ -36,7 +36,7 @@ public class AdminController extends HttpServlet {
 	protected void doAction(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 			//세션 임의 생성
-			request.getSession().setAttribute("sessionAdminNo", 3); //삭제예정
+			request.getSession().setAttribute("sessionAdminNo", 2); //삭제예정
 			
 		  	request.setCharacterEncoding("utf-8");
 	        String uri = request.getRequestURI();
@@ -61,27 +61,32 @@ public class AdminController extends HttpServlet {
 	        } else if(command.equals("/admin/getUserAccount2.admin")) {
 	        	service = new AdminServiceImpl();
 	        	service.getUserAccount2(request, response);
-	        } else if(command.equals("/admin/user-find.admin")) {
-	        	service = new AdminServiceImpl();
-	        	service.goUserFind(request, response);
 	        } else if(command.equals("/admin/doPtPlanCheck.admin")) {
 	        	service = new AdminServiceImpl();
 	        	service.doPtPlanCheck(request, response);
 	        } else if(command.equals("/admin/getUserPt.admin")) {
 	        	service = new AdminServiceImpl();
 	        	service.getUserPt(request, response);
-	        } else if(command.equals("/admin/getUserPt2.admin")) {
-	        	service = new AdminServiceImpl();
-	        	service.getUserPt2(request, response);
-	        }  else if(command.equals("/admin/trainer-pt-check.admin")) {
+	        } else if(command.equals("/admin/trainer-pt-check.admin")) {
 	        	service = new AdminServiceImpl();
 	        	service.getTrainerPtCheck(request, response);
 	        } else if(command.equals("/admin/doTrainerPtCheck.admin")) {
 	        	service = new AdminServiceImpl();
 	        	service.doTrainerPtCheck(request, response);
+	        }else if(command.equals("/admin/getUserPt2.admin")) {
+	        	service = new AdminServiceImpl();
+	        	service.getUserPt2(request, response);
+	        }else if(command.equals("/admin/pt-check.admin")) {
+	        	service = new AdminServiceImpl();
+	        	service.doPtCheck(request, response);
+	        }else if(command.equals("/admin/select2.admin")) {
+	        	service = new AdminServiceImpl();
+	        	service.select2(request, response);
+	        }else if(command.equals("/admin/select3.admin")) {
+	        	service = new AdminServiceImpl();
+	        	service.select3(request, response);
 	        }
 	        
-		
 	}
 
 }
