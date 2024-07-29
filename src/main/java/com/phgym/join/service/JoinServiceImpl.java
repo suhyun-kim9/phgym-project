@@ -161,8 +161,8 @@ public class JoinServiceImpl implements JoinService {
 	public void adminLogin(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		String adminid = request.getParameter("adminId");
-		String adminpw = request.getParameter("adminPw");
+		String adminid = request.getParameter("logemail");
+		String adminpw = request.getParameter("logpass");
 		
 		AdminInfoDTO dto = new AdminInfoDTO();		
 		
@@ -339,6 +339,7 @@ public class JoinServiceImpl implements JoinService {
 	        sql.close();
 	        request.setAttribute("msg", "이미 존재하는 회원입니다.");
 	        request.getRequestDispatcher("main-join-user.jsp").forward(request, response);
+	        
 	    } else { // 중복 x - 회원가입 진행
 	        int userResult = mapper.userJoin(dto);
 	        sql.close();
@@ -347,6 +348,7 @@ public class JoinServiceImpl implements JoinService {
 	            HttpSession session = request.getSession();
 	            session.setAttribute("user_no", dto.getUserNo());
 	            request.getRequestDispatcher("main-login-user.jsp").forward(request, response);
+	            
 	        } else { // 회원가입 실패
 	            request.setAttribute("msg", "회원가입에 실패했습니다. 다시 시도해주세요.");
 	            request.getRequestDispatcher("main-join-user.jsp").forward(request, response);

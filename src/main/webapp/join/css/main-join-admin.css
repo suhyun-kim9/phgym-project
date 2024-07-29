@@ -1,102 +1,244 @@
-* {
-    padding: 0;
+:root {
+    --primary-color: #f97316; /* 주요 색상 */
+}
+
+*, *::before, *::after {
+    box-sizing: border-box; /* 박스 사이징 설정 */
+}
+
+body {
+    font-family: Montserrat, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; /* 기본 글꼴 */
     margin: 0;
+    display: grid;
+    place-items: center;
+    min-height: 100vh;
+    background-color: #fff; /* 배경색 */
 }
 
-ul, li, ol, dl, dd {
-    list-style: none;
+label {
+    display: block;
+    margin-bottom: 0.5rem; /* 레이블 아래 여백 */
 }
 
-#wrap {
-    width: 1024px;
-    height: 768px;
+input {
+    display: block;
+    width: 100%; /* 입력 필드 너비 */
+    padding: 0.75rem; /* 입력 필드 패딩 */
+    border: 1px solid #ccc; /* 테두리 색상 */
+    border-radius: 0.25rem; /* 테두리 반경 */
+    height: 50px; /* 입력 필드 높이 */
 }
 
-.join_page h3 {
-    text-align: center;
+.width-50 {
+    width: 50%; /* 너비 50% */
 }
 
-#wrap .join_page {
-    width: 50%;
+.ml-auto {
+    margin-left: auto; /* 왼쪽 여백 자동 */
+}
+
+.text-center {
+    text-align: center; /* 텍스트 중앙 정렬 */
+}
+
+.progressbar {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    counter-reset: step;
+    margin: 2rem 0 4rem; /* 진행 표시줄 여백 */
+}
+
+.progressbar::before, .progress {
+    content: "";
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 4px;
+    width: 100%;
+    background-color: #dcdcdc; /* 기본 배경색 */
+    z-index: 1;
+}
+
+.progress {
+    background-color: #f97316; /* 진행 상태 배경색 */
+    width: 0%;
+    transition: 0.3s; /* 전환 애니메이션 */
+}
+
+.progress-step {
+    width: 2.1875rem;
+    height: 2.1875rem;
+    background-color: #dcdcdc; /* 기본 단계 색상 */
+    border-radius: 50%; /* 둥근 모서리 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+}
+
+.progress-step::before {
+    counter-increment: step;
+    content: counter(step); /* 단계 번호 표시 */
+}
+
+.progress-step::after {
+    content: attr(data-title);
+    position: absolute;
+    top: calc(100% + 0.5rem);
+    font-size: 0.85rem;
+    color: #666; /* 텍스트 색상 */
+}
+
+.progress-step-active {
+    background-color: var(--primary-color); /* 활성 단계 색상 */
+    color: #f3f3f3; /* 활성 단계 텍스트 색상 */
+}
+
+.form {
+    width: 400px;
+    margin: 0 auto;
+    border: none;
+    border-radius: 10px !important; /* 테두리 반경 */
     overflow: hidden;
-    margin: 0 auto;
-    margin-top: 80px;
+    padding: 1.5rem; /* 내부 여백 */
+    background-color: #fff; /* 배경색 */
 }
 
-.join_page .left {
-    float: left;
-    width: 50%;
+.step-forms {
+    display: none;
+    transform-origin: top;
+    animation: animate 1s; /* 단계 전환 애니메이션 */
+}
+
+.step-forms-active {
+    display: block; /* 활성 단계 표시 */
+}
+
+.group-inputs {
+    margin: 1rem 0; /* 입력 그룹 여백 */
+    position: relative;
+}
+
+.group-inputs label {
+    font-size: 13px;
+    position: absolute;
+    height: 19px;
+    padding: 4px 7px;
+    top: -14px;
+    left: 10px;
+    color: #a2a2a2; /* 레이블 색상 */
+    background-color: white; /* 배경색 */
+}
+
+@keyframes animate {
+    from {
+        transform: scale(1, 0);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1, 1);
+        opacity: 1;
+    }
+}
+
+.btns-group {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 버튼 그룹 레이아웃 */
+    gap: 1.5rem; /* 버튼 사이 간격 */
+}
+
+.btn {
+    padding: 0.75rem;
+    display: block;
+    text-decoration: none;
+    background-color: var(--primary-color); /* 버튼 배경색 */
+    color: #f3f3f3; /* 버튼 텍스트 색상 */
     text-align: center;
+    border-radius: 0.25rem; /* 버튼 테두리 반경 */
+    cursor: pointer; /* 포인터 커서 */
+    transition: 0.3s; /* 전환 애니메이션 */
 }
 
-.join_page .left button {
-    width: 30px;
+.btn:hover {
+    box-shadow: 0 0 0 2px #fff, 0 0 0 3px var(--primary-color); /* 호버 시 그림자 효과 */
 }
 
-.join_page .left .gender {
-    width: 50px;
+.progress-step-check {
+    position: relative;
+    background-color: #f97316 !important; /* 체크된 단계 색상 */
+    transition: all 0.8s; /* 애니메이션 전환 */
 }
 
-.join_page .left p {
-    text-align: left;
-    margin-left: 42px;
+.progress-step-check::before {
+    position: absolute;
+    content: '\2713'; /* 체크 마크 */
+    width: 100%;
+    height: 100%;
+    top: 8px;
+    left: 13px;
+    font-size: 12px; /* 체크 마크 폰트 크기 */
 }
 
-.join_page .left input {
-    width: 65%;
-    text-align: right;
+.checkmark {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%; /* 둥근 체크마크 */
+    display: block;
+    stroke-width: 2;
+    stroke: #fff; /* 체크마크 테두리 색상 */
+    stroke-miterlimit: 10;
+    margin: 10% auto;
+    box-shadow: inset 0px 0px 0px #f97316; /* 체크마크 그림자 */
+    animation: fill .4s ease-in-out .4s forwards, scale .3s ease-in-out .9s both; /* 애니메이션 */
 }
 
-.join_page .left > div p {
-    font-size: 15px;
-    font-weight: 600;
-    margin-top: 20px;
+.checkmark__circle {
+    stroke-dasharray: 166;
+    stroke-dashoffset: 166;
+    stroke-width: 2;
+    stroke-miterlimit: 10;
+    stroke: #f97316; /* 원 테두리 색상 */
+    fill: none;
+    animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
 }
 
-.join_page .right {
-    float: right;
-    width: 50%;
+.checkmark__check {
+    transform-origin: 50% 50%;
+    stroke-dasharray: 48;
+    stroke-dashoffset: 48;
+    animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards; /* 체크 애니메이션 */
 }
 
-
-.join_page .right input {
-    width: 65%;
-    text-align: right;
+@keyframes stroke {
+    100% {
+        stroke-dashoffset: 0;
+    }
 }
 
-.join_page .right > div p {
-    font-size: 15px;
-    font-weight: 600;
-    margin-top: 20px;
+@keyframes scale {
+    0%, 100% {
+        transform: none;
+    }
+    50% {
+        transform: scale3d(1.1, 1.1, 1);
+    }
 }
 
-.join_page .bottom {
-    text-align: left;
-    margin-left: 42px;
+@keyframes fill {
+    100% {
+        box-shadow: inset 0px 0px 0px 30px #f97316; /* 체크마크 채우기 애니메이션 */
+    }
 }
 
-.join_page .bottom .license p {
-    margin-top: 20px;
-    display: inline-block;
-    margin-right: 200px;
-    font-weight: 600;
+.wrap {
+    border: 1px solid #cbcbcb; /* 래퍼 테두리 색상 */
+    border-radius: 4px; /* 래퍼 테두리 반경 */
+    box-shadow: 0 4px 8px 0 rgba(21,21,21,.2); /* 래퍼 그림자 */
 }
 
-.join_page .bottom .license textarea {
-    width: 425px;
-    height: 150px;
-    margin-top: 5px;
+.header1 {
+    font-size: 1.3em; /* 헤더 글꼴 크기 */
+    text-align: center; /* 헤더 텍스트 중앙 정렬 */
+    font-weight: bold; /* 헤더 글꼴 굵기 */
 }
-
-.join_page .btn {
-    width: 45%;
-    margin: 0 auto;
-    box-sizing: border-box;
-    resize: vertical;
-}
-
-.join_page .btn button {
-    width: 100px;
-    margin-top: 20px;
-}
-
