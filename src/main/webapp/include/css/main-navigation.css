@@ -21,7 +21,6 @@ body{
 }
 
 .content1 {
-	    
     display: flex;  
     flex : 1;
 }

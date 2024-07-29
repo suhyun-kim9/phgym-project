@@ -12,19 +12,20 @@
 
     <style>
         @font-face {
-            font-family: 'SUIT-Regular';
-            src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Regular.woff2') format('woff2');
-            font-weight: normal;
-            font-style: normal;
-        }
+		    font-family: 'SUIT-Regular';
+		    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Regular.woff2') format('woff2');
+		    font-weight: normal;
+		    font-style: normal;
+		    
+		}
     
         * {margin: 0 auto; padding: 0; text-decoration: none; font-family: 'SUIT-Regular';}
         
         /* 전체 틀 */
         .map-wrap {
-            width: 90%; height: 850px;
+            width: 90%; height: 650px; margin-top: 65px;
             border: 0px solid black;
-            display: flex; 
+            display: flex; margin-left: 105px;
         }
 
 
@@ -32,7 +33,7 @@
         .map-wrap > .map-img {
             position: relative; border-radius: 18px;
             border: 1px solid #fff;
-            width: 48%; height: 63%; top: 70px;
+            width: 45%; height: 63%; top: 70px;
             overflow: hidden; box-shadow: 2px 4px 12px #00000014;
         }
         .map-wrap > .map-img > div {
@@ -47,8 +48,8 @@
         /* 오시는길 소개란 */
         .map-wrap > .map-info {
             position: relative;
-            width: 48%; height: 63%; top: 70px;
-            border: 0px solid black; 
+            width: 45%; height: 63%; top: 70px;
+            border: 0px solid black; left: 90px;
             display: flex; flex-direction: column; justify-content: space-between;
         }
         .map-wrap > .map-info > div {
@@ -62,7 +63,7 @@
             font-weight: 500; letter-spacing: 8px; border-bottom: 1px solid #e3e3e3; 
         }
     </style>
-
+	<link rel="stylesheet" href="../include/css/main-footer.css">
 
 
 </head>
@@ -89,7 +90,7 @@
                     <p>📍영업시간</p>
                     <p>평일 : AM 06:00 ~ PM 11:00</p>
                     <p>주말 : AM 06:00 ~ PM 06:00</p>
-                    <p>(매주 셋째주 토요일 정기휴무)</p>
+                    <p>(매달 셋째주 토요일 정기휴무)</p>
                 </div>
                 <div>
                     <p>📍주차안내</p>
@@ -136,9 +137,8 @@
        // 마커가 지도 위에 표시되도록 설정합니다
        marker.setMap(map);
 
-
-
 	</script>
+	<jsp:include page="../include/main-footer.jsp"/>
 <script type="text/javascript" src="js/main-promotion-payment.js"></script>
 </body>
 </html>

@@ -11,9 +11,12 @@
 
     <style>
         @font-face {
-            font-family: 'SUIT-Regular';
-            src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Regular.woff2') format('woff2');
-        }
+		    font-family: 'SUIT-Regular';
+		    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Regular.woff2') format('woff2');
+		    font-weight: normal;
+		    font-style: normal;
+		    
+		}
 
         * {margin: 0 auto; padding: 0; text-decoration: none; font-family: 'SUIT-Regular'; }
         
@@ -32,8 +35,8 @@
 
         .swiper {
             width: 100%; 
-            padding-top: 50px;
-            padding-bottom: 50px;
+            padding-top: 65px;
+            padding-bottom: 100px;
         }
 
         .swiper-slide {
@@ -54,7 +57,7 @@
             border: 0px solid #000; border-radius: 10px;
             width: 500px;  box-shadow: 2px 4px 12px #00000014;
             height: 5%; line-height: 42.5px;
-            display: flex; position: relative; top: 23px;
+            display: flex; position: relative; top: 25px; left: 550px;
         }
         .intro-wrap > .intro-name a {
             color: #000; 
@@ -79,14 +82,14 @@
             width: 50%; line-height: 42.5px;
             text-indent: 10px; font-size: 25px;
         }
-
+		
         /* 센터소개 상세내용 */
         .swiper-slide p {
             color: #fff;
             position: relative; top: -138px; width: 93%; height: 28%;
             font-weight: 400; box-shadow: 2px 4px 12px #00000014;
-            padding-top: 1px; font-size: 13px;
-            opacity: 0.8; background-color: rgba(255, 255, 255, 0.5); color: black;
+            padding-top: 1px; font-size: 13px; margin-left: 10px;
+            background-color: rgba(255, 255, 255, 0.5); color: black;
             
         }
         .swiper-slide p:nth-of-type(1) {
@@ -96,15 +99,15 @@
             padding: 5px 0; letter-spacing: 5px;
         }
         .swiper-slide p:nth-of-type(2) {
-            text-align: left; text-indent: 12px;
-            height: 96px;
+            text-align: left; text-indent: 12px; height: 96px;
             border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;
         }
-        .swiper-slide div:nth-of-type(3) {
-        	height: 80px;
+        .swiper-pagination-bullets.swiper-pagination-horizontal {
+        	top: 650px;
         }
 
     </style>
+    <link rel="stylesheet" href="../include/css/main-footer.css">
 </head>
 <body>
    <jsp:include page="../include/main-navigation.jsp"/>
@@ -175,6 +178,6 @@
       },
     });
   </script>
-  
+  <jsp:include page="../include/main-footer.jsp"/>
 </body>
 </html>
