@@ -39,14 +39,11 @@
                         <div class="no_title"> ${dto.title} </div>
                     </div>    
                     <div class="header-icons">
-                       
                         <c:if test="${sessionScope.adminNo }">
-                            <!-- <button class="icon-btn">⋮</button> -->
                             <div class="icon_click">
                                 <input type="button" value="삭제" onclick="confirmDelete(${dto.noticeNo})"> 
                             </div>
-                            
-                         </c:if>   
+                        </c:if>   
                     </div>
                 </div>
 

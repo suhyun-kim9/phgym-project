@@ -17,7 +17,7 @@ a:hover {
   color: #6a6a6a93;
   text-align : left;
   position: relative;
-  right: 20px;
+  right: -13px;
 }
 
 .link:hover {
@@ -25,7 +25,7 @@ a:hover {
 }
 .link:nth-of-type(1) {
   position: relative;
-  right: 35px;
+  right: -2px;
 }
 .link_box {
     width: 100%;
@@ -35,7 +35,7 @@ a:hover {
 
 .link_box  > p {
 
-      color: #6a6a6a93;
+  color: #6a6a6a93;
   font-weight: 500;
   font-size: 14px;
   line-height: 1.7;
@@ -45,7 +45,7 @@ a:hover {
     color: #575757;
     margin: 25px;
     position: relative;
-    left: 10px;
+    left: -5px;
 }
 
 .mb-4 {
@@ -54,6 +54,7 @@ a:hover {
     margin-bottom: 30px;
     margin-top: 20px;
     letter-spacing: 4px;
+    margin-left: 25px;
 }
 h6 span{
   padding: 0 20px;
@@ -195,7 +196,7 @@ h6 span{
 .form-style {
   padding-left: 20px;
   height: 53px;
-  width: 80%;
+  width: 85%;
   margin: 20px;
   margin-bottom: 5px;
   border-radius: 4px;
@@ -273,7 +274,7 @@ h6 span{
 .button.button--wapasha {
   border-radius: 5px;
   background: #f97316;
-  color: #fff;
+  color: #fff; right: 88px;
   -webkit-transition: background-color 0.3s, color 0.3s;
   transition: background-color 0.3s, color 0.3s;
 }
@@ -355,7 +356,7 @@ h6 span{
 .button2.button--wapasha2 {
     border-radius: 5px;
   background: #23233e;
-  color: #fff;
+  color: #fff; right: 80px;
   -webkit-transition: background-color 0.3s, color 0.3s;
   transition: background-color 0.3s, color 0.3s;
 }

@@ -183,9 +183,7 @@ public class MypageServiceImpl implements MypageService {
 		SqlSession sql = sqlSessionFactory.openSession(true);
 		MypageMapper mypage = sql.getMapper(MypageMapper.class);
 		int totalPtCnt = mypage.getTotalPtCnt(sessionUserNo);
-		System.out.println("totalPtCnt = " + totalPtCnt);
 		int didPtCnt = mypage.getDidPtCnt(sessionUserNo);
-		System.out.println("didPtCnt = " + didPtCnt);
 		int remainingPtCnt = totalPtCnt - didPtCnt;
 		
 		request.setAttribute("remainingPtCnt", remainingPtCnt);

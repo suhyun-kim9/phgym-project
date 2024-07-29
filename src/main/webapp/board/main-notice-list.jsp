@@ -52,9 +52,7 @@
                             	<div class="hitNo">조회수 [ ${dto.hit} ]</div>
                             </td>
                             <td>
-                            	<div>글번호 [ ${listn.size() - status.index} ]</div>
-                            	<div>관리자번호 [ ${dto.adminNo} ]</div>
-                            	<div>작성일 [ <fmt:formatDate value="${dto.writeDate}" pattern="yyyy년 MM월 dd일"/> ]</div>
+                            	<div> <fmt:formatDate value="${dto.writeDate}" pattern="yyyy년 MM월 dd일"/> </div>
                             </td>
                         </tr>
                     </c:forEach>
