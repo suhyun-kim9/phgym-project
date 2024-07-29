@@ -66,7 +66,6 @@ h1 {
     padding: 5px 10px;
     font-size: 16px;
     border-radius: 5px;
-    border: 1px solid #ccc;
     color: white;
     text-decoration: none;
 }
@@ -84,7 +83,6 @@ h1 {
 }
 
 .pagination a:hover {
-    border: 1px solid #f97316;
     background-color: #f75f2c;
 }
 /* =======================페이징============================  */
@@ -125,7 +123,7 @@ h1 {
   }
  
 .user_table > tbody > tr > td:nth-child(2) {
-	font-size: 10px;
+	font-size: 14px;
 	width: 15%;
   }
 
@@ -134,7 +132,7 @@ h1 {
 }
 
 .user_table2 tr:hover {
-	background-color : #ff7f56 !important;
+	background-color :#ff7f5633 !important;
 	cursor: pointer;
 }
 
@@ -215,7 +213,7 @@ h1 {
     float: right;
     padding: 0.5em 2em;
     z-index: 1;
-    -webkit-backface-visibility: hidden;
+    /* -webkit-backface-visibility: hidden; */
     -moz-osx-font-smoothing: grayscale;
     background-color: #ff7f56;
     color: white;
