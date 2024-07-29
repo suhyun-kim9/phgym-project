@@ -84,4 +84,24 @@
 	<select id="getPtPerDay" parameterType="int" resultType="com.phgym.admin.model.PtPerDayDTO">
 		select count(*) as cnt, trunc(reservation_date) as localDate from pt_reservation_his where admin_no = #{sessionAdminNo} group by trunc(reservation_date)
 	</select>
+	
+	<select id="doUserAccount" resultType="com.phgym.admin.model.UserAccountDTO">
+		select * from user_info
+	</select>
+	
+	<select id="getUserPt3" parameterType="int" resultType="com.phgym.mypage.model.PtReservationHisDTO">
+	select * from pt_reservation_his where user_no = #{userNo} and (progress_status = 'Y' or progress_status is null)
+	</select>
+	
+	<select id="getTotalPtCnt2" parameterType="int" resultType="int">
+		select nvl(sum(pay_cnt), 0) from pt_pay_his where user_no = ${userNo}
+	</select>
+	
+	<select id="getDidPtCnt2" parameterType="int" resultType="int">
+		select count(*) from pt_reservation_his where user_no = #{userNo} and (progress_status = 'Y' or progress_status is null)
+	</select>
+	
+
+	
+	
 </mapper>

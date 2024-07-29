@@ -10,11 +10,13 @@
 
 	<link rel="stylesheet" href="../include/css/main-navigation.css">
     <style>
-	     @font-face {
-	        font-family: 'SUIT-Regular';
-	        src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Regular.woff2') format('woff2');
-	        font-style: normal;
-	    }
+	@font-face {
+	    font-family: 'SUIT-Regular';
+	    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Regular.woff2') format('woff2');
+	    font-weight: normal;
+	    font-style: normal;
+	    
+	}
 
         * {margin: 0 auto; padding: 0; text-decoration: none; font-family: 'SUIT-Regular';}
 		
@@ -28,8 +30,7 @@
         
         /* 모든 컨텐츠를 감싸는 클래스 */
          .main-wrap {
-            width: 100%; height: 1200px; position: relative;
-            border: 0px solid red; 
+            width: 100%; height: 1100px; position: relative;
         }
 
         /* 메인슬라이드 */
@@ -54,9 +55,10 @@
             border: 0px solid red;
             height: 310px; margin-top: 10px;
             width: 85%; position: relative; top: 20px; left: -2px;
-            
-            
+
         }
+        
+        
         .main-wrap > .main-prom > span {
             border: 0px solid #e3e3e3; border-radius: 18px;
             display: inline-block;  box-shadow: 2px 4px 12px #00000014;
@@ -64,7 +66,7 @@
         }
 
         #prom-list {
-            display: flex; justify-content: left;
+            display: flex; margin: auto; justify-content: space-between; width: 85%; height: 30%;
         }
         .main-wrap > .main-prom img {
             position: relative;
@@ -83,12 +85,22 @@
         /* 이벤트 */
         
         .main-wrap > .main-event {
-            border: 1px solid blue; width: 100%; display: flex;
+          
         }
+        .main-event {
+	        width: 90%;
+	        border : 0px solid red; 
+	        margin: auto;
+	        display: flex;
+	        height: 150px;
+	        margin-top : 60px;
+            margin-left: 115px;
+        }
+        
         .main-wrap > .main-event > div {
-            display: inline-block; width: 39.7%;  position: relative;
-            top: 65px; height: 100px; left: 133px;
+            width: 43%; height: 95px;
             box-shadow: 2px 4px 12px #00000014; border-radius: 18px;
+            position: relative; display: inline-block;
         }
 
         .main-wrap > .main-event > div:nth-of-type(1) { 
@@ -96,31 +108,32 @@
         }
         .main-wrap > .main-event > div:nth-of-type(2) {
             background-image: linear-gradient(to right, #5A9CFF, #fff, #781CC7);
-            left: 140px; top: 45px;
-        }
-        
-        .main-wrap > .main-event div > img {
-            width: auto; height: 100px; position: relative;
-            left: 465px; top: -90px;
-        }
-        .main-wrap > .main-event > .event2 div > img {
-            width: 100px; height: 80px; 
-            left: 440px; top: -80px;
-        }  
+            margin-left: 123px;
+        }    
         
         .main-wrap > .main-event p {
             margin: 13px; font-size: 20px; text-indent: 10px; letter-spacing: 5px;
         }
+        
+        .main-event > .event1 > img {
+        	position: relative; left: 515px; bottom: 94px;
+        	width: 100px; height: 100px;
+        }
+        .main-event > .event2 > img {
+        	position: relative; left: 480px; bottom: 82px;
+        	width: 115px; height: 80px;
+        }
+        
     </style>
-
+	<link rel="stylesheet" href="../include/css/main-footer.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 </head>
 <body>
   
+  
 	<jsp:include page="../include/main-navigation.jsp"/>
-	
-	
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+	    
     
     <section>
         <div class="main-wrap">
@@ -132,7 +145,7 @@
                         <img src="img/slide2.jpg" alt="">
                     </div>
                     <div class="swiper-slide">
-                        <img src="img/slide1.jpg" alt="">
+                        <img src="img/slide5.jpg" alt="">
                     </div>
                     <div class="swiper-slide">
                         <img src="img/slide3.jpg" alt="">
@@ -175,20 +188,26 @@
                 <div class="event1">
                     <p>PT 30회 할인 이벤트 진행중</p>
                     <p>선착순 5명 모집 !</p>
-                    <div><img src="img/event1.webp" alt=""></div>
+                    <img src="img/event1.webp" alt="img1" width=50px;>
                 </div>
                 <div class="event2">
                     <p>연말 프로모션 진행중</p>
                     <p>선착순 모집 !!</p>
-                    <div><img src="img/event2.webp" alt=""></div>
+                    <img src="img/event2.webp" alt="img2" width= 50px;>
                 </div>
             </div>
-        </div>
+        </div> 
     </section>
 
 
 	<script>
-
+	
+		var msg = "${sessionScope.msg}";
+		if(msg == "y") {
+			alert("결제가 완료되었습니다");
+			<c:remove var = "msg" scope="session"/>
+		}
+	
         const swiper = new Swiper('.swiper', {
         // Optional parameters
         direction: 'horizontal',
@@ -217,7 +236,6 @@
         });
 
     </script>
-
-
+	<jsp:include page="../include/main-footer.jsp"/>
 </body>
 </html>

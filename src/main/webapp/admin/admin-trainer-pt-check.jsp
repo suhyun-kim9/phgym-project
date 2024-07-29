@@ -12,39 +12,46 @@
     <title>Document</title>
     <link rel="stylesheet" href="../include/css/admin-navigation.css">
      <link rel="stylesheet" href="css/admin-trainer-pt-check.css">
-     <link rel="stylesheet" href="css/admin-pt-check.css">
-     <link rel="stylesheet" href="css/calendar.css">
+     
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     	<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    	     <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js'></script>
+    <script>
+      
+      
+      document.addEventListener('DOMContentLoaded', function () {
+          var calendarEl = document.getElementById('calendar');
+          var calendar = new FullCalendar.Calendar(calendarEl, {
+        	  
+        	  
+              initialView: 'dayGridMonth',
+              events: [
+              	<c:forEach var="date" items="${ptPerDayList}">
+	                	{
+	                		title: '${date.cnt}',
+	                        start: '${date.localDate}',
+	                        url: '/PHGYM/admin/doTrainerPtCheck.admin?date='+'${date.localDate}'
+	                    },
+	                    
+              	</c:forEach>
+              ]
+          });
+          calendar.render();
+      });
+      
+      
+      
+      
+      
+
+    </script>
+    	
 
 
 </head>
 <body>
     <div class="content"> 
-    <div class="aside">
-        <nav>
-        <ul class="nav_1">
-            <div class="logo"> <img src="nav/logo_dark.webp"> </div>
-            <li> <i class="bi bi-person-fill"></i> <a> 관리자 계정 </a> </li>
-            <li> 
-                <div id="dropdown">
-                    <i class="bi bi-search"></i> <a> 회원 조회</a> <i class="bi bi-chevron-compact-right"></i></i>
-                </div>
-            </li>
-            <ul id="nav_2">
-                <li><i class="bi bi-person-circle"></i> <a> 회원 정보 조회 </a>  </li>
-                <li> <i class="bi bi-calendar-check"></i> <a>  회원 스케쥴 조회 </a></li>
-            </ul>
-            <li> <i class="bi bi-calendar4-event"></i> <a> 스케쥴 관리 </a></li>
-            <li> <i class="bi bi-bell"></i> <a> 공지사항 </a></li>
-            <li> <i class="bi bi-archive"></i> <a> 운동정보 </a></li>
-
-        </ul>
-        <div class="nav_logout">
-            <p> 로그아웃 </p>
-        </div>
-    </nav>
-</div>
+    	<jsp:include page="../include/admin-navigation.jsp"/>
 
 
 <!--  여기에 넣어주시면 됩니다. -->
@@ -84,14 +91,14 @@
  
                     <!-- 캘린더 전체 컨테이너 -->
 				     <!-- 캘린더 전체 컨테이너 -->
-    <div class="calendar">
-        <!-- 헤더 부분: 이전, 다음 버튼과 월/연 표시 -->
+   <!--  <div class="calendar">
+        헤더 부분: 이전, 다음 버튼과 월/연 표시
         <div class="header">
             <button id="prevMonth">&lt;</button>
             <div class="month-year" id="monthYear"></div>
             <button id="nextMonth">&gt;</button>
         </div>
-        <!-- 요일 이름 표시 -->
+        요일 이름 표시
         <div class="weekdays">
             <div>Sun</div>
             <div>Mon</div>
@@ -106,10 +113,14 @@
             <label for="type">날짜 : </label>
             <input type="text" id="date" readonly />
         </div>
-        <!-- 날짜 표시 -->
+        날짜 표시
         <div class="days" id="days"></div>
            </div>
-       </div>
+       </div> -->
+          <div class="wrap4">
+          	  <div id='calendar'></div>
+          </div>
+       
 
        
           <div class="list_box">
@@ -141,9 +152,9 @@
     
   
 
-	<script  type="text/javascript" src="js/calendar2.js"> </script>
+<!-- 	<script  type="text/javascript" src="js/calendar2.js"> </script> -->
     <script type="text/javascript" src="../include/js/admin-navigation.js"> </script>
-    <script type="text/javascript">
+<!--     <script type="text/javascript">
     
 
  
@@ -342,7 +353,7 @@
  			listBox.style.display = "none";
  		} */
  		 
- 	</script>
+ 	</script> -->
  
 </body>
 </html>

@@ -21,7 +21,6 @@ body{
 }
 
 .content1 {
-	    
     display: flex;  
     flex : 1;
 }
@@ -222,7 +221,7 @@ body{
 
 }
 
-.main_nav_bar .animation{
+/* .main_nav_bar .animation{
     position: absolute;
     top: 80%;
     left: 200px;
@@ -230,7 +229,7 @@ body{
     height: 2px;
     background-color: #f97316;
     transition: 0.5s;
-}
+} */
 
 
 .dropdownContent li a{

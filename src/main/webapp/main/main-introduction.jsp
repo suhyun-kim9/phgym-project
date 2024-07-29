@@ -11,9 +11,12 @@
 
     <style>
         @font-face {
-            font-family: 'SUIT-Regular';
-            src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Regular.woff2') format('woff2');
-        }
+		    font-family: 'SUIT-Regular';
+		    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Regular.woff2') format('woff2');
+		    font-weight: normal;
+		    font-style: normal;
+		    
+		}
 
         * {margin: 0 auto; padding: 0; text-decoration: none; font-family: 'SUIT-Regular'; }
         
@@ -32,8 +35,8 @@
 
         .swiper {
             width: 100%; 
-            padding-top: 50px;
-            padding-bottom: 50px;
+            padding-top: 65px;
+            padding-bottom: 100px;
         }
 
         .swiper-slide {
@@ -54,7 +57,7 @@
             border: 0px solid #000; border-radius: 10px;
             width: 500px;  box-shadow: 2px 4px 12px #00000014;
             height: 5%; line-height: 42.5px;
-            display: flex; position: relative; top: 23px;
+            display: flex; position: relative; top: 25px; left: 550px;
         }
         .intro-wrap > .intro-name a {
             color: #000; 
@@ -79,14 +82,14 @@
             width: 50%; line-height: 42.5px;
             text-indent: 10px; font-size: 25px;
         }
-
+		
         /* 센터소개 상세내용 */
         .swiper-slide p {
             color: #fff;
             position: relative; top: -138px; width: 93%; height: 28%;
             font-weight: 400; box-shadow: 2px 4px 12px #00000014;
-            padding-top: 1px; font-size: 13px;
-            opacity: 0.8; background-color: rgba(255, 255, 255, 0.5); color: black;
+            padding-top: 1px; font-size: 13px; margin-left: 10px;
+            background-color: rgba(255, 255, 255, 0.5); color: black;
             
         }
         .swiper-slide p:nth-of-type(1) {
@@ -96,12 +99,15 @@
             padding: 5px 0; letter-spacing: 5px;
         }
         .swiper-slide p:nth-of-type(2) {
-            text-align: left; text-indent: 12px;
-            height: 96px;
+            text-align: left; text-indent: 12px; height: 96px;
             border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;
+        }
+        .swiper-pagination-bullets.swiper-pagination-horizontal {
+        	top: 650px;
         }
 
     </style>
+    <link rel="stylesheet" href="../include/css/main-footer.css">
 </head>
 <body>
    <jsp:include page="../include/main-navigation.jsp"/>
@@ -121,32 +127,32 @@
                     <img src="img/프리웨이트존.png" />
                     <div class="intro-content">
                         <p>프리웨이트존</p>
-                        <p>프리웨이트존에 대한 내용입니다.</p>
+                        <p>강한 몸, 강한 마음! 프리웨이트존에서 만들어보세요!
+                            "자유롭게 무게를 다루며 진정한 힘을 키워보세요. 체계적인 운동 프로그램과 다양한 무게 기구가 준비된 프리웨이트존에서 최상의 훈련을 경험하세요. 프리웨이트존에서 당신의 한계를 넘어보세요!"</p>
                     </div>
                 </div>
                 <div class="swiper-slide">
                     <img src="img/유산소존.png" />
                     <div class="intro-content">
                         <p>유산소존</p>
-                        <p>유산소존에 대한 내용입니다.</p>
+                        <p>유산소 운동의 모든 것, 유산소존에서 만나보세요!
+                            "다양한 유산소 기구와 전문가의 맞춤형 운동법! 체계적인 운동 프로그램과 최신 시설이 준비된 유산소존에서 건강한 라이프스타일을 시작하세요."</p>
                     </div>
                 </div>
                 <div class="swiper-slide">
                     <img src="img/pt개인지도.jpg" />
                     <div class="intro-content">
                         <p>PT개인지도</p>
-                        <p>고객 스스로 목표를 설정하는 부정확한 운동방법이 아닌 체성분 분석을 통한 1:1 운동 프로그램 설계 및 상담을 통해 왜 운동을 해야 하는지에 대한 모든사항을 고려, 분석, 실행에 옮길 수 있도록 조언과 끊임없는 동기부여를 해주는 것이 PT(Personal Training)의 핵심입니다.</p>
+                        <p>고효율적인 운동, 최상의 결과! PT 개인지도! 전문가의 섬세한 코칭으로 더 빠르고 안전하게 목표를 달성하세요. 시간을 절약하고 최고의 결과를 얻고 싶다면 PT 개인지도가 답입니다. 지금 바로 체험해보세요!</p>
                     </div>
                 </div>
                 <div class="swiper-slide">
                     <img src="img/인포데스크.jpg" />
                     <div class="intro-content">
                         <p>인포데스크</p>
-                        <p>파워하우스 만의 전문 브랜드로 고객의 건강, 활력, 쾌적하고 즐거운 환경 조성 목표</p>
+                        <p>도움이 필요하세요? 인포데스크가 함께합니다! 운동에 대한 문의, 시설 이용 안내, 회원 등록까지! 인포데스크에서 친절한 상담과 완벽한 지원을 약속드립니다.</p>
                     </div> 
-            </div>
-            <div>
-                
+                </div>
             </div>
         </div>
         <div class="swiper-pagination"></div>
@@ -172,6 +178,6 @@
       },
     });
   </script>
-  
+  <jsp:include page="../include/main-footer.jsp"/>
 </body>
 </html>

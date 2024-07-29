@@ -17,9 +17,10 @@
 
 	<section class="content">
 		<div class="wrap-top">
-			<h2>PT 예약</h2>
+			<h2>PT예약</h2>
 			<p>${sessionScope.sessionUserName}님의 PT잔여횟수는 <b style="color:#f97316">${remainingPtCnt}회</b>입니다.</p>
 		</div>
+		
 		<div class="wrap-middle">
 			<!-- Swiper -->
 			<div class="swiper mySwiper">
@@ -132,8 +133,10 @@
 		var remainingPtCnt = ${remainingPtCnt};
 		if (remainingPtCnt < 1) {
 			for (var i = 0; i < btn.length; i++) {
-				btn[i].setAttribute("disabled");
-				btn[i].style.backgroundColor = "#76818d";
+				btn[i].setAttribute("disabled", true);
+				btn[i].style.cursor = "default";
+				btn[i].style.backgroundColor = "#8c8c8c";
+				btn[i].style.pointerEvents = "none";
 				btn[i].innerHTML = "예약불가";
 			}
 		}

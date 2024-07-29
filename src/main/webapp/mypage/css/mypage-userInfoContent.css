@@ -1,0 +1,145 @@
+@font-face {
+    font-family: 'SUIT-Regular';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'SUIT-Regular';
+}
+
+ul, li, ol, dl, dd {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.content {
+    width: 1024px;
+    margin: 0 auto;
+}
+
+.content .wrap-top {
+	padding: 40px 0 20px 0;
+	border-bottom: 1px solid #00000029;
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-end;
+}
+
+.content .wrap-top > h2 {
+	display: inline-block;
+	font-size: 40px;
+}
+
+.content .wrap-top .submit {
+	background-color: #ff7f56;
+	border: none;
+	border-radius: 0.25em;
+	color: #ffffff;
+	font-size: 20px;
+	height: 40px;
+	padding: 0 30px;
+	cursor: pointer;
+}
+
+.content .wrap-top .reset {
+	background-color: #8c8c8c;
+	border: none;
+	border-radius: 0.25em;
+	color: #ffffff;
+	font-size: 20px;
+	height: 40px;
+	padding: 0 30px;
+	cursor: pointer;
+}
+
+.content .wrap-middle {
+	margin-top: 30px;
+	padding: 50px 50px;
+	border-radius: 18px;
+    box-shadow: 2px 4px 12px #00000014;
+	display: flex;
+	justify-content: space-between;
+}
+
+.content .wrap-middle > .wrap-middle-left {
+	width: 20%;
+	text-align: right;
+}
+
+.content .wrap-middle > .wrap-middle-left > .profile {
+	margin-right: 30px;
+	box-shadow: 2px 4px 12px #00000014;
+	height: 170px;
+	text-align: center;
+	line-height: 170px;
+}
+
+.content .wrap-middle > .wrap-middle-left > .profile > i {
+	font-size: 1000%;
+}
+
+.content .wrap-middle > .wrap-middle-center {
+	width: 40%;
+}
+
+.content .wrap-middle > .wrap-middle-center p {
+	font-size: 18px;
+	margin-bottom: 3px;
+}
+
+.content .wrap-middle > .wrap-middle-center input {
+	width: 90%;
+	height: 30px;
+	font-size: 16px;
+	margin-bottom: 15px;
+	padding-left: 5px;
+}
+
+.content .wrap-middle > .wrap-middle-center div {
+	display: flex;
+	margin-top: 3px;
+	margin-bottom: 15px;
+	align-items: center;
+	border: 1px solid rgb(118, 118, 118);
+	width: 90%;
+	height: 30px;
+	padding-left: 5px;
+}
+
+.content .wrap-middle > .wrap-middle-center div p {
+	font-size: 16px;
+}
+
+.content .wrap-middle > .wrap-middle-center div .userGenderRadio {
+	display: inline-block;
+	width: 7%;
+	height: 50%;
+	line-height: 5%;
+	margin: 0;
+}
+
+.content .wrap-middle > .wrap-middle-right {
+	width: 40%;
+}
+
+.content .wrap-middle > .wrap-middle-right p {
+	font-size: 18px;
+	margin-bottom: 3px;
+}
+
+.content .wrap-middle > .wrap-middle-right input {
+	width: 90%;
+	height: 30px;
+	font-size: 16px;
+	margin-bottom: 15px;
+	padding-left: 5px;
+}

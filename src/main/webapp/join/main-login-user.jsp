@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>회원 로그인</title>
 <link rel="stylesheet" href="../include/css/main-navigation.css">
-<link rel="stylesheet" href="css/main-login-user.css">
+<link rel="stylesheet" href="css/main-login-user.css" type="text/css">
 
 <script type="text/javascript">
 
@@ -56,51 +56,75 @@
 </script>
 
 </head>
+
 <body>
-<jsp:include page="../include/main-navigation.jsp"/>
-    <div class="wrap">
-        <h3>회원 로그인</h3>
-        <div class="login_page">
-            <div class="login_wrap">
-                <form action="userLogin.join" method="post" onsubmit="setUserIdCookie()">
-                    <div class="id">
-                        <p>아이디</p>
-                        <input type="text" id="userId" name="userId" placeholder="아이디를 입력하세요."
-                            required="required">
-                    </div>
+<jsp:include page="../include/main-navigation.jsp"/> 
+	<div class="section">
+		<div class="container">
+			<div class="row full-height justify-content-center">
+				<div class="col-12 text-center align-self-center py-5">
+					<div class="section pb-5 pt-5 pt-sm-2 text-center">
+			          	<input class="checkbox input2" type="checkbox" id="reg-log" name="reg-log"/>
+			          	<label for="reg-log"> </label>
+						<div class="card-3d-wrap mx-auto">
+							<div class="card-3d-wrapper">
+							<form action="userLogin.join" method="post" onsubmit="setUserIdCookie()">
+								<div class="card-front">
+                                    <div>
+                                        <div class="wave"></div>
+                                        <div class="wave"></div>
+                                        <div class="wave"></div>
+                                     </div>
+											<h4 class="mb-4 pb-3"> 회원 로그인 </h4>
+											<div class="form-group">
+												<input type="text" id="userId" name="userId" class="form-style input2" placeholder="아이디를 입력하세요." autocomplete="off">
+												<i class="input-icon uil uil-at"></i>
+											</div>	
+											<div class="form-group mt-2">
+												<input type="password" id="userPw" name="userPw" class="form-style input2" placeholder="비밀번호를 입력하세요." autocomplete="off">
+												<i class="input-icon uil uil-lock-alt"></i>
+											</div>
+                                            <div class="link_box">
+                                                <div><input type="checkbox" id="keepLoggedIn" name="check"> 아이디 기억하기 </div>
+                                                <div class="mb-0 mt-4 text-center"><a href="findUserId.join" class="link">아이디 찾기</a> / <a href="findUserPw.join" class="link">비밀번호 찾기</a></div>
+                                            </div>
+                                          
+                                            <div class="box bg-1">
+                                            	<input type="submit" value="로그인" class="button button--wapasha button--round-s">
+                                            </div>
+			      				</div>
+			      				</form>
+			      				
+			      				<form action="adminLogin.join" method="post" onsubmit="setAdminIdCookie()">
+								<div class="card-back">
+											<h4 class="mb-4 pb-3"> 관리자 로그인</h4>
+											<div class="form-group">
+												<input type="text" id="adminId" name="adminId" class="form-style input2" placeholder="아이디를 입력하세요." autocomplete="off">
+												<i class="input-icon uil uil-at"></i>
+											</div>	
+											<div class="form-group mt-2">
+												<input type="password" id="admin" name="adminPw" class="form-style input2" placeholder="비밀번호를 입력하세요." autocomplete="off">
+												<i class="input-icon uil uil-lock-alt"></i>
+											</div>
+                                            <div class="link_box">
+                                                <div> <input type="checkbox" id="keepLoggedIn" name="check"> 아이디 기억하기 </div>
+                                                <div class="mb-0 mt-4 text-center"><a href="#0" class="link">아이디/비밀번호 찾기</a></div>
+                                            </div>
+                                          
+                                            
+                                            <div class="box2 bg-2">
+                                            	<input type="submit" value="로그인" class="admin_btn button2 button--wapasha2 button--round-s2">
+                                            </div>
+			      					</div>
+			      				</form>
+			      			</div>
+			      		</div>
+			      	</div>
+		      	</div>
+	      	</div>
+	    </div>
+	</div>
 
-                    <div class="pw">
-                        <p>비밀번호</p>
-                        <input type="password" name="userPw" placeholder="비밀번호를 입력하세요."
-                            required="required">
-                    </div>
-
-                    <input type="checkbox" id="keepLoggedIn" name="check">
-                    <p class="login_situation">아이디 기억하기</p>
-
-                    <input type="submit" value="로그인">
-
-                    <div class="find">
-                        <a href="findUserId.join">아이디찾기</a>
-                        <a href="findUserPw.join">비밀번호찾기</a>
-                        <a href="ChangeAdmin.join">관리자로그인</a>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-
-    <%
-        String msg = (String) request.getAttribute("msg");
-        if (msg != null) {
-    %>
-        <script type="text/javascript">
-            showError("<%= msg %>");
-        </script>
-    <%
-        }
-    %>
-    
     <script>
     
 		var userIdFind = "${userIdFind}";
@@ -120,6 +144,5 @@
 	    }
     
     </script>
-
 </body>
 </html>

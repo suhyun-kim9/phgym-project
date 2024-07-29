@@ -23,7 +23,8 @@ public interface AdminMapper {
 		
 		// 회원 정보 조회
 		public ArrayList<UserAccountDTO> getUserAccount(String userName);
-	
+		public List<UserAccountDTO> doUserAccount();
+		
 		// 회원 정보 조회 (유저 아이디로)
 		public UserAccountDTO getUserAccount2(int userNo);
 		
@@ -36,11 +37,19 @@ public interface AdminMapper {
 		//관리자
 		public List<PtReservationHisDTO2> getTrainerPtCheck2 (PtReservationHisDTO2 dto);
 		
-	
-		
 		// 회원 스케쥴 가져오기
 		public List<PtReservationHisDTO2> doPtPlanCheck(PtReservationHisDTO2 dto);
 
+		
 		//관리자 하루 PT갯수
 		public List<PtPerDayDTO> getPtPerDay(int sessionAdminNo);
+		public List<PtReservationHisDTO> getUserPt3(int userNo);
+		public int getTotalPtCnt2(int userNo);
+		public int getDidPtCnt2(int userNo);
+
+
+		
+		
+		
+		
 }
