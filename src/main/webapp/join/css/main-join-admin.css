@@ -1,44 +1,44 @@
 :root {
-    --primary-color: #f97316; /* 주요 색상 */
+    --primary-color: #23233e;
 }
 
 *, *::before, *::after {
-    box-sizing: border-box; /* 박스 사이징 설정 */
+    box-sizing: border-box;
 }
 
 body {
-    font-family: Montserrat, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; /* 기본 글꼴 */
+    font-family: Montserrat, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     display: grid;
     place-items: center;
     min-height: 100vh;
-    background-color: #fff; /* 배경색 */
+    background-color: #fff;
 }
 
 label {
     display: block;
-    margin-bottom: 0.5rem; /* 레이블 아래 여백 */
+    margin-bottom: 0.5rem;
 }
 
-input {
+input, select {
     display: block;
-    width: 100%; /* 입력 필드 너비 */
-    padding: 0.75rem; /* 입력 필드 패딩 */
-    border: 1px solid #ccc; /* 테두리 색상 */
-    border-radius: 0.25rem; /* 테두리 반경 */
-    height: 50px; /* 입력 필드 높이 */
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 0.25rem;
+    height: 50px;
 }
 
 .width-50 {
-    width: 50%; /* 너비 50% */
+    width: 50%;
 }
 
 .ml-auto {
-    margin-left: auto; /* 왼쪽 여백 자동 */
+    margin-left: auto;
 }
 
 .text-center {
-    text-align: center; /* 텍스트 중앙 정렬 */
+    text-align: center;
 }
 
 .progressbar {
@@ -46,7 +46,7 @@ input {
     display: flex;
     justify-content: space-between;
     counter-reset: step;
-    margin: 2rem 0 4rem; /* 진행 표시줄 여백 */
+    margin: 2rem 0 4rem;
 }
 
 .progressbar::before, .progress {
@@ -56,21 +56,21 @@ input {
     transform: translateY(-50%);
     height: 4px;
     width: 100%;
-    background-color: #dcdcdc; /* 기본 배경색 */
+    background-color: #dcdcdc;
     z-index: 1;
 }
 
 .progress {
-    background-color: #f97316; /* 진행 상태 배경색 */
+    background-color: var(--primary-color);
     width: 0%;
-    transition: 0.3s; /* 전환 애니메이션 */
+    transition: 0.3s;
 }
 
 .progress-step {
     width: 2.1875rem;
     height: 2.1875rem;
-    background-color: #dcdcdc; /* 기본 단계 색상 */
-    border-radius: 50%; /* 둥근 모서리 */
+    background-color: #dcdcdc;
+    border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -79,7 +79,7 @@ input {
 
 .progress-step::before {
     counter-increment: step;
-    content: counter(step); /* 단계 번호 표시 */
+    content: counter(step);
 }
 
 .progress-step::after {
@@ -87,37 +87,45 @@ input {
     position: absolute;
     top: calc(100% + 0.5rem);
     font-size: 0.85rem;
-    color: #666; /* 텍스트 색상 */
+    color: #666;
 }
 
 .progress-step-active {
-    background-color: var(--primary-color); /* 활성 단계 색상 */
-    color: #f3f3f3; /* 활성 단계 텍스트 색상 */
+    background-color: var(--primary-color);
+    color: #f3f3f3;
 }
 
 .form {
     width: 400px;
     margin: 0 auto;
     border: none;
-    border-radius: 10px !important; /* 테두리 반경 */
+    border-radius: 10px !important;
     overflow: hidden;
-    padding: 1.5rem; /* 내부 여백 */
-    background-color: #fff; /* 배경색 */
+    padding: 20px 30px;
+    background-color: #fff;
 }
 
 .step-forms {
     display: none;
     transform-origin: top;
-    animation: animate 1s; /* 단계 전환 애니메이션 */
+    animation: animate 1s;
 }
 
 .step-forms-active {
-    display: block; /* 활성 단계 표시 */
+    display: block;
 }
 
 .group-inputs {
-    margin: 1rem 0; /* 입력 그룹 여백 */
+    margin: 1rem 0;
     position: relative;
+}
+
+.id_inputs {
+	display: flex;
+	align-items: center;
+    justify-content: space-between;
+    width :100%;
+	
 }
 
 .group-inputs label {
@@ -127,8 +135,8 @@ input {
     padding: 4px 7px;
     top: -14px;
     left: 10px;
-    color: #a2a2a2; /* 레이블 색상 */
-    background-color: white; /* 배경색 */
+    color: #a2a2a2;
+    background-color: white;
 }
 
 @keyframes animate {
@@ -144,53 +152,53 @@ input {
 
 .btns-group {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 버튼 그룹 레이아웃 */
-    gap: 1.5rem; /* 버튼 사이 간격 */
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
 }
 
 .btn {
     padding: 0.75rem;
     display: block;
     text-decoration: none;
-    background-color: var(--primary-color); /* 버튼 배경색 */
-    color: #f3f3f3; /* 버튼 텍스트 색상 */
+    background-color: var(--primary-color);
+    color: #f3f3f3;
     text-align: center;
-    border-radius: 0.25rem; /* 버튼 테두리 반경 */
-    cursor: pointer; /* 포인터 커서 */
-    transition: 0.3s; /* 전환 애니메이션 */
+    border-radius: 0.25rem;
+    cursor: pointer;
+    transition: 0.3s;
 }
 
 .btn:hover {
-    box-shadow: 0 0 0 2px #fff, 0 0 0 3px var(--primary-color); /* 호버 시 그림자 효과 */
+    box-shadow: 0 0 0 2px #fff, 0 0 0 3px var(--primary-color);
 }
 
 .progress-step-check {
     position: relative;
-    background-color: #f97316 !important; /* 체크된 단계 색상 */
-    transition: all 0.8s; /* 애니메이션 전환 */
+    background-color: #23233e !important;
+    transition: all 0.8s;
 }
 
 .progress-step-check::before {
     position: absolute;
-    content: '\2713'; /* 체크 마크 */
+    content: '\2713';
     width: 100%;
     height: 100%;
     top: 8px;
     left: 13px;
-    font-size: 12px; /* 체크 마크 폰트 크기 */
+    font-size: 12px;
 }
 
 .checkmark {
     width: 56px;
     height: 56px;
-    border-radius: 50%; /* 둥근 체크마크 */
+    border-radius: 50%;
     display: block;
     stroke-width: 2;
-    stroke: #fff; /* 체크마크 테두리 색상 */
+    stroke: #fff;
     stroke-miterlimit: 10;
     margin: 10% auto;
-    box-shadow: inset 0px 0px 0px #f97316; /* 체크마크 그림자 */
-    animation: fill .4s ease-in-out .4s forwards, scale .3s ease-in-out .9s both; /* 애니메이션 */
+    box-shadow: inset 0px 0px 0px #23233e;
+    animation: fill .4s ease-in-out .4s forwards, scale .3s ease-in-out .9s both;
 }
 
 .checkmark__circle {
@@ -198,7 +206,7 @@ input {
     stroke-dashoffset: 166;
     stroke-width: 2;
     stroke-miterlimit: 10;
-    stroke: #f97316; /* 원 테두리 색상 */
+    stroke: #23233e;
     fill: none;
     animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
 }
@@ -207,7 +215,7 @@ input {
     transform-origin: 50% 50%;
     stroke-dasharray: 48;
     stroke-dashoffset: 48;
-    animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards; /* 체크 애니메이션 */
+    animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards;
 }
 
 @keyframes stroke {
@@ -227,18 +235,18 @@ input {
 
 @keyframes fill {
     100% {
-        box-shadow: inset 0px 0px 0px 30px #f97316; /* 체크마크 채우기 애니메이션 */
+        box-shadow: inset 0px 0px 0px 30px #23233e;
     }
 }
 
 .wrap {
-    border: 1px solid #cbcbcb; /* 래퍼 테두리 색상 */
-    border-radius: 4px; /* 래퍼 테두리 반경 */
-    box-shadow: 0 4px 8px 0 rgba(21,21,21,.2); /* 래퍼 그림자 */
+    border: 1px solid #cbcbcb;
+    border-radius: 4px;
+    box-shadow: 0 4px 8px 0 rgba(21,21,21,.2);
 }
 
 .header1 {
-    font-size: 1.3em; /* 헤더 글꼴 크기 */
-    text-align: center; /* 헤더 텍스트 중앙 정렬 */
-    font-weight: bold; /* 헤더 글꼴 굵기 */
+    font-size: 1.3em;
+    text-align: center;
+    font-weight: bold;
 }
