@@ -17,6 +17,7 @@ import com.phgym.mypage.model.CheckinHisDTO;
 import com.phgym.mypage.model.CheckinListDTO;
 import com.phgym.mypage.model.MembershipPayHisDTO;
 import com.phgym.mypage.model.MypageMapper;
+import com.phgym.mypage.model.MypageQuery;
 import com.phgym.mypage.model.MypageUserInfoDTO;
 import com.phgym.mypage.model.PtReservationDTO;
 import com.phgym.mypage.model.PtReservationDTO2;
@@ -126,6 +127,7 @@ public class MypageServiceImpl implements MypageService {
 		request.getRequestDispatcher("mypage-transfer.jsp").forward(request, response);
 	}
 
+	private static final int PAGE_SIZE = 5; // 페이지당 항목 수
 	@Override
 	public void statistics(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -134,29 +136,42 @@ public class MypageServiceImpl implements MypageService {
 		SqlSession sql = sqlSessionFactory.openSession(true);
 		MypageMapper mypage = sql.getMapper(MypageMapper.class);
 		
-		//출석내역 가져오기
-		List<CheckinListDTO> checkinList = new ArrayList<>();
-		List<CheckinHisDTO> checkinHisList = mypage.getCheckinList(sessionUserNo);
-		for(CheckinHisDTO checkinHisDTO : checkinHisList) {
+		//페이징 테스트
+		String pageParam = request.getParameter("page");
+        int currentPage = (pageParam != null) ? Integer.parseInt(pageParam) : 1;
+		int startRow = (currentPage - 1) * PAGE_SIZE;
+        int endRow = currentPage * PAGE_SIZE;
+        
+        MypageQuery query = new MypageQuery(startRow, endRow, sessionUserNo);
+        int totalRecords  = mypage.countStatistics(sessionUserNo);
+        List<CheckinHisDTO> checkinHisList = mypage.selectStatistics(query);
+        List<CheckinListDTO> checkinList = new ArrayList<>();
+        for(CheckinHisDTO checkinHisDTO : checkinHisList) {
 			CheckinListDTO checkinListDTO = new CheckinListDTO();
-			checkinListDTO.setNo(checkinHisDTO.getRownum());
+			checkinListDTO.setNo(checkinHisDTO.getRn());
 			checkinListDTO.setCheckinDate(checkinHisDTO.getCheckinDate().toLocalDate());
 			checkinListDTO.setCheckinTime(checkinHisDTO.getCheckinDate().toLocalTime());
 			checkinList.add(checkinListDTO);
 		}
-		
-		MypageStatisticsUtil util = new MypageStatisticsUtil();
+        
+        int totalPages = (int) Math.ceil((double) totalRecords / PAGE_SIZE);
+        
+        List<CheckinHisDTO> checkinHisList2 = mypage.getCheckinList(sessionUserNo);
+        MypageStatisticsUtil util = new MypageStatisticsUtil();
 		//요일별 출석률 가져오기
-		double[] dayPercent = util.dayPercent(checkinHisList);
+		double[] dayPercent = util.dayPercent(checkinHisList2);
 		
 		//시간별 출석률 가져오기
-		double[] timePercnet = util.timePercnet(checkinHisList);
+		double[] timePercnet = util.timePercnet(checkinHisList2);
 		
 		sql.close();
 				
-		request.setAttribute("timePercnet", timePercnet);
-		request.setAttribute("dayPercent", dayPercent);
 		request.setAttribute("checkinList", checkinList);
+		request.setAttribute("currentPage", currentPage);
+        request.setAttribute("totalPages", totalPages);
+		
+		request.setAttribute("dayPercent", dayPercent);
+		request.setAttribute("timePercnet", timePercnet);
 		request.getRequestDispatcher("mypage-statistics.jsp").forward(request, response);
 	}
 
