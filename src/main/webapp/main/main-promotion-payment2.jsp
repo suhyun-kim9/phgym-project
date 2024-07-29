@@ -10,12 +10,13 @@
     <link rel="stylesheet" href="../include/css/main-navigation.css">
     
     <style>
-    	 @font-face {
-        font-family: 'SUIT-Regular                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             ';
-        src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Regular.woff2') format('woff2');
-        font-weight: 500;
-        font-style: normal;
-    }
+	@font-face {
+	    font-family: 'SUIT-Regular';
+	    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Regular.woff2') format('woff2');
+	    font-weight: normal;
+	    font-style: normal;
+	    
+	}
 
     * {margin: 0 auto; padding: 0; text-decoration: none; font-family: 'SUIT-Regular';}
     
@@ -23,7 +24,7 @@
     .pay-wrap {
         position: relative; top: 50px;
         border: 0px solid #000;
-        width: 1024px; height: 670px;
+        width: 1024px; height: 670px; margin-left: 300px;
     }
     /* 주문 결제 이름 상단바 */
     .pay-wrap > p {
@@ -65,7 +66,7 @@
         display: inline-block; width: 80%;
     }
     .pay-wrap > .content > div:nth-of-type(4) > div {
-        position: relative; left: 135px; bottom: 20px;
+        position: relative; left: 120px; bottom: 20px;
     }
     
     .pay-wrap > .content > div:nth-of-type(4) input {
@@ -98,7 +99,7 @@
     }
     #right select {
         display: inline-block; 
-        width: 23%; height: 6%;
+        width: 23%; height: 25px; border: 1px solid #e3e3e3;
     }
 
     .refund-notice {
@@ -113,7 +114,13 @@
     .refund-notice p {
         margin: 10px 0px 0px 30px; font-size: 12px; font-weight: 300;
     }
-
+	.agree {
+		position: relative; top: 80px; width: 155px; left: 660px;
+		font-size: 13px; font-weight: 300;
+	}
+	.agree input {
+		margin-right: 5px;
+	}
 
     .period {
         color: #777; font-size: 10px;
@@ -121,7 +128,7 @@
     /* 제출하기 버튼 */
     .button.button--wapasha {
         border-radius: 5px; background: #f97316; color: #fff; 
-        top: -25px; left: 368px;
+        top: -25px; left: 1055px;
         -webkit-transition: background-color 0.3s, color 0.3s;
         transition: background-color 0.3s, color 0.3s;
     }
@@ -196,7 +203,7 @@
     }
     
     </style>
-    
+    <link rel="stylesheet" href="../include/css/main-footer.css">
 </head>
 
 <body>
@@ -235,7 +242,7 @@
                <p>결제 정보</p>
                <div class="pay-method">
                    <a>결제방법</a>
-                   <input type="text" name="payMethod" placeholder="직접 입력"  id="payMethod" required>
+                   <input type="text" name="payMethod" id="payMethod" required disabled>
                    <select size="1" class="method-list" onchange="myMethod(this.value)">
                        <option value="선택하세요">선택하세요</option>
                        <option value="무통장 입금">무통장 입금</option>
@@ -244,6 +251,7 @@
                        <option value="카카오페이">카카오페이</option>
                        <option value="네이버페이">네이버페이</option>
                        <option value="토스페이">토스페이</option>
+                       <option value="direct">직접입력</option>
                    </select>
                </div>
                <div>
@@ -251,8 +259,8 @@
                    <input type="text" name="payAmount" value="240000" readonly>
                </div>
                <div class="refund-name">
-                   <a>환불은행명</a>
-                   <input type="text" name="refundBankname" placeholder="직접 입력" id="refundBankname" required>
+                   <a>환불은행</a>
+                   <input type="text" name="refundBankname" id="refundBankname" required disabled>
                    <select size="1" class="name-list" onchange="myBank(this.value)">
                        <option value="선택하세요">선택하세요</option>
                        <option value="국민은행">국민은행</option>
@@ -261,6 +269,7 @@
                        <option value="우리은행">우리은행</option>
                        <option value="카카오뱅크">카카오뱅크</option>
                        <option value="토스뱅크">토스뱅크</option>
+                       <option value="direct">직접입력</option>
                    </select>
                </div>
                <div>
@@ -278,14 +287,17 @@
                 <p>제 6조.덤벨 및 바벨 사용 . 후정리하여야 하며 다른 사람에게 불편을 줄 수 있는 행동은 삼가해야합니다.</p>
                 <p>제 7조.센터 시설의 문제로 인한 사고 외 개인 부주의로 인한 사고 책임은 개인에게 있음을 명시합니다.</p>
            </div>
+           <div class="agree">
+            	<input type='checkbox' required>이용 약관에 동의해주세요.
+            </div>
        </div>
        <div class="box bg-1">
            <button class="button button--wapasha button--round-s">결제하기</button>
        </div>
    </div>  
    </form>
-
-
+<jsp:include page="../include/main-footer.jsp"/>
+<script type="text/javascript" src="js/main-promotion-payment.js"></script>
 <script type="text/javascript" src="js/main-promotion-payment2.js"></script>
 <script type="text/javascript" src="../include/js/main-navigation.js"></script>
 

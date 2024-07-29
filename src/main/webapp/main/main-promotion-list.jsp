@@ -10,11 +10,12 @@
 
     <style>
        @font-face {
-            font-family: 'SUIT-Regular';
-            src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Regular.woff2') format('woff2');
-            font-weight: 500;
-            font-style: normal;
-        }
+		    font-family: 'SUIT-Regular';
+		    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Regular.woff2') format('woff2');
+		    font-weight: normal;
+		    font-style: normal;
+		    
+		}
 
         * {margin: 0 auto; padding: 0; text-decoration: none; font-family: 'SUIT-Regular';}
         
@@ -22,8 +23,9 @@
         /* 전체 틀 */
         .list-wrap {
             position: relative;
-            width: 1050px;
+            width: 1050px; height: 600px;
             border: 0px solid green;
+            left: 270px;
         }
 
 
@@ -51,7 +53,7 @@
         /* 프로모션 종류 메인 */
         .list-wrap > .prom p:nth-of-type(1) { 
             border: 0px solid #000; background-color: #fff; border-radius: 5px; font-weight: 400;
-            position: relative; top: 25px; width: 65%; box-shadow: 2px 4px 12px #00000014;
+            position: relative; top: 25px; width: 65%; box-shadow: 2px 4px 12px #00000014; left: 43px;
         }
         /* 프로모션 종류별 제공사항 설명 */
         .list-wrap > .prom p:nth-of-type(2) {
@@ -142,7 +144,8 @@
             -moz-osx-font-smoothing: grayscale;
         }
     </style>
-
+	<link rel="stylesheet" href="../include/css/main-footer.css">
+	
 </head>
 <body>
 	   
@@ -214,7 +217,7 @@
             </div>
         </div>
     </div>
-
+	<jsp:include page="../include/main-footer.jsp"/>
 
 
 </body>

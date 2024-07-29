@@ -10,12 +10,13 @@
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 	
     <style>
-        @font-face {
-            font-family: 'SUIT-Regular';
-            src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Regular.woff2') format('woff2');
-            font-weight: 500;
-            font-style: normal;
-        }
+	@font-face {
+	    font-family: 'SUIT-Regular';
+	    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Regular.woff2') format('woff2');
+	    font-weight: normal;
+	    font-style: normal;
+	    
+	}
 
         * {margin: 0 auto; padding: 0; text-decoration: none; font-family: 'SUIT-Regular';}
         
@@ -23,7 +24,7 @@
         /* 전체 윤곽 */
         .intro-wrap {
             border: 0px solid #000; 
-            width: 1024px; height: 850px;
+            width: 1024px; height: 850px; margin-left: 275px;
         }
 
         
@@ -32,7 +33,7 @@
             border: 0px solid #000; border-radius: 10px;
             width: 500px;  box-shadow: 2px 4px 12px #00000014;
             height: 5%; line-height: 42.5px;
-            display: flex; position: relative; top: 23px;
+            display: flex; position: relative; top: 25px; left: 275px;
         }
         .intro-wrap > .intro-name a {
             color: #000; 
@@ -193,6 +194,7 @@
         }
         
     </style>
+    <link rel="stylesheet" href="../include/css/main-footer.css">
 </head>
 <body>
        <jsp:include page="../include/main-navigation.jsp"/>
@@ -316,7 +318,7 @@
         });
     </script>
     
-
+	<jsp:include page="../include/main-footer.jsp"/>
 
 </body>
 </html>
