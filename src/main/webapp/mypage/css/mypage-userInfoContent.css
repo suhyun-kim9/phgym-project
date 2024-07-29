@@ -36,27 +36,29 @@ img {
 
 .content .wrap-top > h2 {
 	display: inline-block;
-	font-size: 40px;
+	font-size: 30px;
+	letter-spacing: 5px;
 }
 
 .content .wrap-top .submit {
-	background-color: #ff7f56;
-	border: none;
+	background-color: #fff;
+	border: 1px solid #00000014;
 	border-radius: 0.25em;
-	color: #ffffff;
-	font-size: 20px;
-	height: 40px;
+	color: #000;
+	font-size: 15px;
+	height: 30px;
 	padding: 0 30px;
 	cursor: pointer;
 }
 
 .content .wrap-top .reset {
-	background-color: #8c8c8c;
-	border: none;
+	background-color: #fff;
+	border: 1px solid #00000014;
 	border-radius: 0.25em;
-	color: #ffffff;
-	font-size: 20px;
-	height: 40px;
+	color: #000;
+	box-shadow: 2px 4px 12px #00000014;
+	font-size: 15px;
+	height: 30px;
 	padding: 0 30px;
 	cursor: pointer;
 }

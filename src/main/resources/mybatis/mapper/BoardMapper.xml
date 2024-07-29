@@ -10,39 +10,33 @@
     	VALUES (EXERCISE_INFO_SEQ.NEXTVAL, #{adminNo}, #{title}, SYSDATE, #{content})
 	</insert>
 
-	<select id="getList" resultType="com.phgym.board.model.BoardDTO">
-	 <!-- 게시물 목록을 페이징하여 가져오기 SQL - 로우넘버() 함수로 각 행에 번호 매김, 해당 번호 기준으로 특정 범위의 행 선택 -->
+	<select id="getListe" resultType="com.phgym.board.model.BoardDTO">
     	SELECT * FROM (
         	SELECT a.*, ROW_NUMBER() OVER (ORDER BY INFO_NO DESC) AS rnum
         	FROM EXERCISE_INFO a
    		)
-    	WHERE rnum BETWEEN #{startIndex} AND #{endIndex}
-    	<!-- 스타트인데스와 엔드인덱스 사이의 게시물만 선택 -->
+    	WHERE rnum BETWEEN #{startIndexe} AND #{endIndexe}
 	</select>
 
-    <select id="searchList" resultType="com.phgym.board.model.BoardDTO">
-    <!-- 검색 결과를 페이징하여 가져오기 SQL - 검색 키워드를 포함하는 제목을 가진 게시물 중에서 특정 범위의 행 선택 -->
+    <select id="searchListe" resultType="com.phgym.board.model.BoardDTO">
     	SELECT * FROM (
         	SELECT a.*, ROW_NUMBER() OVER (ORDER BY INFO_NO DESC) AS rnum
         	FROM EXERCISE_INFO a
-        	WHERE TITLE LIKE '%' || #{searchKeyword} || '%'
+        	WHERE TITLE LIKE '%' || #{searchKeyworde} || '%'
     	)
-    	WHERE rnum BETWEEN #{startIndex} AND #{endIndex}
-    	<!-- 스타트인데스와 엔드인덱스 사이의 게시물만 선택 -->
+    	WHERE rnum BETWEEN #{startIndexe} AND #{endIndexe}
 	</select>
 	
-	<select id="getTotalCount" resultType="int">
-	<!-- 전체 게시물 수 가져오기 SQL - 전체 게시물의 수 계산 -->
+	<select id="getTotalCounte" resultType="int">
     	SELECT COUNT(*) FROM EXERCISE_INFO
 	</select>
 
- 	<select id="getSearchCount" resultType="int">
- 	<!-- 검색 결과의 총 개수를 가져오기 위한 SQL - 검색 조건에 맞는 게시물의 수를 계산 -->
+ 	<select id="getSearchCounte" resultType="int">
     	SELECT COUNT(*) FROM EXERCISE_INFO
-    	WHERE TITLE LIKE '%' || #{searchKeyword} || '%'
+    	WHERE TITLE LIKE '%' || #{searchKeyworde} || '%'
 	</select>
 
-	<select id="getContent" parameterType="int" resultType="com.phgym.board.model.BoardDTO">
+	<select id="getContente" parameterType="int" resultType="com.phgym.board.model.BoardDTO">
     	SELECT * FROM EXERCISE_INFO WHERE INFO_NO = #{infoNo}
 	</select>
 
@@ -57,7 +51,7 @@
     <!-- ===========================문 의 글============================================= -->
     <insert id="regist1" parameterType="com.phgym.board.model.QnaDTO">
     	INSERT INTO INQUIRY (INQUIRY_NO, WRITER, TITLE, PW, WRITE_DATE, CONTENT)
-    	VALUES (INQUIRY_SEQ.NEXTVAL, #{writer}, #{title}, #{pw}, SYSDATE, #{content}) <!-- 수정예정 -->
+    	VALUES (INQUIRY_SEQ.NEXTVAL, #{writer}, #{title}, #{pw}, SYSDATE, #{content})
 	</insert>
 	
 

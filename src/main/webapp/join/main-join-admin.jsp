@@ -38,10 +38,10 @@
         <label for="position">성별</label>
         <div style="display: flex; border:1px solid #ddd; justify-content: space-evenly;">
             <div style="display:flex;">
-                <p> 남자 </p>  <input style="width: 20px;"  type="radio" name="adminGender" value="M" required="required">
+                <p> 남자 </p>  <input style="width: 20px;"  type="radio" id="adminGenderM" name="adminGender" value="M" required="required">
             </div>
             <div style="display:flex;">
-                <p> 여자 </p> <input style="width: 20px;" type="radio" name="adminGender" value="W" required="required">
+                <p> 여자 </p> <input style="width: 20px;" type="radio" id="adminGenderW" name="adminGender" value="W" required="required">
             </div>
         </div>
       </div>
@@ -52,7 +52,7 @@
 
 
       <div class="">
-        <a href="#" class="btn btn-next width-50 ml-auto">다음</a>
+        <a href="#"  id="btn1" class="btn btn-next width-50 ml-auto">다음</a>
       </div>
       
     </div>
@@ -66,7 +66,7 @@
           
         <div class="group-inputs">
             <label for="email">이메일</label>
-            <input type="email" name="adminemail" id="adminemail" placeholder="이메일을 입력하세요." oninput="validateAdminEmail()" required="required"/>
+            <input type="email" name="adminEmail" id="adminEmail" placeholder="이메일을 입력하세요." oninput="validateAdminEmail()" required="required"/>
         	<div id="emailResult"></div>
         </div>
         
@@ -89,7 +89,7 @@
    
       <div class="btns-group">
         <a href="#" class="btn btn-prev">이전</a>
-        <a href="#" class="btn btn-next">다음</a>
+        <a href="#" id="btn2" class="btn btn-next">다음</a>
       </div>
       
     </div>
@@ -118,7 +118,12 @@
             <input type="password" name="adminPwre" id="adminPwre" placeholder="비밀번호 재입력" required="required" oninput="validateAdminPassword()" required="required"/>
         	<div id="passwordResult"></div>
         </div>
-    
+        
+        <div class="group-inputs">
+            <label for="email">경력 및 자격사항</label>
+            <input type="text" name="adminCareerHis" id="adminCareerHis" placeholder="경력사항을 입력하세요."/>
+            </div>
+            
       <div class="btns-group">
         <a href="#" class="btn btn-prev">이전</a>
         <input type="submit" value="회원가입" class="btn"/> <!-- id="submit-form" -->
@@ -128,6 +133,23 @@
 </div>
 
     <script type="text/javascript">
+    var adminname = document.querySelector('#adminName');
+    var genderM  = document.querySelector('#adminGenderM');
+    var genderW  = document.querySelector('#adminGenderW');
+    var adminBirth = document.querySelector('#adminBirth');
+
+    var adminEmail  = document.querySelector('#adminEmail');
+    var adminPhone = document.querySelector('#adminPhone');
+    var adminHireDate = document.querySelector("#adminHireDate");
+    var adminJobTitle = document.querySelector('#adminJobTitle');
+
+    var adminId  = document.querySelector('#adminId');
+    var adminPw  = document.querySelector('#adminPw');
+    
+    var btn1 =  document.querySelector('#btn1');
+    var btn2 =  document.querySelector('#btn2');
+    
+ 
     
     const prevBtns = document.querySelectorAll(".btn-prev");
     const nextBtns = document.querySelectorAll(".btn-next");
@@ -135,17 +157,31 @@
     const formSteps = document.querySelectorAll(".step-forms");
     const progressSteps = document.querySelectorAll(".progress-step");
 
-
     let formStepsNum = 0;
 
-    nextBtns.forEach((btn) => {
-      btn.addEventListener("click", () => {
-        formStepsNum++;
+    btn1.addEventListener("click", function() {
+    	  if (adminname.value == "" || genderM.value == "" || genderW.value == "" || adminBirth.value == "" ){
+              alert("필수 값을 입력하세요");
+          } else {
+              formStepsNum++;
+          }
         updateFormSteps();
         updateProgressbar();
        
       });
-    });
+
+    
+    btn2.addEventListener("click", function() {
+      	  if (adminPhone.value == "" || adminEmail.value == "" || adminJobTitle.value == "" || adminHireDate.value == ""){
+                alert("필수 값을 입력하세요");
+            } else {
+                formStepsNum++;
+            }
+          updateFormSteps();
+          updateProgressbar();
+         
+        });
+    
 
     prevBtns.forEach((btn) => {
       btn.addEventListener("click", () => {

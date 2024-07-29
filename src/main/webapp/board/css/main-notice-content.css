@@ -99,6 +99,7 @@ ul, li, ol, dl, dd {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     position: relative;
     margin: 0 auto;
+    margin-top: 40px;
 }
 
 .header1 {
