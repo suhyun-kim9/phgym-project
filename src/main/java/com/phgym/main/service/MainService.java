@@ -41,7 +41,7 @@ public interface MainService {
 	/* 회원권 기간 조회 */
 	void getUserPeriod(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException;
 	
-	
-	
+	/* 트레이너 reservation */
+	void goReservation(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException;
 	
  }

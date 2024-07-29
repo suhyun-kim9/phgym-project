@@ -211,7 +211,7 @@
                     <div class="swiper-slide">
                         <img src="img/Trainer(1).webp">
                         <div class="box bg-1">
-                            <button class="button button--wapasha button--round-s"> 예약하러가기 </button>
+                            <button class="button button--wapasha button--round-s" onclick="location.href='../mypage/reservationTrainer.mypage'"> 예약하러가기 </button>
                         </div>
                         <div class="intro-content">
                             <p>✔︎ 김강함 트레이너</p>
@@ -225,7 +225,7 @@
                     <div class="swiper-slide">
                         <img src="img/Trainer(2).webp">
                         <div class="box bg-1">
-                            <button class="button button--wapasha button--round-s"> 예약하러가기 </button>
+                            <button class="button button--wapasha button--round-s" onclick="location.href='../mypage/reservationTrainer.mypage'"> 예약하러가기 </button>
                         </div>
                         <div class="intro-content">
                             <p>✔︎ 김강함 트레이너</p>
@@ -239,7 +239,7 @@
                     <div class="swiper-slide">
                         <img src="img/Trainer(3).jpg">
                         <div class="box bg-1">
-                            <button class="button button--wapasha button--round-s"> 예약하러가기 </button>
+                            <button class="button button--wapasha button--round-s" onclick="location.href='../mypage/reservationTrainer.mypage'"> 예약하러가기 </button>
                         </div>
                         <div class="intro-content">
                             <p>✔︎ 김강함 트레이너</p>
@@ -253,7 +253,7 @@
                     <div class="swiper-slide">
                         <img src="img/Trainer(4).jpg">
                         <div class="box bg-1">
-                            <button class="button button--wapasha button--round-s"> 예약하러가기 </button>
+                            <button class="button button--wapasha button--round-s" onclick="location.href='../mypage/reservationTrainer.mypage'"> 예약하러가기 </button>
                         </div>
                         <div class="intro-content">
                             <p>✔︎ 김강함 트레이너</p>
@@ -267,7 +267,7 @@
                     <div class="swiper-slide">
                         <img src="img/Trainer(5).jpg">
                         <div class="box bg-1">
-                            <button class="button button--wapasha button--round-s"> 예약하러가기 </button>
+                            <button class="button button--wapasha button--round-s" onclick="location.href='../mypage/reservationTrainer.mypage'"> 예약하러가기 </button>
                         </div>
                         <div class="intro-content">
                             <p>✔︎ 김강함 트레이너</p>
@@ -281,7 +281,7 @@
                     <div class="swiper-slide">
                         <img src="img/Trainer(6).jpg">
                        <div class="box bg-1">
-                            <button class="button button--wapasha button--round-s"> 예약하러가기 </button>
+                            <button class="button button--wapasha button--round-s" onclick="location.href='../mypage/reservationTrainer.mypage'"> 예약하러가기 </button>
                         </div>
                         <div class="intro-content">
                             <p>✔︎ 김강함 트레이너</p>
