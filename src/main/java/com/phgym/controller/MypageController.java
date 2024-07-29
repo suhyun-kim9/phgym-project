@@ -60,6 +60,15 @@ public class MypageController extends HttpServlet {
 		} else if(command.equals("/mypage/doPtReservation.mypage")) { //PT예약하기 기능
 			service = new MypageServiceImpl();
 			service.doPtReservation(request, response);
+		} else if(command.equals("/mypage/userInfo.mypage")) { //회원정보 페이지 이동
+			service = new MypageServiceImpl();
+			service.userInfo(request, response);
+		} else if(command.equals("/mypage/userInfoContent.mypage")) { //회원정보 수정페이지 이동
+			service = new MypageServiceImpl();
+			service.userInfoContent(request, response);
+		} else if(command.equals("/mypage/userInfoUpdate.mypage")) { //회원정보 수정 기능
+			service = new MypageServiceImpl();
+			service.userInfoUpdate(request, response);
 		}
 	}
 }

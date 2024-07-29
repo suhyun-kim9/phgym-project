@@ -11,6 +11,17 @@
     <link rel="stylesheet" href="../include/css/main-navigation.css">
     <link rel="stylesheet" href="css/mypage-checkin.css">
     <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js'></script>
+    <script src="js/jquery-3.7.1.min.js"></script>
+	<script src="js/confetti_v2.js"></script>
+    <style>
+    	#canvas {
+    		z-index: 10;
+            pointer-events: none;
+            position: fixed;
+            top: 0;
+            transform: scale(1.1);
+    	}
+    </style>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             var calendarEl = document.getElementById('calendar');
@@ -50,23 +61,31 @@
 	    	
 	        <div class="wrap-middle-right">
 	            <p class="title">${sessionScope.sessionUserName}님 반갑습니다!</p>
-	            <button type="button" onclick="location.href='doCheckin.mypage'" class="checkin">출석하기</button>
+	            <!-- <button type="button" onclick="doCheckinFn()" class="checkinBtn">출석하기</button> -->
+	            <button type="button" onclick="location.href='doCheckin.mypage'" class="checkinBtn">출석하기</button>
 	            <p class="quote"></p>
 	            <p class="author"></p>
 	        </div>
     	</div>
     </section>
     
+    <canvas id="canvas"></canvas>
+    
     <script>
 	    if("${msg}" == "Y") {
-			var checkin = document.querySelector(".checkin");
-			checkin.innerHTML = "출석완료";
-			checkin.style.backgroundColor = "#2c3e50";
-			checkin.style.opacity = "0.65";
-			checkin.disabled = true;
-			checkin.style.cursor = "none";
+			var checkinBtn = document.querySelector(".checkinBtn");
+			checkinBtn.innerHTML = "출석완료";
+			checkinBtn.style.backgroundColor = "#2c3e50";
+			checkinBtn.style.opacity = "0.65";
+			checkinBtn.disabled = true;
+			checkinBtn.style.cursor = "none";
 		}
+    	
+    	if("${sessionScope.confettiMsg}" == "Y") {
+    		RestartConfetti();
+    		<c:remove var="confettiMsg" scope="session"/>
+    	}
 	</script>
-	<script type="text/javascript" src="js/mypage-checkin.js"></script>
+	<script src="js/mypage-checkin.js"></script>
 </body>
 </html>

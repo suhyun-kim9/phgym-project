@@ -30,7 +30,7 @@
                             if (data.includes(hour)) {
                                 str += "<button type='button' class='disabledBtn' disabled='disabled'>" + hour + ":00</button>";
                             } else {
-                                str += "<button type='button' class='abledBtn' onclick=\"location.href='doPtReservation.mypage?adminNo=" + ${adminNo} + "&date=" + date + "&hour=" + hour + "'\">" + hour + ":00</button>";
+                                str += "<button type='button' class='abledBtn' onclick=\"if(confirm('PT를 예약하시겠습니까?')) location.href='doPtReservation.mypage?adminNo=" + ${adminNo} + "&date=" + date + "&hour=" + hour + "'\">" + hour + ":00</button>";
                             }
                         }
                     	str += "</div>";
@@ -40,7 +40,7 @@
                             if (data.includes(hour)) {
                                 str += "<button type='button' class='disabledBtn' disabled='disabled'>" + hour + ":00</button>";
                             } else {
-                                str += "<button type='button' class='abledBtn' onclick=\"location.href='doPtReservation.mypage?adminNo=" + ${adminNo} + "&date=" + date + "&hour=" + hour + "'\">" + hour + ":00</button>";
+                            	str += "<button type='button' class='abledBtn' onclick=\"if(confirm('PT를 예약하시겠습니까?')) location.href='doPtReservation.mypage?adminNo=" + ${adminNo} + "&date=" + date + "&hour=" + hour + "'\">" + hour + ":00</button>";
                             }
                         }
                     	str += "</div>";
@@ -62,13 +62,12 @@
             <h2>PT 예약</h2>
             <p>원하시는 예약일과 시간을 선택해 주세요.</p>
         </div>
+        
         <div class="wrap-middle">
         	<div class="wrap-middle-left">
         		<div id="calendar"></div>
         	</div>
-        	<div class='wrap-middle-right'>
-        		
-        	</div>
+        	<div class='wrap-middle-right'></div>
         </div>
     </section>
 </body>
