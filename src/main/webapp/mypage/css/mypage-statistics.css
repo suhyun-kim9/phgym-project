@@ -26,44 +26,82 @@ img {
     margin: 0 auto;
 }
 
-.content > .wrap {
-    width: 100%;
-    margin: 100px auto 0;
-    text-align: center;
-    box-shadow: 0 8px 16px #ff7f56;
-    padding: 50px 0;
+.content > .wrap-top {
+	padding: 40px 0 20px 0;
+	border-bottom: 1px solid #00000029;
 }
 
-/* ===그래프=== */
-.content > .wrap > .graph_box {
-    display: flex;
-    justify-content: space-around;
-    text-align: center;
+.content > .wrap-top > h2 {
+	display: inline-block;
+	font-size: 40px;
 }
 
-/* ===출석내역=== */
-.content > .wrap > .checkin_list {
+.content > .wrap-middle {
 	margin-top: 20px;
 }
 
-.content > .wrap > .checkin_list > div {
-	height: 150px;
-	overflow: auto;
+.content > .wrap-middle > p {
+	font-size: 28px;
+	padding-bottom: 5px;
 }
 
-.content > .wrap > .checkin_list > div > table {
-    margin: 10px auto 0;
-    border: 1px solid #ff7f56;
-    width: 60%;
-}
-
-.content > .wrap > .checkin_list > div > table tr th {
+/* ===그래프=== */
+.content > .wrap-middle > .graph_box {
+    display: flex;
+    justify-content: space-between;
     text-align: center;
-    border-bottom: 1px solid #ff7f56;
-    width: 25%;
 }
 
-.content .wrap > .checkin_list > table tr td {
+.content > .wrap-middle > .graph_box > .left {
+	width: 49%;
+    border-radius: 18px;
+    box-shadow: 2px 4px 12px #00000014;
+}
+
+.content > .wrap-middle > .graph_box canvas {
+	padding: 5px;
+}
+
+.content > .wrap-middle > .graph_box p {
+	font-size: 20px;
+	padding-bottom: 10px;
+}
+
+.content > .wrap-middle > .graph_box > .right {
+	width: 49%;
+    border-radius: 18px;
+    box-shadow: 2px 4px 12px #00000014;
+}
+
+/* ===출석내역=== */
+.content > .wrap-middle > p:nth-child(3) {
+	margin-top: 20px;
+}
+
+.content > .wrap-middle > .checkin_list {
+	border-radius: 18px;
+    box-shadow: 2px 4px 12px #00000014;
+    padding: 10px;
+}
+
+.content > .wrap-middle > .checkin_list > table {
+    margin: 0 auto;
+    width: 650px;
+    border: 1px solid #76818d;
+    display: block;
+    height: 200px;
+    overflow: auto;
+}
+
+.content > .wrap-middle > .checkin_list > table tr th {
     text-align: center;
-    width: 25%;
+    border-bottom: 1px solid #76818d;
+    width: 162.5px;
+    padding: 3px 0;
+}
+
+.content > .wrap-middle > .checkin_list > table tr td {
+    text-align: center;
+    width: 162.5px;
+    padding: 3px 0;
 }

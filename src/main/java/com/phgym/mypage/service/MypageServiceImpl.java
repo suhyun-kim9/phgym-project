@@ -18,6 +18,8 @@ import com.phgym.mypage.model.CheckinListDTO;
 import com.phgym.mypage.model.MembershipPayHisDTO;
 import com.phgym.mypage.model.MypageMapper;
 import com.phgym.mypage.model.MypageUserInfoDTO;
+import com.phgym.mypage.model.PtReservationDTO;
+import com.phgym.mypage.model.PtReservationDTO2;
 import com.phgym.mypage.model.PtReservationHisDTO;
 import com.phgym.mypage.util.MypageStatisticsUtil;
 import com.phgym.util.mybatis.MybatisUtil;
@@ -39,6 +41,7 @@ public class MypageServiceImpl implements MypageService {
 		mypage.doCheckin(sessionUserNo);
 		sql.close();
 		
+		request.getSession().setAttribute("confettiMsg", "Y");
 		response.sendRedirect("/PHGYM/mypage/checkin.mypage");
 	}
 
@@ -134,10 +137,9 @@ public class MypageServiceImpl implements MypageService {
 		//출석내역 가져오기
 		List<CheckinListDTO> checkinList = new ArrayList<>();
 		List<CheckinHisDTO> checkinHisList = mypage.getCheckinList(sessionUserNo);
-		int i = 1;
 		for(CheckinHisDTO checkinHisDTO : checkinHisList) {
 			CheckinListDTO checkinListDTO = new CheckinListDTO();
-			checkinListDTO.setNo(i++);
+			checkinListDTO.setNo(checkinHisDTO.getRownum());
 			checkinListDTO.setCheckinDate(checkinHisDTO.getCheckinDate().toLocalDate());
 			checkinListDTO.setCheckinTime(checkinHisDTO.getCheckinDate().toLocalTime());
 			checkinList.add(checkinListDTO);
@@ -251,5 +253,76 @@ public class MypageServiceImpl implements MypageService {
 		
 		request.getSession().setAttribute("ptReservationResult", result);
 		response.sendRedirect("/PHGYM/mypage/reservationTrainer.mypage");
+	}
+
+	@Override
+	public void userInfo(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		int sessionUserNo = (int)request.getSession().getAttribute("sessionUserNo");
+		
+		SqlSession sql = sqlSessionFactory.openSession(true);
+		MypageMapper mypage = sql.getMapper(MypageMapper.class);
+		MypageUserInfoDTO dto = mypage.getUserInfo(sessionUserNo);
+		List<MembershipPayHisDTO> list = mypage.getMembershipList(sessionUserNo);
+		List<PtReservationDTO> list2 = mypage.getPtReservationList(sessionUserNo);
+		sql.close();
+		
+		List<PtReservationDTO2> list3 = new ArrayList<>();
+		for(PtReservationDTO dto2 : list2) {
+			PtReservationDTO2 dto3 = new PtReservationDTO2();
+			dto3.setPtReservationHisNo(dto2.getPtReservationHisNo());
+			dto3.setReservationDate(dto2.getReservationDate().toLocalDate());
+			dto3.setReservationTime(dto2.getReservationDate().toLocalTime());
+			dto3.setAdminName(dto2.getAdminName());
+			dto3.setProgressStatus(dto2.getProgressStatus());
+			list3.add(dto3);
+		}
+		
+		request.setAttribute("list3", list3);
+		request.setAttribute("list", list);
+		request.setAttribute("dto", dto);
+		request.getRequestDispatcher("mypage-userInfo.jsp").forward(request, response);
+	}
+
+	@Override
+	public void userInfoContent(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		int sessionUserNo = (int)request.getSession().getAttribute("sessionUserNo");
+		
+		SqlSession sql = sqlSessionFactory.openSession(true);
+		MypageMapper mypage = sql.getMapper(MypageMapper.class);
+		MypageUserInfoDTO dto = mypage.getUserInfo(sessionUserNo);
+		sql.close();
+		
+		request.setAttribute("dto", dto);
+		request.getRequestDispatcher("mypage-userInfoContent.jsp").forward(request, response);
+	}
+
+	@Override
+	public void userInfoUpdate(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		int sessionUserNo = (int)request.getSession().getAttribute("sessionUserNo");
+		String userPw = request.getParameter("userPw");
+		String userName = request.getParameter("userName");
+		String userGender = request.getParameter("userGender");
+		String userPhone = request.getParameter("userPhone");
+		String userEmail = request.getParameter("userEmail");
+		String userAddress = request.getParameter("userAddress");
+		
+		MypageUserInfoDTO dto = new MypageUserInfoDTO();
+		dto.setUserNo(sessionUserNo);
+		dto.setUserPw(userPw);
+		dto.setUserName(userName);
+		dto.setUserGender(userGender);
+		dto.setUserPhone(userPhone);
+		dto.setUserEmail(userEmail);
+		dto.setUserAddress(userAddress);
+		
+		SqlSession sql = sqlSessionFactory.openSession(true);
+		MypageMapper mypage = sql.getMapper(MypageMapper.class);
+		mypage.userInfoUpdate(dto);
+		
+		request.getSession().setAttribute("msg", "Y");
+		response.sendRedirect("/PHGYM/mypage/userInfo.mypage");
 	}
 }

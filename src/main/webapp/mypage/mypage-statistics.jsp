@@ -15,7 +15,11 @@
     <jsp:include page="../include/main-navigation.jsp"/>
 
     <section class="content">
-        <div class="wrap">
+	    <div class="wrap-top">
+	   		<h2>통계확인</h2>
+	   		<p></p>
+	   	</div>
+        <div class="wrap-middle">
         	<p>출석통계</p>
             <div class="graph_box">
                 <div class="left">
@@ -28,26 +32,24 @@
                 </div>
             </div>
 
+            <p>출석내역</p>
             <div class="checkin_list">
-                <p>출석내역</p>
-                <div>
-	                <table>
-	                    <tr>
-	                    	<th>No</th>
-	                        <th>출석일자</th>
-	                        <th>출석시간</th>
-	                        <th>비고</th>
+                <table>
+                    <tr>
+                    	<th>No</th>
+                        <th>출석일자</th>
+                        <th>출석시간</th>
+                        <th>비고</th>
+                    </tr>
+                    <c:forEach var="list" items="${checkinList}">
+                    	<tr>
+                    		<td>${list.no}</td>
+	                        <td>${list.checkinDate}</td>
+	                        <td>${list.checkinTime}</td>
+	                        <td>-</td>
 	                    </tr>
-	                    <c:forEach var="list" items="${checkinList}">
-	                    	<tr>
-	                    		<td>${list.no}</td>
-		                        <td>${list.checkinDate}</td>
-		                        <td>${list.checkinTime}</td>
-		                        <td>-</td>
-		                    </tr>
-	                    </c:forEach>
-	                </table>
-                </div>
+                    </c:forEach>
+                </table>
             </div>
         </div>
     </section>

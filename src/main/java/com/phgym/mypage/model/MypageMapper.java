@@ -19,8 +19,6 @@ public interface MypageMapper {
 	
 	public List<CheckinHisDTO> getCheckinList(int sessionUserNo);
 
-	public List<CheckinListDTO> getMembershipPeriod(CheckinHisDTO checkinHisDto);
-
 	public List<PtReservationHisDTO> getTimeList(PtReservationHisDTO dto);
 
 	public int doPtReservation(PtReservationHisDTO dto);
@@ -30,4 +28,12 @@ public interface MypageMapper {
 	public int getTotalPtCnt(int sessionUserNo);
 
 	public int getDidPtCnt(int sessionUserNo);
+
+	public MypageUserInfoDTO getUserInfo(int sessionUserNo);
+
+	public int userInfoUpdate(MypageUserInfoDTO dto);
+
+	public List<MembershipPayHisDTO> getMembershipList(int sessionUserNo);
+
+	public List<PtReservationDTO> getPtReservationList(int sessionUserNo);
 }

@@ -18,56 +18,65 @@ img {
     margin: 0 auto;
 }
 
-.content > .wrap {
-    width: 100%;
-    margin: 100px auto 0;
-    box-shadow: 0 8px 16px #ff7f56;
-    padding: 50px 0;
+.content > .wrap-top {
+	padding: 40px 0 20px 0;
+	border-bottom: 1px solid #00000029;
 }
 
-.content > .wrap > .content_title {
-	text-align: center;
-	font-size: 30px;
+.content > .wrap-top > h2 {
+	display: inline-block;
+	font-size: 40px;
 }
 
-.content > .wrap > div {
-	margin-top: 20px;
-    text-align: center;
-    font-size: 15px;
-}
-
-.content > .wrap > form {
-    margin: 20px auto 0;
-    width: 50%;
-}
-
-.content > .wrap > form > p {
-	font-size: 17px;
-}
-
-.content > .wrap > form > .mem_pay_no {
-	margin-top: 5px;
-}
-
-.content > .wrap > form > input {
-	margin-top: 5px;
-    width: 100%;
-    height: 30px;
-}
-
-.content > .wrap > form > select {
-	margin-top: 5px;
-    width: 100%;
-    height: 30px;
-}
-
-.content > .wrap > form > .submit {
-    margin-top: 20px;
-    height: 45px;
-    border-radius: 5px;
-	background-color: #ff7f56;
-	color: #ffffff;
-	border: none;
+.content > .wrap-top > p {
+	display: inline-block;
+	padding-left: 10px;
 	font-size: 20px;
-	cursor: pointer
+}
+
+.content > .wrap-middle {
+	margin-top: 30px;
+	text-align: center;
+	border-radius: 18px;
+	box-shadow: 2px 4px 12px #00000014;
+	padding-bottom: 100px;
+}
+
+.content > .wrap-middle > p:nth-child(1) {
+	padding-top: 90px;
+	font-size: 24px;
+}
+
+.content > .wrap-middle > p:nth-child(2) {
+	padding-bottom: 50px;
+	font-size: 18px;
+}
+
+.content > .wrap-middle > form > div {
+	padding: 0 300px;
+	text-align: left;
+}
+
+.content > .wrap-middle > form > div > p {
+	font-size: 20px;
+	padding-bottom: 5px;
+}
+
+.content > .wrap-middle > form > div .inputSelect {
+	width: 100%;
+	height: 40px;
+	margin-bottom: 10px;
+	font-size: 16px;
+	padding-left: 5px;
+}
+
+.content > .wrap-middle > form > .transferBtn {
+	margin-top: 10px;
+	background-color: #ff7f56;
+	border: none;
+	border-radius: 0.25em;
+	color: #ffffff;
+	font-size: 20px;
+	padding: 10px 50px;
+	cursor: pointer;
 }

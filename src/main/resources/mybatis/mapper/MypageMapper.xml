@@ -29,15 +29,7 @@
 	</select>
 	
 	<select id="getCheckinList" parameterType="int" resultType="com.phgym.mypage.model.CheckinHisDTO">
-		select * from checkin_his where user_no = #{sessionUserNo} order by checkin_date desc
-	</select>
-	
-	<select id="getMembershipPeriod" parameterType="com.phgym.mypage.model.CheckinHisDTO" resultType="com.phgym.mypage.model.CheckinListDTO">
-		select to_char(a.checkin_date, 'yyyy-mm-dd') as checkin_date, to_char(a.checkin_date, 'hh24:mi:ss') as checkin_time, to_char(b.start_date, 'yyyy-mm-dd') as start_date, to_char(b.end_date, 'yyyy-mm-dd') as end_date
-		from checkin_his a
-		left join membership_pay_his b
-		on a.user_no = b.user_no
-		where a.user_no = #{userNo} and a.checkin_date between b.start_date and b.end_date order by checkin_date desc
+		select rownum, a.user_no as user_no, a.checkin_date as checkin_date from (select user_no, checkin_date from checkin_his where user_no = #{sessionUserNo} order by checkin_date) a order by rownum desc
 	</select>
 	
 	<select id="getTimeList" parameterType="com.phgym.mypage.model.PtReservationHisDTO" resultType="com.phgym.mypage.model.PtReservationHisDTO">
@@ -61,5 +53,21 @@
 	
 	<select id="getDidPtCnt" parameterType="int" resultType="int">
 		select count(*) from pt_reservation_his where user_no = #{sessionUserNo} and (progress_status = 'Y' or progress_status is null)
+	</select>
+	
+	<select id="getUserInfo" parameterType="int" resultType="com.phgym.mypage.model.MypageUserInfoDTO">
+		select * from user_info where user_no = #{sessionUserNo}
+	</select>
+	
+	<update id="userInfoUpdate" parameterType="com.phgym.mypage.model.MypageUserInfoDTO">
+		update user_info set user_pw = #{userPw}, user_name = #{userName}, user_gender = #{userGender}, user_phone = #{userPhone}, user_email = #{userEmail}, user_address = #{userAddress} where user_no = #{userNo}
+	</update>
+	
+	<select id="getMembershipList" parameterType="int" resultType="com.phgym.mypage.model.MembershipPayHisDTO">
+		select * from membership_pay_his where user_no = #{sessionUserNo} and (remark_transfer_status is null or remark_transfer_status = 'R') order by membership_pay_no
+	</select>
+	
+	<select id="getPtReservationList" parameterType="int" resultType="com.phgym.mypage.model.PtReservationDTO">
+		select a.pt_reservation_his_no as pt_reservation_his_no, a.reservation_date as reservation_date, b.admin_name as admin_name, decode(a.progress_status, null, '예약완료', 'Y', 'PT완료', 'N', '예약취소') as progress_status from pt_reservation_his a left join admin_info b on a.admin_no = b.admin_no where user_no = #{sessionUserNo} order by reservation_date desc
 	</select>
 </mapper>
