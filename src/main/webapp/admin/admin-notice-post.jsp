@@ -1,53 +1,63 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
+<!--  글작성하기 -->
+
+
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
+	<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>admin-exerciseinfo-post</title>
+	<title>공지사항작성</title>
+	<link rel="stylesheet" href="../include/css/main-navigation.css">
+	<link rel="stylesheet" href="css/main-notice-post.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
-    <link rel="stylesheet" href="css/admin-exerciseinfo-post.css">
-    <link rel="stylesheet" href="../include/css/admin-navigation.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    
+    <script>
+        function validateForm() {
+            var adminNo = document.getElementById("writer").value;
+            
+            
+            if (isNaN(adminNo) || adminNo.trim() === "") {
+                alert("관리자 번호는 숫자만 입력해야 합니다.");
+                return false; // 
+            }
 
+            return true;
+        }
+    </script>
+	
 </head>
 <body>
 
-    <div class="content"> 
-        <jsp:include page="../include/admin-navigation.jsp"/>
-    
-    
-    <!--  여기에 넣어주시면 됩니다. -->
-            <div class="main">
-             
-    <div class="form-container">
-        <div class="admin_main_name">
-            글쓰기 (공지사항)
+	<jsp:include page="../include/main-navigation.jsp"/>
+
+	<div class="form-container">
+        <div class="header1">
+            <input type="button" class="back-btn" value="←"onclick="location.href='main_notice_list.board'">
+            <span class="header-title">글 작성하기</span>
+            <div class="header-icons">
+                <button class="icon-btn">⋮</button>
+            </div>
         </div>
-        <form>
-            <label for="title">글 제목</label>
-            <input type="text" id="title" name="title">
+		
+        <form action="main_notice_post_regist.board" method="post" onsubmit="return validateForm()">
+            <input type="text" id="title" name="title" placeholder="제목을 입력하세요">
+            <input type="text" id="writer" name="adminNo" size="10" placeholder="관리자 번호를 입력하세요" required>
 
-            <label for="file">첨부파일</label>
-            <input type="file" id="file" name="file">
-
-            <label for="content">글 내용</label>
-            <textarea id="content" name="content" rows="10"></textarea>
+            <label for="content"></label>
+            <textarea id="content" name="content" placeholder="내용을 입력하세요"></textarea>
 
             <div class="buttons">
-                <button type="submit" class="submit">등록</button>
-                <button type="button" class="button">취소</button>
+                <input type="submit" value="등록" class="reset-btn" >
+                <input type="reset" value="초기화" class="submit-btn">
             </div>
         </form>
     </div>
-
-            </div>
-    <!--  -------------. -->
-    
+    </section>
     </div>
-    
-    <script type="text/javascript" src="../include/js/admin-navigation.js"> </script>
-
+</div>
 </body>
 </html>

@@ -1,114 +1,110 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="../include/css/admin-navigation.css">
+    
+    <title>공지사항 목록</title>
+	<link rel="stylesheet" href="../include/css/main-navigation.css">
+    <link rel="stylesheet" href="../board/css/main-notice-list.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <link rel="stylesheet" href="css/admin-exerciseinfo-list.css">
+    
 </head>
 <body>
-    
-    <div class="content"> 
-        <jsp:include page="../include/admin-navigation.jsp"/>
-    
-    
-    <!--  여기에 넣어주시면 됩니다. -->
-            <div class="main">
-                <div class="container">
-                    <div class="admin_main_name">
-                        공지사항
-                    </div>
-                    <div class="search-bar">
-                        <input type="text" placeholder="검색">
-                        <button>조회</button>
-                    </div>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>번호</th>
-                                <th>제목</th>
-                                <th>이름</th>
-                                <th>아이디</th>
-                                <th>작성일</th>
-                                <th>조회수</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>6</td>
-                                <td>안녕하세요</td>
-                                <td>홍길동</td>
-                                <td>abc123</td>
-                                <td>2024-07-08</td>
-                                <td>100</td>
-                            </tr>
-                            <tr>
-                                <td>5</td>
-                                <td>반갑습니다</td>
-                                <td>홍길자</td>
-                                <td>abc123</td>
-                                <td>2024-07-08</td>
-                                <td>100</td>
-                            </tr>
-                            <tr>
-                                <td>4</td>
-                                <td>반갑습니다</td>
-                                <td>이순신</td>
-                                <td>abc123</td>
-                                <td>2024-07-08</td>
-                                <td>100</td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>반갑습니다</td>
-                                <td>홍길순</td>
-                                <td>abc123</td>
-                                <td>2024-07-08</td>
-                                <td>100</td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>반갑습니다</td>
-                                <td>신사임당</td>
-                                <td>abc123</td>
-                                <td>2024-07-08</td>
-                                <td>100</td>
-                            </tr>
-                            <tr>
-                                <td>1</td>
-                                <td>반갑습니다</td>
-                                <td>세종대왕</td>
-                                <td>abc123</td>
-                                <td>2024-07-08</td>
-                                <td>100</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <div class="pagination">
-                        <button>◀ Previous</button>
-                        <button>1</button>
-                        <button>2</button>
-                        <button>3</button>
-                        <span>...</span>
-                        <button>67</button>
-                        <button>Next ▶</button>
-                    </div>
-                    <div class="buttons">
-                        <button>삭제</button>
-                        <button>글쓰기</button>
-                    </div>
-                </div>
-            </div>
-    <!--  -------------. -->
-    
-    </div>
-    
-        <script type="text/javascript" src="../include/js/admin-navigation.js"> </script>
-   
 
+
+<jsp:include page="../include/main-navigation.jsp"/>
+
+    
+<div class="content"> 
+    <div class="mainNlist">
+
+    <div class="container">
+
+            <form action="main_notice_search.board" method="get">
+                <div class="search_box">
+                    <div class="search_name">
+                        <i class="bi bi-bell"></i> <span>공지사항</span>
+                      </div>
+                      <div class="search_bar1">
+                          <input type="text" name="userName" placeholder="검색어를 입력하세요.">
+                          <input type="submit"  class="btn-hover color-4" value="검색">
+                      </div>
+              </div>
+            </form>
+        
+        <c:if test="${not empty listn}">
+            <p class="result_search"><small> 검색 결과: <span> ${fn:length(listn)} </span> 건 </small></p>
+
+            <div class="content_box3">
+            <table class="user_table" style="table-layout: fixed">
+                <tbody class="user_table2">
+                    <c:forEach var="dto" items="${listn}" varStatus="status">
+                    	<tr class="tableTr">
+                            <td>
+                            	<div class="title1" style="color:  #ff7f56"><a href="main_notice_content.board?noticeNo=${dto.noticeNo}">${dto.title}</a></div>
+                            	<div class="hitNo">조회수 [ ${dto.hit} ]</div>
+                            </td>
+                            <td>
+                            	<div>글번호 [ ${listn.size() - status.index} ]</div>
+                            	<div>관리자번호 [ ${dto.adminNo} ]</div>
+                            	<div>작성일 [ <fmt:formatDate value="${dto.writeDate}" pattern="yyyy년 MM월 dd일"/> ]</div>
+                            </td>
+                        </tr>
+                    </c:forEach>
+                </tbody>
+            </table>
+            </div>
+        </c:if>
+        
+        <c:if test="${empty listn}">
+            <p class="result_non">검색 결과가 없습니다.</p>
+        </c:if>
+
+        <div class="pagination">
+            <c:if test="${pagen > 1}">
+                <a href="main_notice_list.board?pagen=${pagen - 1}" class="prevBtn">이전</a>
+            </c:if>
+            <c:forEach var="i" begin="1" end="${totalPagesn}">
+                <c:choose>
+                    <c:when test="${pagen == i}">
+                        <span class="current">${i}</span>
+                    </c:when>
+                    <c:otherwise>
+                        <a href="main_notice_list.board?pagen=${i}" class="pageLink">${i}</a>
+                    </c:otherwise>
+                </c:choose>
+            </c:forEach>
+            <c:if test="${pagen < totalPagesn}">
+                <a href="main_notice_list.board?pagen=${pagen + 1}" class="nextBtn">다음</a>
+            </c:if>
+        </div>
+        <div class="buttons">
+            <input type="button" value="등록"  class="btn-hover btnRegi" class="combtn" onclick="location.href='main_notice_post.board';">
+        </div>
+    </div>
+    </div>
+    </div>
+
+    <script>
+
+            const rows = document.querySelectorAll(".user_table2 tr");
+            rows.forEach(row => {
+                row.addEventListener("click", function(event) {
+                    const link = row.querySelector("a");
+                    if (link) {
+                        const href = link.getAttribute("href");
+                        window.location.href = href;
+                    }
+                });
+            });
+
+    </script>
 </body>
 </html>
