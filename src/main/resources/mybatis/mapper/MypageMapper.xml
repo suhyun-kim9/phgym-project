@@ -40,7 +40,7 @@
 	</select>
 	
 	<insert id="doPtReservation" parameterType="com.phgym.mypage.model.PtReservationHisDTO">
-		insert into pt_reservation_his(pt_reservation_his_no, user_no, admin_no, reservation_date) values (pt_reservation_his_seq.nextval, #{userNo}, #{adminNo}, #{reservationDate})
+		insert into pt_reservation_his values (pt_reservation_his_seq.nextval, #{userNo}, #{adminNo}, #{reservationDate}, 'Y')
 	</insert>
 	
 	<select id="checkUserInfo" parameterType="int" resultType="com.phgym.mypage.model.MypageUserInfoDTO">
@@ -69,5 +69,15 @@
 	
 	<select id="getPtReservationList" parameterType="int" resultType="com.phgym.mypage.model.PtReservationDTO">
 		select a.pt_reservation_his_no as pt_reservation_his_no, a.reservation_date as reservation_date, b.admin_name as admin_name, decode(a.progress_status, null, '예약완료', 'Y', 'PT완료', 'N', '예약취소') as progress_status from pt_reservation_his a left join admin_info b on a.admin_no = b.admin_no where user_no = #{sessionUserNo} order by reservation_date desc
+	</select>
+	
+	<select id="countStatistics" parameterType="int" resultType="int">
+		select count(*) from checkin_his where user_no = #{sessionUserNo}
+	</select>
+	
+	<select id="selectStatistics" parameterType="com.phgym.mypage.model.MypageQuery" resultType="com.phgym.mypage.model.CheckinHisDTO">
+		<![CDATA[
+			select rn, user_no, checkin_date from (select user_no, checkin_date, row_number() over (order by checkin_date desc) as rn from checkin_his where user_no = #{userNo}) where rn > #{startRow} and rn <= #{endRow}
+		]]>
 	</select>
 </mapper>

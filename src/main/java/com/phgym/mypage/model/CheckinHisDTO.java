@@ -4,7 +4,7 @@ import java.time.LocalDateTime;
 
 public class CheckinHisDTO {
 	
-	private int rownum;
+	private int rn;
 	private int userNo;
 	private LocalDateTime checkinDate;
 	
@@ -12,19 +12,19 @@ public class CheckinHisDTO {
 		super();
 	}
 
-	public CheckinHisDTO(int rownum, int userNo, LocalDateTime checkinDate) {
+	public CheckinHisDTO(int rn, int userNo, LocalDateTime checkinDate) {
 		super();
-		this.rownum = rownum;
+		this.rn = rn;
 		this.userNo = userNo;
 		this.checkinDate = checkinDate;
 	}
 
-	public int getRownum() {
-		return rownum;
+	public int getRn() {
+		return rn;
 	}
 
-	public void setRownum(int rownum) {
-		this.rownum = rownum;
+	public void setRn(int rn) {
+		this.rn = rn;
 	}
 
 	public int getUserNo() {
@@ -45,6 +45,6 @@ public class CheckinHisDTO {
 
 	@Override
 	public String toString() {
-		return "CheckinHisDTO [rownum=" + rownum + ", userNo=" + userNo + ", checkinDate=" + checkinDate + "]";
+		return "CheckinHisDTO [rn=" + rn + ", userNo=" + userNo + ", checkinDate=" + checkinDate + "]";
 	}
 }

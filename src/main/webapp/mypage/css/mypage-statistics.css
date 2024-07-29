@@ -87,10 +87,9 @@ img {
 .content > .wrap-middle > .checkin_list > table {
     margin: 0 auto;
     width: 650px;
+    height: 175px;
     border: 1px solid #76818d;
     display: block;
-    height: 200px;
-    overflow: auto;
 }
 
 .content > .wrap-middle > .checkin_list > table tr th {
@@ -104,4 +103,13 @@ img {
     text-align: center;
     width: 162.5px;
     padding: 3px 0;
+}
+
+.content > .wrap-middle > .checkin_list > .pagination {
+	text-align: center;
+	padding-top: 5px;
+}
+
+.content > .wrap-middle > .checkin_list > .pagination > a {
+	padding: 0 5px;
 }

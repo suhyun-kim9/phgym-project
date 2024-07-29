@@ -36,4 +36,8 @@ public interface MypageMapper {
 	public List<MembershipPayHisDTO> getMembershipList(int sessionUserNo);
 
 	public List<PtReservationDTO> getPtReservationList(int sessionUserNo);
+
+	public int countStatistics(int sessionUserNo);
+
+	public List<CheckinHisDTO> selectStatistics(MypageQuery query);
 }
