@@ -30,21 +30,21 @@
 								 <div class="form-group">
 	                       			  <div> 아이디 </div>
 									  <input type="text" name="userId" class="form-style input2" placeholder="아이디를 입력하세요." id="userId" autocomplete="off" oninput="validateUserId()" required="required">
-									  <div id="idResult"></div>
+									  <div id="idResult" style="width: 10px;"></div>
 									  <i class="input-icon uil uil-at"></i>
 								  </div>
 								  	
 								  <div class="form-group mt-2">
                      				  <div> 이메일 </div>
 									  <input type="text" name="userEmail" class="form-style input2" placeholder="이메일을 입력하세요." id="userEmail" autocomplete="off" oninput="validateUserEmail()" required="required">
-									  <div id="emailResult"></div>
+									  <div id="emailResult" style="width: 10px;"></div>
 									  <i class="input-icon uil uil-lock-alt"></i>
 								  </div>
 								  
 			                      <div class="form-group mt-2">
                      				  <div> 연락처 </div>
 									  <input type="text" name="userPhone" class="form-style input2" placeholder="연락처를 입력하세요." id="userPhone" autocomplete="off" oninput="validateUserPhone()" required="required">
-									  <div id="phoneResult"></div>
+									  <div id="phoneResult" style="width: 10px;"></div>
 									  <i class="input-icon uil uil-lock-alt"></i>
 								  </div>
 			
@@ -79,8 +79,8 @@
 			var idResult = document.getElementById("idResult");
 			
 	    	if(!regex.test(userId)) {
-	    		idResult.innerHTML = "<span style='color: red; font-size: 12px;'>올바른 아이디 형식을 입력하세요.</span>";
-	    		
+	    		idResult.innerHTML = "<span style='display: inline-block; position: relative; top: 35px; right: 315px; width: 250px; color: red; font-size: 10px;'>올바른 아이디 형식을 입력하세요.</span>";
+
 	    	} else {
 	    		idResult.innerHTML = "";
 	    	}
@@ -93,7 +93,7 @@
 			var emailResult = document.getElementById("emailResult");
 			
 	    	if(!regex.test(userEmail)) {
-	    		emailResult.innerHTML = "<span style='color: red; font-size: 12px;'>유효한 이메일 형식을 입력하세요.</span>";
+	    		emailResult.innerHTML = "<span style='display: inline-block; position: relative; top: 35px; right: 315px; width: 250px; color: red; font-size: 10px;'>유효한 이메일 형식을 입력하세요.</span>";
 	    		
 	    	} else {
 	    		emailResult.innerHTML = "";
@@ -107,7 +107,7 @@
 			var phoneResult = document.getElementById("phoneResult");
 			
 	    	if(!regex.test(userPhone)) {
-	    		phoneResult.innerHTML = "<span style='color: red; font-size: 12px;'>연락처는 숫자만 입력할 수 있습니다.</span>";
+	    		phoneResult.innerHTML = "<span style='display: inline-block; position: relative; top: 35px; right: 305px; width: 250px; color: red; font-size: 10px;'>연락처는 숫자만 입력할 수 있습니다.</span>";
 	    		submitBtn.disabled = true;
 	    	
 	    	} else {

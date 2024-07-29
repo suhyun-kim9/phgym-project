@@ -45,6 +45,8 @@ a:hover {
     font-size: 1.5em;
     color: #000;
     margin-bottom: 30px;
+    margin-top: 20px;
+    letter-spacing: 4px;
 }
 h6 span{
   padding: 0 20px;
@@ -139,14 +141,14 @@ h6 span{
     flex-direction: column;
     align-items: center;
   width: 100%;
-  height: 100%;
+  height: 90%;
   border: 1px solid #cbcbcb;
   background-position: bottom center;
 
   background-repeat: no-repeat;
   background-size: 300%;
   position: absolute;
-  border-radius: 6px;
+  border-radius: 12px;
   left: 0;
   top: 0;
   -webkit-transform-style: preserve-3d;
@@ -175,11 +177,12 @@ h6 span{
 
 
 .form-group{ 
-  position: relative;
-  display: flex;
+    position: relative;
+    display: flex;
     margin: 0;
     padding: 0;
-    width: 100%;
+    width: 90%;
+    margin-left: 15px;
     align-items: center;
     margin-bottom: 25px;
     justify-content: space-around;
@@ -190,13 +193,14 @@ h6 span{
   width: 15%;
   text-align: center;
   color : #434343;
-
+  letter-spacing: 3px;
 }
 
 .form-style {
+  margin-right: 15px;
   padding-left: 20px;
   height: 48px;
-  width: 70%;
+  width: 62%;
   border-radius: 4px;
   font-size: 14px;
   line-height: 22px;
@@ -333,6 +337,7 @@ h6 span{
     float: left;
     min-width: 150px;
     max-width: 250px;
+    bottom: 20px;
     display: block;
     margin: 1em;
     padding: 1em 2em;
