@@ -11,38 +11,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="../include/css/admin-navigation.css">
-     <link rel="stylesheet" href="css/admin-user-find.css">
-     <link rel="stylesheet" href="css/admin-pt-check.css">
+     <link rel="stylesheet" href="css/admin-user-find-info.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+      <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js'></script>
+    <script>
+      
+      
+      document.addEventListener('DOMContentLoaded', function () {
+          var calendarEl = document.getElementById('calendar');
+          var calendar = new FullCalendar.Calendar(calendarEl, {
+              initialView: 'dayGridMonth',
+              events: [
+              	<c:forEach var="date" items="${list}">
+	                	{
+	                        start: '${date}'
+	                    },
+              	</c:forEach>
+              ],
+              eventContent: function(arg) {
+                  let content = document.createElement('div');
+                  content.innerHTML = '💯';
+                  return { domNodes: [content] };
+              },
+              eventDisplay: 'block'
+          });
+          calendar.render();
+      });
 
+    </script>
 
 </head>
 <body>
     <div class="content"> 
-    <div class="aside">
-        <nav>
-        <ul class="nav_1">
-            <div class="logo"> <img src="nav/logo_dark.webp"> </div>
-            <li> <i class="bi bi-person-fill"></i> <a> 관리자 계정 </a> </li>
-            <li> 
-                <div id="dropdown">
-                    <i class="bi bi-search"></i> <a> 회원 조회</a> <i class="bi bi-chevron-compact-right"></i></i>
-                </div>
-            </li>
-            <ul id="nav_2">
-                <li><i class="bi bi-person-circle"></i> <a> 회원 정보 조회 </a>  </li>
-                <li> <i class="bi bi-calendar-check"></i> <a>  회원 스케쥴 조회 </a></li>
-            </ul>
-            <li> <i class="bi bi-calendar4-event"></i> <a> 스케쥴 관리 </a></li>
-            <li> <i class="bi bi-bell"></i> <a> 공지사항 </a></li>
-            <li> <i class="bi bi-archive"></i> <a> 운동정보 </a></li>
-
-        </ul>
-        <div class="nav_logout">
-            <p> 로그아웃 </p>
-        </div>
-    </nav>
-</div>
+    	<jsp:include page="../include/admin-navigation.jsp"/>
 
 
 <!--  여기에 넣어주시면 됩니다. -->
@@ -61,19 +62,18 @@
           <form action="getUserAccount.admin" method="post">
           <div class="search_box">
                 <div class="search_name">
-                     <b>${dto.userName}</b>  님 (<b>${dto.userNo}</b>)
+                     <span class="user_value1">${dto.userName}</span>  님 (<span class="user_value1">${dto.userNo}</span>)
                   </div>
   
-                  <div class="search_bar">
+                  <div class="search_bar1">
                       <input type="text" name="userName" placeholder="이름을 입력하세요">
                       <input type="submit"  class="btn-hover color-4" value="조회">
                   </div>
           </div>
           </form>
-    </section>
-      
-<table class="admin-account-table">
-    <tbody class="admin-account-tbody">
+              
+<table class="user_table">
+    <tbody>
         <tr>
             <th> 이름 </th>
             <td> <div> ${dto.userName}</div> </td>
@@ -108,10 +108,16 @@
         </tr>
     </tbody>
 </table>
+   <div class="wrap4">
+          	  <div id='calendar'></div>
+          </div>
+</section>
 </div>
-
+  
+          
 
     <script type="text/javascript" src="../include/js/admin-navigation.js"> </script>
+  
  
 </body>
 </html>

@@ -14,7 +14,7 @@
     font-weight: bold;
     margin-bottom: 30px;
     border-bottom: 3px solid #000000;
-    color: #f97316;
+    color: #000;
 }
 
 
@@ -60,7 +60,6 @@
     padding: 20px;
     font-size: 1.1em;
     cursor: pointer;
-    
     
 }
 
@@ -122,6 +121,7 @@ input[type=text] {
     /* background-image: linear-gradient(to right, #fc6076, #ff9a44, #ef9d43, #e75516); */
   /*   box-shadow: 0 4px 15px 0 rgba(252, 104, 110, 0.75); */
 }
+
 
 .btn {
 	height: 30px;

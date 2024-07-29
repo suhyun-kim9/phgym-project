@@ -12,75 +12,90 @@
     <title>Document</title>
     <link rel="stylesheet" href="../include/css/admin-navigation.css">
      <link rel="stylesheet" href="css/admin-user-find.css">
-     <link rel="stylesheet" href="css/admin-pt-check.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    
+  
 
 
 </head>
 <body>
     <div class="content"> 
-    <div class="aside">
-        <nav>
-        <ul class="nav_1">
-            <div class="logo"> <img src="nav/logo_dark.webp"> </div>
-            <li> <i class="bi bi-person-fill"></i> <a> 관리자 계정 </a> </li>
-            <li> 
-                <div id="dropdown">
-                    <i class="bi bi-search"></i> <a> 회원 조회</a> <i class="bi bi-chevron-compact-right"></i></i>
-                </div>
-            </li>
-            <ul id="nav_2">
-                <li><i class="bi bi-person-circle"></i> <a> 회원 정보 조회 </a>  </li>
-                <li> <i class="bi bi-calendar-check"></i> <a>  회원 스케쥴 조회 </a></li>
-            </ul>
-            <li> <i class="bi bi-calendar4-event"></i> <a> 스케쥴 관리 </a></li>
-            <li> <i class="bi bi-bell"></i> <a> 공지사항 </a></li>
-            <li> <i class="bi bi-archive"></i> <a> 운동정보 </a></li>
-
-        </ul>
-        <div class="nav_logout">
-            <p> 로그아웃 </p>
-        </div>
-    </nav>
-</div>
+    	<jsp:include page="../include/admin-navigation.jsp"/>
 
 
 <!--  여기에 넣어주시면 됩니다. -->
 <div class="main">
-<section id="wrap">
-        
-
+	<section id="wrap">
          <!-- admin 페이지 헤더  -->
-                 <div class="admin_main_name">
-                     <i class="bi bi-person-circle"></i>
-                     <span>회원 정보 조회</span>
-                 </div>
-        
+           <div class="admin_main_name">
+               <i class="bi bi-person-circle"></i> <span>회원 정보 조회</span>
+           </div>
+           <form action="doUserAccount.admin" method="post">
           <!--  회원 정보 간략하게 -->
-          <form action="getUserAccount.admin" method="post" id="form">
-          <div>
-                <div >
-                 		정보 조회 할 회원 이름을 입력해주세요.  😀
-                  </div>
-  
-                  <div class="search_bar">
+          	<select class="sel">
+    					<option value="1"> 기본순 </option>
+            			<option value="2"> PT회원 </option>
+            			<option value="3"> 이름순 </option>
+            		</select>
+         	<div class="search_bar1">
+         			
                       <input type="text" name="userName" placeholder="이름을 입력하세요">
                       <input type="submit" value="조회">
                   </div>
-                  <!-- select -->
-                  
-           <%-- <div id="userName"> ${u.userName} </div> --%>
-                  
-                 <ul>
-                 	<c:if test="${!empty list}">
-                 		<c:forEach var="dto" items="${list}">
-	                 		<li><a href="getUserAccount2.admin?userNo=${dto.userNo}">${dto.userName} / ${dto.userNo}</a></li>
-	                 	</c:forEach>
-                 	</c:if>
-                 </ul>
-          </div>
+
+                  <div class="wrap3">
+                    <table class="user_table">
+                        <tbody>
+                     
+                            <tr>
+                                <th>회원번호</th>
+                                <th>이름</th>
+                                <th>생년월일</th>
+                                <th>성별</th>
+                                <th>전화번호</th>
+                                <th>이메일</th>
+                             
+                            </tr>
+                            
+                          <c:if test="${!empty userlist}">
+                            <c:forEach var="ulist" items="${userlist}">
+                               <tr>
+                                <td><a href="getUserAccount2.admin?userNo=${ulist.userNo}">${ulist.userNo}</a></td>
+                                <td><a href="getUserAccount2.admin?userNo=${ulist.userNo}">${ulist.userName}</a></td>
+                                <td><a href="getUserAccount2.admin?userNo=${ulist.userNo}">${ulist.userBirth}</a></td>
+                                <td><a href="getUserAccount2.admin?userNo=${ulist.userNo}">${ulist.userGender}</a></td>
+                                <td><a href="getUserAccount2.admin?userNo=${ulist.userNo}">${ulist.userPhone}</a></td>
+                                <td><a href="getUserAccount2.admin?userNo=${ulist.userNo}">${ulist.userEmail}</a></td>
+                            </tr>
+                            </c:forEach>
+                        </c:if>
+                            <c:if test="${!empty list}">
+	                            <c:forEach var="dto" items="${list}">
+		                         <tr> 
+	                                <td><a href="getUserAccount2.admin?userNo=${dto.userNo}"> ${dto.userNo}</a></td>
+	                                <td><a href="getUserAccount2.admin?userNo=${dto.userNo}"> ${dto.userName}</a></td>
+	                                <td><a href="getUserAccount2.admin?userNo=${dto.userNo}"> ${dto.userBirth}</a></td>
+	                                <td><a href="getUserAccount2.admin?userNo=${dto.userNo}"> ${dto.userGender}</a></td>
+	                                <td><a href="getUserAccount2.admin?userNo=${dto.userNo}"> ${dto.userPhone}</a></td>
+	                                <td><a href="getUserAccount2.admin?userNo=${dto.userNo}"> ${dto.userEmail}</a></td>
+	                            </tr>
+	                            </c:forEach>
+	                        </c:if>
+	                        
+	                       
+                         
+                        </tbody>
+                    </table>
+	                    <!-- <%-- <div id="userName"> ${u.userName} </div> --%> -->
+	                <!-- 이름  , 생년월일 , 번호 -->
+	                    <ul>
+	                       
+	                    </ul>
+                  </div> 
+          
           </form>
+          
+     
+          
     </section>
    
 </div>
@@ -88,6 +103,15 @@
 
 
     <script type="text/javascript" src="../include/js/admin-navigation.js"> </script>
+    
+    <script>
+    
+    var sel = document.querySelector(".sel");
+
+
+
  
+
+    </script>
 </body>
 </html>

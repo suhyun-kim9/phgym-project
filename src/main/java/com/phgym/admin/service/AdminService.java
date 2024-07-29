@@ -39,6 +39,10 @@ public interface AdminService {
 	// *** 페이지 전환 ***
 	public void goUserFind(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException;
 	public void goPtCheckInfo(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException;
+	public void doPtCheck(HttpServletRequest request, HttpServletResponse response)  throws ServletException, IOException;
+	public void doUserAccount(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException;
+	public void select2(HttpServletRequest request, HttpServletResponse response)  throws ServletException, IOException;
+	public void select3(HttpServletRequest request, HttpServletResponse response)  throws ServletException, IOException;
 	
 	
 	

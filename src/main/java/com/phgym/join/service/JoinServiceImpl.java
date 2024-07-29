@@ -175,7 +175,7 @@ public class JoinServiceImpl implements JoinService {
 		sql.close();
 		
 		if(adminLogin == null) { //로그인 실패
-			request.setAttribute("msg", "아이디 또는 비밀번호를 확인하세요.");
+			request.setAttribute("msg", "N");
 			//request.setAttribute("flag", adminLogin);
 			//response.sendRedirect("/PHGYM/join/main-login-admin.jsp"); //수정필요
 			request.getRequestDispatcher("main-login-admin.jsp").forward(request, response);;
