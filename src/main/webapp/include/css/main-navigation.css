@@ -35,8 +35,7 @@ body{
     font-size: 1.3em;
     margin : 30px;
     width: 100%;
-    border: 1px solid red;
-    overflow: auto; 
+    overflow: auto;
 }
 
 

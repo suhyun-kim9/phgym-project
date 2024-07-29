@@ -40,18 +40,18 @@
                     <tr>
                         <th>번호</th>
                         <th>제목</th>
-                        <th>이름</th>
+                        <th>관리자 번호</th>
                         <th>작성일</th>
                         <th>조회수</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <c:forEach var="dto" items="${list}">
+                    <c:forEach var="dto" items="${list}" varStatus="status">
                         <tr>
-                            <td>${dto.infoNo}</td>
+                            <td>${list.size() - status.index}</td>
                             <td><a href="main_exe_content.board?infoNo=${dto.infoNo}">${dto.title}</a></td>
                             <td>${dto.adminNo}</td>
-                            <td><fmt:formatDate value="${dto.writeDate}" pattern="yyyy년 MM월 dd일 HH시 mm분 ss초"/></td>
+                            <td><fmt:formatDate value="${dto.writeDate}" pattern="yyyy년 MM월 dd일"/></td>
                             <td>${dto.hit}</td>
                         </tr>
                     </c:forEach>

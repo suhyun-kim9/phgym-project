@@ -1,5 +1,7 @@
 eclipse.preferences.version=1
 encoding//src/main/webapp/admin/test-introduction.jsp=UTF-8
+encoding//src/main/webapp/board/main-notice-content.jsp=UTF-8
+encoding//src/main/webapp/board/main-notice-post.jsp=UTF-8
 encoding//src/main/webapp/include/main-navigation.jsp=UTF-8
 encoding//src/main/webapp/join/main-join-user.jsp=UTF-8
 encoding/<project>=UTF-8

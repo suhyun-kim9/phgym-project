@@ -34,6 +34,7 @@
         </div>
         
         <c:if test="${not empty lists}">
+        <!-- list 변수에 따라 다른 콘텐츠 렌더링 - 리스트가 비어있지 않다면 검색결과, 목록을 테이블 형태로 보여줌 -->
             <p>검색 결과: ${fn:length(lists)}건</p>
             <table>
                 <thead>
@@ -46,23 +47,21 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <c:forEach var="dto" items="${lists}">
+                    <c:forEach var="dto" items="${lists}" varStatus="status">
                         <tr>
-                            <td>${dto.inquiryNo}</td>
+                            <td>${lists.size() - status.index}</td>
                             <td><a href="main_qna_content.board?inquiryNo=${dto.inquiryNo}">${dto.title}</a></td>
                             <td>${dto.writer}</td>
-                            <td><fmt:formatDate value="${dto.writeDate}" pattern="yyyy년 MM월 dd일 HH시 mm분 ss초"/></td>
+                            <td><fmt:formatDate value="${dto.writeDate}" pattern="yyyy년 MM월 dd일"/></td>
                             <td>${dto.hit}</td>
                         </tr>
                     </c:forEach>
                 </tbody>
             </table>
         </c:if>
-        
         <c:if test="${empty lists}">
             <p>검색 결과가 없습니다.</p>
         </c:if>
-
         <div class="pagination">
             <c:if test="${pages > 1}">
                 <a href="main_qna_list.board?pages=${pages - 1}">Previous</a>

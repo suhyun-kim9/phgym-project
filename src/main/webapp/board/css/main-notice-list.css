@@ -1,81 +1,57 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: #fff;
-    color: #333;
+
+@charset "UTF-8";* {
+    padding: 0;
+    margin: 0;
+}
+
+ul, li, ol, dl, dd {
+    list-style: none;
+}
+a {
+	color: black;
+}
+a:visited {
+    color: black;
 }
 
 .container {
-    width: 80%;
-    margin: 0 auto;
-    padding: 20px;
+	width: 1024px;
+	margin: 0 auto;
 }
 
 h1 {
     color: black;
 }
 
-.search-bar {
+
+
+.buttons {
     display: flex;
     justify-content: flex-end;
-    margin-bottom: 20px;
 }
 
-.search-bar input {
-    padding: 5px;
-    font-size: 16px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-}
-
-.search-bar button {
-    padding: 6px 10px;
+.buttons button {
+    padding: 10px 20px;
     font-size: 16px;
     margin-left: 10px;
-    background-color: #f97316;
+    background-color:  rgb(35, 35, 62);
     color: black;
-    font-weight: 1000;
     border: none;
     cursor: pointer;
     border-radius: 5px;
 }
 
-.search-bar button:hover {
-    border: 1px solid #f97316;
+.buttons button:hover {
+    border: 1px solid  rgb(35, 35, 62);
     background-color: #fff;
-}
+} 
 
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 20px;
-}
 
-table th, table td {
-    padding: 8px;
-    text-align: center;
-    border: 1px solid #ccc;
-}
-
-table th {
-    border-bottom: 2px solid #333;
-    color: black;
-    font-size: 18px;
-}
-
+/* =======================페이징============================  */
 .pagination {
     display: flex;
     justify-content: center;
     margin-bottom: 20px;
-}
-
-.pagination a, .pagination span {
-    margin: 0 5px;
-    padding: 5px 10px;
-    font-size: 16px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    color: #333;
-    text-decoration: none;
 }
 
 .pagination a {
@@ -85,9 +61,14 @@ table th {
     cursor: pointer;
 }
 
-.pagination a:hover {
-    border: 1px solid #f97316;
-    background-color: #fff;
+.pagination a, .pagination span {
+    margin: 0 5px;
+    padding: 5px 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    color: white;
+    text-decoration: none;
 }
 
 .pagination span {
@@ -102,23 +83,156 @@ table th {
     color: #fff;
 }
 
-.buttons {
-    display: flex;
-    justify-content: flex-end;
-}
-
-.buttons input {
-    padding: 10px 20px;
-    font-size: 16px;
-    margin-left: 10px;
-    background-color: #f97316;
-    color: black;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-}
-
-.buttons input:hover {
+.pagination a:hover {
     border: 1px solid #f97316;
+    background-color: #f75f2c;
+}
+/* =======================페이징============================  */
+
+/* 추가함 */
+
+.user_table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid  #fff;
     background-color: #fff;
+    margin-bottom: 30px;
+}
+
+.user_table >  tr, td{
+    padding: 10px;
+    text-align: center;
+    background-color: #fff;
+    border-bottom: 1px solid #e3e3e3;
+  }
+  
+.title1, .hitNo {
+  	text-align: left;
+  }
+  
+.title1 {
+  	color:  #ff7f56;
+  	font-size: 20px;
+  	font-weight: 600;
+  	margin-bottom: 5px;
+  }
+.hitNo {
+  	font-size: 12px
+  }
+
+.user_table2 td div {
+    word-wrap: break-word;
+  }
+ 
+.user_table > tbody > tr > td:nth-child(2) {
+	font-size: 10px;
+	width: 15%;
+  }
+
+.user_table2 td {
+    background-color: transparent;
+}
+
+.user_table2 tr:hover {
+	background-color : #ff7f56 !important;
+	cursor: pointer;
+}
+
+.search_bar1 {
+    display: flex;
+    width: 100%;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    justify-content: flex-end
+  }
+  
+.search_bar1 input:nth-child(1) { 
+    width: 50%;
+    height: 40px;
+    font-size: 15px;
+    border: 0px;
+    border-radius: 10px;
+    outline: none;
+    background-color: #fff;
+    margin-right: 10px;
+    box-shadow: 2px 2px 4px #00000014;
+    padding-left: 10px;
+
+}
+  /*  조회 버튼 */
+.search_bar1 input:nth-child(2) {
+    width: 10%;
+    height: 42px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    /* box-shadow: 2px 4px 12px #00000014; */
+    font-size: 15px;
+    font-weight: bold;
+    background-color:  #ff7f56;
+    color : #fff;
+    cursor: pointer;
+    box-shadow: 2px 2px 4px #00000014;
+    margin-left: 0;
+
+}
+
+.search_bar1 input:nth-child(2):hover {
+    background-color:  #f75f2c;
+    color : #fff;
+}
+
+.search_box { 
+    display: flex;
+    margin-bottom: 30px;
+    align-items: center;
+    border-bottom: 2px solid rgb(35, 35, 62);
+    margin-top: 40px;
+}
+
+.search_name {
+    font-weight: bold;
+    font-size: 2.0em;
+    width: 100%;
+    
+}
+
+.result_search{
+    /* margin-bottom: 10px;
+    margin-left: 10px; */
+    border-bottom: 2px solid #ff7f56;
+}
+
+
+.result_search > span {
+    font-weight: bold;
+    color :rgb(35, 35, 62);
+
+}
+
+.btnRegi {
+    font-size: 15px;
+    font-weight: bold;
+    float: right;
+    padding: 0.5em 2em;
+    z-index: 1;
+    -webkit-backface-visibility: hidden;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: #ff7f56;
+    color: white;
+    border-radius: 10px;
+    box-shadow: 2px 2px 4px #00000014;
+    border: 1px solid  #ff7f56;
+    margin-top: 15px
+}
+.btnRegi:hover {
+    color : #fff;
+	background-color:  #f75f2c;
+    border-color:  #f75f2c; 
+}
+
+.result_non {
+    text-align: center;
+    margin-bottom: 30px;
+    font-weight: bold;
+    color : rgb(35, 35, 62);
 }

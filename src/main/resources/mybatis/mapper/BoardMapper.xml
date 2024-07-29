@@ -4,26 +4,6 @@
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.phgym.board.model.BoardMapper">
 	<!-- 쿼리 작성 -->
-	
-	 <!-- 목록 가져오기 -->
-	 
-    <!-- <select id="getList" resultType="com.phgym.board.model.BoardDTO">
-        SELECT * FROM EXERCISE_INFO ORDER BY INFO_NO DESC
-    </select> -->
-
-	<!--  1.2.3 -> 테이블, 컬럼명 싹다 다시 가져옴. -->
-	
-	<!-- 문의글은  user세션값(로그인상태) 가져올거임 -->
-
-	<!--  조회하는 테이블이 달라지니까 , 운동,공지,문의 각각 만들어야함. 
-	테이블명, 컬럼명만 잘 신경쓰면 됨 . -->
-	
-	<!-- 검색 결과 가져오기 -->
-	
-    <!-- <select id="searchList" resultType="com.phgym.board.model.BoardDTO">
-        SELECT * FROM EXERCISE_INFO WHERE TITLE LIKE CONCAT('%', #{searchKeyword}, '%') ORDER BY INFO_NO DESC LIMIT #{startIndex}, #{pageSize}
-    </select> -->
-	
 
 	<insert id="regist" parameterType="com.phgym.board.model.BoardDTO">
     	INSERT INTO EXERCISE_INFO (INFO_NO, ADMIN_NO, TITLE, WRITE_DATE, CONTENT)
@@ -31,27 +11,33 @@
 	</insert>
 
 	<select id="getList" resultType="com.phgym.board.model.BoardDTO">
+	 <!-- 게시물 목록을 페이징하여 가져오기 SQL - 로우넘버() 함수로 각 행에 번호 매김, 해당 번호 기준으로 특정 범위의 행 선택 -->
     	SELECT * FROM (
         	SELECT a.*, ROW_NUMBER() OVER (ORDER BY INFO_NO DESC) AS rnum
         	FROM EXERCISE_INFO a
    		)
     	WHERE rnum BETWEEN #{startIndex} AND #{endIndex}
+    	<!-- 스타트인데스와 엔드인덱스 사이의 게시물만 선택 -->
 	</select>
 
     <select id="searchList" resultType="com.phgym.board.model.BoardDTO">
+    <!-- 검색 결과를 페이징하여 가져오기 SQL - 검색 키워드를 포함하는 제목을 가진 게시물 중에서 특정 범위의 행 선택 -->
     	SELECT * FROM (
         	SELECT a.*, ROW_NUMBER() OVER (ORDER BY INFO_NO DESC) AS rnum
         	FROM EXERCISE_INFO a
         	WHERE TITLE LIKE '%' || #{searchKeyword} || '%'
     	)
     	WHERE rnum BETWEEN #{startIndex} AND #{endIndex}
+    	<!-- 스타트인데스와 엔드인덱스 사이의 게시물만 선택 -->
 	</select>
 	
 	<select id="getTotalCount" resultType="int">
+	<!-- 전체 게시물 수 가져오기 SQL - 전체 게시물의 수 계산 -->
     	SELECT COUNT(*) FROM EXERCISE_INFO
 	</select>
 
  	<select id="getSearchCount" resultType="int">
+ 	<!-- 검색 결과의 총 개수를 가져오기 위한 SQL - 검색 조건에 맞는 게시물의 수를 계산 -->
     	SELECT COUNT(*) FROM EXERCISE_INFO
     	WHERE TITLE LIKE '%' || #{searchKeyword} || '%'
 	</select>
