@@ -6,114 +6,245 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Document</title>
-<link rel="stylesheet" href="../include/css/main-navigation.css">
 <link rel="stylesheet" href="css/main-join-admin.css">
 </head>
 
 <body>
-<jsp:include page="../include/main-navigation.jsp"/>
-    <section id="wrap">
-        <div class="join_page">
-            <form id="adminForm" action="adminJoin.join" method="post">
-                <h3>관리자 계정 생성</h3>
-                <div class="left">
-                    <input type="radio" name="adminGender" value="M" required="required">남 
-                    <input type="radio" name="adminGender" value="W" required="required">여
-                    <div class="name">
-                        <p>이름</p>
-                        <input type="text" id="adminName" name="adminName" style="text-align: left;" placeholder="이름을 입력하세요." required="required" oninput="validateAdminName()">
-                        <div id="nameResult"></div>
-                    </div>
-                    <div class="birthday">
-                        <p>생년월일</p>
-                        <input type="date" id="adminBirth" name="adminBirth" style="text-align: left;" required="required">
-                    </div>
-                    <div class="number">
-                        <p>연락처</p>
-                        <input type="text" id="adminPhone" name="adminPhone" style="text-align: left;" placeholder="연락처를 입력하세요." required="required" oninput="validateAdminPhone()">
-                        <div id="phoneResult"></div>
-                    </div>
-                </div>
-
-                <div class="right">
-                    <div class="id">
-                        <p>아이디</p>
-                        <input type="text" id="adminId" name="adminId" style="text-align: left;" placeholder="아이디를 입력하세요." required="required" oninput="validateAdminId()">
-                        <button type="button" onclick="adminIdCheck()">중복확인</button>
-                        <div id="idResult"></div>
-                    </div>
-                    <div class="pw">
-                        <p>패스워드</p>
-                        <input type="password" id="adminPw" name="adminPw" style="text-align: left;" placeholder="비밀번호를 입력하세요." required="required" oninput="validatePassword()">
-                        <div id="pwLengthMessage" style="color: red; font-size: 12px; display: none;">비밀번호는 최소 4글자 이상이어야 합니다.</div>
-                    </div>
-                    <div class="pw">
-                        <p>비밀번호확인</p>
-                        <input type="password" id="adminPwre" name="adminPwre" style="text-align: left;" placeholder="비밀번호 재입력" required="required" oninput="validatePassword()">
-                        <div id="passwordResult"></div>
-                    </div>
-					<div class="job">
-					    <p>직책</p>
-					    <select id="adminJobTitle" name="adminJobTitle" style="text-align: left;" required="required">
-					        <option value="" disabled selected>직책을 선택하세요.</option>
-					        <option value="ptTeamLeader">pt팀장</option>
-					        <option value="trainer">트레이너</option>
-					        <option value="information">인포메이션</option>
-					    </select>
-					</div>
-                    <div class="date">
-                        <p>입사일</p>
-                        <input type="date" id="adminHireDate" name="adminHireDate" style="text-align: left;" required="required">
-                    </div>
-                    <div class="email">
-                        <p>이메일</p>
-                        <input type="email" id="adminEmail" name="adminEmail" style="text-align: left;" placeholder="이메일을 입력하세요." required="required" oninput="validateAdminEmail()">
-                        <div id="emailResult"></div>
-                    </div>
-                </div>
-
-                <div class="bottom">
-                    <div class="license">
-                        <p>경력 및 자격사항</p>
-                        <textarea name="adminCareerHis" id="adminCareerHis" placeholder="경력사항을 입력하세요."></textarea>
-                    </div>
-                </div>
-
-                <div class="btn">
-                    <input type="submit" value="가입" id="submitBtn" disabled="disabled">
-                    <input type="reset" value="취소">
-                </div>
-            </form>
+    
+  <div class="wrap">
+    
+  <form action="adminJoin.join" method="post" class="form" id="forms">
+      
+    <div class="header1">
+        <p> 관리자 계정 생성  </p>
+    </div>
+    <div class="progressbar">
+      <div class="progress" id="progress"></div>
+      
+      <div class="progress-step progress-step-active" data-title="개인"></div>
+      
+      <div class="progress-step" data-title="정보"></div>
+      <div class="progress-step" data-title="생성"></div>
+    </div>
+    
+    <div class="step-forms step-forms-active">
+      <div class="group-inputs">
+        <label for="username">이름</label>
+        <input type="text" name="adminName" id="adminName" placeholder="이름을 입력하세요." oninput="validateAdminName()" required="required"/>
+      	<div id="nameResult"></div>
+      </div>
+      
+      <div class="group-inputs">
+        <label for="position">성별</label>
+        <div style="display: flex; border:1px solid #ddd; justify-content: space-evenly;">
+            <div style="display:flex;">
+                <p> 남자 </p>  <input style="width: 20px;"  type="radio" name="adminGender" value="M" required="required">
+            </div>
+            <div style="display:flex;">
+                <p> 여자 </p> <input style="width: 20px;" type="radio" name="adminGender" value="W" required="required">
+            </div>
         </div>
-    </section>
+      </div>
+      <div class="group-inputs">
+        <label for="dob"> 생년월일 </label>
+        <input type="date" name="adminBirth" id="adminBirth" />
+      </div>
+
+
+      <div class="">
+        <a href="#" class="btn btn-next width-50 ml-auto">다음</a>
+      </div>
+      
+    </div>
+    <div class="step-forms">
+    
+        <div class="group-inputs">
+            <label for="email">연락처</label>
+            <input type="text" name="adminPhone" id="adminPhone" placeholder="연락처를 입력하세요." oninput="validateAdminPhone()" required="required"/>
+        	<div id="phoneResult"></div>
+        </div>
+          
+        <div class="group-inputs">
+            <label for="email">이메일</label>
+            <input type="email" name="adminemail" id="adminemail" placeholder="이메일을 입력하세요." oninput="validateAdminEmail()" required="required"/>
+        	<div id="emailResult"></div>
+        </div>
+        
+        <div class="group-inputs">
+            <label for="email">직책</label>
+            <select id="adminJobTitle" name="adminJobTitle" style="text-align: left;" required="required">
+                <option value="" disabled selected> 직책을 선택하세요.</option>
+                <option value="ptTeamLeader">pt팀장</option>
+                <option value="trainer">트레이너</option>
+                <option value="information">인포메이션</option>
+            </select>
+        </div>
+        
+        <div class="group-inputs">
+            <label for="email">입사일</label>
+            <input type="date" name="adminHireDate" id="adminHireDate" style="text-align: left;" required="required"/>
+        </div>
+          
+    
+   
+      <div class="btns-group">
+        <a href="#" class="btn btn-prev">이전</a>
+        <a href="#" class="btn btn-next">다음</a>
+      </div>
+      
+    </div>
+    <div class="step-forms">
+        <div class="group-inputs">
+        <div class="id_inputs">
+        	<div>
+        		<label for="phone">아이디</label>
+            	<input type="text" name="adminId" id="adminId" placeholder="아이디를 입력하세요." required="required" oninput="validateAdminId()"/>
+        	</div>
+       		<div>
+       			<button type="button" onclick="adminIdCheck()">중복확인</button>
+       		</div>
+        </div>
+        	<div id="idResult"></div>
+        </div>
+        
+        <div class="group-inputs">
+            <label for="email">비밀번호</label>
+            <input type="password" name="adminPw" id="adminPw" placeholder="비밀번호를 입력하세요." oninput="validateAdminPassword()" required="required"/>
+        	<div id="pwLengthMessage" style="color: red; font-size: 12px; display: none;">비밀번호는 최소 4글자 이상이어야 합니다.</div>
+        </div>
+        
+        <div class="group-inputs">
+            <label for="email">비밀번호 확인</label>
+            <input type="password" name="adminPwre" id="adminPwre" placeholder="비밀번호 재입력" required="required" oninput="validateAdminPassword()" required="required"/>
+        	<div id="passwordResult"></div>
+        </div>
+    
+      <div class="btns-group">
+        <a href="#" class="btn btn-prev">이전</a>
+        <input type="submit" value="회원가입" class="btn"/> <!-- id="submit-form" -->
+      </div>
+    </div>
+  </form>
+</div>
 
     <script type="text/javascript">
-        function adminIdCheck() {
-            var adminId = document.getElementById("adminId").value;
-            var xhr = new XMLHttpRequest();
-            xhr.open("GET", "adminIdCheck.join?adminId=" + adminId, true);
-            xhr.onreadystatechange = function() {
-                if (xhr.readyState == 4 && xhr.status == 200) {
-                    var response = xhr.responseText;
-                    var idResult = document.getElementById("idResult");
-                    if (response == "Y") {
-                        alert("사용 가능한 아이디입니다.");
-                    } else {
-                        alert("이미 사용중인 아이디입니다.");
-                    }
-                } else {
-                	alert("아이디 확인에 실패했습니다. 다시 시도해 주세요.")
-                }
-            };
-            xhr.send();
+    
+    const prevBtns = document.querySelectorAll(".btn-prev");
+    const nextBtns = document.querySelectorAll(".btn-next");
+    const progress = document.getElementById("progress");
+    const formSteps = document.querySelectorAll(".step-forms");
+    const progressSteps = document.querySelectorAll(".progress-step");
+
+
+    let formStepsNum = 0;
+
+    nextBtns.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        formStepsNum++;
+        updateFormSteps();
+        updateProgressbar();
+       
+      });
+    });
+
+    prevBtns.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        formStepsNum--;
+        updateFormSteps();
+        updateProgressbar();
+        
+      });
+    });
+
+    function updateFormSteps() {
+      formSteps.forEach((formStep) => {
+        formStep.classList.contains("step-forms-active") &&
+          formStep.classList.remove("step-forms-active");
+      });
+
+      formSteps[formStepsNum].classList.add("step-forms-active");
+    }
+
+    function updateProgressbar() {
+      progressSteps.forEach((progressStep, idx) => {
+        if (idx < formStepsNum + 1) {
+          progressStep.classList.add("progress-step-active");
+          
+        } else {
+          progressStep.classList.remove("progress-step-active");
+       
         }
+      });
+
+      progressSteps.forEach((progressStep, idx) => {
+        if (idx < formStepsNum) {
+          
+          progressStep.classList.add("progress-step-check");
+        } else {
+       
+          progressStep.classList.remove("progress-step-check");
+        }
+      });
+     
+      const progressActive = document.querySelectorAll(".progress-step-active");
+
+      progress.style.width =
+        ((progressActive.length - 1) / (progressSteps.length - 1)) * 100 + "%";
+    }
+
+
+    document.getElementById("submit-form").addEventListener("click", function () {
+
+        progressSteps.forEach((progressStep, idx) => {
+        if (idx <= formStepsNum) {
+          
+          progressStep.classList.add("progress-step-check");
+        } else {
+       
+          progressStep.classList.remove("progress-step-check");
+        }
+      });
+      
+       var forms = document.getElementById("forms");
+       forms.classList.remove("form");
+       forms.innerHTML = '<div class="welcome"><div class="content"><svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52"><circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/><path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/></svg><h2>회원가입이 완료되었습니다.</h2><span></span><div></div>';
+    });
+    
+    
+    function adminIdCheck() {
+	    var adminId = document.getElementById("adminId").value;
+
+	    if (adminId.trim() === "") {
+	        alert("아이디를 입력하세요.");
+	        return; // 아이디가 비어 있을 경우 함수 종료
+	    }
+
+	    var xhr = new XMLHttpRequest();
+	    xhr.open("GET", "adminIdCheck.join?adminId=" + encodeURIComponent(adminId), true);
+	    xhr.onreadystatechange = function() {
+	        if (xhr.readyState == 4) {
+	            if (xhr.status == 200) {
+	                var response = xhr.responseText;
+	                var idResult = document.getElementById("idResult");
+	                if (response == "Y") {
+	                    alert("사용 가능한 아이디입니다.");
+	                } else {
+	                    alert("이미 사용중인 아이디입니다.");
+	                }
+	            } else {
+	                alert("아이디 확인에 실패했습니다. 다시 시도해 주세요.");
+	            }
+	        }
+	    };
+	    xhr.send();
+	}
 
         function validateAdminId() {
             var adminId = document.getElementById("adminId").value;
             var regex = /^[a-zA-Z0-9]{4,}$/;
             var idResult = document.getElementById("idResult");
             if (!regex.test(adminId)) {
-                idResult.innerHTML = "<span style='color: red; font-size: 12px;'>아이디는 영문자와 숫자만 사용할 수 있으며,<br>4글자 이상이어야 합니다.</span>";
+                idResult.innerHTML = "<span style='color: red; font-size: 12px;'>아이디는 영문자와 숫자만 사용할 수 있으며, 4글자 이상이어야 합니다.</span>";
             } else {
                 idResult.innerHTML = "";
             }
@@ -154,12 +285,12 @@
             }
         }
 
-        function validatePassword() {
+        function validateAdminPassword() {
             var password = document.getElementById("adminPw").value;
             var confirmPassword = document.getElementById("adminPwre").value;
             var passwordResult = document.getElementById("passwordResult");
-            var submitBtn = document.getElementById("submitBtn");
-            var pwLengthMessage = document.getElementById("pwLengthMessage");
+/*             var submitBtn = document.getElementById("submitBtn");
+            var pwLengthMessage = document.getElementById("pwLengthMessage"); */
 
             if (password.length < 4) {
                 pwLengthMessage.style.display = "block";

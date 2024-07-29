@@ -30,6 +30,7 @@
         <input type="text" name=userName id="userName" placeholder="이름을 입력하세요." oninput="validateUserName()" required="required"/>
         <div id="nameResult"></div>
       </div>
+      
       <div class="group-inputs">
         <label for="position">성별</label>
         <div style="display: flex; border:1px solid #ddd; justify-content: space-evenly;">
@@ -59,7 +60,7 @@
         
         <div class="group-inputs">
             <label for="email">이메일</label>
-            <input type="text" name="userEmail" id="userEmail" placeholder="이메일을 입력하세요." oninput="validateUserEmail()" required="required">
+            <input type="email" name="userEmail" id="userEmail" placeholder="이메일을 입력하세요." oninput="validateUserEmail()" required="required">
             <div id="emailResult"></div>
         </div>
         
@@ -82,11 +83,10 @@
             <label for="phone">아이디</label>
             <input type="text" name="userId" id="userId" placeholder="아이디를 입력하세요." required="required" oninput="validateUserId()"> 
             </div>
-             <div> 
-             <button type="button" onclick="userIdCheck()">중복확인</button>
+	             <div> 
+	             	<button type="button" onclick="userIdCheck()">중복확인</button>
+	             </div>
              </div>
-             </div>
-             
             <div id="idResult"></div>
         </div>
         
@@ -282,7 +282,7 @@
         var idResult = document.getElementById("idResult");
 
         if (!regex.test(userId)) {
-            idResult.innerHTML = "<span style='color: red; font-size: 12px;'>아이디는 영문자와 숫자만 사용할 수 있으며,<br>4글자 이상이어야 합니다.</span>";
+            idResult.innerHTML = "<span style='color: red; font-size: 12px;'>아이디는 영문자와 숫자만 사용할 수 있으며, 4글자 이상이어야 합니다.</span>";
         } else {
             idResult.innerHTML = "";
         }
