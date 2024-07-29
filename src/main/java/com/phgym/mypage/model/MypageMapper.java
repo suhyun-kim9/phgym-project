@@ -37,7 +37,11 @@ public interface MypageMapper {
 
 	public List<PtReservationDTO> getPtReservationList(int sessionUserNo);
 
-	public int countStatistics(int sessionUserNo);
+	public int countCheckinList(int sessionUserNo);
 
-	public List<CheckinHisDTO> selectStatistics(MypageQuery query);
+	public List<CheckinHisDTO> selectCheckinList(MypageQuery query);
+
+	public int countPtReservationList(int sessionUserNo);
+
+	public List<PtReservationDTO> selectPtReservationList(MypageQuery query);
 }

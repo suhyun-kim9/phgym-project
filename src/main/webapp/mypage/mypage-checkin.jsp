@@ -9,6 +9,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="../include/css/main-navigation.css">
+    <link rel="stylesheet" href="../include/css/main-footer.css">
     <link rel="stylesheet" href="css/mypage-checkin.css">
     <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js'></script>
     <script src="js/jquery-3.7.1.min.js"></script>
@@ -70,6 +71,8 @@
     </section>
     
     <canvas id="canvas"></canvas>
+    
+    <jsp:include page="../include/main-footer.jsp"/>
     
     <script>
 	    if("${msg}" == "Y") {

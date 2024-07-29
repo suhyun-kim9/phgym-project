@@ -24,6 +24,7 @@ img {
 .content {
     width: 1024px;
     margin: 0 auto;
+    margin-bottom: 40px;
 }
 
 .content > .wrap-top {
@@ -155,10 +156,9 @@ img {
 .content > .wrap-bottom > table {
     margin: 0 auto;
     width: 650px;
+    height: 160px;
     border: 1px solid #76818d;
     display: block;
-    height: 200px;
-    overflow: auto;
 }
 
 .content > .wrap-bottom > table tr th {
@@ -172,4 +172,14 @@ img {
     text-align: center;
     width: 162.5px;
     padding: 3px 0;
+}
+
+.content > .wrap-bottom > .pagination {
+	text-align: center;
+	padding-top: 5px;
+	font-size: 18px;
+}
+
+.content > .wrap-bottom > .pagination > a {
+	padding: 0 5px;
 }
