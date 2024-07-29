@@ -35,10 +35,10 @@
         <label for="position">성별</label>
         <div style="display: flex; border:1px solid #ddd; justify-content: space-evenly;">
             <div style="display:flex;">
-                <p> 남자 </p>  <input style="width: 20px;"  type="radio" name="userGender" value="M" required="required">
+                <p> 남자 </p>  <input style="width: 20px;"  type="radio" id="userGenderM" name="userGender" value="M" required="required">
             </div>
             <div style="display:flex;">
-                <p> 여자 </p> <input style="width: 20px;" type="radio" name="userGender" value="W" required="required">
+                <p> 여자 </p> <input style="width: 20px;" type="radio" id="userGenderW" name="userGender" value="W" required="required">
             </div>
         </div>
       </div>
@@ -48,7 +48,7 @@
       </div>
 
       <div class="">
-        <a href="#" class="btn btn-next width-50 ml-auto">다음</a>
+        <a href="#" id="btn1" class="btn btn-next width-50 ml-auto" onclick='nextchecker()'>다음</a>
       </div>
     </div>
     <div class="step-forms">
@@ -73,7 +73,7 @@
    
       <div class="btns-group">
         <a href="#" class="btn btn-prev">이전</a>
-        <a href="#" class="btn btn-next">다음</a>
+        <a href="#" id="btn2" class="btn btn-next">다음</a>
       </div>
     </div>
     <div class="step-forms">
@@ -104,7 +104,7 @@
     
       <div class="btns-group">
         <a href="#" class="btn btn-prev">이전</a>
-        <input type="submit" value="회원가입하기"  class="btn" />
+        <input type="submit" value="회원가입하기" class="btn" />
       </div>
     </div>
       </form>
@@ -113,7 +113,23 @@
 
 
   <script type="text/javascript">
-	
+  
+  var username = document.querySelector('#userName');
+  var genderM  = document.querySelector('#userGenderM');
+  var genderW  = document.querySelector('#userGenderW');
+  var userBirth = document.querySelector('#userBirth');
+
+  var userAddress  = document.querySelector('#userAddress');
+  var userEmail  = document.querySelector('#userEmail');
+  var userPhone = document.querySelector('#userPhone');
+
+  var userId  = document.querySelector('#userId');
+  var userPw  = document.querySelector('#userPw');
+  
+  var btn1 =  document.querySelector('#btn1');
+  var btn2 =  document.querySelector('#btn2');
+  
+  
   const prevBtns = document.querySelectorAll(".btn-prev");
   const nextBtns = document.querySelectorAll(".btn-next");
   const progress = document.getElementById("progress");
@@ -122,15 +138,30 @@
 
   let formStepsNum = 0;
 
-  nextBtns.forEach((btn) => {
-    btn.addEventListener("click", () => {
-   		
-      formStepsNum++;
+  btn1.addEventListener("click", function() {
+	  if (username.value == "" || genderW.value == "" || genderM.value == "" || userBirth.value == "") {
+          alert("필수 값을 입력하세용");
+      }else {
+          formStepsNum++;
+      }
+    updateFormSteps();
+    updateProgressbar();
+   
+  });
+
+
+
+
+ btn2.addEventListener("click", function()  {
+  	  if (userAddress.value == "" || userEmail.value == "" || userPhone.value == ""){
+            alert("필수 값을 입력하세요.");
+        }else {
+            formStepsNum++;
+        }
       updateFormSteps();
       updateProgressbar();
      
     });
-  });
   
   prevBtns.forEach((btn) => {
     btn.addEventListener("click", () => {
@@ -179,7 +210,7 @@
   }
 
 
-  document.getElementById("submit-btn").addEventListener("click", function () {
+/*   document.getElementById("submit-btn").addEventListener("click", function () {
 
       progressSteps.forEach((progressStep, idx) => {
       if (idx <= formStepsNum) {
@@ -194,7 +225,7 @@
      var forms = document.getElementById("forms");
      forms.classList.remove("form");
      forms.innerHTML = '<div class="welcome"><div class="content"><svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52"><circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/><path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/></svg><h2>회원가입이 완료되었습니다.</span><div></div>';
-  });
+  }); */
 	
   function userIdCheck() {
 	    var userId = document.getElementById("userId").value;
