@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="css/main-login-user.css" type="text/css">
 
 <script type="text/javascript">
-
+	/* 상혁 수정함 */
     function setCookie(name, value, hours) {
         var expires = "";
         if (hours) {
