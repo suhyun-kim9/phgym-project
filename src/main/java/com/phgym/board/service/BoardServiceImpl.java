@@ -51,32 +51,38 @@ public class BoardServiceImpl implements BoardService {
 	@Override
 	public void getList(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		// 기본 페이지 번호와 페이지 크기 설정
+		// 기본 페이지 번호는 1, 한 페이지에 표시할 게시물의 수는 10
 		int page = 1;
 		int pageSize = 10;
 		
-		try {
+		try { // 요청 파라미터에서 페이지 번호 가져옴 // 요청된 페이지 번호 가져오고 숫자가 아닌 값이 입력되면 기본 페이지 번호 사용
 			page = Integer.parseInt(request.getParameter("page"));
 		} catch (NumberFormatException e) {
 			e.printStackTrace();
 		}
 		
+		// 페이지 번호, 페이지 크기를 사용해서 시작인덱스랑 종료인데스 계산
 		int startIndex = (page - 1) * pageSize + 1;
 		int endIndex = page * pageSize;
 		
 		SqlSession sql = sqlSessionFactory.openSession();
 		BoardMapper board = sql.getMapper(BoardMapper.class);
 		
-		//
+		// 시작인덱스, 종료인덱스를 파라미터로 갖는 맵 생성 -> SQL 쿼리 전달
 		Map<String, Object> params = new HashMap<>();
 	    params.put("startIndex", startIndex);
 	    params.put("endIndex", endIndex);
 		
+	    // 시작인덱스, 종료인덱스를 사용해서 현재 페이지에 해당하는 게시물 목록을 데이터베이스에서 가져옴
 		ArrayList<BoardDTO> list = board.getList(startIndex, endIndex);
 		
+		// 데이터베이스에서 전체 게시물 수를 가져옴
 		int totalCount = board.getTotalCount();
 		
 		sql.close();
 		
+		// 전체 게시물 수를 페이지 크기로 나눈 값을 올림ㅎ하여 총 페이지 수를 계산
 		int totalPages = (int) Math.ceil((double) totalCount / pageSize);
 		
 		request.setAttribute("list", list);

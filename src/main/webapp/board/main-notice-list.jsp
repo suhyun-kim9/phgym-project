@@ -10,11 +10,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>공지사항목록</title>
-
-    <link rel="stylesheet" href="css/main-notice-list.css">
+    <title>공지사항 목록</title>
+	<link rel="stylesheet" href="../include/css/main-navigation.css">
+    <link rel="stylesheet" href="../board/css/main-notice-list.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <link rel="stylesheet" href="../include/css/main-navigation.css">
     
 </head>
 <body>
@@ -23,48 +22,54 @@
 <jsp:include page="../include/main-navigation.jsp"/>
 
     
+<div class="content"> 
+    <div class="mainNlist">
+
     <div class="container">
-        <h1>공지사항</h1>
-        <div class="search-bar">
+
             <form action="main_notice_search.board" method="get">
-                <input type="text" name="searchKeywordn" placeholder="검색" value="${searchKeywordn}">
-                <button type="submit">조회</button>
+                <div class="search_box">
+                    <div class="search_name">
+                        <i class="bi bi-bell"></i> <span>공지사항</span>
+                      </div>
+                      <div class="search_bar1">
+                          <input type="text" name="userName" placeholder="검색어를 입력하세요.">
+                          <input type="submit"  class="btn-hover color-4" value="검색">
+                      </div>
+              </div>
             </form>
-        </div>
         
         <c:if test="${not empty listn}">
-            <p>검색 결과: ${fn:length(listn)}건</p>
-            <table>
-                <thead>
-                    <tr>
-                        <th>번호</th>
-                        <th>제목</th>
-                        <th>이름</th>
-                        <th>작성일</th>
-                        <th>조회수</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <c:forEach var="dto" items="${listn}">
-                        <tr>
-                            <td>${dto.noticeNo}</td>
-                            <td><a href="main_notice_content.board?noticeNo=${dto.noticeNo}">${dto.title}</a></td>
-                            <td>${dto.adminNo}</td>
-                            <td><fmt:formatDate value="${dto.writeDate}" pattern="yyyy년 MM월 dd일 HH시 mm분 ss초"/></td>
-                            <td>${dto.hit}</td>
+            <p class="result_search"><small> 검색 결과: <span> ${fn:length(listn)} </span> 건 </small></p>
+
+            <div class="content_box3">
+            <table class="user_table" style="table-layout: fixed">
+                <tbody class="user_table2">
+                    <c:forEach var="dto" items="${listn}" varStatus="status">
+                    	<tr class="tableTr">
+                            <td>
+                            	<div class="title1" style="color:  #ff7f56"><a href="main_notice_content.board?noticeNo=${dto.noticeNo}">${dto.title}</a></div>
+                            	<div class="hitNo">조회수 [ ${dto.hit} ]</div>
+                            </td>
+                            <td>
+                            	<div>글번호 [ ${listn.size() - status.index} ]</div>
+                            	<div>관리자번호 [ ${dto.adminNo} ]</div>
+                            	<div>작성일 [ <fmt:formatDate value="${dto.writeDate}" pattern="yyyy년 MM월 dd일"/> ]</div>
+                            </td>
                         </tr>
                     </c:forEach>
                 </tbody>
             </table>
+            </div>
         </c:if>
         
         <c:if test="${empty listn}">
-            <p>검색 결과가 없습니다.</p>
+            <p class="result_non">검색 결과가 없습니다.</p>
         </c:if>
 
         <div class="pagination">
             <c:if test="${pagen > 1}">
-                <a href="main_notice_list.board?pagen=${pagen - 1}">Previous</a>
+                <a href="main_notice_list.board?pagen=${pagen - 1}" class="prevBtn">이전</a>
             </c:if>
             <c:forEach var="i" begin="1" end="${totalPagesn}">
                 <c:choose>
@@ -72,19 +77,34 @@
                         <span class="current">${i}</span>
                     </c:when>
                     <c:otherwise>
-                        <a href="main_notice_list.board?pagen=${i}">${i}</a>
+                        <a href="main_notice_list.board?pagen=${i}" class="pageLink">${i}</a>
                     </c:otherwise>
                 </c:choose>
             </c:forEach>
             <c:if test="${pagen < totalPagesn}">
-                <a href="main_notice_list.board?pagen=${pagen + 1}">Next</a>
+                <a href="main_notice_list.board?pagen=${pagen + 1}" class="nextBtn">다음</a>
             </c:if>
         </div>
-        
         <div class="buttons">
-            <input type="button" value="등록" class="combtn" onclick="location.href='main_notice_post.board';">
+            <input type="button" value="등록"  class="btn-hover btnRegi" class="combtn" onclick="location.href='main_notice_post.board';">
         </div>
     </div>
+    </div>
+    </div>
 
+    <script>
+
+            const rows = document.querySelectorAll(".user_table2 tr");
+            rows.forEach(row => {
+                row.addEventListener("click", function(event) {
+                    const link = row.querySelector("a");
+                    if (link) {
+                        const href = link.getAttribute("href");
+                        window.location.href = href;
+                    }
+                });
+            });
+
+    </script>
 </body>
 </html>

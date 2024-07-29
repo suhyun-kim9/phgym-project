@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+    pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,7 +20,9 @@
 				<h2>글 내용</h2>
 				<form action="">
 					<div class="title-info">
-						<span>제목: ${dto.title}</span> <span>작성자: ${dto.writer}</span> <span>작성일: ${dto.writeDate}</span>
+						<span>제목 [ ${dto.title} ]</span>
+						<span>작성자 [] ${dto.writer} ]</span>
+						<span>작성일 [ <fmt:formatDate value="${dto.writeDate}" pattern="yyyy년 MM월 dd일" /> ]</span>
 						<input type="button" value="삭제" onclick="confirmDelete(${dto.inquiryNo})">
 					</div>				
 				</form>
