@@ -86,7 +86,7 @@
 											</div>
                                             <div class="link_box">
                                                 <div><input type="checkbox" id="keepLoggedIn" name="check"> 아이디 기억하기 </div>
-                                                <div class="mb-0 mt-4 text-center"><a href="findUserId.join" class="link">아이디 찾기</a> / <a href="findUserPw.join" class="link">비밀번호 찾기</a></div>
+                                                <div class="mb-0 mt-4 text-center"><a href="findUserId.join" class="link">아이디 찾기</a><a href="findUserPw.join" class="link">비밀번호 찾기</a></div>
                                             </div>
                                           
                                             <div class="box bg-1">
@@ -95,8 +95,9 @@
 			      				</div>
 			      				</form>
 			      				
-			      				<form action="adminLogin.join" method="post" onsubmit="setAdminIdCookie()">
+			      	
 								<div class="card-back">
+											<form action="adminLogin.join" method="post" onsubmit="setAdminIdCookie()">
 											<h4 class="mb-4 pb-3"> 관리자 로그인</h4>
 											<div class="form-group">
 												<input type="text" id="adminId" name="adminId" class="form-style input2" placeholder="아이디를 입력하세요." autocomplete="off">
