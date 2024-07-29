@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="../include/css/main-navigation.css">
     
     <style>
-     @font-face {
+    @font-face {
         font-family: 'SUIT-Regular                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             ';
         src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Regular.woff2') format('woff2');
         font-weight: 500;
@@ -39,56 +39,89 @@
 
     /* 결제 정보 내역 (왼쪽) */
     .pay-wrap > .content {
+        border: 0px solid red;
         display: inline-block; font-size: 15px; 
-        width: 50%; height: 67%; position: relative; top: 20px;
+        width: 97%; height: 25%; position: relative; top: 30px;
+    }
+    .pay-wrap > .content p {
+        border-bottom: 1px solid #000;
+        margin: 10px 0px 0px 30px; font-size: 15px;
     }
     .pay-wrap > .content a {
-        display:block; position: relative; top: 5px; text-indent: 6px;
+        display: inline; letter-spacing: 3px; font-size: 13px;
     }
     .pay-wrap > .content > div {
-        border: 0px solid palevioletred;
-        margin: 30px 0px 0px 50px; 
+        display: inline-block;
+        border: 0px solid palevioletred; width: 28%; 
+        margin: 20px 0px 0px 40px; 
     }
-    .pay-wrap > .content > div:nth-of-type(2) {
-        position: relative;
-    }
+
     .pay-wrap > .content input{
-        width: 300px; height: 25px; margin-top: 7px; position: relative; text-indent: 6px;
+        border: 1px solid #e3e3e3;
+        width: 200px; height: 25px; display: inline-block;
+        position: relative; text-indent: 6px;
+    }
+    .pay-wrap > .content > div:nth-of-type(4) {
+        display: inline-block; width: 80%;
+    }
+    .pay-wrap > .content > div:nth-of-type(4) > div {
+        position: relative; left: 135px; bottom: 20px;
     }
     
+    .pay-wrap > .content > div:nth-of-type(4) input {
+        display: inline-block; width: 150px;
+    }
 
     /* 결제 정보 내역 (오른쪽) */
     #right {
-        /* border-top: 2px solid black;
-        border-bottom: 2px solid black;  */
-        /* border: 1px solid blue; */
-        left: 505px; top: -443px;
-        margin: 10px; width : 49.5%; height: 67%;
-        display: inline-block; font-size: 15px; position: relative; 
+        border: 0px solid red;
+        display: inline-block; font-size: 15px; 
+        width: 97%; height: 25%; position: relative; top: 30px;
+    }
+    #right p {
+        border-bottom: 1px solid #000;
+        margin: 10px 0px 0px 30px; font-size: 15px;
     }
     #right > div {
-        border: 0px solid palevioletred;
-        margin: 30px 0px 0px 50px; 
+        display: inline-block;
+        border: 0px solid palevioletred; width: 45%; 
+        margin: 20px 0px 0px 40px; 
     }
     #right a {
-        display:block; position: relative; top: 5px; text-indent: 6px;  
-    }
-    #right > div:nth-of-type(2) {
-        position: relative;
+        display: inline; letter-spacing: 3px;  font-size: 13px;
     }
 
     #right input{
-        width: 300px; height: 25px; margin-top: 7px; position: relative; text-indent: 6px;
+        border: 1px solid #e3e3e3;
+        width: 200px; height: 25px; display: inline-block;
+        position: relative; text-indent: 6px;
     }
     #right select {
-        display: inline-block;
-        width: 27%; height: 25%;
+        display: inline-block; 
+        width: 23%; height: 6%;
     }
 
+    .refund-notice {
+        border: 0px solid red;
+        display: inline-block; font-size: 15px; 
+        width: 97%; height: 32%; position: relative; top: 20px;
+    }
+    .refund-notice p:nth-of-type(1) {
+        border-bottom: 1px solid #000;
+        margin: 10px 0px 0px 30px; font-size: 15px; font-weight: 600;
+    }
+    .refund-notice p {
+        margin: 10px 0px 0px 30px; font-size: 12px; font-weight: 300;
+    }
+
+
+    .period {
+        color: #777; font-size: 10px;
+    }
     /* 제출하기 버튼 */
     .button.button--wapasha {
         border-radius: 5px; background: #f97316; color: #fff; 
-        top: -155px; left: 390px;
+        top: -25px; left: 368px;
         -webkit-transition: background-color 0.3s, color 0.3s;
         transition: background-color 0.3s, color 0.3s;
     }
@@ -169,12 +202,15 @@
    
    <jsp:include page="../include/main-navigation.jsp"/>
    
-   ${sessionScope.sessionUserNo}
-   <form action="promotion-payment1.main" method="post">
+  <!--  ${sessionScope.sessionUserNo} -->
+  
+
+   <form action="promotion-payment1.main" method="post" >
      <div class="pay-wrap">
         <p> ✔︎ 주문결제</p>
         <div class="prom-name">연말프로모션(12개월)</div>
             <div class="content">
+                <p>기본 정보</p>
                 <div>
                     <a>이름</a> 
                     <input type="text" name="name" value="${result.userName}" disabled="disabled">
@@ -193,13 +229,15 @@
                         <input type="date" name="startDate" id="startDate" onchange="onChangeCal(this)">
                         <a> ~ </a>
                         <input type="date" name="endDate" id="endDate" readonly>
+                        <a class="period"> (12개월) </a>
                     </div>
                 </div>
             </div>
             <div id="right">
+                <p>결제 정보</p>
                 <div class="pay-method">
                     <a>결제방법</a>
-                    <input type="text" name="payMethod" placeholder="직접 입력"  id="payMethod">
+                    <input type="text" name="payMethod" placeholder="직접 입력"  id="payMethod" required>
                     <select size="1" class="method-list" onchange="myMethod(this.value)">
                         <option value="선택하세요">선택하세요</option>
                         <option value="무통장 입금">무통장 입금</option>
@@ -216,7 +254,7 @@
                 </div>
                 <div class="refund-name">
                     <a>환불은행명</a>
-                    <input type="text" name="refundBankname" placeholder="직접 입력" id="refundBankname">
+                    <input type="text" name="refundBankname" placeholder="직접 입력" id="refundBankname" required>
                     <select size="1" class="name-list" onchange="myBank(this.value)">
                         <option value="선택하세요">선택하세요</option>
                         <option value="국민은행">국민은행</option>
@@ -229,8 +267,18 @@
                 </div>
                 <div>
                     <a>환불계좌</a>
-                    <input type="text" name="refundBankAccount">
+                    <input type="text" name="refundBankAccount" required>
                 </div>
+            </div>
+            <div class="refund-notice">
+                <p>환불 규정</p>
+                <p>제 1조. 본 회원권은 본인만 사용 가능합니다.</p>
+                <p>제 2조. 본 약관은 회원이 센터 회원으로 가입한 날부터 효력을 갖습니다.</p>
+                <p>제 3조.귀중품은 반드시 근무자에게 보관 요청하고, 그 외 개인 소지 후 분실 시에는 책임을 지지 않습니다.</p>
+                <p>제 4조.개인 락커를 이용하는 회원은 등록기간 만료와 동시에 개인 락커를 정리해야합니다.</p>
+                <p>제 5조.시설물 훼손 시 원상복구하여 이에 따른 비용은 훼손자가 부담합니다.</p>
+                <p>제 6조.덤벨 및 바벨 사용 . 후정리하여야 하며 다른 사람에게 불편을 줄 수 있는 행동은 삼가해야합니다.</p>
+                <p>제 7조.센터 시설의 문제로 인한 사고 외 개인 부주의로 인한 사고 책임은 개인에게 있음을 명시합니다.</p>
             </div>
         </div>
         <div class="box bg-1">

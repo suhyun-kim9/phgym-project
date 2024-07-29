@@ -31,7 +31,7 @@ public interface JoinService {
 
 	void ChangeAdmin(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException; // 회원로그인 -> 관리자로그인으로 변경
 
-	void ChangeUser(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException; // 관리자로그인 -> 회원로그인으로 변경
+	void adminJoinPage(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException; // 관리자로그인 -> 관리자 회원가입
 
 	void logoutUser(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException; // 회원 로그인 성공시 로그아웃 하기
 	

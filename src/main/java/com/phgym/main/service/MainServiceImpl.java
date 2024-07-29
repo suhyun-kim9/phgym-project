@@ -54,7 +54,9 @@ public class MainServiceImpl implements MainService {
         
         int result = main.buyPromotion1(dto);
         System.out.println("성공:" + result);
-        response.sendRedirect("/PHGYM/main/main-userhome.jsp"); //
+        
+        request.getSession().setAttribute("msg", "y");
+        response.sendRedirect("/PHGYM/main/main-userhome.jsp"); 
 	}
 	
 
@@ -92,11 +94,12 @@ public class MainServiceImpl implements MainService {
         
         int result = main.buyPromotion2(dto);
         System.out.println("성공:" + result);
+        
+        request.getSession().setAttribute("msg", "y");
         response.sendRedirect("/PHGYM/main/main-userhome.jsp"); //
 		
 	}
 
-	///////////////////////////////////////7.24 수정해야함
 	@Override
 	public void buyPromotion3(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
@@ -132,6 +135,8 @@ public class MainServiceImpl implements MainService {
         
         int result = main.buyPromotion3(dto);
         System.out.println("성공:" + result);
+        
+        request.getSession().setAttribute("msg", "y");
         response.sendRedirect("/PHGYM/main/main-userhome.jsp"); //
 		
 	}
@@ -173,6 +178,8 @@ public class MainServiceImpl implements MainService {
         
         int result = main.buyPromotion4(dto);
         System.out.println("성공:" + result);
+        
+        request.getSession().setAttribute("msg", "y");
         response.sendRedirect("/PHGYM/main/main-userhome.jsp"); //
 		
 	}
@@ -281,6 +288,13 @@ public class MainServiceImpl implements MainService {
 		
         
 
+	}
+
+	/* 트레이너 reservation */
+	@Override
+	public void goReservation(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.getRequestDispatcher("reservationTrainer.mypage.jsp").forward(request, response);
+		
 	}
 
 

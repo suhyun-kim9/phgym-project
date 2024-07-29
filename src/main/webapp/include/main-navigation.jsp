@@ -1,15 +1,25 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<style>
+	.main_nav_bar .animation{
+    position: absolute;
+    top: 80%;
+    left: ${left};
+    width: ${width};
+    height: 2px;
+    background-color: #f97316;
+    transition: 0.5s;
+</style>
 <nav class="main_nav_bar">
 	<ul class="main_nav">
 		<a href="/PHGYM/main/userhome.main"> <img src="../include/img/logo-light2.png"> </a>
 		<li class="dr1"><a href="/PHGYM/main/introduction.main"> 헬스장 소개 </a></li>
 		<li class="dr2"><a href="/PHGYM/main/promotionList.main"> 프로모션 </a></li>
-		<li class="dr dropdown2"><a> 문의/고객센터(추가) </a></li>
+		<li class="dr dropdown2"><a> 문의/고객센터 </a></li>
 		<div class="dropdownContent2">
-			<li><i class="bi bi-chat-dots"></i> <a href=""> 문의사항(추가) </a></li>
-			<li><i class="bi bi-bell"></i> <a href=""> 공지사항(추가) </a></li>
+			<li><i class="bi bi-bell"></i> <a href="#"> 공지사항(추가) </a></li>
 			<li><i class="bi bi-archive"></i> <a href="/PHGYM/board/main_exe_list.board"> 운동정보 </a></li>
+			<li><i class="bi bi-chat-dots"></i> <a href="/PHGYM/board/main_qna_list.board"> 문의사항 </a></li>
 		</div>
 
 		<li class="dr4"><a href="/PHGYM/main/map.main"> 오시는 길 </a></li>

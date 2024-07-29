@@ -188,7 +188,13 @@
 
 
 	<script>
-
+	
+		var msg = "${sessionScope.msg}";
+		if(msg == "y") {
+			alert("결제가 완료되었습니다");
+			<c:remove var = "msg" scope="session"/>
+		}
+	
         const swiper = new Swiper('.swiper', {
         // Optional parameters
         direction: 'horizontal',

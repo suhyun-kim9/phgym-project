@@ -43,7 +43,7 @@
             document.getElementById("keepLoggedIn").checked = true;
         }
     };
-
+    
     // 폼 제출 시 쿠키 설정
     function setUserIdCookie() {
         if (document.getElementById("keepLoggedIn").checked) {
@@ -76,7 +76,7 @@
                     </div>
 
                     <input type="checkbox" id="keepLoggedIn" name="check">
-                    <p class="login_situation">로그인 상태 유지</p>
+                    <p class="login_situation">아이디 기억하기</p>
 
                     <input type="submit" value="로그인">
 
@@ -100,6 +100,26 @@
     <%
         }
     %>
+    
+    <script>
+    
+		var userIdFind = "${userIdFind}";
+	    console.log("userIdFind = " + userIdFind);
+	    
+		if (userIdFind != null  && userIdFind != "") {
+	    	
+	    	alert("회원님의 아이디는: " + userIdFind + "입니다");
+	    }
+		
+		var userPwFind = "${userPwFind}";
+	    console.log("userPwFind = " + userPwFind);
+	    
+		if (userPwFind != null  && userPwFind != "") {
+	    	
+	    	alert("회원님의 비밀번호는: " + userPwFind + "입니다");
+	    }
+    
+    </script>
 
 </body>
 </html>

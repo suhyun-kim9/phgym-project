@@ -17,34 +17,7 @@
 </head>
 <body>
     <div class="content"> 
-    <div class="aside">
-        <nav>
-
-
-        <!-- 7월 16일 수정했습니다 혜주 -->
-        <ul class="nav_1">
-
-            <div class="logo"> <img src="../include/img/logo-light.png"> </div>
-            <li> <i class="bi bi-person-fill"></i> <a> 관리자 계정 </a> </li>
-            <li> 
-                <div id="dropdown">
-                    <i class="bi bi-search"></i> <a> 회원 조회</a> <i class="bi bi-chevron-compact-right"></i></i>
-                </div>
-            </li>
-            <ul id="nav_2">
-                <li><i class="bi bi-person-circle"></i> <a> 회원 정보 조회 </a>  </li>
-                <li> <i class="bi bi-calendar-check"></i> <a>  회원 스케쥴 조회 </a></li>
-            </ul>
-            <li> <i class="bi bi-calendar4-event"></i> <a> 스케쥴 관리 </a></li>
-            <li> <i class="bi bi-bell"></i> <a> 공지사항 </a></li>
-            <li> <i class="bi bi-archive"></i> <a> 운동정보 </a></li>
-
-        </ul>
-        <div class="nav_logout">
-            <p> 로그아웃 </p>
-        </div>
-    </nav>
-</div>
+    	<jsp:include page="../include/admin-navigation.jsp"/>
 
 
 <!--  여기에 넣어주시면 됩니다. -->

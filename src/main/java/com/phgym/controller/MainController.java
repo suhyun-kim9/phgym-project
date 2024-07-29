@@ -88,6 +88,11 @@ public class MainController extends HttpServlet {
         } else if(command.equals("/main/trainer.main")) {
         	service = new MainServiceImpl();
             service.goTrainer(request,response);
+            
+        }  else if(command.equals("/mypage/reservationTrainer.mypage")) {
+        	service = new MainServiceImpl();
+            service.goReservation(request,response);
+            
         }
 		
 		

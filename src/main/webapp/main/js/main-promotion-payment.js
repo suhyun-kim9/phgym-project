@@ -1,4 +1,4 @@
-var endDate = document.querySelector("#endDate"); 
+		var endDate = document.querySelector("#endDate"); 
     
         function myMethod(obj) {
             payMethod.value = obj;
@@ -37,4 +37,7 @@ var endDate = document.querySelector("#endDate");
             var ohStartDate = startDate.toISOString().split('T')[0];
             endDate.value = ohStartDate;
 	    }
-	    
+
+		
+		
+		
