@@ -29,8 +29,6 @@ img {
 
 .content .wrap-top {
 	padding: 40px 0 20px 0;
-	margin-right: 8px;
-	margin-left: -9px;
 	border-bottom: 1px solid #000;
 	display: flex;
 	justify-content: space-between;
@@ -52,6 +50,7 @@ img {
 	font-size: 15px;
 	height: 30px;
 	padding: 0 30px;
+	margin-right: 20px;
 	cursor: pointer;
 }
 .content .wrap-top .submit:hover {
@@ -72,8 +71,6 @@ img {
 	background-color:  #f97316;
 }
 .content .wrap-middle {
-	margin-right: 8px;
-	margin-left: -9px;
 	margin-top: 30px;
 	padding: 50px 50px;
 	border-radius: 18px;

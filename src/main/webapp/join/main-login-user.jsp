@@ -8,6 +8,7 @@
 <title>회원 로그인</title>
 <link rel="stylesheet" href="../include/css/main-navigation.css">
 <link rel="stylesheet" href="css/main-login-user.css" type="text/css">
+<link rel="stylesheet" href="../include/css/main-footer.css">
 
 <script type="text/javascript">
     function setCookie(name, value, hours) {
@@ -58,7 +59,7 @@
 
 <body>
 <jsp:include page="../include/main-navigation.jsp"/> 
-	<div class="section">
+ <div class="section">
 		<div class="container">
 			<div class="row full-height justify-content-center">
 				<div class="col-12 text-center align-self-center py-5">
@@ -123,8 +124,7 @@
 		      	</div>
 	      	</div>
 	    </div>
-	</div>
-
+	</div> 
     <script>
     
 		var userIdFind = "${userIdFind}";
@@ -144,5 +144,7 @@
 	    }
     
     </script>
+    
+    <jsp:include page="../include/main-footer.jsp"/>
 </body>
 </html>

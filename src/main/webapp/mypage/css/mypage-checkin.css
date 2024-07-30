@@ -34,14 +34,13 @@ img {
 
 .content > .wrap-top > h2 {
 	display: inline-block;
-	font-size: 40px;
-	letter-spacing : 3px;
+	font-size: 30px;
 }
 
 .content > .wrap-top > p {
 	display: inline-block;
 	padding-left: 10px;
-	font-size: 20px;
+	font-size: 15px;
 }
 
 .content > .wrap-middle {
@@ -63,7 +62,7 @@ img {
 }
 
 .fc-col-header {
-	background-color: #ff7f56;
+	background-color: #fff;
 }
 
 .fc-scrollgrid-sync-table {
@@ -90,6 +89,7 @@ img {
 	padding-top: 90px;
 	padding-bottom: 50px;
 	font-size: 28px;
+	letter-spacing: 3px;
 }
 
 .content > .wrap-middle > .wrap-middle-right > .checkinBtn {
@@ -100,6 +100,7 @@ img {
 	font-size: 20px;
 	padding: 10px 50px;
 	cursor: pointer;
+	letter-spacing: 3px;
 }
 
 .content > .wrap-middle > .wrap-middle-right > .quote {
@@ -108,4 +109,44 @@ img {
 
 .content > .wrap-middle > .wrap-middle-right > .author {
 	padding-top: 10px;
+}
+
+.fc .fc-col-header-cell-cushion {
+	    letter-spacing: 2px;
+}
+.fc .fc-toolbar-title {
+	font-size: 1.25em;
+}
+.fc .fc-button {
+	padding: 0px;
+}
+.fc .fc-button-primary {
+	background-color: #fff;
+	color: #000;
+	border: none;
+}
+.fc .fc-button-primary:hover {
+	background-color: #fff;
+	color: #000;
+	border: none;
+}
+.fc .fc-button-primary:disabled {
+	background-color: #fff;
+	color: #000;
+	border: none;
+}
+.fc .fc-button .fc-icon {
+    font-size: 1.8em;
+}
+
+.fc .fc-toolbar.fc-header-toolbar {
+	margin-right: 10px;
+}
+
+.fc .fc-daygrid-day.fc-day-today {
+	background-color: #ffe0d7;
+}
+
+.fc .fc-highlight {
+	background: #fff;
 }
