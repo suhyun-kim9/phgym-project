@@ -36,12 +36,6 @@ public class BoardController extends HttpServlet {
 
 		BoardService service = new BoardServiceImpl();
 		
-		if(request.getSession().getAttribute("sessionAdminNo") != null) {
-        	request.getSession().setAttribute("LogoutMsg", "Y");
-        	response.sendRedirect("/PHGYM/admin/account.admin");
-        	return;
-        }
-		
 		if(command.equals("/board/main_exe_list.board")) { // 메인 운동정보 목록
 			
 			service = new BoardServiceImpl();
