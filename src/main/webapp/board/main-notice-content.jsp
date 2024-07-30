@@ -25,11 +25,8 @@
 <body>
  	<jsp:include page="../include/main-navigation.jsp"/>
 	<div class="content"> 
-		<div class="main">
+		<div class="main2">
 			<section id="wrap">
-	
-
-
 
 	<div class="content2">
         <div class="inquiry-view">

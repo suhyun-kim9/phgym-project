@@ -138,7 +138,7 @@ public class BoardServiceImpl implements BoardService {
 	    sql.commit();
 	    
 	    BoardDTO dto = board.getContent(infoNo);
-	    
+	    System.out.println(dto);
 
 	    sql.close();
 	    request.setAttribute("dto", dto);
