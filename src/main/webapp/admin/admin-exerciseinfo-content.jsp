@@ -42,7 +42,7 @@
                      <%--    <c:if test="${sessionScope.adminNo != null || sessionScope.adminNo != ''}"> --%>
                              <!-- <button class="icon-btn">⋮</button> -->
                             <div class="icon_click">
-                                <input type="button" value="삭제" onclick="confirmDelete(${dto.adminNo})"> 
+                                <input type="button" value="삭제" onclick="confirmDelete(${dto.infoNo})"> 
                             </div>
                             
                     </div>

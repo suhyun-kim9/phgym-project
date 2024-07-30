@@ -47,7 +47,7 @@
               </div>
             </form>
         
-        <c:if test="${not empty listn}">
+        <c:if test="${!empty lists}">
             <p class="result_search"> 검색 결과: <span> ${fn:length(listn)} </span> 건 </p>
 
             <div class="content_box3">
@@ -62,10 +62,10 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <c:forEach var="dto" items="${listn}">
+                    <c:forEach var="dto" items="${lists}">
                         <tr>
-                            <td>${dto.noticeNo}</td>
-                            <td><a href="main_notice_content.board?noticeNo=${dto.noticeNo}">${dto.title}</a></td>
+                            <td>${dto.inquiryNo}</td>
+                            <td><a href="main_qna_content.board?inquiryNo=${dto.inquiryNo}">${dto.title}</a></td>
                             <td>${dto.adminNo}</td>
                             <td><fmt:formatDate value="${dto.writeDate}" pattern="yyyy년 MM월 dd일 HH시 mm분 ss초"/></td>
                             <td>${dto.hit}</td>
@@ -75,7 +75,7 @@
             </table>
         </c:if>
         
-        <c:if test="${empty listn}">
+        <c:if test="${empty lists}">
             <p class="result_non">검색 결과가 없습니다.</p>
         </c:if>
 
@@ -99,7 +99,7 @@
         </div>
     </div>
         <div class="buttons">
-            <input type="button" value="등록"  class="btn-hover btnRegi" class="combtn" onclick="location.href='main_notice_post.board';">
+            <input type="button" value="등록"  class="btn-hover btnRegi" class="combtn" onclick="location.href='main_qna_post2.board';">
         </div>
     </div>
     </section>

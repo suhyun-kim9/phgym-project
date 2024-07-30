@@ -83,7 +83,11 @@ public class BoardServiceImpl implements BoardService {
 		request.setAttribute("totalPages", totalPages);
 		request.setAttribute("totalCount", totalCount);
 		
-		request.getRequestDispatcher("main-exerciseinfo-list.jsp").forward(request, response);
+		if (request.getSession().getAttribute("sessionAdminNo") != null) {
+			request.getRequestDispatcher("../admin/admin-exerciseinfo-list.jsp").forward(request, response);
+		} else {
+			request.getRequestDispatcher("main-exerciseinfo-list.jsp").forward(request, response);
+		}
 		
 	}
 
@@ -131,41 +135,31 @@ public class BoardServiceImpl implements BoardService {
 	public void getContent(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int infoNo = Integer.parseInt(request.getParameter("infoNo"));
 		
-		SqlSession sql = sqlSessionFactory.openSession();
+		SqlSession sql = sqlSessionFactory.openSession(true);
 	    BoardMapper board = sql.getMapper(BoardMapper.class);
-	    
 	    board.increaseHit(infoNo);
-	    sql.commit();
-	    
 	    BoardDTO dto = board.getContent(infoNo);
-	    System.out.println(dto);
-
 	    sql.close();
+	    
 	    request.setAttribute("dto", dto);
-	    request.getRequestDispatcher("main-exerciseinfo-content.jsp").forward(request, response);
-		
+	    if (request.getSession().getAttribute("sessionAdminNo") != null) {
+			request.getRequestDispatcher("../admin/admin-exerciseinfo-content.jsp").forward(request, response);
+		} else {
+			request.getRequestDispatcher("main-exerciseinfo-content.jsp").forward(request, response);
+		}
 	}
 
 	@Override
 	public void delete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
 		int infoNo = Integer.parseInt(request.getParameter("infoNo"));
-		int adminNo = 1;
+		System.out.println("infoNo = " + infoNo);
 		
-	    SqlSession sql = sqlSessionFactory.openSession();
+	    SqlSession sql = sqlSessionFactory.openSession(true);
 	    BoardMapper mapper = sql.getMapper(BoardMapper.class);
-
-	    BoardDTO dto = mapper.getContent(infoNo);
-
-	    if(dto.getAdminNo() == adminNo) {
-	        mapper.delete(infoNo);
-	        
-	        sql.commit();
-	    }
+	    mapper.delete(infoNo);
 	    sql.close();
 	    
 	    response.sendRedirect("main_exe_list.board");
-		
 	}
 
 	// ================================================================================================
@@ -218,6 +212,7 @@ public class BoardServiceImpl implements BoardService {
 	    params.put("endIndexs", endIndexs);
 		
 		ArrayList<QnaDTO> lists = board.getList1(startIndexs, endIndexs);
+		System.out.println("lists = " + lists);
 		
 		int totalCounts = board.getTotalCounts();
 		
@@ -230,8 +225,11 @@ public class BoardServiceImpl implements BoardService {
 		request.setAttribute("totalPagess", totalPagess);
 		request.setAttribute("totalCounts", totalCounts);
 		
-		request.getRequestDispatcher("main-qna-list.jsp").forward(request, response);
-		
+		if (request.getSession().getAttribute("sessionAdminNo") != null) {
+			request.getRequestDispatcher("../admin/admin-qna-list.jsp").forward(request, response);
+		} else {
+			request.getRequestDispatcher("main-qna-list.jsp").forward(request, response);
+		}
 	}
 
 
@@ -275,21 +273,21 @@ public class BoardServiceImpl implements BoardService {
 
 	@Override
 	public void getContent1(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
 		int inquiryNo = Integer.parseInt(request.getParameter("inquiryNo"));
 		
-		SqlSession sql = sqlSessionFactory.openSession();
+		SqlSession sql = sqlSessionFactory.openSession(true);
 	    BoardMapper board = sql.getMapper(BoardMapper.class);
 	    
 	    board.increaseHit1(inquiryNo);
-	    sql.commit();
-	    
 	    QnaDTO dto = board.getContent1(inquiryNo);
-	    
 	    sql.close();
+	    
 	    request.setAttribute("dto", dto);
-	    request.getRequestDispatcher("main-qna-content.jsp").forward(request, response);
-		
+	    if (request.getSession().getAttribute("sessionAdminNo") != null) {
+	    	request.getRequestDispatcher("../admin/admin-qna-content.jsp").forward(request, response);
+		} else {
+			request.getRequestDispatcher("main-qna-content.jsp").forward(request, response);
+		}
 	}
 
 	@Override

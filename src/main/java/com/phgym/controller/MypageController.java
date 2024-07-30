@@ -34,12 +34,6 @@ public class MypageController extends HttpServlet {
 		
 		MypageService service = null;
 		
-		if(request.getSession().getAttribute("sessionAdminNo") != null) {
-        	request.getSession().setAttribute("LogoutMsg", "Y");
-        	response.sendRedirect("/PHGYM/admin/account.admin");
-        	return;
-        }
-		
 		if(command.equals("/mypage/checkin.mypage")) { //출석체크 페이지 이동
 			service = new MypageServiceImpl();
 			service.checkCheckin(request, response);
