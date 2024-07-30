@@ -1,14 +1,13 @@
-body {
-	font-weight: 300;
+.section {
+	width: 1024px;
+	margin: 111px auto;
 
-	line-height: 1.7;
-	color: #c4c3ca;
-	overflow-x: hidden;
 }
+
 a {
 	cursor: pointer;
   transition: all 200ms linear;
-}
+} 
 a:hover {
 	text-decoration: none;
 }
@@ -61,10 +60,10 @@ h6 span{
   font-weight: 700;
 }
 
-
-.full-height{
+/* .full-height{
   min-height: 100vh;
-}
+} */
+
 .input2[type="checkbox"]:checked,
 .input2[type="checkbox"]:not(:checked){
   position: absolute;
@@ -74,16 +73,15 @@ h6 span{
 .checkbox:not(:checked) + label{
   position: relative;
   display: block;
-  top: 125px;
   text-align: center;
   width: 60px;
   height: 16px;
   border-radius: 8px;
   padding: 0;
-  margin: 10px auto;
+  margin: 40px auto;
   cursor: pointer;
   background-color: #959595;
-  z-index: -10;
+  z-index: 1;
 }
 .checkbox:checked + label:before,
 .checkbox:not(:checked) + label:before{
@@ -110,7 +108,7 @@ h6 span{
 
 
 .card-3d-wrap {
- margin: auto;
+  margin: auto;
   position: relative;
   width: 440px;
   max-width: 100%;
@@ -118,7 +116,6 @@ h6 span{
   -webkit-transform-style: preserve-3d;
   transform-style: preserve-3d;
   perspective: 800px;
-  margin-top: 175px;
 }
 .card-3d-wrapper {
   width: 100%;

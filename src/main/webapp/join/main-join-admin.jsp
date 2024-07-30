@@ -8,6 +8,7 @@
 <title>Document</title>
 <link rel="stylesheet" href="css/main-join-admin.css">
 <link rel="stylesheet" href="../include/css/main-navigation.css">
+<link rel="stylesheet" href="../include/css/main-footer.css">
 </head>
 <body>
 	
@@ -346,5 +347,6 @@
             }
         }
     </script>
+    <jsp:include page="../include/main-footer.jsp"/>
 </body>
 </html>
