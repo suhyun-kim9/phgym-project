@@ -227,7 +227,19 @@
 		<script>
 		
 		
-	
+
+
+		const rows = document.querySelectorAll('.user_table tr');
+
+		rows.forEach(row=> {
+		    row.addEventListener("click", function(event){
+		        const link = row.querySelector("a");
+		        if(link) {
+		            const href = link.getAttribute("href");
+		            window.location.href = href;
+		        }
+		    })
+		})
 		
 		
 		let N = 'N';
