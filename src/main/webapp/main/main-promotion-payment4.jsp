@@ -241,7 +241,7 @@
                    <div class="pay-method">
                        <a>결제방법</a>
                        <input type="text" name="payMethod" id="payMethod" required disabled>
-                       <select size="1" class="method-list" onchange="myMethod(this.value)">
+                       <select size="1" class="method-list" name="methodBox">
                            <option value="선택하세요">선택하세요</option>
                            <option value="무통장 입금">무통장 입금</option>
                            <option value="카드 결제">카드 결제</option>
@@ -256,7 +256,7 @@
                    <div class="refund-name">
                        <a>환불은행</a>
                        <input type="text" name="refundBankname" id="refundBankname" required disabled>
-                       <select size="1" class="name-list" onchange="myBank(this.value)">
+                       <select size="1" class="name-list" name="nameBox">
                            <option value="선택하세요">선택하세요</option>
                            <option value="국민은행">국민은행</option>
                            <option value="농협은행">농협은행</option>
