@@ -24,7 +24,7 @@
         /* 전체 윤곽 */
         .intro-wrap {
             border: 0px solid #000; 
-            width: 1024px; height: 850px; margin-left: 275px;
+            width: 1024px; height: 850px; margin: auto;
         }
 
         
@@ -33,7 +33,7 @@
             border: 0px solid #000; border-radius: 10px;
             width: 500px;  box-shadow: 2px 4px 12px #00000014;
             height: 5%; line-height: 42.5px;
-            display: flex; position: relative; top: 25px; left: 275px;
+            display: flex; position: relative; top: 25px; margin: auto;
         }
         .intro-wrap > .intro-name a {
             color: #000; 

@@ -148,10 +148,10 @@
                         <img src="img/slide2.jpg" alt="">
                     </div>
                     <div class="swiper-slide">
-                        <img src="img/slide4.jpg" alt="">
+                        <img src="img/slide6.jpg" alt="">
                     </div>
                     <div class="swiper-slide">
-                        <img src="img/slide12.jpg" alt="">
+                        <img src="img/slide4.jpg" alt="">
                     </div>
                 </div>
                 <!-- If we need pagination -->

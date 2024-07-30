@@ -23,37 +23,38 @@ public class MainServiceImpl implements MainService {
 	public void buyPromotion1(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		int sessionUserNo = (int)request.getSession().getAttribute("sessionUserNo");
-        System.out.println("sessionUserNo = " + sessionUserNo);
         
-        String payMethod =  request.getParameter("payMethod"); //결제방법
+        String payMethod =  request.getParameter("payMethod"); //결제방법(input)
+        String methodBox = request.getParameter("methodBox"); //결제방법(select)
         String refundBackname = request.getParameter("refundBankname"); //환불(은행명)
+        String nameBox = request.getParameter("nameBox"); //환불(select)
         String refundBankAccount =  request.getParameter("refundBankAccount"); //환불(계좌번호)
         int payAmount = Integer.parseInt(request.getParameter("payAmount")); //상품금액
         LocalDate startDate = LocalDate.parse(request.getParameter("startDate"), DateTimeFormatter.ISO_DATE);
         LocalDate endDate = LocalDate.parse(request.getParameter("endDate"), DateTimeFormatter.ISO_DATE);
         
-        System.out.println("작동1");
-        
         MembershipPayHisDTO dto = new MembershipPayHisDTO();
         dto.setUserNo(sessionUserNo);
-        dto.setPayMethod(payMethod);
-        dto.setRefundBankname(refundBackname);
+        if(payMethod == null || payMethod == "") {
+        	dto.setPayMethod(methodBox);
+        } else {
+        	dto.setPayMethod(payMethod);
+        }
+        if(refundBackname == null || refundBackname == "") {
+        	dto.setRefundBankname(nameBox);
+        } else {
+        	dto.setRefundBankname(refundBackname);
+        }
         dto.setRefundBankAccount(refundBankAccount);
         dto.setPayAmount(payAmount);
         dto.setStartDate(startDate);
         dto.setEndDate(endDate);
         System.out.println(dto);
         
-        System.out.print("작동됨 서비스0");
-
-
         SqlSession sql = sqlSessionFactory.openSession(true);
-        System.out.print("작동됨 서비스1");
         MainMapper main = sql.getMapper(MainMapper.class);
-        System.out.print("작동됨 서비스2");
         
-        int result = main.buyPromotion1(dto);
-        System.out.println("성공:" + result);
+        main.buyPromotion1(dto);
         
         request.getSession().setAttribute("msg", "y");
         response.sendRedirect("/PHGYM/main/main-userhome.jsp"); 
@@ -66,6 +67,8 @@ public class MainServiceImpl implements MainService {
         
         
         String payMethod =  request.getParameter("payMethod"); //결제방법
+        String methodBox = request.getParameter("methodBox"); //결제방법(select)
+        String nameBox = request.getParameter("nameBox"); //환불(select)
         String refundBackname = request.getParameter("refundBankname"); //환불(은행명)
         String refundBankAccount =  request.getParameter("refundBankAccount"); //환불(계좌번호)
         int payAmount = Integer.parseInt(request.getParameter("payAmount")); //상품금액
@@ -76,8 +79,18 @@ public class MainServiceImpl implements MainService {
         
         MembershipPayHisDTO dto = new MembershipPayHisDTO();
         dto.setUserNo(sessionUserNo);
-        dto.setPayMethod(payMethod);
-        dto.setRefundBankname(refundBackname);
+        if(payMethod == null || payMethod == "") {
+        	dto.setPayMethod(methodBox);
+        } else {
+        	dto.setPayMethod(payMethod);
+        }
+        if(refundBackname == null || refundBackname == "") {
+        	dto.setRefundBankname(nameBox);
+        } else {
+        	dto.setRefundBankname(refundBackname);
+        }
+        
+        
         dto.setRefundBankAccount(refundBankAccount);
         dto.setPayAmount(payAmount);
         dto.setStartDate(startDate);
@@ -106,6 +119,8 @@ public class MainServiceImpl implements MainService {
 		int sessionUserNo = (int)request.getSession().getAttribute("sessionUserNo");
 
         String payMethod =  request.getParameter("payMethod"); //결제방법
+        String methodBox = request.getParameter("methodBox"); //결제방법(select)
+        String nameBox = request.getParameter("nameBox"); //환불(select)
         String refundBackname = request.getParameter("refundBankname"); //환불(은행명)
         String refundBankAccount =  request.getParameter("refundBankAccount"); //환불(계좌번호)
         int payAmount = Integer.parseInt(request.getParameter("payAmount")); //상품금액
@@ -117,8 +132,18 @@ public class MainServiceImpl implements MainService {
         
         MembershipPayHisDTO dto = new MembershipPayHisDTO();
         dto.setUserNo(sessionUserNo);
-        dto.setPayMethod(payMethod);
-        dto.setRefundBankname(refundBackname);
+        if(payMethod == null || payMethod == "") {
+        	dto.setPayMethod(methodBox);
+        } else {
+        	dto.setPayMethod(payMethod);
+        }
+        if(refundBackname == null || refundBackname == "") {
+        	dto.setRefundBankname(nameBox);
+        } else {
+        	dto.setRefundBankname(refundBackname);
+        }
+        
+        
         dto.setRefundBankAccount(refundBankAccount);
         dto.setPayAmount(payAmount);
         dto.setStartDate(startDate);
@@ -150,6 +175,8 @@ public class MainServiceImpl implements MainService {
 		int sessionUserNo = (int)request.getSession().getAttribute("sessionUserNo"); //회원번호
 
         String payMethod =  request.getParameter("payMethod"); //결제방법
+        String methodBox = request.getParameter("methodBox"); //결제방법(select)
+        String nameBox = request.getParameter("nameBox"); //환불(select)
         int payCnt =  Integer.parseInt(request.getParameter("payCnt")); //구매개수
         int payPrice = Integer.parseInt(request.getParameter("payPrice")); //결제금액
         String refundBackname = request.getParameter("refundBankname"); //환불(은행명)
@@ -160,10 +187,21 @@ public class MainServiceImpl implements MainService {
         
         PtPayHisDTO dto = new PtPayHisDTO();
         dto.setUserNo(sessionUserNo);
-        dto.setPayMethod(payMethod);
+        if(payMethod == null || payMethod == "") {
+        	dto.setPayMethod(methodBox);
+        } else {
+        	dto.setPayMethod(payMethod);
+        }
+        if(refundBackname == null || refundBackname == "") {
+        	dto.setRefundBankname(nameBox);
+        } else {
+        	dto.setRefundBankname(refundBackname);
+        }
+        
+        
         dto.setPayCnt(payCnt);
         dto.setPayPrice(payPrice);
-        dto.setRefundBankname(refundBackname);
+        
         dto.setRefundBankAccount(refundBankAccount);
         
         System.out.println(dto);
