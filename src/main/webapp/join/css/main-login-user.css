@@ -83,7 +83,6 @@ h6 span{
   margin: 10px auto;
   cursor: pointer;
   background-color: #959595;
-  z-index: -10;
 }
 .checkbox:checked + label:before,
 .checkbox:not(:checked) + label:before{

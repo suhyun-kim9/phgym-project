@@ -21,7 +21,7 @@ pageEncoding="UTF-8" isErrorPage="true"%>
 	                <span class="inner-status">Oops! You're lost</span>
 	                <span class="inner-detail">
 	                    We can not find the page you're looking for.
-	                    <a href="#" class="btn btn-info mtl"><i class="fa fa-home"></i>&nbsp;
+	                    <a href="/PHGYM/main/userhome.main" class="btn btn-info mtl"><i class="fa fa-home"></i>&nbsp;
 	                        Return home
 	                    </a> 
 	                </span>

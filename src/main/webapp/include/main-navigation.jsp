@@ -19,7 +19,6 @@
 		<li class="dr2"><a href="/PHGYM/main/promotionList.main" style="color: black;"> 프로모션 </a></li>
 		<li class="dr dropdown2"><a style="color: black;"> 문의/고객센터 </a></li>
 		<div class="dropdownContent2">
-			<li><i class="bi bi-chat-dots"></i> <a href="/PHGYM/board/main_qna_list.board"> 문의사항 </a></li>
 			<li><i class="bi bi-bell"></i> <a href="/PHGYM/board/main_notice_list.board"> 공지사항 </a></li>
 			<li><i class="bi bi-archive"></i> <a href="/PHGYM/board/main_exe_list.board"> 운동정보 </a></li>
 			<li><i class="bi bi-chat-dots"></i> <a href="/PHGYM/board/main_qna_list.board"> 문의사항 </a></li>
