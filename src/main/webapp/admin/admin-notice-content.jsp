@@ -8,14 +8,15 @@
 	<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>공지사항내용</title>
-	<link rel="stylesheet" href="../include/css/main-navigation.css">
-    <link rel="stylesheet" href="css/main-notice-content.css">
+	<link rel="stylesheet" href="../include/css/admin-navigation.css">
+    <link rel="stylesheet" href="../admin/css/admin-notice-content.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    
+
+	
     <script>
         function confirmDelete(noticeNo) {
             if(confirm("삭제하시겠습니까?")) {
-                location.href = 'main_exe_delete.board?noticeNo=' + noticeNo;
+                location.href = '/PHGYM/board/main_notice_delete.board?noticeNo=' + noticeNo;
             }
         }
     </script>
@@ -23,12 +24,10 @@
 </head>
 <body>
  
-	<div class="content"> 
+	<div class="content">
+	<jsp:include page="../include/admin-navigation.jsp" />
 		<div class="main">
 			<section id="wrap">
-	
-
-	<jsp:include page="../include/main-navigation.jsp"/>
 
 	<div class="content2">
         <div class="inquiry-view">
@@ -40,13 +39,12 @@
                     </div>    
                     <div class="header-icons">
                        
-                        <c:if test="${sessionScope.adminNo }">
-                            <!-- <button class="icon-btn">⋮</button> -->
+                     <%--    <c:if test="${sessionScope.adminNo != null || sessionScope.adminNo != ''}"> --%>
+                             <!-- <button class="icon-btn">⋮</button> -->
                             <div class="icon_click">
                                 <input type="button" value="삭제" onclick="confirmDelete(${dto.noticeNo})"> 
                             </div>
                             
-                         </c:if>   
                     </div>
                 </div>
 

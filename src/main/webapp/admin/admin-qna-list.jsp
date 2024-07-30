@@ -26,12 +26,12 @@
 <body>
 
 
-<jsp:include page="../include/admin-navigation.jsp"/>
 
     
 <div class="content"> 
     <div class="main">
         <section id="wrap">
+<jsp:include page="../include/admin-navigation.jsp"/>
 
     <div class="container">
 

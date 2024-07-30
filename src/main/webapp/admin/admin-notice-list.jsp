@@ -1,6 +1,3 @@
-<!--  해찬님 폴더 가져옴 -->
-
-
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -14,26 +11,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>공지사항 목록</title>
+    <title>공지사항 목록(관리자)</title>
 
     <link rel="stylesheet" href="../admin/css/admin-notice-list.css">
     <link rel="stylesheet" href="../include/css/admin-navigation.css">
-    
-    
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     
 </head>
 <body>
 
 
-<jsp:include page="../include/admin-navigation.jsp"/>
+
 
     
 <div class="content"> 
+<jsp:include page="../include/admin-navigation.jsp"/>
+
     <div class="main">
         <section id="wrap">
-
-    <div class="container">
 
             <form action="main_notice_search.board" method="get">
                 <div class="search_box">
@@ -41,14 +36,14 @@
                         <i class="bi bi-bell"></i> <span>공지사항</span>
                       </div>
                       <div class="search_bar1">
-                          <input type="text" name="userName" placeholder="제목을 입력하세요.">
+                          <input type="text" name="searchKeywordn" placeholder="검색어를 입력하세요.">
                           <input type="submit"  class="btn-hover color-4" value="조회">
                       </div>
               </div>
             </form>
         
         <c:if test="${not empty listn}">
-            <p class="result_search"> 검색 결과: <span> ${fn:length(listn)} </span> 건 </p>
+            <p class="result_search"> 검색 결과: <span> ${totalCountn} </span> 건 </p>
 
             <div class="content_box3">
             <table class="user_table" style="table-layout: fixed">
@@ -73,6 +68,7 @@
                     </c:forEach>
                 </tbody>
             </table>
+           </div> 
         </c:if>
         
         <c:if test="${empty listn}">
@@ -97,13 +93,12 @@
                 <a href="main_notice_list.board?pagen=${pagen + 1}">Next</a>
             </c:if>
         </div>
-    </div>
-        <div class="buttons">
-            <input type="button" value="등록"  class="btn-hover btnRegi" class="combtn" onclick="location.href='main_notice_post.board';">
+          <div class="buttons">
+            <input type="button" value="등록"  class="btn-hover btnRegi" class="combtn" onclick="location.href='main_notice_post2.board';">
         </div>
+        </section>
     </div>
-    </section>
-    </div>
+      
     </div>
 
 </body>

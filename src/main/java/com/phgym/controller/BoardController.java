@@ -105,14 +105,17 @@ public class BoardController extends HttpServlet {
             
             //========================공지사항
         } else if(command.equals("/board/main_notice_list.board")) { // 공지사항 목록
-        	
+
         	service = new BoardServiceImpl();
 			service.getListN(request, response);
-			request.getRequestDispatcher("main-notice-list.jsp").forward(request, response);
+			
+//			request.getRequestDispatcher("main-notice-list.jsp").forward(request, response);
         	
         } else if(command.equals("/board/main_notice_post.board")) { // 작성
-			
 			request.getRequestDispatcher("main-notice-post.jsp").forward(request, response);
+			
+		} else if(command.equals("/board/main_notice_post2.board")) { // 작성 (admin)
+			request.getRequestDispatcher("../admin/admin-notice-post.jsp").forward(request, response);
 			
 		} else if(command.equals("/board/main_notice_post_regist.board")) { // 등록
 			
@@ -128,10 +131,10 @@ public class BoardController extends HttpServlet {
 			
 			service = new BoardServiceImpl();
 			service.getContentN(request, response);
-			request.getRequestDispatcher("main-notice-content.jsp").forward(request, response);
+//			request.getRequestDispatcher("main-notice-content.jsp").forward(request, response);
 			
 		} else if(command.equals("/board/main_notice_delete.board")) { // 삭제
-			
+			service = new BoardServiceImpl();
 			service.deleteN(request, response);
 			//=================================================================================
 		}

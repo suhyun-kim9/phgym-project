@@ -8,7 +8,8 @@
     <title>운동정보작성</title>
 
     <link rel="stylesheet" href="css/main-exerciseinfo-post.css">
-    
+    <link rel="stylesheet" href="../include/css/admin-navigation.css">
+	
     <script>
         function validateForm() {
             var adminNo = document.getElementById("writer").value;
@@ -25,7 +26,11 @@
     
 </head>
 <body>
-    
+	<div class="content">
+
+		<jsp:include page="../include/admin-navigation.jsp" />
+		<div class="main">
+			<section id="wrap">
     <div class="form-container">
         <div class="header">
             <input type="button" value="←" style="width: 30px" onclick="location.href='main_exe_list.board'">

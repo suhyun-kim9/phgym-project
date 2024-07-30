@@ -81,6 +81,8 @@ public class BoardServiceImpl implements BoardService {
 		request.setAttribute("list", list);
 		request.setAttribute("page", page);
 		request.setAttribute("totalPages", totalPages);
+		request.setAttribute("totalCount", totalCount);
+		
 		request.getRequestDispatcher("main-exerciseinfo-list.jsp").forward(request, response);
 		
 	}
@@ -119,6 +121,8 @@ public class BoardServiceImpl implements BoardService {
 		request.setAttribute("page", page);
 		request.setAttribute("totalPages", totalPages);
 		request.setAttribute("searchKeyword", searchKeyword);
+		request.setAttribute("totalCount", totalCount);
+		
 		request.getRequestDispatcher("main-exerciseinfo-list.jsp").forward(request, response);
 		
 	}
@@ -224,6 +228,8 @@ public class BoardServiceImpl implements BoardService {
 		request.setAttribute("lists", lists);
 		request.setAttribute("pages", pages);
 		request.setAttribute("totalPagess", totalPagess);
+		request.setAttribute("totalCounts", totalCounts);
+		
 		request.getRequestDispatcher("main-qna-list.jsp").forward(request, response);
 		
 	}
@@ -261,6 +267,8 @@ public class BoardServiceImpl implements BoardService {
 		request.setAttribute("pages", pages);
 		request.setAttribute("totalPagess", totalPagess);
 		request.setAttribute("searchKeywords", searchKeywords);
+		request.setAttribute("totalCounts", totalCounts);
+		
 		request.getRequestDispatcher("main-qna-list.jsp").forward(request, response);
 		
 	}
@@ -423,13 +431,23 @@ public class BoardServiceImpl implements BoardService {
 		request.setAttribute("listn", listn);
 		request.setAttribute("pagen", pagen);
 		request.setAttribute("totalPagesn", totalPagesn);
-		request.getRequestDispatcher("main-notice-list.jsp").forward(request, response);
+		request.setAttribute("totalCountn", totalCountn);
+		
+		if (request.getSession().getAttribute("sessionAdminNo") != null) {
+			request.getRequestDispatcher("../admin/admin-notice-list.jsp").forward(request, response);	
+			return;	
+		} else {
+			request.getRequestDispatcher("main-notice-list.jsp").forward(request, response);
+			return;	
+		}
+		
+		
 		
 	}
 
 	@Override
 	public void searchListN(HttpServletRequest request, HttpServletResponse response, String searchKeywordn) throws ServletException, IOException {
-
+		System.out.println("searchKeywordn = " + searchKeywordn);
 		int pagen = 1;
 		int pageSizen = 10;
 		
@@ -439,19 +457,14 @@ public class BoardServiceImpl implements BoardService {
 			e.printStackTrace();
 		}
 		
-		//
 		int startIndexn = (pagen - 1) * pageSizen + 1;
 		int endIndexn = pagen * pageSizen;
 		
 		SqlSession sql = sqlSessionFactory.openSession();
 		BoardMapper board = sql.getMapper(BoardMapper.class);
 		
-		Map<String, Object> params = new HashMap<>();
-		params.put("searchKeywordn", searchKeywordn);
-		params.put("startIndexn", startIndexn);
-		params.put("pageSizen", pageSizen);
-		
-		ArrayList<NoticeDTO> listn = board.searchListN(searchKeywordn, startIndexn, endIndexn);
+		List<NoticeDTO> listn = board.searchListN(searchKeywordn, startIndexn, endIndexn);
+		System.out.println("listn = " + listn);
 		int totalCountn = board.getSearchCountN(searchKeywordn);
 		
 		sql.close();
@@ -462,7 +475,15 @@ public class BoardServiceImpl implements BoardService {
 		request.setAttribute("pagen", pagen);
 		request.setAttribute("totalPagesn", totalPagesn);
 		request.setAttribute("searchKeywordn", searchKeywordn);
-		request.getRequestDispatcher("main-notice-list.jsp").forward(request, response);
+		request.setAttribute("totalCountn", totalCountn);
+		
+		
+		if(request.getSession().getAttribute("sessionAdminNo") != null) {
+			request.getRequestDispatcher("../admin/admin-notice-list.jsp").forward(request, response);
+			return;
+		} else {
+			request.getRequestDispatcher("main-notice-list.jsp").forward(request, response);
+		}
 		
 		
 	}
@@ -482,8 +503,17 @@ public class BoardServiceImpl implements BoardService {
 	    NoticeDTO dto = board.getContentN(noticeNo);
 
 	    sql.close();
+	    
 	    request.setAttribute("dto", dto);
-	    request.getRequestDispatcher("main-notice-content.jsp").forward(request, response);
+		if (request.getSession().getAttribute("sessionAdminNo") != null) {
+			 request.getRequestDispatcher("../admin/admin-notice-content.jsp").forward(request, response);
+			return;	
+		}else {
+			 request.getRequestDispatcher("main-notice-content.jsp").forward(request, response);
+			return;	
+		}
+	   
+	   
 		
 	}
 
@@ -491,17 +521,12 @@ public class BoardServiceImpl implements BoardService {
 	public void deleteN(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		int noticeNo = Integer.parseInt(request.getParameter("noticeNo"));
-		int adminNo = 1;
-	    SqlSession sql = sqlSessionFactory.openSession();
+		System.out.println("noticeNo = " + noticeNo);
+	    SqlSession sql = sqlSessionFactory.openSession(true);
 	    BoardMapper mapper = sql.getMapper(BoardMapper.class);
-
-	    NoticeDTO dto = mapper.getContentN(noticeNo);
-	    System.out.println(noticeNo);
-	    if(dto.getAdminNo() == adminNo) {
-	        mapper.delete(noticeNo);
-	        sql.commit();
-	    }
+	    mapper.deleteN(noticeNo);
 	    sql.close();
+	    
 	    response.sendRedirect("main_notice_list.board");
 		
 	}	

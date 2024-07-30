@@ -40,7 +40,7 @@
             </form>
         
         <c:if test="${not empty lists}">
-            <p class="result_search"><small> 검색 결과: <span> ${fn:length(lists)} </span> 건 </small></p>
+            <p class="result_search"><small> 검색 결과: <span> ${totalCountns} </span> 건 </small></p>
 
             <div class="content_box3">
             <table class="user_table" style="table-layout: fixed">
