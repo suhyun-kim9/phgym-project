@@ -9,6 +9,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 <link rel="stylesheet" href="../include/css/main-navigation.css">
+<link rel="stylesheet" href="../include/css/main-footer.css">
 <link rel="stylesheet" href="css/mypage-reservation-trainer.css">
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 </head>
@@ -31,7 +32,7 @@
 							<button onclick="location.href='reservationDate.mypage?adminNo=1'" class="button button--wapasha button--round-s">예약하기</button>
 						</div>
 						<div class="intro-content">
-							<p>✔︎ 김강함 트레이너</p>
+							<p>✔︎ 잉혜죽 트레이너</p>
 							<div>
 								<p>한국체육대학교 사회체육학과 전공</p>
 								<p>생활 스포츠 지도사 2급 (보디빌딩)</p>
@@ -47,7 +48,7 @@
                             <button onclick="location.href='reservationDate.mypage?adminNo=2'" class="button button--wapasha button--round-s"> 예약하기 </button>
                         </div>
                         <div class="intro-content">
-                            <p>✔︎ 김강함 트레이너</p>
+                            <p>✔︎ 김물현 트레이너</p>
                             <div>
                             	<p>생활 스포츠 지도사 2급 (보디빌딩)</p>
 	                            <p>피돌로지 영양 전문가 과정 수료</p>
@@ -63,7 +64,7 @@
                             <button onclick="location.href='reservationDate.mypage?adminNo=3'" class="button button--wapasha button--round-s"> 예약하기 </button>
                         </div>
                         <div class="intro-content">
-                            <p>✔︎ 김강함 트레이너</p>
+                            <p>✔︎ 북상혁 트레이너</p>
                             <div>
                             	<p>계명대학교 사회체육학과 전공</p>
 	                            <p>생활 스포츠 지도사 2급 (보디빌딩)</p>
@@ -79,7 +80,7 @@
                             <button onclick="location.href='reservationDate.mypage?adminNo=4'" class="button button--wapasha button--round-s"> 예약하기 </button>
                         </div>
                         <div class="intro-content">
-                            <p>✔︎ 김강함 트레이너</p>
+                            <p>✔︎ 해찬들 트레이너</p>
                             <div>
                             	<p>생활 스포츠 지도사 2급 (보디빌딩)</p>
 	                            <p>바디밸런스 필라테스 교육과정 수료</p>
@@ -95,7 +96,7 @@
                             <button onclick="location.href='reservationDate.mypage?adminNo=5'" class="button button--wapasha button--round-s"> 예약하기 </button>
                         </div>
                         <div class="intro-content">
-                            <p>✔︎ 김강함 트레이너</p>
+                            <p>✔︎ 박욱인 트레이너</p>
                             <div>
                             	<p>앞구르기 대회 1등</p>
 	                            <p>복싱 클럽 운영</p>
@@ -111,7 +112,7 @@
                             <button onclick="location.href='reservationDate.mypage?adminNo=6'" class="button button--wapasha button--round-s"> 예약하기 </button>
                         </div>
                         <div class="intro-content">
-                            <p>✔︎ 김강함 트레이너</p>
+                            <p>✔︎ 간지윤 트레이너</p>
                            	<div>
                            		<p>앞구르기 대회 1등</p>
 	                            <p>복싱 클럽 운영</p>
@@ -127,6 +128,8 @@
 			</div>
 		</div>
 	</section>
+	
+	<jsp:include page="../include/main-footer.jsp"/>
 
 	<script type="text/javascript">
 		var btn = document.querySelectorAll("button");

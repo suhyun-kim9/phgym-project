@@ -32,6 +32,7 @@ import jakarta.servlet.http.HttpServletResponse;
 public class MypageServiceImpl implements MypageService {
 	
 	private SqlSessionFactory sqlSessionFactory = MybatisUtil.getSqlSessionFactory();
+	private static final int PAGE_SIZE = 5; // 페이지당 항목 수
 
 	@Override
 	public void doCheckin(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -127,7 +128,6 @@ public class MypageServiceImpl implements MypageService {
 		request.getRequestDispatcher("mypage-transfer.jsp").forward(request, response);
 	}
 
-	private static final int PAGE_SIZE = 5; // 페이지당 항목 수
 	@Override
 	public void statistics(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -136,15 +136,15 @@ public class MypageServiceImpl implements MypageService {
 		SqlSession sql = sqlSessionFactory.openSession(true);
 		MypageMapper mypage = sql.getMapper(MypageMapper.class);
 		
-		//페이징 테스트
+		//페이징
 		String pageParam = request.getParameter("page");
         int currentPage = (pageParam != null) ? Integer.parseInt(pageParam) : 1;
 		int startRow = (currentPage - 1) * PAGE_SIZE;
         int endRow = currentPage * PAGE_SIZE;
         
         MypageQuery query = new MypageQuery(startRow, endRow, sessionUserNo);
-        int totalRecords  = mypage.countStatistics(sessionUserNo);
-        List<CheckinHisDTO> checkinHisList = mypage.selectStatistics(query);
+        int totalRecords  = mypage.countCheckinList(sessionUserNo);
+        List<CheckinHisDTO> checkinHisList = mypage.selectCheckinList(query);
         List<CheckinListDTO> checkinList = new ArrayList<>();
         for(CheckinHisDTO checkinHisDTO : checkinHisList) {
 			CheckinListDTO checkinListDTO = new CheckinListDTO();
@@ -212,6 +212,7 @@ public class MypageServiceImpl implements MypageService {
         LocalDate localDate = LocalDate.parse(date, dateFormatter);
         // LocalDate를 LocalDateTime으로 변환 (시간 부분은 00:00:00으로 설정됨)
         LocalDateTime localDateTime = localDate.atStartOfDay();
+        System.out.println("localDateTime = " + localDateTime);
         
         PtReservationHisDTO dto = new PtReservationHisDTO();
         dto.setAdminNo(adminNo);
@@ -277,10 +278,19 @@ public class MypageServiceImpl implements MypageService {
 		MypageMapper mypage = sql.getMapper(MypageMapper.class);
 		MypageUserInfoDTO dto = mypage.getUserInfo(sessionUserNo);
 		List<MembershipPayHisDTO> list = mypage.getMembershipList(sessionUserNo);
-		List<PtReservationDTO> list2 = mypage.getPtReservationList(sessionUserNo);
-		sql.close();
 		
-		List<PtReservationDTO2> list3 = new ArrayList<>();
+		//페이징
+		String pageParam = request.getParameter("page");
+        int currentPage = (pageParam != null) ? Integer.parseInt(pageParam) : 1;
+		int startRow = (currentPage - 1) * PAGE_SIZE;
+        int endRow = currentPage * PAGE_SIZE;
+        
+        MypageQuery query = new MypageQuery(startRow, endRow, sessionUserNo);
+        int totalRecords  = mypage.countPtReservationList(sessionUserNo);
+        List<PtReservationDTO> list2 = mypage.selectPtReservationList(query);
+        sql.close();
+
+        List<PtReservationDTO2> list3 = new ArrayList<>();
 		for(PtReservationDTO dto2 : list2) {
 			PtReservationDTO2 dto3 = new PtReservationDTO2();
 			dto3.setPtReservationHisNo(dto2.getPtReservationHisNo());
@@ -290,8 +300,13 @@ public class MypageServiceImpl implements MypageService {
 			dto3.setProgressStatus(dto2.getProgressStatus());
 			list3.add(dto3);
 		}
+        
+        int totalPages = (int) Math.ceil((double) totalRecords / PAGE_SIZE);
+        
+        request.setAttribute("list3", list3);
+        request.setAttribute("currentPage", currentPage);
+        request.setAttribute("totalPages", totalPages);
 		
-		request.setAttribute("list3", list3);
 		request.setAttribute("list", list);
 		request.setAttribute("dto", dto);
 		request.getRequestDispatcher("mypage-userInfo.jsp").forward(request, response);
