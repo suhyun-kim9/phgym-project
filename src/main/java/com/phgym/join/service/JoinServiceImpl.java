@@ -175,10 +175,9 @@ public class JoinServiceImpl implements JoinService {
 		sql.close();
 		
 		if(adminLogin == null) { //로그인 실패
-			request.setAttribute("msg", "N");
-			//request.setAttribute("flag", adminLogin);
-			//response.sendRedirect("/PHGYM/join/main-login-admin.jsp"); //수정필요
-			request.getRequestDispatcher("main-login-admin.jsp").forward(request, response);;
+			request.setAttribute("msg", "아이디 또는 비밀번호를 확인하세요.");
+			request.setAttribute("loginResult", true); // 로그인 시도 플래그 설정
+			request.getRequestDispatcher("main-login-user.jsp").forward(request, response);;
 			
 			
 		} else { //로그인 성공
@@ -210,7 +209,9 @@ public class JoinServiceImpl implements JoinService {
 		
 		if(userLogin == null) { // 로그인 실패
 			request.setAttribute("msg", "아이디 또는 비밀번호를 확인하세요.");
+			request.setAttribute("loginResult", true); // 로그인 시도 플래그 설정
 			request.getRequestDispatcher("main-login-user.jsp").forward(request, response);
+			
 			
 		} else { // 로그인 성공
 			HttpSession session = request.getSession();
