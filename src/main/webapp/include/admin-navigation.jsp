@@ -12,7 +12,7 @@
 			<nav>
 				<ul class="nav_1">
 					<div class="logo1">
-						<a href="/PHGYM/admin/user-find.admin"> <img src="../include/img/logo-light.png" width=250px;> </a>
+						<a href="/PHGYM/admin/account.admin"> <img src="../include/img/logo-light.png" width=250px;> </a>
 					</div>
 					<li><i class="bi bi-person-fill"></i> <a href="/PHGYM/admin/account.admin"> 관리자 계정 </a></li>
 					<li>
