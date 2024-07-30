@@ -29,14 +29,15 @@
 	</select>
 	
 	<select id="getCheckinList" parameterType="int" resultType="com.phgym.mypage.model.CheckinHisDTO">
-		select rownum, a.user_no as user_no, a.checkin_date as checkin_date from (select user_no, checkin_date from checkin_his where user_no = #{sessionUserNo} order by checkin_date) a order by rownum desc
+		select rownum, a.user_no as user_no, a.checkin_date as checkin_date
+		from (select user_no, checkin_date from checkin_his
+		where user_no = #{sessionUserNo} order by checkin_date) a order by rownum desc
 	</select>
 	
 	<select id="getTimeList" parameterType="com.phgym.mypage.model.PtReservationHisDTO" resultType="com.phgym.mypage.model.PtReservationHisDTO">
 		select * 
 		from pt_reservation_his
-		where admin_no = #{adminNo}
-		and to_char(reservation_date, 'yyyy-MM-dd' ) = to_char(#{reservationDate}, 'yyyy-MM-dd' ) 
+		where admin_no = #{adminNo} and to_char(reservation_date, 'yyyy-MM-dd') = to_char(#{reservationDate}, 'yyyy-MM-dd') and progress_status = 'Y'
 	</select>
 	
 	<insert id="doPtReservation" parameterType="com.phgym.mypage.model.PtReservationHisDTO">
@@ -52,7 +53,7 @@
 	</select>
 	
 	<select id="getDidPtCnt" parameterType="int" resultType="int">
-		select count(*) from pt_reservation_his where user_no = #{sessionUserNo} and (progress_status = 'Y' or progress_status is null)
+		select count(*) from pt_reservation_his where user_no = #{sessionUserNo} and (progress_status = 'Y')
 	</select>
 	
 	<select id="getUserInfo" parameterType="int" resultType="com.phgym.mypage.model.MypageUserInfoDTO">
@@ -60,7 +61,9 @@
 	</select>
 	
 	<update id="userInfoUpdate" parameterType="com.phgym.mypage.model.MypageUserInfoDTO">
-		update user_info set user_pw = #{userPw}, user_name = #{userName}, user_gender = #{userGender}, user_phone = #{userPhone}, user_email = #{userEmail}, user_address = #{userAddress} where user_no = #{userNo}
+		update user_info
+		set user_pw = #{userPw}, user_name = #{userName}, user_gender = #{userGender}, user_phone = #{userPhone}, user_email = #{userEmail}, user_address = #{userAddress}
+		where user_no = #{userNo}
 	</update>
 	
 	<select id="getMembershipList" parameterType="int" resultType="com.phgym.mypage.model.MembershipPayHisDTO">
@@ -68,7 +71,10 @@
 	</select>
 	
 	<select id="getPtReservationList" parameterType="int" resultType="com.phgym.mypage.model.PtReservationDTO">
-		select a.pt_reservation_his_no as pt_reservation_his_no, a.reservation_date as reservation_date, b.admin_name as admin_name, decode(a.progress_status, 'Y', '예약완료', 'N', '예약취소') as progress_status from pt_reservation_his a left join admin_info b on a.admin_no = b.admin_no where user_no = #{sessionUserNo} order by reservation_date desc
+		select a.pt_reservation_his_no as pt_reservation_his_no, a.reservation_date as reservation_date, b.admin_name as admin_name, decode(a.progress_status, 'Y', '예약완료', 'N', '예약취소') as progress_status
+		from pt_reservation_his a left join admin_info b on a.admin_no = b.admin_no
+		where user_no = #{sessionUserNo}
+		order by reservation_date desc
 	</select>
 	
 	<select id="countCheckinList" parameterType="int" resultType="int">
@@ -77,7 +83,10 @@
 	
 	<select id="selectCheckinList" parameterType="com.phgym.mypage.model.MypageQuery" resultType="com.phgym.mypage.model.CheckinHisDTO">
 		<![CDATA[
-			select rn, user_no, checkin_date from (select user_no, checkin_date, row_number() over (order by checkin_date desc) as rn from checkin_his where user_no = #{userNo}) where rn > #{startRow} and rn <= #{endRow}
+		select rn, user_no, checkin_date
+		from (select user_no, checkin_date, row_number() over (order by checkin_date desc) as rn
+			  from checkin_his where user_no = #{userNo})
+		where rn > #{startRow} and rn <= #{endRow}
 		]]>
 	</select>
 	
@@ -88,9 +97,10 @@
 	<select id="selectPtReservationList" parameterType="com.phgym.mypage.model.MypageQuery" resultType="com.phgym.mypage.model.PtReservationDTO">
 		<![CDATA[
 		select pt_reservation_his_no, reservation_date, admin_name, progress_status
-		from (select a.pt_reservation_his_no as pt_reservation_his_no, a.reservation_date as reservation_date, b.admin_name as admin_name, decode(a.progress_status, 'Y', '예약완료', 'N', '예약취소') as progress_status, ROW_NUMBER() OVER (ORDER BY reservation_date DESC) AS rn
-		from pt_reservation_his a left join admin_info b on a.admin_no = b.admin_no where user_no = #{userNo})
-		WHERE rn > #{startRow} AND rn <= #{endRow}
+		from (select a.pt_reservation_his_no as pt_reservation_his_no, a.reservation_date as reservation_date, b.admin_name as admin_name, decode(a.progress_status, 'Y', '예약완료', 'N', '예약취소') as progress_status, row_number() over (order by reservation_date desc) as rn
+			  from pt_reservation_his a left join admin_info b on a.admin_no = b.admin_no
+			  where user_no = #{userNo})
+		where rn > #{startRow} and rn <= #{endRow}
 		]]>
 	</select>
 </mapper>

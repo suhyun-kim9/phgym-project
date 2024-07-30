@@ -212,6 +212,7 @@ public class MypageServiceImpl implements MypageService {
         LocalDate localDate = LocalDate.parse(date, dateFormatter);
         // LocalDate를 LocalDateTime으로 변환 (시간 부분은 00:00:00으로 설정됨)
         LocalDateTime localDateTime = localDate.atStartOfDay();
+        System.out.println("localDateTime = " + localDateTime);
         
         PtReservationHisDTO dto = new PtReservationHisDTO();
         dto.setAdminNo(adminNo);
@@ -305,7 +306,6 @@ public class MypageServiceImpl implements MypageService {
         request.setAttribute("list3", list3);
         request.setAttribute("currentPage", currentPage);
         request.setAttribute("totalPages", totalPages);
-		//
 		
 		request.setAttribute("list", list);
 		request.setAttribute("dto", dto);
