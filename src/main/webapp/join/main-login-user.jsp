@@ -11,6 +11,7 @@
 <link rel="stylesheet" href="../include/css/main-footer.css">
 
 <script type="text/javascript">
+
     function setCookie(name, value, hours) {
         var expires = "";
         if (hours) {
@@ -126,6 +127,16 @@
 	    </div>
 	</div> 
     <script>
+    
+	    window.onload = function() {
+	     
+	        var msg = "<%= request.getAttribute("msg") %>";
+	        var loginAttempt = "<%= request.getAttribute("loginResult") %>";
+	
+	        if (loginAttempt === "true" && msg && msg.trim() !== "") {
+	            alert(msg);
+	        }
+	    }
     
 		var userIdFind = "${userIdFind}";
 	    console.log("userIdFind = " + userIdFind);
