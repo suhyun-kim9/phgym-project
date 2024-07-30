@@ -7,7 +7,7 @@
 	}
 </style>
 
-<!-- <link rel="stylesheet" href="../include/css/admin-navigation.css"> -->
+<link rel="stylesheet" href="../include/css/admin-navigation.css">
 		<div class="aside">
 			<nav>
 				<ul class="nav_1">

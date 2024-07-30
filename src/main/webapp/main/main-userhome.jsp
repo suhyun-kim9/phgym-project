@@ -42,7 +42,7 @@
             position: relative; overflow: hidden;
         }
         .swiper .swiper-slide img {
-            position: absolute; width: 100%; height: 100%; object-fit: fit;
+            position: absolute; width: 100%; height: 100%; object-fit: cover;
         }
         #swiper {
             transition-duration: 0ms;
@@ -142,16 +142,16 @@
                 <div class="swiper-wrapper">
                     <!-- Slides -->
                     <div class="swiper-slide">
-                        <img src="img/slide2.jpg" alt="">
-                    </div>
-                    <div class="swiper-slide">
                         <img src="img/slide5.jpg" alt="">
                     </div>
                     <div class="swiper-slide">
-                        <img src="img/slide3.jpg" alt="">
+                        <img src="img/slide2.jpg" alt="">
                     </div>
                     <div class="swiper-slide">
                         <img src="img/slide4.jpg" alt="">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="img/slide12.jpg" alt="">
                     </div>
                 </div>
                 <!-- If we need pagination -->
