@@ -41,19 +41,57 @@
         var userId = getCookie("userId");
         if (userId) {
             document.getElementById("userId").value = userId;
-            document.getElementById("keepLoggedIn").checked = true;
+            document.getElementById("keepUserLoggedIn").checked = true;
+        }
+
+        var adminId = getCookie("adminId");
+        if (adminId) {
+            document.getElementById("adminId").value = adminId;
+            document.getElementById("keepAdminLoggedIn").checked = true;
+        }
+
+        var msg = "<%= request.getAttribute("msg") %>";
+        var loginAttempt = "<%= request.getAttribute("loginResult") %>";
+
+        if (loginAttempt === "true" && msg && msg.trim() !== "") {
+            alert(msg);
+        }
+
+        var userIdFind = "${userIdFind}";
+        console.log("userIdFind = " + userIdFind);
+        
+        if (userIdFind != null && userIdFind != "") {
+            alert("회원님의 아이디는: " + userIdFind + "입니다");
+        }
+        
+        var userPwFind = "${userPwFind}";
+        console.log("userPwFind = " + userPwFind);
+        
+        if (userPwFind != null && userPwFind != "") {
+            alert("회원님의 비밀번호는: " + userPwFind + "입니다");
         }
     };
     
-    // 폼 제출 시 쿠키 설정
+    // 사용자 폼 제출 시 쿠키 설정
     function setUserIdCookie() {
-        if (document.getElementById("keepLoggedIn").checked) {
+        if (document.getElementById("keepUserLoggedIn").checked) {
             var userId = document.getElementById("userId").value;
             setCookie("userId", userId, 24); // 24시간 동안 쿠키 유지
         } else {
             setCookie("userId", "", -1); // 쿠키 삭제
         }
     }
+    
+    // 관리자 폼 제출 시 쿠키 설정
+    function setAdminIdCookie() {
+        if (document.getElementById("keepAdminLoggedIn").checked) {
+            var adminId = document.getElementById("adminId").value;
+            setCookie("adminId", adminId, 24); // 24시간 동안 쿠키 유지
+        } else {
+            setCookie("adminId", "", -1); // 쿠키 삭제
+        }
+    }
+    
 </script>
 
 </head>
@@ -87,7 +125,7 @@
 												<i class="input-icon uil uil-lock-alt"></i>
 											</div>
                                             <div class="link_box">
-                                                <div><input type="checkbox" id="keepLoggedIn" name="check"> 아이디 기억하기 </div>
+                                                <div><input type="checkbox" id="keepUserLoggedIn" name="check"> 아이디 기억하기 </div>
                                                 <div class="mb-0 mt-4 text-center"><a href="findUserId.join" class="link">아이디 찾기</a><a href="findUserPw.join" class="link">비밀번호 찾기</a></div>
                                             </div>
                                           
@@ -105,11 +143,11 @@
 												<i class="input-icon uil uil-at"></i>
 											</div>	
 											<div class="form-group mt-2">
-												<input type="password" id="admin" name="adminPw" class="form-style input2" placeholder="비밀번호를 입력하세요." autocomplete="off">
+												<input type="password" id="adminPw" name="adminPw" class="form-style input2" placeholder="비밀번호를 입력하세요." autocomplete="off">
 												<i class="input-icon uil uil-lock-alt"></i>
 											</div>
                                             <div class="link_box">
-                                                <div> <input type="checkbox" id="keepLoggedIn" name="check"> 아이디 기억하기 </div>
+                                                <div> <input type="checkbox" id="keepAdminLoggedIn" name="check"> 아이디 기억하기 </div>
                                                 <div class="mb-0 mt-4 text-center"><a href="findAdminId.join" class="link">아이디 찾기</a><a href="findAdminPw.join" class="link">비밀번호 찾기</a></div>
                                             </div>
                                           
@@ -126,36 +164,7 @@
 	      	</div>
 	    </div>
 	</div> 
-    <script>
-    
-	    window.onload = function() {
-	     
-	        var msg = "<%= request.getAttribute("msg") %>";
-	        var loginAttempt = "<%= request.getAttribute("loginResult") %>";
-	
-	        if (loginAttempt === "true" && msg && msg.trim() !== "") {
-	            alert(msg);
-	        }
-	    }
-    
-		var userIdFind = "${userIdFind}";
-	    console.log("userIdFind = " + userIdFind);
-	    
-		if (userIdFind != null  && userIdFind != "") {
-	    	
-	    	alert("회원님의 아이디는: " + userIdFind + "입니다");
-	    }
-		
-		var userPwFind = "${userPwFind}";
-	    console.log("userPwFind = " + userPwFind);
-	    
-		if (userPwFind != null  && userPwFind != "") {
-	    	
-	    	alert("회원님의 비밀번호는: " + userPwFind + "입니다");
-	    }
-    
-    </script>
-    
+
     <jsp:include page="../include/main-footer.jsp"/>
 </body>
 </html>
