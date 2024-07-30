@@ -29,12 +29,13 @@ img {
 
 .content > .wrap-top {
 	padding: 40px 0 20px 0;
-	border-bottom: 1px solid #00000029;
+	border-bottom: 1px solid #000;
 }
 
 .content > .wrap-top > h2 {
-	display: inline-block;
-	font-size: 40px;
+    display: inline-block;
+    font-size: 30px;
+    letter-spacing: 5px;
 }
 
 .content > .wrap-middle {
@@ -42,7 +43,7 @@ img {
 }
 
 .content > .wrap-middle > p {
-	font-size: 28px;
+	font-size: 18px;
 	padding-bottom: 5px;
 }
 
@@ -60,11 +61,11 @@ img {
 }
 
 .content > .wrap-middle > .graph_box canvas {
-	padding: 5px;
+	padding: 20px;
 }
 
 .content > .wrap-middle > .graph_box p {
-	font-size: 20px;
+	font-size: 15px;
 	padding-bottom: 10px;
 }
 
@@ -76,7 +77,7 @@ img {
 
 /* ===출석내역=== */
 .content > .wrap-middle > p:nth-child(3) {
-	margin-top: 20px;
+	margin-top: 30px;
 }
 
 .content > .wrap-middle > .checkin_list {
@@ -88,22 +89,29 @@ img {
 .content > .wrap-middle > .checkin_list > table {
     margin: 0 auto;
     width: 650px;
-    height: 160px;
-    border: 1px solid #76818d;
+
+    border: 1px solid #e3e3e3;
+    border-radius: 5px;
+}
+
     display: block;
+    height: 200px;
+    overflow: auto;
 }
 
 .content > .wrap-middle > .checkin_list > table tr th {
     text-align: center;
-    border-bottom: 1px solid #76818d;
+    border-bottom: 1px solid #e3e3e3;
     width: 162.5px;
     padding: 3px 0;
+    font-weight: 600;
 }
 
 .content > .wrap-middle > .checkin_list > table tr td {
     text-align: center;
     width: 162.5px;
     padding: 3px 0;
+    font-weight: 400;
 }
 
 .content > .wrap-middle > .checkin_list > .pagination {
