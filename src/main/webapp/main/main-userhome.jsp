@@ -140,19 +140,21 @@
             <div class="swiper">
                 <!-- Additional required wrapper -->
                 <div class="swiper-wrapper">
-                    <!-- Slides -->
+                    
+					<!-- Slides -->
                     <div class="swiper-slide">
-                        <img src="img/slide5.jpg" alt="">
+                        <img src="../main/img/slide2.jpg" alt="">
                     </div>
                     <div class="swiper-slide">
-                        <img src="img/slide2.jpg" alt="">
+                        <img src="../main/img/slide5.jpg" alt="">
                     </div>
                     <div class="swiper-slide">
-                        <img src="img/slide6.jpg" alt="">
+                        <img src="../main/img/slide3.jpg" alt="">
                     </div>
                     <div class="swiper-slide">
-                        <img src="img/slide4.jpg" alt="">
+                        <img src="../main/img/slide4.jpg" alt="">
                     </div>
+                    
                 </div>
                 <!-- If we need pagination -->
                 <div class="swiper-pagination"></div>
@@ -166,19 +168,19 @@
             </div>
             <div class="main-prom" id="prom-list">
                 <span class="prom1">
-                    <img src="img/nutrition.jpg" class="main-img">
+                    <img src="../main/img/nutrition.jpg" class="main-img">
                     <p>Nutrition</p>
                     <p>식단 및 영양 정보 제공</p>
                     <p class="satisfaction">☆☆☆ 고객만족도 4.9  🕒주 2회 제공</p>
                 </span>
                 <span class="prom2">
-                    <img src="img/웨이트.jpg" alt="">
+                    <img src="../main/img/웨이트.jpg" alt="">
                     <p>Fitness</p>
                     <p>1:1 맞춤 PT 진행중</p>
                     <p class="satisfaction">☆☆☆ 고객만족도 4.9  🕒70분 진행</p>
                 </span>
                 <span class="prom3">
-                    <img src="img/clean.jpg" alt="">
+                    <img src="../main/img/clean.jpg" alt="">
                     <p>Health</p>
                     <p>매일 3회 이상 소독</p>
                     <p class="satisfaction">☆☆☆ 고객만족도 5.0  🕒일 3회</p>
@@ -188,12 +190,12 @@
                 <div class="event1">
                     <p>PT 30회 할인 이벤트 진행중</p>
                     <p>선착순 5명 모집 !</p>
-                    <img src="img/event1.webp" alt="img1" width=50px;>
+                    <img src="../main/img/event1.webp" alt="img1" width=50px;>
                 </div>
                 <div class="event2">
                     <p>연말 프로모션 진행중</p>
                     <p>선착순 모집 !!</p>
-                    <img src="img/event2.webp" alt="img2" width= 50px;>
+                    <img src="../main/img/event2.webp" alt="img2" width= 50px;>
                 </div>
             </div>
         </div> 

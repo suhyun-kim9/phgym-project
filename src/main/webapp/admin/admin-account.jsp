@@ -113,13 +113,16 @@
 
 			</section>
 			<!--  -------------. -->
-
+			
 		</div>
 	</div>
 		<script type="text/javascript" src="../include/js/admin-navigation.js"> </script>
-		
-		
-		
-		
+		<script type="text/javascript">
+			var msg = "${sessionScope.LogoutMsg}";
+			if(msg == "Y") {
+				alert("로그아웃 후 유저페이지로 이동해주세요.");
+				<c:remove var="LogoutMsg" scope="session"/>
+			}
+		</script>
 </body>
 </html>

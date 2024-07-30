@@ -17,7 +17,7 @@
      <jsp:include page="../include/main-navigation.jsp"/> 
 
   <div class="wrap">    
-<form action="adminJoin.join" method="post" class="form" id="forms">
+<form action="userJoin.join" method="post" class="form" id="forms">
     <div class="header1">
         <p> 회원 계정 생성  </p>
     </div>
@@ -86,11 +86,11 @@
         <div class="group-inputs">
         <div class="id_inputs">
         	<div>
-            <label for="phone">아이디</label>
+            <label for="email">아이디</label>
             <input type="text" name="userId" id="userId" placeholder="아이디를 입력하세요." required="required" oninput="validateUserId()"> 
             </div>
 	             <div> 
-	             	<button type="button" onclick="userIdCheck()">중복확인</button>
+	             	<button type="button" onclick="userIdCheck()" id="doubleBtn">중복확인</button>
 	             </div>
              </div>
             <div id="idResult"></div>
@@ -110,7 +110,7 @@
     
       <div class="btns-group">
         <a href="#" class="btn btn-prev">이전</a>
-        <input type="submit" value="회원가입하기" class="btn" />
+        <input type="submit" value="회원가입하기" class="btn" style="border: none; font-size: 14px; font-weight: bold;"/>
       </div>
     </div>
       </form>

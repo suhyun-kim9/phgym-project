@@ -9,26 +9,20 @@ var dropdown2 = document.querySelector(".dropdown2");
 var dropdownContent = document.querySelector(".dropdownContent");
 var dropdownContent2 = document.querySelector(".dropdownContent2");
 
-var dropdown3 = document.querySelector("#dropdown3");
+
+var dropdown3 = document.querySelector(".dropdown3");
 var dropdownContent3 = document.querySelector(".dropdownContent3");
 
+  dr1.addEventListener("click", function() {
+    dropdownContent.style.display = "none";
+    dropdownContent2.style.display = "none";
+  });
 
 
-
-
-  dropdown3.addEventListener("click", function() {
-	  if (dropdownContent3.style.display === "block") {
-     	  dropdownContent3.style.display = "none";
-      
-    } else {
-		dropdownContent3.style.display = "block";
-     	dropdownContent.style.display = "none";
-      	dropdownContent2.style.display = "none";
-}
-	});
-	
-	
-	
+  dr4.addEventListener("click", function() {
+    dropdownContent.style.display = "none";
+    dropdownContent2.style.display = "none";
+  });
 
   dropdown.addEventListener("click", function() {
     if (dropdownContent.style.display === "block") {
@@ -37,7 +31,7 @@ var dropdownContent3 = document.querySelector(".dropdownContent3");
       dropdownContent.style.display = "block";
       dropdownContent2.style.display = "none";
       dropdownContent3.style.display = "none";
-}
+    }
   });
 
   dropdown2.addEventListener("click", function() {
@@ -47,37 +41,18 @@ var dropdownContent3 = document.querySelector(".dropdownContent3");
       dropdownContent2.style.display = "block";
       dropdownContent.style.display = "none";
       dropdownContent3.style.display = "none";
-      }
-   
+    }
   });
   
-  
-  
-  //=- --------------------------------------
-  
-  
-  
-  
-  
-	
-
-  dr1.addEventListener("click", function() {
-    dropdownContent.style.display = "none";
-    dropdownContent2.style.display = "none";
+  dropdown3.addEventListener("click", function() {
+    if (dropdownContent3.style.display === "block") {
+      dropdownContent3.style.display = "none";
+    } else {
+      dropdownContent3.style.display = "block";
+      dropdownContent.style.display = "none";
+      dropdownContent2.style.display = "none";
+    }
   });
-
-  dr2.addEventListener("click", function() {
-    dropdownContent.style.display = "none";
-    dropdownContent2.style.display = "none";
-  });
-
-  dr4.addEventListener("click", function() {
-    dropdownContent.style.display = "none";
-    dropdownContent2.style.display = "none";
-  });
-
-  
-  
 
   var li1 = document.querySelector(".main_nav > li:nth-of-type(1) > a");
   var li2 = document.querySelector(".main_nav > li:nth-of-type(2) > a");

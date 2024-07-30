@@ -104,7 +104,7 @@
             	<input type="text" name="adminId" id="adminId" placeholder="아이디를 입력하세요." required="required" oninput="validateAdminId()"/>
         	</div>
        		<div>
-       			<button type="button" onclick="adminIdCheck()">중복확인</button>
+       			<button type="button" onclick="adminIdCheck()" id="doubleBtn">중복확인</button>
        		</div>
         </div>
         	<div id="idResult"></div>
@@ -129,7 +129,7 @@
             
       <div class="btns-group">
         <a href="#" class="btn btn-prev">이전</a>
-        <input type="submit" value="회원가입" class="btn"/> <!-- id="submit-form" -->
+        <input type="submit" value="회원가입" class="btn" style="border: none; font-size: 14px; font-weight: bold;"/> <!-- id="submit-form" -->
       </div>
     </div>
   </form>
