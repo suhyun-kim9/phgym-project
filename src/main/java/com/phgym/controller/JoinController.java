@@ -35,6 +35,12 @@ public class JoinController extends HttpServlet {
 		System.out.println(command);
 
 		JoinService service = null;
+		
+		if(request.getSession().getAttribute("sessionAdminNo") != null) {
+        	request.getSession().setAttribute("LogoutMsg", "Y");
+        	response.sendRedirect("/PHGYM/admin/account.admin");
+        	return;
+        }
 
 		if(command.equals("/join/adminPwFind.join")) { // 관리자 비밀번호찾기
 			service = new JoinServiceImpl();
@@ -112,13 +118,17 @@ public class JoinController extends HttpServlet {
 			service = new JoinServiceImpl();
 			service.findUserPw(request,response);
 		
-		} else if(command.equals("/join/LoginPage.join")) { // 유저 홈 -> 로그인
+		} else if(command.equals("/join/LoginUserPage.join")) { // 유저 홈 -> 로그인
 			service = new JoinServiceImpl();
 			service.LoginPage(request,response);
 			
-		} else if(command.equals("/join/JoinPage.join")) { // 유저 홈 -> 회원가입
+		} else if(command.equals("/join/JoinUserPage.join")) { // 유저 홈 -> 회원가입
 			service = new JoinServiceImpl();
-			service.JoinPage(request,response);
+			service.JoinUserPage(request,response);
+			
+		} else if(command.equals("/join/JoinAdminPage.join")) { // 유저 홈 -> 회원가입
+			service = new JoinServiceImpl();
+			service.JoinAdminPage(request,response);
 		}
 	}
 }

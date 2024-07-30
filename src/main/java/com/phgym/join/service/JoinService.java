@@ -45,7 +45,9 @@ public interface JoinService {
 
 	void LoginPage(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException; // 유저 홈 -> 로그인
 
-	void JoinPage(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException; // 유저 홈 -> 회원가입
+	void JoinUserPage(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException; // 유저 홈 -> 회원 회원가입
+
+	void JoinAdminPage(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException; //유저 홈 -> 관리자 회원가입
 
 	
 }

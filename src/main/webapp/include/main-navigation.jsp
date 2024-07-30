@@ -25,24 +25,30 @@
 		</div>
 
 		<li class="dr4"><a href="/PHGYM/main/map.main" style="color: black;"> 오시는 길 </a></li>
-		<li id="mypage" class="dr dropdown" style="display: none;"><a style="color: black;"> 마이페이지 </a></li>
-		<div class="dropdownContent">
-			<li><i class="bi bi-check-lg"></i> <a href="/PHGYM/mypage/checkin.mypage"> 출석체크 </a></li>
-			<li><i class="bi bi-bar-chart-line"></i> <a href="/PHGYM/mypage/statistics.mypage"> 통계확인 </a></li>
-			<li><i class="bi bi-calendar-check"></i> <a href="/PHGYM/mypage/reservationTrainer.mypage"> PT예약 </a></li>
-			<li><i class="bi bi-send"></i> <a href="/PHGYM/mypage/transfer.mypage"> 회원권양도 </a></li>
-			<li><i class="bi bi-person-circle"></i> <a href="/PHGYM/mypage/userInfo.mypage"> 회원정보 </a></li>
-		</div>
-
+		<c:if test="${sessionScope.sessionUserNo != null && sessionScope.sessionUserNo != ''}">
+			<li id="mypage" class="dr dropdown"><a style="color: black;"> 마이페이지 </a></li>
+			<div class="dropdownContent">
+				<li><i class="bi bi-check-lg"></i> <a href="/PHGYM/mypage/checkin.mypage"> 출석체크 </a></li>
+				<li><i class="bi bi-bar-chart-line"></i> <a href="/PHGYM/mypage/statistics.mypage"> 통계확인 </a></li>
+				<li><i class="bi bi-calendar-check"></i> <a href="/PHGYM/mypage/reservationTrainer.mypage"> PT예약 </a></li>
+				<li><i class="bi bi-send"></i> <a href="/PHGYM/mypage/transfer.mypage"> 회원권양도 </a></li>
+				<li><i class="bi bi-person-circle"></i> <a href="/PHGYM/mypage/userInfo.mypage"> 회원정보 </a></li>
+			</div>
+		</c:if>
+		
 		<li class="gnb">
 			<c:if test="${sessionScope.sessionUserNo == null || sessionScope.sessionUserNo == ''}">
-				<input type="button" value="로그인" onclick="location.href='../join/LoginPage.join'">
-				<input type="button" value="회원가입" onclick="location.href='../join/JoinPage.join'">
+				<input type="button" value="로그인" onclick="location.href='../join/LoginUserPage.join'">
+				<input type="button" value="회원가입"  class="dr dropdown3"> 
 			</c:if>
 			<c:if test="${sessionScope.sessionUserNo != null && sessionScope.sessionUserNo != ''}">
 				<input type="button" value="로그아웃" onclick="location.href='../join/LogoutUser.join'">
 			</c:if>
 		</li>
+		<div class="dropdownContent3">
+			<li><a href="../join/JoinUserPage.join"> 회원 회원가입 </a></li>
+			<li><a href="../join/JoinAdminPage.join"> 관리자 회원가입 </a></li>
+		</div>
 		<div class="animation"></div>
 	</ul>
 </nav>

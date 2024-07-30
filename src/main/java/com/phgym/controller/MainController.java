@@ -37,6 +37,12 @@ public class MainController extends HttpServlet {
         System.out.println(command);
         MainService service;
         
+        if(request.getSession().getAttribute("sessionAdminNo") != null) {
+        	request.getSession().setAttribute("LogoutMsg", "Y");
+        	response.sendRedirect("/PHGYM/admin/account.admin");
+        	return;
+        }
+        
         if(command.equals("/main/promotion-payment1.main")) {
             service = new MainServiceImpl();
             service.buyPromotion1(request,response);

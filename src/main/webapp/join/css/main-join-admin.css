@@ -12,13 +12,26 @@
     margin-bottom: 0.5rem;
 }
 
-.group-inputs > input, #adminGenderM, #adminGenderW {
+.group-inputs > input, #adminJobTitle, #adminGenderM, #adminGenderW , #adminId {
     display: block;
     width: 100%;
     padding: 0.75rem;
     border: 1px solid #ccc;
     border-radius: 0.25rem;
     height: 50px;
+}
+
+#adminId {
+	width: 260px;
+}
+
+#doubleBtn {
+	border: none;
+	background-color: #23233E;
+	color: white;
+	width: 70px;
+	height: 44px;
+	border-radius: 0.25rem;
 }
 
 .width-50 {
