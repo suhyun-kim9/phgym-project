@@ -7,12 +7,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Document</title>
 <link rel="stylesheet" href="css/main-join-admin.css">
+<link rel="stylesheet" href="../include/css/main-navigation.css">
 </head>
-
 <body>
+	
+	
+	<jsp:include page="../include/main-navigation.jsp"/> 
     
   <div class="wrap">
-    
   <form action="adminJoin.join" method="post" class="form" id="forms">
       
     <div class="header1">
@@ -38,10 +40,10 @@
         <label for="position">성별</label>
         <div style="display: flex; border:1px solid #ddd; justify-content: space-evenly;">
             <div style="display:flex;">
-                <p> 남자 </p>  <input style="width: 20px;"  type="radio" id="adminGenderM" name="adminGender" value="M" required="required">
+                <p class="genderMM"> 남자 </p>  <input style="width: 20px;"  type="radio" id="adminGenderM" name="adminGender" value="M" required="required">
             </div>
             <div style="display:flex;">
-                <p> 여자 </p> <input style="width: 20px;" type="radio" id="adminGenderW" name="adminGender" value="W" required="required">
+                <p class="genderMM"> 여자 </p> <input style="width: 20px;" type="radio" id="adminGenderW" name="adminGender" value="W" required="required">
             </div>
         </div>
       </div>
