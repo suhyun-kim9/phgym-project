@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import com.phgym.admin.service.AdminService;
 import com.phgym.admin.service.AdminServiceImpl;
+import com.phgym.board.service.BoardServiceImpl;
 import com.phgym.mypage.service.MypageService;
 import com.phgym.mypage.service.MypageServiceImpl;
 
@@ -94,6 +95,7 @@ public class AdminController extends HttpServlet {
 	        	service = new AdminServiceImpl();
 	        	service.ptReservationCancel(request, response);
 	        }
+
 	        
 	}
 

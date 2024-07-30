@@ -30,7 +30,7 @@
               events: [
               	<c:forEach var="dto" items="${list}">
 	                	{
-	                		title: '${dto.reservationTime}' + ' / ${dto.adminName}' + ' / ${dto.progressStatus}',
+	                		title: '${dto.reservationTime}' + ' / ${dto.adminName}' ,
 	                        start: '${dto.reservationDate}'
 	                    },
               	</c:forEach>

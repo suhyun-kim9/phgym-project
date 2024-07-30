@@ -159,5 +159,11 @@ ul, li, ol, dl, dd {
 
 .user_table > tbody > tr:hover {
 		background-color:#23233e14;
+		
+}
+
+.user_table > tbody > tr {
+
+	cursor : pointer;		
 }
 

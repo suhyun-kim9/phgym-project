@@ -33,7 +33,7 @@
 			<h1 class="admin_main_name">
 				<i class="bi bi-person-fill"></i> 
 				<span> 관리자 계정 (내 정보) </span>
-				<input type="reset" class="btn-hover btnModi" value="취소">
+				<input type="reset" class="btn-hover btnModi" value="취소" onclick="location.href='account.admin'">
 				<input type="submit" class="btn-hover btnModi" id="modify_btn" value="수정완료" id="modify_f_btn">
 			</h1>
 		</div>
@@ -104,10 +104,10 @@
 				<div class="box_value">
 				<%-- <input type="text" name="adminJobTitle" value="${dto.adminJobTitle}"> --%>
 			<select id="adminJobTitle" name="adminJobTitle" style="text-align: left;" required="required">
-                <option value="" disabled selected> ${dto.adminJobTitle}</option>
-                <option value="ptTeamLeader">pt팀장</option>
-                <option value="trainer">트레이너</option>
-                <option value="information">인포메이션</option>
+                <option value="${dto.adminJobTitle}" disabled selected> ${dto.adminJobTitle}</option>
+                <option value="pt팀장">pt팀장</option>
+                <option value="트레이너">트레이너</option>
+                <option value="인포메이션">인포메이션</option>
             </select>
 				</div>
 			</div>

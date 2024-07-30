@@ -165,4 +165,31 @@
 	<select id="countPtUsers" resultType="int">
 		SELECT count(*) FROM user_info a LEFT JOIN ( SELECT user_no FROM pt_pay_his GROUP BY user_no ) b ON a.user_no = b.user_no where b.user_no is not null
 	</select>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 </mapper>
