@@ -9,13 +9,13 @@ import jakarta.servlet.http.HttpServletResponse;
 public interface BoardService {
 	
 	// ExerciseInfo
-	void getListe(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException;
+	void getList(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException;
 
 	void regist(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException;
 
-	void searchListe(HttpServletRequest request, HttpServletResponse response, String searchKeyworde) throws ServletException, IOException;
+	void searchList(HttpServletRequest request, HttpServletResponse response, String searchKeyword) throws ServletException, IOException;
 
-	void getContente(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException;
+	void getContent(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException;
 
 	void delete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException;
 

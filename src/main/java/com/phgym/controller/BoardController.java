@@ -39,7 +39,7 @@ public class BoardController extends HttpServlet {
 		if(command.equals("/board/main_exe_list.board")) { // 메인 운동정보 목록
 			
 			service = new BoardServiceImpl();
-			service.getListe(request, response);
+			service.getList(request, response);
 			
 		} else if(command.equals("/board/main_exe_post.board")) { // 작성
 			
@@ -52,13 +52,13 @@ public class BoardController extends HttpServlet {
 			
 		} else if(command.equals("/board/main_exe_search.board")) { // 검색
 			
-			String searchKeyworde = request.getParameter("searchKeyworde");
-			service.searchListe(request, response, searchKeyworde);
+			String searchKeyword = request.getParameter("searchKeyword");
+			service.searchList(request, response, searchKeyword);
 			
 		} else if(command.equals("/board/main_exe_content.board")) { // 글 내용
 			
 			service = new BoardServiceImpl();
-			service.getContente(request, response);
+			service.getContent(request, response);
 			request.getRequestDispatcher("main-exerciseinfo-content.jsp").forward(request, response);
 			
 		} else if(command.equals("/board/main_exe_delete.board")) { // 삭제

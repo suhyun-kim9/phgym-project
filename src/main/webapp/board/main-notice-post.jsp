@@ -13,6 +13,7 @@
 	<link rel="stylesheet" href="../include/css/main-navigation.css">
 	<link rel="stylesheet" href="css/main-notice-post.css">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="../include/css/main-footer.css">
 
     
     <script>
@@ -56,8 +57,10 @@
             </div>
         </form>
     </div>
-    </section>
-    </div>
-</div>
+
+	
+	    <jsp:include page="../include/main-footer.jsp"/>
+
+
 </body>
 </html>

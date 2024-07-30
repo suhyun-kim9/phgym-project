@@ -49,82 +49,82 @@ public class BoardServiceImpl implements BoardService {
 	}
 
 	@Override
-	public void getListe(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public void getList(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		int pagee = 1;
-		int pageSizee = 10;
+		int page = 1;
+		int pageSize = 10;
 		
 		try {
-			pagee = Integer.parseInt(request.getParameter("pagee"));
+			page = Integer.parseInt(request.getParameter("page"));
 		} catch (NumberFormatException e) {
 			e.printStackTrace();
 		}
 		
-		int startIndexe = (pagee - 1) * pageSizee + 1;
-		int endIndexe = pagee * pageSizee;
+		int startIndex = (page - 1) * pageSize + 1;
+		int endIndex = page * pageSize;
 		
 		SqlSession sql = sqlSessionFactory.openSession();
 		BoardMapper board = sql.getMapper(BoardMapper.class);
 		
 		Map<String, Object> params = new HashMap<>();
-	    params.put("startIndexe", startIndexe);
-	    params.put("endIndexe", endIndexe);
+	    params.put("startIndex", startIndex);
+	    params.put("endIndex", endIndex);
 		
-		ArrayList<BoardDTO> liste = board.getListe(startIndexe, endIndexe);
+		ArrayList<BoardDTO> list = board.getList(startIndex, endIndex);
 		
-		int totalCounte = board.getTotalCounte();
+		int totalCount = board.getTotalCount();
 		
 		sql.close();
 		
-		int totalPagese = (int) Math.ceil((double) totalCounte / pageSizee);
+		int totalPages = (int) Math.ceil((double) totalCount / pageSize);
 		
-		request.setAttribute("liste", liste);
-		request.setAttribute("pagee", pagee);
-		request.setAttribute("totalPagese", totalPagese);
+		request.setAttribute("list", list);
+		request.setAttribute("page", page);
+		request.setAttribute("totalPages", totalPages);
 		request.getRequestDispatcher("main-exerciseinfo-list.jsp").forward(request, response);
 		
 	}
 
 	@Override
-	public void searchListe(HttpServletRequest request, HttpServletResponse response, String searchKeyworde) throws ServletException, IOException {
+	public void searchList(HttpServletRequest request, HttpServletResponse response, String searchKeyword) throws ServletException, IOException {
 		
-		int pagee = 1;
-		int pageSizee = 10;
+		int page = 1;
+		int pageSize = 10;
 		
 		try {
-			pagee = Integer.parseInt(request.getParameter("pagee"));
+			page = Integer.parseInt(request.getParameter("page"));
 		} catch (NumberFormatException e) {
 			e.printStackTrace();
 		}
 		
-		int startIndexe = (pagee - 1) * pageSizee + 1;
-		int endIndexe = pagee * pageSizee;
+		int startIndex = (page - 1) * pageSize + 1;
+		int endIndex = page * pageSize;
 		
 		SqlSession sql = sqlSessionFactory.openSession();
 		BoardMapper board = sql.getMapper(BoardMapper.class);
 		
 		Map<String, Object> params = new HashMap<>();
-		params.put("searchKeyworde", searchKeyworde);
-		params.put("startIndexe", startIndexe);
-		params.put("pageSizee", pageSizee);
+		params.put("searchKeyword", searchKeyword);
+		params.put("startIndex", startIndex);
+		params.put("pageSize", pageSize);
 		
-		ArrayList<BoardDTO> liste = board.searchListe(searchKeyworde, startIndexe, endIndexe);
-		int totalCounte = board.getSearchCounte(searchKeyworde);
+		ArrayList<BoardDTO> list = board.searchList(searchKeyword, startIndex, endIndex);
+		int totalCount = board.getSearchCount(searchKeyword);
 		
 		sql.close();
 		
-		int totalPagese = (int) Math.ceil((double) totalCounte / pageSizee);
+		int totalPages = (int) Math.ceil((double) totalCount / pageSize);
 		
-		request.setAttribute("liste", liste);
-		request.setAttribute("pagee", pagee);
-		request.setAttribute("totalPagese", totalPagese);
-		request.setAttribute("searchKeyworde", searchKeyworde);
+		request.setAttribute("list", list);
+		request.setAttribute("page", page);
+		request.setAttribute("totalPages", totalPages);
+		request.setAttribute("searchKeyword", searchKeyword);
 		request.getRequestDispatcher("main-exerciseinfo-list.jsp").forward(request, response);
 		
 	}
 
 	@Override
-	public void getContente(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public void getContent(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int infoNo = Integer.parseInt(request.getParameter("infoNo"));
 		
 		SqlSession sql = sqlSessionFactory.openSession();
@@ -133,7 +133,7 @@ public class BoardServiceImpl implements BoardService {
 	    board.increaseHit(infoNo);
 	    sql.commit();
 	    
-	    BoardDTO dto = board.getContente(infoNo);
+	    BoardDTO dto = board.getContent(infoNo);
 	    
 
 	    sql.close();
@@ -151,7 +151,7 @@ public class BoardServiceImpl implements BoardService {
 	    SqlSession sql = sqlSessionFactory.openSession();
 	    BoardMapper mapper = sql.getMapper(BoardMapper.class);
 
-	    BoardDTO dto = mapper.getContente(infoNo);
+	    BoardDTO dto = mapper.getContent(infoNo);
 
 	    if(dto.getAdminNo() == adminNo) {
 	        mapper.delete(infoNo);
