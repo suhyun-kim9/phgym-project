@@ -7,16 +7,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>문의글작성</title>
 <link rel="stylesheet" href="css/main-qna-post.css">
+	<link rel="stylesheet" href="../include/css/main-navigation.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="../include/css/main-footer.css">
 </head>
 <body>
+
+ 	<jsp:include page="../include/main-navigation.jsp"/>
+ 	
+
 	<div class="form-container">
 		<form action="main_qna_post_regist.board" method="post">
-			<div class="header">
-				<input type="button" value="←" style="width: 30px"
-					onclick="location.href='main_qna_list.board'"> <span
+			<div class="header1">
+				<input type="button" class="back-btn" value="←" onclick="location.href='main_qna_list.board'"> <span
 					class="header-title">글 작성하기</span>
 				<div class="header-icons">
-					비밀번호 <input type="text" name="pw" id= "pw" placeholder="글 삭제 비밀번호 입니다.">
+					<span> 비밀번호 </span>
+					<input type="text" name="pw" id= "pw" placeholder="글 삭제 비밀번호 입니다.">
 				</div>
 			</div>
 			<input type="text" id="title" name="title" placeholder="제목을 입력하세요" required>
@@ -26,10 +33,14 @@
 
 			<div class="buttons">
 				<button type="submit" onclick="return pwCheck()" class="reset-btn">등록</button>
-				<button type="reset" class="submit-btn">취소</button>
+				<button type="reset" class="submit-btn">초기화</button>
 			</div>
 		</form>
 	</div>
+	
+	
+		<jsp:include page="../include/main-footer.jsp"/>
+	
 	<script type="text/javascript">
 		function pwCheck() {
 			var pw = document.getElementById("pw");

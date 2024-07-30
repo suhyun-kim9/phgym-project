@@ -12,6 +12,7 @@
 .fc-event{
 	background-color : #2c3e50;
 	border-color: #2c3e50;
+	font-size: 15px;
 }
 
 body{
@@ -32,7 +33,7 @@ ul, li, ol, dl, dd {
 }
 
 .search_name {
-    font-size: 1.5em;
+    font-size: 1.8em;
     width: 100%;
 }
 
@@ -120,23 +121,23 @@ ul, li, ol, dl, dd {
 
 .wrap4 {
     margin-bottom: 30px;
-    width: 90%;
     height: 100%;
     margin: 30px auto;
     background-color : #fff;
+        border-radius: 10px;
     
 }
 .fc .fc-daygrid-day.fc-day-today {
-		background-color :#2e609321;
+		background-color :#2c3e5017;
+		
 } 
 .fc-day-today { 
-		background-color :#2e609321;
+		background-color :#2c3e50d6;
 }
 
 #calendar {
-	
-   border: 1px solid red; 
-   padding : 13px;
-   border: 1px solid #ddd;
-   height: 581px;
+	padding: 10px;
+    border: 1px solid #ddd;
+    height: 610px;
+
 }

@@ -29,7 +29,7 @@ ul, li, ol, dl, dd {
 }
 
 .search_name {
-    font-size: 1.5em;
+    font-size: 1.8em;
     margin-bottom: 30px;
 }
 
@@ -71,7 +71,7 @@ ul, li, ol, dl, dd {
   .search_bar1 {
     display: flex;
     width: 100%;
-        align-items: center;
+   	align-items: center;
   }
 
   /*  조회 인풋박스 */
@@ -116,4 +116,12 @@ ul, li, ol, dl, dd {
 	margin-bottom : 100px;
 	border: 1px solid #ddd;
 	box-shadow: 2px 2px 4px #00000014;
+}
+
+.fc .fc-daygrid-day.fc-day-today {
+		background-color :#2c3e5017;
+		
+} 
+.fc-day-today { 
+		background-color :#2c3e50d6;
 }

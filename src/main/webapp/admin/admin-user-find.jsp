@@ -15,11 +15,10 @@
 	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 <body>
+
+
 	<div class="content">
-
-		<jsp:include page="../include/admin-navigation.jsp" />
-
-
+	<jsp:include page="../include/admin-navigation.jsp" />
 		<!--  여기에 넣어주시면 됩니다. -->
 		<div class="main">
 			<section id="wrap">
@@ -64,7 +63,7 @@
 										<td><a href="getUserAccount2.admin?userNo=${dto.userNo}">
 												${dto.userName}</a></td>
 										<td><a href="getUserAccount2.admin?userNo=${dto.userNo}">
-												${dto.userBirth}</a></td>
+												${dto.userBirth.toLocalDate()}</a></td>
 										<td><a href="getUserAccount2.admin?userNo=${dto.userNo}">
 												${dto.userGender}</a></td>
 										<td><a href="getUserAccount2.admin?userNo=${dto.userNo}">
@@ -227,7 +226,19 @@
 		<script>
 		
 		
-	
+
+
+		const rows = document.querySelectorAll('.user_table tr');
+
+		rows.forEach(row=> {
+		    row.addEventListener("click", function(event){
+		        const link = row.querySelector("a");
+		        if(link) {
+		            const href = link.getAttribute("href");
+		            window.location.href = href;
+		        }
+		    })
+		})
 		
 		
 		let N = 'N';

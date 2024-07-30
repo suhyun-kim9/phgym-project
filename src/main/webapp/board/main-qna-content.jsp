@@ -3,33 +3,49 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>문의글내용</title>
+	<link rel="stylesheet" href="../include/css/main-navigation.css">
+<link rel="stylesheet" href="css/main-qna-content.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+		<link rel="stylesheet" href="../include/css/main-footer.css">
 	
-	<link rel="stylesheet" href="css/main-qna-content.css">
+	<script>
+        function confirmDelete(inquiryNo) {
+            if(confirm("삭제하시겠습니까?")) {
+                location.href = 'main_qna_delete.board?inquiryNo=' + inquiryNo;
+            }
+        }
+    </script>
 	
 </head>
 <body>
+<jsp:include page="../include/main-navigation.jsp"/>	
 	<div class="content">
-		<div class="inquiry-view">
-			<div class="view-header">
-				<input type="button" value="←" onclick="location.href='main_qna_list.board'">
-				<h2>글 내용</h2>
-				<form action="">
-					<div class="title-info">
-						<span>제목 [ ${dto.title} ]</span>
-						<span>작성자 [] ${dto.writer} ]</span>
-						<span>작성일 [ <fmt:formatDate value="${dto.writeDate}" pattern="yyyy년 MM월 dd일" /> ]</span>
-						<input type="button" value="삭제" onclick="confirmDelete(${dto.inquiryNo})">
-					</div>				
-				</form>
-			</div>
-			<div class="inquiry-content">
-				<p>${dto.content}</p>
-			</div>
+		<div class="main2">
+			<section id="wrap">
+				
+				<div class="content">
+					<div class="inquiry-view">
+						<div class="view-header">
+							<div class="header1">
+								<input type="button" class="back-btn" value="←" onclick="location.href='main_qna_list.board'">
+								<div class="title-info">
+									<div class="no_title"> ${dto.title} </div>
+								</div>
+									<input type="button" class="delBtn" value="삭제" onclick="confirmDelete(${dto.inquiryNo})">
+							</div>
+								<div class="title2-info">
+									<div class="qnaWriter"><span> ${dto.writer} </span></div>
+									<div class="qnaDate"><span> <fmt:formatDate value="${dto.writeDate}" pattern="yyyy년 MM월 dd일" /> </span></div>
+								</div>				
+						</div>
+						<div class="inquiry-content">
+							<p>${dto.content}</p>
+						</div>
 
 			<c:if test="${dto.replyContent == null || dto.replyContent == ''}"> <!-- 댓글 작성 가능 -->
 				<c:if test="${sessionScope.sessionAdminNo != null && sessionScope.sessionAdminNo != ''}">
@@ -69,8 +85,8 @@
 								<p>
 									<small>작성자: 관리자 | 작성일: <fmt:formatDate value="${dto.replyDate}" pattern="yyyy-MM-dd HH:mm:ss" /></small>
 								</p>
-								<input type="button" value="삭제" onclick="confirmReplyDelete(${dto.inquiryNo})">
-								<input type="submit" value="수정">
+							<%-- 	<input type="button" value="삭제" onclick="confirmReplyDelete(${dto.inquiryNo})">
+								<input type="submit" value="수정"> --%>
 							</div>
 						</div>
 					</form>
@@ -78,6 +94,14 @@
 			</c:if>
 		</div>
 	</div>
+				
+			</section>
+		</div>
+	</div> 
+	
+		<jsp:include page="../include/main-footer.jsp"/>
+	
+			
 	<script>
         function confirmDelete(inquiryNo) {
         	var pw = prompt("비밀번호를 입력해주세요.");

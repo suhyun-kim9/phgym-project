@@ -210,7 +210,7 @@
    
    <jsp:include page="../include/main-navigation.jsp"/>
    
-  <!--  ${sessionScope.sessionUserNo} -->
+  ${sessionScope.sessionUserNo}
   
 
    <form action="promotion-payment1.main" method="post" >
@@ -246,11 +246,11 @@
                 <div class="pay-method">
                     <a>결제방법</a>
                     <input type="text" name="payMethod" id="payMethod" required disabled>
-                    <select size="1" class="method-list" onchange="myMethod(this.value)" name="methodBox">
+                    <select size="1" class="method-list" name="methodBox">
                         <option value="선택하세요">선택하세요</option>
-                        <option value="무통장 입금">무통장 입금</option>
-                        <option value="카드 결제">카드 결제</option>
-                        <option value="실시간 계좌이체">실시간 계좌이체</option>
+                        <option value="무통장입금">무통장입금</option>
+                        <option value="카드 결제">카드결제</option>
+                        <option value="실시간계좌이체">실시간 계좌이체</option>
                         <option value="카카오페이">카카오페이</option>
                         <option value="네이버페이">네이버페이</option>
                         <option value="토스페이">토스페이</option>
@@ -264,7 +264,7 @@
                 <div class="refund-name">
                     <a>환불은행</a>
                     <input type="text" name="refundBankname" id="refundBankname" required disabled>
-                    <select size="1" class="name-list" onchange="myBank(this.value)">
+                    <select size="1" class="name-list" name="nameBox">
                         <option value="선택하세요">선택하세요</option>
                         <option value="국민은행">국민은행</option>
                         <option value="농협은행">농협은행</option>

@@ -47,6 +47,12 @@ public interface AdminService {
 	
 	public void modiProg(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException;
 	public void ptReservationCancel(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException;
+	
+	// 게시판
+	public void getList(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException;
+	public void regist(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException;
+	public void getContent(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException;
+	public void delete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException;
 
 	
 	

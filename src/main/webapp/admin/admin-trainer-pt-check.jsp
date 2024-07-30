@@ -25,7 +25,7 @@
             events: [
                 <c:forEach var="date" items="${ptPerDayList}">
                     {
-                        title: '${date.cnt}',
+                        title: '${date.cnt}' + '건',
                         start: '${date.localDate}',
                         extendedProps: {
                             fetchUrl: '/PHGYM/admin/doTrainerPtCheck.admin?date=${date.localDate}'
@@ -39,8 +39,11 @@
                 fetch(fetchUrl)
                     .then(response => response.json())
                     .then(data => {
-                    	var str = "";
+                    	 var str = "";
+                         var currentDate = new Date();
+                         currentDate.setHours(0, 0, 0, 0); 
                     	for(var i = 0; i < data.length; i++) {
+                    		 var reservationDate = new Date(data[i].reservationDate);
                     		if (data[i].progressStatus === "예약취소"){
                     			str += "<tr>";
                         		str += "<td style='text-decoration: line-through'>" + data[i].ptReservationHisNo + "</td>";
@@ -49,12 +52,18 @@
                         		str += "<td style='text-decoration: line-through'>" + data[i].userNo + "</td>";
                         		str += "<td  style='text-decoration: line-through'>" + data[i].userName + "</td>";
                         		str += "<td class='progress' style='text-decoration: line-through'>" + data[i].progressStatus + "</td>";
-                        		if(data[i].progressStatus == '예약완료') {
-                        			str += "<td><input type='button' class='reserCbtn' value='예약취소' onclick='if(confirm(\"예약을 취소하시겠습니까?\")) {location.href=\"ptReservationCancel.admin?hisNo=" + data[i].ptReservationHisNo + "\";}'></td>";
-                        			
-                        		} else if(data[i].progressStatus == '예약취소') {
-                        			str += "<td><input type='button' class='reserCbtn2'  value='취소완료' disabled onclick='if(confirm(\"예약을 취소하시겠습니까?\")) {location.href=\"ptReservationCancel.admin?hisNo=" + data[i].ptReservationHisNo + "\";}'></td>";
+                        		
+                        		 if (reservationDate >= currentDate) {
+		                        		if(data[i].progressStatus == '예약완료') {
+		                        			str += "<td><input type='button' class='reserCbtn' value='예약취소' onclick='if(confirm(\"예약을 취소하시겠습니까?\")) {location.href=\"ptReservationCancel.admin?hisNo=" + data[i].ptReservationHisNo + "\";}'></td>";
+		                        			
+		                        		} else if(data[i].progressStatus == '예약취소') {
+		                        			str += "<td><input type='button' class='reserCbtn2'  value='취소완료' disabled onclick='if(confirm(\"예약을 취소하시겠습니까?\")) {location.href=\"ptReservationCancel.admin?hisNo=" + data[i].ptReservationHisNo + "\";}'></td>";
+		                        		}
+                        		} else {
+                        			"<td></td>";
                         		}
+                        		 
                         		str += "</tr>";
                     		}else if (data[i].progressStatus === "예약완료"){
                     			str += "<tr>";
@@ -64,12 +73,16 @@
                         		str += "<td>" + data[i].userNo + "</td>";
                         		str += "<td>" + data[i].userName + "</td>";
                         		str += "<td>" + data[i].progressStatus + "</td>";
-                        		if(data[i].progressStatus == '예약완료') {
-                        			str += "<td><input type='button' class='reserCbtn' value='예약취소' onclick='if(confirm(\"예약을 취소하시겠습니까?\")) {location.href=\"ptReservationCancel.admin?hisNo=" + data[i].ptReservationHisNo + "\";}'></td>";
-                        			
-                        		} else if(data[i].progressStatus == '예약취소') {
-                        			str += "<td><input type='button' class='reserCbtn2'  value='취소완료' disabled onclick='if(confirm(\"예약을 취소하시겠습니까?\")) {location.href=\"ptReservationCancel.admin?hisNo=" + data[i].ptReservationHisNo + "\";}'></td>";
-                        		}
+                        		 if (reservationDate >= currentDate) {
+		                        		if(data[i].progressStatus == '예약완료') {
+		                        			str += "<td><input type='button' class='reserCbtn' value='예약취소' onclick='if(confirm(\"예약을 취소하시겠습니까?\")) {location.href=\"ptReservationCancel.admin?hisNo=" + data[i].ptReservationHisNo + "\";}'></td>";
+		                        			
+		                        		} else if(data[i].progressStatus == '예약취소') {
+		                        			str += "<td><input type='button' class='reserCbtn2'  value='취소완료' disabled onclick='if(confirm(\"예약을 취소하시겠습니까?\")) {location.href=\"ptReservationCancel.admin?hisNo=" + data[i].ptReservationHisNo + "\";}'></td>";
+		                        		}
+                        		 }else {
+                         			"<td></td>";
+                         		}
                         		str += "</tr>";
                     		}
                     		
@@ -77,6 +90,18 @@
                     	tbodyList.innerHTML = str;
                     })
                	 info.jsEvent.preventDefault();
+            },
+            eventDidMount: function(info) { // 
+                
+                var eventDate = new Date(info.event.start);
+                var currentDate = new Date();
+                currentDate.setHours(0, 0, 0, 0); 
+
+                if (eventDate < currentDate) {
+                    // 과거 날짜이면 이벤트 타이틀 색상 변경
+                    info.el.style.backgroundColor = '#2c3e5096'; // 원하는 색상으로 변경
+                    
+                }
             }
         });
         calendar.render();
@@ -191,6 +216,17 @@
 <!-- 	<script  type="text/javascript" src="js/calendar2.js"> </script> -->
     <script type="text/javascript" src="../include/js/admin-navigation.js"> </script>
     <script>
+/*     
+    .fc-event{
+    	background-color : #2c3e50;
+    	border-color: #2c3e50;
+    	font-size: 15px;
+    } */
+/*     data[i].reservationDate  */
+ 
+    	
+    
+    
 
   /*   window.onload = function() {
         // 여기서 추가적으로 페이지 로드 후 실행될 코드를 넣을 수 있습니다.

@@ -459,4 +459,33 @@ public class AdminServiceImpl implements AdminService {
 		
 		response.sendRedirect("/PHGYM/admin/trainer-pt-check.admin");
 	}
+
+
+	@Override
+	public void getList(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void regist(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void getContent(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void delete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		
+	}
 }

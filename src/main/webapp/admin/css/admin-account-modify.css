@@ -61,12 +61,16 @@ ul, li, ol, dl, dd {
 
 
 .box_value > input {
+	height: 100%;
+	width: 100%;
     border: none;
+    border-bottom : 1px solid #ddd;
     border-radius: 5px;
     text-align: center;
     font-size: 17px;
     font-weight: 600;
     color: #595959;
+    
 }
 .box_value2 > textarea{
     width: 100%;
@@ -83,6 +87,11 @@ ul, li, ol, dl, dd {
 	width : 100%;
 	height: 100%;
 	border: none;
+	text-align : center;
+	text-align-last: center;
+   text-align: center;
+   -ms-text-align-last: center;
+   -moz-text-align-last: center;
 }
 
 .btnModi {

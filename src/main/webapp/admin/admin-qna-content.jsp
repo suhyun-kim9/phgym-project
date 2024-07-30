@@ -10,9 +10,12 @@
 	<title>문의글내용</title>
 	
 	<link rel="stylesheet" href="css/main-qna-content.css">
+	<link rel="stylesheet" href="../include/css/admin-navigation.css">
 	
 </head>
 <body>
+
+		<jsp:include page="../include/admin-navigation.jsp" />
 	<div class="content">
 		<div class="inquiry-view">
 			<div class="view-header">

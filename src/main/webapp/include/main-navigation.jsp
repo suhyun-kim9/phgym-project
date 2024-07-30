@@ -11,6 +11,7 @@
     height: 2px;
     background-color: #f97316;
     transition: 0.5s;
+
 </style>
 <nav class="main_nav_bar">
 	<ul class="main_nav">
@@ -20,8 +21,9 @@
 		<li class="dr dropdown2"><a style="color: black;"> 문의/고객센터 </a></li>
 		<div class="dropdownContent2">
 			<li><i class="bi bi-bell"></i> <a href="/PHGYM/board/main_notice_list.board"> 공지사항 </a></li>
-			<li><i class="bi bi-archive"></i> <a href="/PHGYM/board/main_exe_list.board"> 운동정보 </a></li>
+      <li><i class="bi bi-archive"></i> <a href="/PHGYM/board/main_exe_list.board"> 운동정보 </a></li>
 			<li><i class="bi bi-chat-dots"></i> <a href="/PHGYM/board/main_qna_list.board"> 문의사항 </a></li>
+
 		</div>
 
 		<li class="dr4"><a href="/PHGYM/main/map.main" style="color: black;"> 오시는 길 </a></li>
@@ -54,9 +56,24 @@
 </nav>
 <script type="text/javascript" src="../include/js/main-navigation.js"></script>
 <script type="text/javascript"> 
-	var showMypage = '${sessionScope.sessionUserNo}';
-	var mypage = document.getElementById("mypage");
+
+ 	var showMypage = '${sessionScope.sessionUserNo}';
+	var mypage = document.getElementById("dropdown3");
 	if(showMypage != null && showMypage != '') {
 		mypage.style.display = "block";
 	}
+
+
+
+	
+	function toggleMenu() {
+		var navMenu = document.getElementById("navMenu");
+	    if (navMenu.style.display == "none") {
+	    	navMenu.style.display = "block";
+	    } else {
+	    	navMenu.style.display = "none";
+	    }
+	} 
+	
 </script>
+

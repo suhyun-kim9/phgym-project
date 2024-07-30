@@ -1,13 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>운동정보작성</title>
 
-    <link rel="stylesheet" href="css/main-exerciseinfo-post.css">
+<!--  글작성하기 -->
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>운동정보작성</title>
+	<link rel="stylesheet" href="../include/css/main-navigation.css">
+	<link rel="stylesheet" href="css/main-exerciseinfo-post.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+	<link rel="stylesheet" href="../include/css/main-footer.css">
     
     <script>
         function validateForm() {
@@ -22,18 +28,21 @@
             return true;
         }
     </script>
-    
+	
 </head>
 <body>
-    
-    <div class="form-container">
-        <div class="header">
-            <input type="button" value="←" style="width: 30px" onclick="location.href='main_exe_list.board'">
+
+	<jsp:include page="../include/main-navigation.jsp"/>
+
+	<div class="form-container">
+        <div class="header1">
+            <input type="button" class="back-btn" value="←"onclick="location.href='main_exe_list.board'">
             <span class="header-title">글 작성하기</span>
             <div class="header-icons">
                 <button class="icon-btn">⋮</button>
             </div>
         </div>
+		
         <form action="main_exe_post_regist.board" method="post" onsubmit="return validateForm()">
             <input type="text" id="title" name="title" placeholder="제목을 입력하세요">
             <input type="text" id="writer" name="adminNo" size="10" placeholder="관리자 번호를 입력하세요" required>
@@ -42,11 +51,13 @@
             <textarea id="content" name="content" placeholder="내용을 입력하세요"></textarea>
 
             <div class="buttons">
-                <input type="submit" value="등록" class="reset-btn" style="width: 50px">
-                <input type="reset" value="다시" class="submit-btn" style="width: 50px">
+                <input type="submit" value="등록" class="reset-btn" >
+                <input type="reset" value="초기화" class="submit-btn">
             </div>
         </form>
     </div>
+    
+    	<jsp:include page="../include/main-footer.jsp"/>
 
 </body>
 </html>

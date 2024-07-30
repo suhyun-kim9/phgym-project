@@ -7,8 +7,20 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>문의글작성</title>
 <link rel="stylesheet" href="css/main-qna-post.css">
+    <link rel="stylesheet" href="../include/css/admin-navigation.css">
+    
 </head>
 <body>
+
+	<div class="content">
+
+		<jsp:include page="../include/admin-navigation.jsp" />
+
+
+		<!--  여기에 넣어주시면 됩니다. -->
+		<div class="main">
+			<section id="wrap">
+
 	<div class="form-container">
 		<form action="main_qna_post_regist.board" method="post">
 			<div class="header">

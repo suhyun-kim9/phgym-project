@@ -4,7 +4,7 @@
 }
 
 body{
-    background-color: #efefef;
+
 }
 
 ul, li, ol, dl, dd {
@@ -44,7 +44,7 @@ ul, li, ol, dl, dd {
 .title2-info {
     display: flex;
     justify-content: flex-end;
-    margin-bottom: 30px;
+    margin-bottom: 15px;
 }
 
 
@@ -58,9 +58,11 @@ ul, li, ol, dl, dd {
 
 .no_adminNo {
     border: 1px solid #ddd;
-    border-radius: 5px;
-    padding: 10px;
+    border-radius: 10px;
+    padding:  5px 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-left: 10px;
+    font-size: 13px;
 }
 .no_adminNo > span {
     font-weight: bold;
@@ -69,10 +71,11 @@ ul, li, ol, dl, dd {
 
 .no_writeDate {
     border: 1px solid #ddd;
-    border-radius: 5px;
-    padding: 10px;
+    border-radius: 10px;
+    padding:  5px 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     margin-left: 10px;
+    font-size: 13px;
 }
 
 .no_writeDate > span {
@@ -83,7 +86,7 @@ ul, li, ol, dl, dd {
 .inquiry-content {
     font-size : 1.1em;
     border: 1px solid #ddd;
-    border-radius: 5px;
+    border-radius: 10px;
     padding: 10px;
     height: 510px;
     overflow: auto;
@@ -94,23 +97,23 @@ ul, li, ol, dl, dd {
     background-color: white;
     border: 1px solid #ddd;
     padding: 20px;
-    border-radius: 5px;
+    border-radius: 10px;
     width: 1024px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     position: relative;
-    margin: 0 auto;
+    margin: 100px auto;
     margin-top: 40px;
 }
 
 .header1 {
-    border-bottom:  3px solid  rgb(35, 35, 62);
+    border-bottom:  3px solid  #ff7f56;
     display: flex;
     align-items: baseline;
     justify-content: space-between;
     padding: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    border-radius: 3px 3px 0 0;
-    margin-bottom: 30px;
+    border-radius: 10px 10px 0 0;
+    margin-bottom: 15px;
 }
 
 .back-btn {

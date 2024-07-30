@@ -1,89 +1,110 @@
+<!--  해찬님 폴더 가져옴 -->
+
+
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>문의글목록</title>
+    <title>문의사항 목록</title>
 
-    <link rel="stylesheet" href="css/main-qna-list.css">
+    <link rel="stylesheet" href="../admin/css/admin-notice-list.css">
+    <link rel="stylesheet" href="../include/css/admin-navigation.css">
+    
+    
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-     <link rel="stylesheet" href="../include/css/main-navigation.css">
-     
+    
 </head>
 <body>
 
 
-<jsp:include page="../include/main-navigation.jsp"/>
+
     
-    
+<div class="content"> 
+    <div class="main">
+        <section id="wrap">
+<jsp:include page="../include/admin-navigation.jsp"/>
+
     <div class="container">
-        <h1>문의글 목록</h1>
-        <div class="search-bar">
-            <form action="main_qna_search.board" method="get">
-                <input type="text" name="searchKeywords" placeholder="검색" value="${searchKeywords}">
-                <button type="submit">조회</button>
+
+            <form action="main_notice_search.board" method="get">
+                <div class="search_box">
+                    <div class="search_name">
+                        <i class="bi bi-chat-dots"></i> <span>문의사항</span>
+                      </div>
+                      <div class="search_bar1">
+                          <input type="text" name="userName" placeholder="제목을 입력하세요.">
+                          <input type="submit"  class="btn-hover color-4" value="조회">
+                      </div>
+              </div>
             </form>
-        </div>
         
-        <c:if test="${not empty lists}">
-        <!-- list 변수에 따라 다른 콘텐츠 렌더링 - 리스트가 비어있지 않다면 검색결과, 목록을 테이블 형태로 보여줌 -->
-            <p>검색 결과: ${fn:length(lists)}건</p>
-            <table>
+        <c:if test="${not empty listn}">
+            <p class="result_search"> 검색 결과: <span> ${fn:length(listn)} </span> 건 </p>
+
+            <div class="content_box3">
+            <table class="user_table" style="table-layout: fixed">
                 <thead>
                     <tr>
-                        <th>번호</th>
-                        <th>제목</th>
-                        <th>이름</th>
-                        <th>작성일</th>
-                        <th>조회수</th>
+                        <th width="10%">번호</th>
+                        <th width="100%">제목</th>
+                        <th width="20%">작성자</th>
+                        <th width="30%">작성일</th>
+                        <th width="12%">조회수</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <c:forEach var="dto" items="${lists}" varStatus="status">
+                    <c:forEach var="dto" items="${listn}">
                         <tr>
-                            <td>${lists.size() - status.index}</td>
-                            <td><a href="main_qna_content.board?inquiryNo=${dto.inquiryNo}">${dto.title}</a></td>
-                            <td>${dto.writer}</td>
-                            <td><fmt:formatDate value="${dto.writeDate}" pattern="yyyy년 MM월 dd일"/></td>
+                            <td>${dto.noticeNo}</td>
+                            <td><a href="main_notice_content.board?noticeNo=${dto.noticeNo}">${dto.title}</a></td>
+                            <td>${dto.adminNo}</td>
+                            <td><fmt:formatDate value="${dto.writeDate}" pattern="yyyy년 MM월 dd일 HH시 mm분 ss초"/></td>
                             <td>${dto.hit}</td>
                         </tr>
                     </c:forEach>
                 </tbody>
             </table>
         </c:if>
-        <c:if test="${empty lists}">
-            <p>검색 결과가 없습니다.</p>
+        
+        <c:if test="${empty listn}">
+            <p class="result_non">검색 결과가 없습니다.</p>
         </c:if>
+
         <div class="pagination">
-            <c:if test="${pages > 1}">
-                <a href="main_qna_list.board?pages=${pages - 1}">Previous</a>
+            <c:if test="${pagen > 1}">
+                <a href="main_notice_list.board?pagen=${pagen - 1}">Previous</a>
             </c:if>
-            <c:forEach var="i" begin="1" end="${totalPagess}">
+            <c:forEach var="i" begin="1" end="${totalPagesn}">
                 <c:choose>
-                    <c:when test="${pages == i}">
+                    <c:when test="${pagen == i}">
                         <span class="current">${i}</span>
                     </c:when>
                     <c:otherwise>
-                        <a href="main_qna_list.board?pages=${i}">${i}</a>
+                        <a href="main_notice_list.board?pagen=${i}">${i}</a>
                     </c:otherwise>
                 </c:choose>
             </c:forEach>
-            <c:if test="${pages < totalPagess}">
-                <a href="main_qna_list.board?pages=${pages + 1}">Next</a>
+            <c:if test="${pagen < totalPagesn}">
+                <a href="main_notice_list.board?pagen=${pagen + 1}">Next</a>
             </c:if>
         </div>
-        
+    </div>
         <div class="buttons">
-            <input type="button" value="등록" class="combtn" onclick="location.href='main_qna_post.board';">
+            <input type="button" value="등록"  class="btn-hover btnRegi" class="combtn" onclick="location.href='main_notice_post.board';">
         </div>
     </div>
+    </section>
+    </div>
+    </div>
+
 </body>
 </html>

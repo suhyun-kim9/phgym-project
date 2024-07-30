@@ -12,16 +12,12 @@ public interface BoardMapper {
 	
 	// mainExerciseInfo
 	String now();
-	
-	ArrayList<BoardDTO> getListe(@Param("startIndexe") int startIndexe, @Param("endIndexe") int endIndexe); //목록
+	ArrayList<BoardDTO> getList(@Param("startIndex") int startIndex, @Param("endIndex") int endIndex); //목록
     int regist(BoardDTO dto); // 작성   
-
-    ArrayList<BoardDTO> searchListe(@Param("searchKeyworde") String searchKeyworde, @Param("startIndexe") int startIndexe, @Param("endIndexe") int endIndexe); // 검색
-    
-    int getTotalCounte();
-    
-    int getSearchCounte(@Param("searchKeyworde") String searchKeyworde);
-	BoardDTO getContente(int infoNo); // 글 내용
+    ArrayList<BoardDTO> searchList(@Param("searchKeyword") String searchKeyword, @Param("startIndex") int startIndex, @Param("endIndex") int endIndex); // 검색
+    int getTotalCount();
+    int getSearchCount(@Param("searchKeyword") String searchKeyword);
+	BoardDTO getContent(int infoNo); // 글 내용
 	void increaseHit(int infoNo); // 조회
 	void delete(int infoNo); // 삭제
 	

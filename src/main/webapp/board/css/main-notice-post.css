@@ -6,35 +6,33 @@
 
 
 body{
-    background-color: #efefef;
+ 
 }
 
 ul, li, ol, dl, dd {
     list-style: none;
 }
 
-.wrap2 {
-  
-}
-
 .form-container {
     background-color: white;
     border: 1px solid #ddd;
     padding: 20px;
-    border-radius: 5px;
-    width: 1024px;
+    border-radius: 10px;
+    width: 980px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     position: relative;
+    margin: 100px auto;
+    
 }
 
 .header1 {
-    border-bottom:  3px solid  rgb(35, 35, 62);
+    border-bottom:  3px solid  #ff7f56;
     color: white;
     display: flex;
     align-items: baseline;
     padding: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    border-radius: 3px 3px 0 0;
+    border-radius: 10px 10px 0 0;
     margin-bottom: 30px;
 }
 
@@ -77,9 +75,10 @@ ul, li, ol, dl, dd {
     padding-bottom: 10px;
     margin-bottom: 15px;
     border: 1px solid #ddd;
-    border-radius: 3px;
+    border-radius: 5px;
     font-size: 1.0em;
     padding-left: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 #content {
@@ -94,31 +93,35 @@ ul, li, ol, dl, dd {
     justify-content: flex-end;
 }
 
-.reset-btn {
-    width: 100px;
-    height: 42px;
+.reset-btn { /* reset-btn이 등록버튼임 */
+    width: 110px;
+    height: 35px;
     border: 1px solid #ddd;
     border-radius: 5px;
     /* box-shadow: 2px 4px 12px #00000014; */
     font-size: 15px;
     font-weight: bold;
-    background-color: rgb(35, 35, 62);
+    background-color: #ff7f56;
     color : #fff;
-    cursor: pointer;
-    
+    cursor: pointer;    
+}
+.reset-btn:hover {
+	background-color: #f75f2c;
 }
 
-.submit-btn {
-    width: 100px;
-    height: 42px;
+.submit-btn { /* submit-btn이 초기화 버튼임 */
+    width: 110px;
+    height: 35px;
     border: 1px solid #ddd;
     border-radius: 5px;
     /* box-shadow: 2px 4px 12px #00000014; */
     font-size: 15px;
     font-weight: bold;
-    background-color: rgb(35, 35, 62);
+    background-color: #333;
     color : #fff;
     cursor: pointer;
     margin-left: 10px;
-
+}
+.submit-btn:hover {
+	background-color: #141414;
 }

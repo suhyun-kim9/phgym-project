@@ -62,10 +62,17 @@
 								</div>
 								<div>
 									<div class="box_name">성별</div>
+									
 									<div class="box_value">
-										 <input class="gender" type="radio" value="남자" disabled> 남
-										 <input class="genderW" type="radio" value="여자" disabled> 여
-										 
+						
+										<c:if test="${dto.adminGender == 'M'}">
+								            	 <input type="radio"  class="gender" value="M" name="adminGender" checked="checked" disabled>남
+								            		<input type="radio"class="genderW" value="W" name="adminGender" disabled>여  
+							            	</c:if>
+											<c:if test="${dto.adminGender == 'W'}">
+							            		<input type="radio" class="gender" value="M" name="adminGender" disabled>남
+							            		<input type="radio" class="genderW" value="W" name="adminGender" checked="checked" disabled>여
+							            	</c:if>
 									</div>
 									
 									<!-- <div class="box_value">${dto.adminGender}</div>	 -->

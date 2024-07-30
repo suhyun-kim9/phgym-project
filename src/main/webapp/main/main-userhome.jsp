@@ -42,7 +42,7 @@
             position: relative; overflow: hidden;
         }
         .swiper .swiper-slide img {
-            position: absolute; width: 100%; height: 100%; object-fit: fit;
+            position: absolute; width: 100%; height: 100%; object-fit: cover;
         }
         #swiper {
             transition-duration: 0ms;

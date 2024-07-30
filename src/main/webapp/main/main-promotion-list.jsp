@@ -23,10 +23,10 @@
 
         /* 전체 틀 */
         .list-wrap {
+        	margin: auto;
             position: relative;
             width: 1050px; height: 600px;
             border: 0px solid green;
-            left: 270px;
         }
 
 
@@ -49,6 +49,7 @@
             border: 0px solid #000; border-radius: 10px;
             position: relative; top: 10px;
             box-shadow: 2px 4px 12px #00000014;
+            object-fit: full;
         }
 
         /* 프로모션 종류 메인 */
@@ -172,7 +173,7 @@
                     </div>
                 </div>
                 <div>
-                    <img src="img/workout(9).jpg" alt="">
+                    <img src="img/workout(4).jpg" alt="">
                     <p>기본 정액가</p>
                     <p>
                         헬스복/수건 무상제공<br>
@@ -187,7 +188,7 @@
                     </div>
                 </div>
                 <div>
-                    <img src="img/workout(11).png" alt="">
+                    <img src="img/workout(1).jpg" alt="">
                     <p>일일이용권</p>
                     <p>
                         헬스복/수건 무상제공<br>
