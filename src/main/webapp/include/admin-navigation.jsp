@@ -23,8 +23,8 @@
 					<li><i class="bi bi-calendar4-event"></i> <a href="/PHGYM/admin/trainer-pt-check.admin"> 스케쥴 관리 </a></li>
 					<!-- <li><i class="bi bi-send"></i> <a href="/PHGYM/mypage/transfer.mypage"> 회원권양도 </a></li> -->
 					<li><i class="bi bi-bell"></i> <a href="/PHGYM/board/main_notice_list.board"> 공지사항 </a></li>
-					<li><i class="bi bi-archive"></i> <a href=""> 운동정보 </a></li>
-					<li><i class="bi bi-chat-dots"></i> <a href=""> 문의사항 </a></li>
+					<li><i class="bi bi-archive"></i> <a href="/PHGYM/board/main_exe_list.board"> 운동정보 </a></li>
+					<li><i class="bi bi-chat-dots"></i> <a href="/PHGYM/board/main_qna_list.board"> 문의사항 </a></li>
 				</ul>
 				<div class="nav_logout">
 					<c:if test="${sessionScope.sessionAdminNo != null && sessionScope.sessionAdminNo != ''}">

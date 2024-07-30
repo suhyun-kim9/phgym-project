@@ -36,12 +36,6 @@ public class BoardController extends HttpServlet {
 
 		BoardService service = new BoardServiceImpl();
 		
-		if(request.getSession().getAttribute("sessionAdminNo") != null) {
-        	request.getSession().setAttribute("LogoutMsg", "Y");
-        	response.sendRedirect("/PHGYM/admin/account.admin");
-        	return;
-        }
-		
 		if(command.equals("/board/main_exe_list.board")) { // 메인 운동정보 목록
 			
 			service = new BoardServiceImpl();
@@ -69,21 +63,21 @@ public class BoardController extends HttpServlet {
 			
 			service = new BoardServiceImpl();
 			service.getContent(request, response);
-			request.getRequestDispatcher("main-exerciseinfo-content.jsp").forward(request, response);
-			
 		} else if(command.equals("/board/main_exe_delete.board")) { // 삭제
-			
+			service = new BoardServiceImpl();
 			service.delete(request, response);
 			//=================================================================================
 		} else if(command.equals("/board/main_qna_list.board")) { // QNA 목록
 			
 			service = new BoardServiceImpl();
 			service.getList1(request, response);
-			request.getRequestDispatcher("main-qna-list.jsp").forward(request, response);
-			
 		} else if(command.equals("/board/main_qna_post.board")) { // 작성
 			
 			request.getRequestDispatcher("main-qna-post.jsp").forward(request, response);
+			
+		} else if(command.equals("/board/main_qna_post2.board")) { // 작성
+			
+			request.getRequestDispatcher("../admin/admin-qna-post.jsp").forward(request, response);
 			
 		} else if(command.equals("/board/main_qna_post_regist.board")) { // 등록
 			
@@ -99,8 +93,6 @@ public class BoardController extends HttpServlet {
 			
 			service = new BoardServiceImpl();
 			service.getContent1(request, response);
-			request.getRequestDispatcher("main-qna-content.jsp").forward(request, response);
-			
 		} else if(command.equals("/board/main_qna_delete.board")) { // 삭제
 			service = new BoardServiceImpl();
 			service.delete1(request, response);

@@ -36,12 +36,6 @@ public class JoinController extends HttpServlet {
 
 		JoinService service = null;
 		
-		if(request.getSession().getAttribute("sessionAdminNo") != null) {
-        	request.getSession().setAttribute("LogoutMsg", "Y");
-        	response.sendRedirect("/PHGYM/admin/account.admin");
-        	return;
-        }
-
 		if(command.equals("/join/adminPwFind.join")) { // 관리자 비밀번호찾기
 			service = new JoinServiceImpl();
 			service.adminPwFind(request, response);

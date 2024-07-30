@@ -84,9 +84,6 @@
                 <a href="main_notice_list.board?pagen=${pagen + 1}" class="nextBtn">다음</a>
             </c:if>
         </div>
-        <div class="buttons">
-            <input type="button" value="등록"  class="btn-hover btnRegi" class="combtn" onclick="location.href='main_notice_post.board';">
-        </div>
     </div>
     </div>
     </div>
