@@ -41,7 +41,7 @@
             </form>
         
         <c:if test="${not empty listn}">
-            <p class="result_search"><small> 검색 결과: <span> ${fn:length(listn)} </span> 건 </small></p>
+            <p class="result_search"><small> 검색 결과: <span> ${totalCountn} </span> 건 </small></p>
 
             <div class="content_box3">
             <table class="user_table" style="table-layout: fixed">

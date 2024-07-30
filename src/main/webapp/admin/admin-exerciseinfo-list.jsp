@@ -16,14 +16,19 @@
     <link rel="stylesheet" href="css/main-exerciseinfo-list.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="../include/css/main-navigation.css">
-     
+     <link rel="stylesheet" href="../include/css/admin-navigation.css">
+	
 </head>
 <body>
 
 
-<jsp:include page="../include/main-navigation.jsp"/>
+    	<div class="content">
 
-    
+		<jsp:include page="../include/admin-navigation.jsp" />
+
+		<div class="main">
+			<section id="wrap">
+			
     <div class="container">
         <h1>운동정보</h1>
         <div class="search-bar">
