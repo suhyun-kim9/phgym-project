@@ -14,11 +14,11 @@ ul, li, ol, dl, dd {
 }
 
 .form-container {
-    background-color: white;
+        background-color: white;
     border: 1px solid #ddd;
     padding: 20px;
     border-radius: 10px;
-    width: 1024px;
+    width: 980px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     position: relative;
     margin: 100px auto;
@@ -85,7 +85,7 @@ ul, li, ol, dl, dd {
     padding-bottom: 10px;
     margin-bottom: 15px;
     border: 1px solid #ddd;
-    border-radius: 10px;
+    border-radius: 5px;
     font-size: 1.0em;
     padding-left: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -104,15 +104,15 @@ ul, li, ol, dl, dd {
 }
 
 .reset-btn { /* reset-btn이 등록버튼임 */
-    width: 80px;
-    height: 42px;
+    width: 110px;
+    height: 35px;
     border: 1px solid #ddd;
-    border-radius: 10px;
+    border-radius: 5px;
     /* box-shadow: 2px 4px 12px #00000014; */
     font-size: 15px;
     font-weight: bold;
     background-color: #ff7f56;
-    color : #fff;
+    color: #fff;
     cursor: pointer;    
 }
 .reset-btn:hover {
@@ -120,15 +120,15 @@ ul, li, ol, dl, dd {
 }
 
 .submit-btn { /* submit-btn이 초기화 버튼임 */
-    width: 80px;
-    height: 42px;
+    width: 110px;
+    height: 35px;
     border: 1px solid #ddd;
-    border-radius: 10px;
+    border-radius: 5px;
     /* box-shadow: 2px 4px 12px #00000014; */
     font-size: 15px;
     font-weight: bold;
     background-color: #333;
-    color : #fff;
+    color: #fff;
     cursor: pointer;
     margin-left: 10px;
 }

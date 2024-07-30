@@ -85,7 +85,7 @@
         </tr> 
         <tr >
             <th> 생년월일 </th>
-            <td> <div> ${dto.userBirth} </div> </td>
+            <td> <div> ${dto.userBirth.toLocalDate()} </div> </td>
         </tr>  
           <tr >
             <th> 성별 </th>
@@ -105,7 +105,7 @@
         </tr>  
          <tr>
             <th> 가입일 </th>
-            <td> <div> ${dto.userRegDate} </div> </td>
+            <td> <div>  ${dto.userRegDate.toLocalDate()} </div> </td>
         </tr>
          <tr>
             <th width="40%"> 잔여 PT 횟수 </th>

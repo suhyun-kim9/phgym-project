@@ -33,7 +33,7 @@
 
 			<div class="buttons">
 				<button type="submit" onclick="return pwCheck()" class="reset-btn">등록</button>
-				<button type="reset" class="submit-btn">취소</button>
+				<button type="reset" class="submit-btn">초기화</button>
 			</div>
 		</form>
 	</div>

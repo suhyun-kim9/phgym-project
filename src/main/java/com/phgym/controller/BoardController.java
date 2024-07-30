@@ -45,6 +45,10 @@ public class BoardController extends HttpServlet {
 			
 			request.getRequestDispatcher("main-exerciseinfo-post.jsp").forward(request, response);
 			
+		} else if(command.equals("/board/main_exe_post2.board")) { // 작성 (admin)
+			
+			request.getRequestDispatcher("../admin/admin-exerciseinfo-post.jsp").forward(request, response);
+			
 		} else if(command.equals("/board/main_exe_post_regist.board")) { // 등록
 			
 			service = new BoardServiceImpl();
@@ -109,7 +113,6 @@ public class BoardController extends HttpServlet {
         	service = new BoardServiceImpl();
 			service.getListN(request, response);
 			
-//			request.getRequestDispatcher("main-notice-list.jsp").forward(request, response);
         	
         } else if(command.equals("/board/main_notice_post.board")) { // 작성
 			request.getRequestDispatcher("main-notice-post.jsp").forward(request, response);
@@ -131,12 +134,11 @@ public class BoardController extends HttpServlet {
 			
 			service = new BoardServiceImpl();
 			service.getContentN(request, response);
-//			request.getRequestDispatcher("main-notice-content.jsp").forward(request, response);
 			
 		} else if(command.equals("/board/main_notice_delete.board")) { // 삭제
 			service = new BoardServiceImpl();
 			service.deleteN(request, response);
-			//=================================================================================
+			//=========================================================
 		}
 		
 		
