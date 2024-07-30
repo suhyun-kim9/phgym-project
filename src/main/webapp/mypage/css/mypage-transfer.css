@@ -20,18 +20,18 @@ img {
 
 .content > .wrap-top {
 	padding: 40px 0 20px 0;
-	border-bottom: 1px solid #00000029;
+	border-bottom: 1px solid #000;
 }
 
 .content > .wrap-top > h2 {
 	display: inline-block;
-	font-size: 40px;
+	font-size: 30px;
 }
 
 .content > .wrap-top > p {
 	display: inline-block;
 	padding-left: 10px;
-	font-size: 20px;
+	font-size: 15px;
 }
 
 .content > .wrap-middle {
@@ -43,12 +43,13 @@ img {
 }
 
 .content > .wrap-middle > p:nth-child(1) {
-	padding-top: 90px;
-	font-size: 24px;
+	padding-top: 65px;
+	font-size: 20px;
 }
 
 .content > .wrap-middle > p:nth-child(2) {
 	padding-bottom: 50px;
+	margin-top: 15px;
 	font-size: 18px;
 }
 
@@ -58,20 +59,24 @@ img {
 }
 
 .content > .wrap-middle > form > div > p {
-	font-size: 20px;
+	font-size: 18px;
 	padding-bottom: 5px;
+	position: relative;
+	top: 15px;
 }
 
 .content > .wrap-middle > form > div .inputSelect {
 	width: 100%;
 	height: 40px;
 	margin-bottom: 10px;
+	margin-top: 15px;
 	font-size: 16px;
 	padding-left: 5px;
+	border: 1px solid #e3e3e3;
 }
 
 .content > .wrap-middle > form > .transferBtn {
-	margin-top: 10px;
+	margin-top: 40px;
 	background-color: #ff7f56;
 	border: none;
 	border-radius: 0.25em;

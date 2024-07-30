@@ -31,13 +31,13 @@
 							<button onclick="location.href='reservationDate.mypage?adminNo=1'" class="button button--wapasha button--round-s">예약하기</button>
 						</div>
 						<div class="intro-content">
-							<p>✔︎ 김강함 트레이너</p>
+							<p>✔︎ 잉여주 트레이너</p>
 							<div>
-								<p>한국체육대학교 사회체육학과 전공</p>
-								<p>생활 스포츠 지도사 2급 (보디빌딩)</p>
-								<p>KATA ATC (한국선수트레이너협회)</p>
-								<p>NSCA 스포츠 영양코치 Level.1</p>
-								<p>현)파워하우스 퍼스널트레이너</p>
+								<p>• 한국체육대학교 사회체육학과 전공</p>
+	                            <p>• 생활 스포츠 지도사 2급 (보디빌딩)</p>
+	                            <p>• KATA ATC (한국선수트레이너협회)</p>
+	                            <p>• NSCA 스포츠 영양코치 Level.1</p>
+	                            <p>• 현)파워하우스 퍼스널트레이너</p>
 							</div>
 						</div>
 					</div>
@@ -47,13 +47,13 @@
                             <button onclick="location.href='reservationDate.mypage?adminNo=2'" class="button button--wapasha button--round-s"> 예약하기 </button>
                         </div>
                         <div class="intro-content">
-                            <p>✔︎ 김강함 트레이너</p>
+                            <p>✔︎ 김물현 트레이너</p>
                             <div>
-                            	<p>생활 스포츠 지도사 2급 (보디빌딩)</p>
-	                            <p>피돌로지 영양 전문가 과정 수료</p>
-	                            <p>독일 블랙롤 국제자격 과정 수료</p>
-	                            <p>2020 INFC 피지크 오픈 6위</p>
-	                            <p>현)파워하우스 퍼스널트레이너</p>
+                            	<p>• 생활 스포츠 지도사 2급 (보디빌딩)</p>
+	                            <p>• 피돌로지 영양 전문가 과정 수료</p>
+	                            <p>• 독일 블랙롤 국제자격 과정 수료</p>
+	                            <p>• 2020 INFC 피지크 오픈 6위</p>
+	                            <p>• 현)파워하우스 퍼스널트레이너</p>
                             </div>
                         </div>
                     </div>
@@ -63,13 +63,13 @@
                             <button onclick="location.href='reservationDate.mypage?adminNo=3'" class="button button--wapasha button--round-s"> 예약하기 </button>
                         </div>
                         <div class="intro-content">
-                            <p>✔︎ 김강함 트레이너</p>
+                            <p>✔︎ 북상혁 트레이너</p>
                             <div>
-                            	<p>계명대학교 사회체육학과 전공</p>
-	                            <p>생활 스포츠 지도사 2급 (보디빌딩)</p>
-	                            <p>생활 스포츠 지도사 2급</p>
-	                            <p>스포츠 마사지 1급</p>
-	                            <p>현)파워하우스 퍼스널트레이너</p>
+                            	<p>• 계명대학교 사회체육학과 전공</p>
+	                            <p>• 생활 스포츠 지도사 2급 (보디빌딩)</p>
+	                            <p>• 독일 블랙롤 국제자격 과정 수료</p>
+	                            <p>• NSCA 스포츠 영양코치 Level.1</p>
+	                            <p>• 현)파워하우스 퍼스널트레이너</p>
                             </div>
                         </div>
                     </div>
@@ -79,13 +79,13 @@
                             <button onclick="location.href='reservationDate.mypage?adminNo=4'" class="button button--wapasha button--round-s"> 예약하기 </button>
                         </div>
                         <div class="intro-content">
-                            <p>✔︎ 김강함 트레이너</p>
+                            <p>✔︎ 해찬들 트레이너</p>
                             <div>
-                            	<p>생활 스포츠 지도사 2급 (보디빌딩)</p>
-	                            <p>바디밸런스 필라테스 교육과정 수료</p>
-	                            <p>바디아티스트 교정운동전문가 교육 이수</p>
-	                            <p>L&K 교정운동 교육과정 이수</p>
-	                            <p>현)파워하우스 퍼스널트레이너</p>
+                            	<p>• 생활 스포츠 지도사 2급 (보디빌딩)</p>
+	                            <p>• 바디밸런스 필라테스 교육과정 수료</p>
+	                            <p>• 바디아티스트 교정운동전문가 교육 이수</p>
+	                            <p>• L&K 교정운동 교육과정 이수</p>
+	                            <p>• 현)파워하우스 퍼스널트레이너</p>
                             </div>
                         </div>
                     </div>
@@ -95,13 +95,13 @@
                             <button onclick="location.href='reservationDate.mypage?adminNo=5'" class="button button--wapasha button--round-s"> 예약하기 </button>
                         </div>
                         <div class="intro-content">
-                            <p>✔︎ 김강함 트레이너</p>
+                            <p>✔︎ 박욱인 트레이너</p>
                             <div>
-                            	<p>앞구르기 대회 1등</p>
-	                            <p>복싱 클럽 운영</p>
-	                            <p>생활 스포츠 지도사 2급</p>
-	                            <p>스포츠 마사지 1급</p>
-	                            <p>현)파워하우스 퍼스널트레이너</p>
+                            	<p>• 한국체육대학교 사회체육학과 전공</p>
+	                            <p>• 2023 INFC 피지크 오픈 6위</p>
+	                            <p>• 생활 스포츠 지도사 2급</p>
+	                            <p>• NSCA 스포츠 영양코치 Level.1</p>
+	                            <p>• 현)파워하우스 퍼스널트레이너</p>
                             </div>
                         </div>
                     </div>
@@ -111,13 +111,13 @@
                             <button onclick="location.href='reservationDate.mypage?adminNo=6'" class="button button--wapasha button--round-s"> 예약하기 </button>
                         </div>
                         <div class="intro-content">
-                            <p>✔︎ 김강함 트레이너</p>
+                            <p>✔︎ 간지윤 트레이너</p>
                            	<div>
-                           		<p>앞구르기 대회 1등</p>
-	                            <p>복싱 클럽 운영</p>
-	                            <p>생활 스포츠 지도사 2급</p>
-	                            <p>스포츠 마사지 1급</p>
-	                            <p>현)파워하우스 퍼스널트레이너</p>
+                           		<p>• 생활 스포츠 지도사 2급</p>
+	                            <p>• 피돌로지 영양 전문가 과정 수료</p>
+	                            <p>• KATA ATC (한국선수트레이너협회)</p>
+	                            <p>• NSCA 스포츠 영양코치 Level.1</p>
+	                            <p>• 현)파워하우스 퍼스널트레이너</p>
                            	</div>
                         </div>
                     </div>

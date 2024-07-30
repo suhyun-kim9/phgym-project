@@ -28,7 +28,7 @@ img {
 
 .content > .wrap-top {
 	padding: 40px 0 20px 0;
-	border-bottom: 1px solid #00000029;
+	border-bottom: 1px solid #000;
 	display: flex;
 	justify-content: space-between;
 	align-items: flex-end;
@@ -36,23 +36,27 @@ img {
 
 .content > .wrap-top > h2 {
 	display: inline-block;
-	font-size: 40px;
+	font-size: 30px;
+	letter-spacing: 5px;
 }
 
 .content > .wrap-top > input {
-	background-color: #ff7f56;
-	border: none;
+	background-color: #fff;
+	border: 0px solid #00000014;
 	border-radius: 0.25em;
-	color: #ffffff;
-	font-size: 20px;
-	height: 40px;
+	color: #000;
+	box-shadow: 2px 4px 12px #e3e3e3;
+	font-size: 15px;
+	height: 30px;
 	padding: 0 30px;
 	cursor: pointer;
 }
-
+.content .wrap-top .submit:hover {
+	background-color:  #f97316;
+}
 .content > .wrap-middle {
 	margin-top: 30px;
-	padding: 10px 50px;
+	padding: 50px 50px;
 	border-radius: 18px;
     box-shadow: 2px 4px 12px #00000014;
 	display: flex;
@@ -65,7 +69,7 @@ img {
 }
 
 .content > .wrap-middle > .wrap-middle-left > .profile {
-	margin-right: 40px;
+	margin-right: 30px;
 	box-shadow: 2px 4px 12px #00000014;
 	height: 170px;
 	text-align: center;
@@ -83,6 +87,7 @@ img {
 .content > .wrap-middle > .wrap-middle-center p {
 	font-size: 18px;
 	margin-bottom: 3px;
+	letter-spacing: 5px;
 }
 
 .content > .wrap-middle > .wrap-middle-center input {
@@ -91,6 +96,7 @@ img {
 	font-size: 16px;
 	margin-bottom: 15px;
 	padding-left: 5px;
+	border: 1px solid #e3e3e3;
 }
 
 .content > .wrap-middle > .wrap-middle-center div {
@@ -123,19 +129,29 @@ img {
 .content > .wrap-middle > .wrap-middle-right p {
 	font-size: 18px;
 	margin-bottom: 3px;
+	letter-spacing: 5px;
 }
-
+.content .wrap-middle > .wrap-middle-right p:nth-of-type(3),
+.content .wrap-middle > .wrap-middle-right p:nth-of-type(4),
+.content .wrap-middle > .wrap-middle-right p:nth-of-type(5),
+.content .wrap-middle > .wrap-middle-right input:nth-of-type(3),
+.content .wrap-middle > .wrap-middle-right input:nth-of-type(4) {
+	position: relative;
+	top: 25px;
+}
 .content > .wrap-middle > .wrap-middle-right input {
 	width: 90%;
 	height: 30px;
 	font-size: 16px;
 	margin-bottom: 15px;
 	padding-left: 5px;
+	border: 1px solid #e3e3e3;
 }
 
 .content > .wrap-middle > .wrap-middle-right select {
 	width: 90%;
 	height: 30px;
+	margin-top: 26px;
 	font-size: 14px;
 	margin-bottom: 7px;
 	padding-left: 5px;
@@ -149,13 +165,14 @@ img {
 }
 
 .content > .wrap-bottom > p {
-	font-size: 24px;
+	font-size: 18px;
 }
 
 .content > .wrap-bottom > table {
     margin: 0 auto;
     width: 650px;
-    border: 1px solid #76818d;
+    border: 1px solid #e3e3e3;
+    border-radius: 5px;
     display: block;
     height: 200px;
     overflow: auto;
@@ -163,13 +180,15 @@ img {
 
 .content > .wrap-bottom > table tr th {
     text-align: center;
-    border-bottom: 1px solid #76818d;
+    border-bottom: 1px solid #e3e3e3;
     width: 162.5px;
     padding: 3px 0;
+    font-weight: 600;
 }
 
 .content > .wrap-bottom > table tr td {
     text-align: center;
     width: 162.5px;
     padding: 3px 0;
+    font-weight: 400;
 }
