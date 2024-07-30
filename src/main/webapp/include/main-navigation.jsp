@@ -21,7 +21,6 @@
 		<div class="dropdownContent2">
 			<li><i class="bi bi-bell"></i> <a href="/PHGYM/board/main_notice_list.board"> 공지사항 </a></li>
 			<li><i class="bi bi-archive"></i> <a href="/PHGYM/board/main_exe_list.board"> 운동정보 </a></li>
-			
 		</div>
 
 		<li class="dr4"><a href="/PHGYM/main/map.main" style="color: black;"> 오시는 길 </a></li>
