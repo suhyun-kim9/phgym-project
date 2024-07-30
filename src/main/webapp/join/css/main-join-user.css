@@ -6,21 +6,12 @@
     box-sizing: border-box; /* 박스 사이징 설정 */
 }
 
-body {
-    font-family: Montserrat, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; /* 기본 글꼴 */
-    margin: 0;
-    display: grid;
-    place-items: center;
-    min-height: 100vh;
-    background-color: #fff; /* 배경색 */
-}
-
-label {
+.group-inputs > label {
     display: block;
     margin-bottom: 0.5rem; /* 레이블 아래 여백 */
 }
 
-input {
+.group-inputs > input, #userGenderM, #userGenderW {
     display: block;
     width: 100%; /* 입력 필드 너비 */
     padding: 0.75rem; /* 입력 필드 패딩 */
@@ -239,7 +230,18 @@ input {
     }
 }
 
+.genderMM {
+	margin: auto;
+}
+
 .wrap {
+    margin-top: 100px;
+    margin-left: 600px;
+    display: grid;
+    place-items: center;
+    width: 430px;
+    padding: 20px;
+    background-color: #fff;
     border: 1px solid #cbcbcb; /* 래퍼 테두리 색상 */
     border-radius: 4px; /* 래퍼 테두리 반경 */
     box-shadow: 0 4px 8px 0 rgba(21,21,21,.2); /* 래퍼 그림자 */

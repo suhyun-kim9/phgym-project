@@ -24,6 +24,7 @@ img {
 .content {
     width: 1024px;
     margin: 0 auto;
+    margin-bottom: 40px;
 }
 
 .content > .wrap-top {
@@ -174,8 +175,6 @@ img {
     border: 1px solid #e3e3e3;
     border-radius: 5px;
     display: block;
-    height: 200px;
-    overflow: auto;
 }
 
 .content > .wrap-bottom > table tr th {

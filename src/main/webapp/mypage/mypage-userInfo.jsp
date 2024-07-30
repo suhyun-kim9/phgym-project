@@ -9,6 +9,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="../include/css/main-navigation.css">
+    <link rel="stylesheet" href="../include/css/main-footer.css">
     <link rel="stylesheet" href="css/mypage-userInfo.css">
 </head>
 <body>
@@ -84,14 +85,14 @@
     	
     	<div class="wrap-bottom">
     		<p>PT예약내역</p>
-    		<table>
-	            <tr>
-	            	<th>예약일자</th>
-	                <th>예약시간</th>
-	                <th>담당트레이너</th>
-	                <th>진행여부</th>
-	            </tr>
-	            <c:if test="${!empty list3}">
+    		<c:if test="${!empty list3}">
+	    		<table>
+		            <tr>
+		            	<th>예약일자</th>
+		                <th>예약시간</th>
+		                <th>담당트레이너</th>
+		                <th>진행여부</th>
+		            </tr>
 	            	<c:forEach var="list3" items="${list3}">
 		            	<tr>
 			            	<td>${list3.reservationDate}</td>
@@ -100,15 +101,50 @@
 			                <td>${list3.progressStatus}</td>
 		             	</tr>
 		            </c:forEach>
-	            </c:if>
-	            <c:if test="${empty list3}">
+		        </table>
+		        <!-- 페이지네이션 컨트롤 -->
+			    <div class="pagination">
+			        <!-- 이전 페이지 링크 -->
+			        <c:if test="${currentPage > 1}">
+			            <a href="userInfo.mypage?page=${currentPage - 1}">이전</a>
+			        </c:if>
+			
+			        <!-- 페이지 번호 링크 -->
+			        <c:forEach var="i" begin="1" end="${totalPages}">
+			            <c:choose>
+			                <c:when test="${i == currentPage}">
+			                    <span class="current">${i}</span>
+			                </c:when>
+			                <c:otherwise>
+			                    <a href="userInfo.mypage?page=${i}">${i}</a>
+			                </c:otherwise>
+			            </c:choose>
+			        </c:forEach>
+			
+			        <!-- 다음 페이지 링크 -->
+			        <c:if test="${currentPage < totalPages}">
+			            <a href="userInfo.mypage?page=${currentPage + 1}">다음</a>
+			        </c:if>
+		    	</div>
+		    </c:if>
+		    
+		    <c:if test="${empty list3}">
+		    	<table>
+		            <tr>
+		            	<th>예약일자</th>
+		                <th>예약시간</th>
+		                <th>담당트레이너</th>
+		                <th>진행여부</th>
+		            </tr>
 	            	<tr>
 	            		<td colspan="4" height="150">PT내역이 없습니다.</td>
 	            	</tr>
-	            </c:if>
-	        </table>
+	            </table>
+            </c:if>
     	</div>
     </section>
+    
+    <jsp:include page="../include/main-footer.jsp"/>
     
     <script>
     	var msg = "${sessionScope.msg}";

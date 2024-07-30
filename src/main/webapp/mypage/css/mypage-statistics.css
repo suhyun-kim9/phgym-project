@@ -24,6 +24,7 @@ img {
 .content {
     width: 1024px;
     margin: 0 auto;
+    margin-bottom: 40px;
 }
 
 .content > .wrap-top {
@@ -88,8 +89,11 @@ img {
 .content > .wrap-middle > .checkin_list > table {
     margin: 0 auto;
     width: 650px;
+
     border: 1px solid #e3e3e3;
     border-radius: 5px;
+}
+
     display: block;
     height: 200px;
     overflow: auto;
@@ -113,6 +117,7 @@ img {
 .content > .wrap-middle > .checkin_list > .pagination {
 	text-align: center;
 	padding-top: 5px;
+	font-size: 18px;
 }
 
 .content > .wrap-middle > .checkin_list > .pagination > a {

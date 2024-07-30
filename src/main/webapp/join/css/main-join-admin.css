@@ -6,21 +6,13 @@
     box-sizing: border-box;
 }
 
-body {
-    font-family: Montserrat, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-    margin: 0;
-    display: grid;
-    place-items: center;
-    min-height: 100vh;
-    background-color: #fff;
-}
 
-label {
+.group-inputs > label {
     display: block;
     margin-bottom: 0.5rem;
 }
 
-input, select {
+.group-inputs > input, #adminGenderM, #adminGenderW {
     display: block;
     width: 100%;
     padding: 0.75rem;
@@ -239,7 +231,18 @@ input, select {
     }
 }
 
+.genderMM {
+	margin: auto;
+}
+
 .wrap {
+	margin-top: 100px;
+    margin-left: 600px;
+    display: grid;
+    place-items: center;
+    width: 430px;
+    padding: 20px;
+    background-color: #fff;
     border: 1px solid #cbcbcb;
     border-radius: 4px;
     box-shadow: 0 4px 8px 0 rgba(21,21,21,.2);

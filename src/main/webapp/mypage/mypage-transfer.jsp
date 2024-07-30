@@ -9,6 +9,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="../include/css/main-navigation.css">
+    <link rel="stylesheet" href="../include/css/main-footer.css">
     <link rel="stylesheet" href="css/mypage-transfer.css">
 </head>
 <body>
@@ -47,6 +48,8 @@
             </form>
         </div>
     </section>
+    
+    <jsp:include page="../include/main-footer.jsp"/>
     
     <script type="text/javascript">
     	var isEmptyList = ${empty list};
