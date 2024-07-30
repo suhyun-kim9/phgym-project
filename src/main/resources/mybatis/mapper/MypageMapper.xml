@@ -25,7 +25,7 @@
 	</select>
 	
 	<select id="checkTransfer" parameterType="int" resultType="com.phgym.mypage.model.MembershipPayHisDTO">
-		select * from membership_pay_his where user_no = #{sessionUserNo} and remark_transfer_status is null order by membership_pay_no
+		select * from membership_pay_his where user_no = #{sessionUserNo} and remark_transfer_status is null and end_date is not null and end_date > sysdate order by membership_pay_no
 	</select>
 	
 	<select id="getCheckinList" parameterType="int" resultType="com.phgym.mypage.model.CheckinHisDTO">
@@ -67,7 +67,7 @@
 	</update>
 	
 	<select id="getMembershipList" parameterType="int" resultType="com.phgym.mypage.model.MembershipPayHisDTO">
-		select * from membership_pay_his where user_no = #{sessionUserNo} and (remark_transfer_status is null or remark_transfer_status = 'R') order by membership_pay_no
+		select * from membership_pay_his where user_no = #{sessionUserNo} and (remark_transfer_status is null or remark_transfer_status = 'R') and end_date is not null and end_date > sysdate order by membership_pay_no
 	</select>
 	
 	<select id="getPtReservationList" parameterType="int" resultType="com.phgym.mypage.model.PtReservationDTO">

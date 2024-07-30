@@ -210,9 +210,6 @@
    
    <jsp:include page="../include/main-navigation.jsp"/>
    
-  ${sessionScope.sessionUserNo}
-  
-
    <form action="promotion-payment1.main" method="post" >
      <div class="pay-wrap">
         <p> ✔︎ 주문결제</p>
@@ -277,7 +274,7 @@
                 </div>
                 <div>
                     <a>환불계좌</a>
-                    <input type="text" name="refundBankAccount" required>
+                    <input type="text" name="refundBankAccount" class="refundBankAccount" required>
                 </div>
             </div>
             <div class="refund-notice">
@@ -295,13 +292,33 @@
             </div>
         </div>
         <div class="box bg-1">
-            <button class="button button--wapasha button--round-s">결제하기</button>
+            <input type="submit" value="결제하기" onclick="return check()" class="button button--wapasha button--round-s">
         </div>
     </div>  
     </form>
 
-	
-
+<script type="text/javascript">
+	function check() {
+		var payMethod = document.getElementById("payMethod");
+		if(payMethod.value == null || payMethod.value == "") {
+			alert("결제방법을 입력해주세요.");
+			return;
+		}
+		
+		var refundBankname = document.getElementById("refundBankname");
+		if(refundBankname.value == null || refundBankname.value == "") {
+			alert("환불은행을 입력해주세요.");
+			return;
+		}
+		
+		var regex = /^\d+-\d-\d+$/;
+		var refundBankAccount = document.querySelector(".refundBankAccount");
+		if(!regex.test(refundBankAccount.value)) {
+			alert("계좌번호를 올바른 형식으로 입력해주세요.");
+			return false;
+		}
+	}
+</script>	
 <script type="text/javascript" src="js/main-promotion-payment.js"></script>
 <script type="text/javascript" src="../include/js/main-navigation.js"></script>
 </body>

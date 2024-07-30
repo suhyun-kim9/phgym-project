@@ -15,7 +15,7 @@ public interface MypageMapper {
 	
 	public LocalDate selectEndDate(int membershipPayNo);
 	
-	public List<MembershipPayHisDTO> checkTransfer(int membershipPayNo);
+	public List<MembershipPayHisDTO> checkTransfer(int sessionUserNo);
 	
 	public List<CheckinHisDTO> getCheckinList(int sessionUserNo);
 

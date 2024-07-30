@@ -94,7 +94,7 @@
 	        display: flex;
 	        height: 150px;
 	        margin-top : 60px;
-            margin-left: 115px;
+            margin-left: 150px;
         }
         
         .main-wrap > .main-event > div {

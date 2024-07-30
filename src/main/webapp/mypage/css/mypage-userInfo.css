@@ -105,7 +105,7 @@ img {
 	margin-top: 3px;
 	margin-bottom: 15px;
 	align-items: center;
-	border: 1px solid rgb(118, 118, 118);
+	border: 1px solid #e3e3e3;
 	width: 90%;
 	height: 30px;
 	padding-left: 5px;
@@ -132,14 +132,7 @@ img {
 	margin-bottom: 3px;
 	letter-spacing: 5px;
 }
-.content .wrap-middle > .wrap-middle-right p:nth-of-type(3),
-.content .wrap-middle > .wrap-middle-right p:nth-of-type(4),
-.content .wrap-middle > .wrap-middle-right p:nth-of-type(5),
-.content .wrap-middle > .wrap-middle-right input:nth-of-type(3),
-.content .wrap-middle > .wrap-middle-right input:nth-of-type(4) {
-	position: relative;
-	top: 25px;
-}
+
 .content > .wrap-middle > .wrap-middle-right input {
 	width: 90%;
 	height: 30px;
@@ -152,7 +145,6 @@ img {
 .content > .wrap-middle > .wrap-middle-right select {
 	width: 90%;
 	height: 30px;
-	margin-top: 26px;
 	font-size: 14px;
 	margin-bottom: 7px;
 	padding-left: 5px;
@@ -190,4 +182,14 @@ img {
     width: 162.5px;
     padding: 3px 0;
     font-weight: 400;
+}
+
+.content > .wrap-bottom > .pagination {
+	text-align: center;
+	padding-top: 5px;
+	font-size: 14px;
+}
+
+.content > .wrap-bottom > .pagination > a {
+	padding: 0 5px;
 }
