@@ -29,7 +29,7 @@ public interface AdminMapper {
 		public UserAccountDTO getUserAccount2(int userNo);
 		
 		//관리자  (스케쥴)
-		public List<PtReservationHisDTO2> doTrainerPtCheck (PtReservationHisDTO2 dto);
+		public List<PtReservationHisDTO3> doTrainerPtCheck (PtReservationHisDTO2 dto);
 		
 		//관리자 스케쥴 전부
 		public List<PtReservationHisDTO2> doTrainerPtCheck2 (int sessionAdminNo);
@@ -43,9 +43,23 @@ public interface AdminMapper {
 		
 		//관리자 하루 PT갯수
 		public List<PtPerDayDTO> getPtPerDay(int sessionAdminNo);
-		public List<PtReservationHisDTO> getUserPt3(int userNo);
+		public List<PtReservationHisDTO2> getUserPt3(int userNo);
 		public int getTotalPtCnt2(int userNo);
 		public int getDidPtCnt2(int userNo);
+
+
+		public List<UserAccountDTO> select2(PageVo query);
+		public List<UserAccountDTO> select3(PageVo query);
+
+
+		public int ptReservationCancel(int hisNo);
+
+
+		public int countUsers();
+		public List<UserAccountDTO> selectUsers(PageVo query);
+
+
+		public int countPtUsers();
 
 
 		

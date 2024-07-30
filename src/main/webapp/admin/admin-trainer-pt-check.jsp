@@ -1,3 +1,4 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -16,35 +17,76 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     	<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     	     <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js'></script>
-    <script>
-      
-      
-      document.addEventListener('DOMContentLoaded', function () {
-          var calendarEl = document.getElementById('calendar');
-          var calendar = new FullCalendar.Calendar(calendarEl, {
-        	  
-        	  
-              initialView: 'dayGridMonth',
-              events: [
-              	<c:forEach var="date" items="${ptPerDayList}">
-	                	{
-	                		title: '${date.cnt}',
-	                        start: '${date.localDate}',
-	                        url: '/PHGYM/admin/doTrainerPtCheck.admin?date='+'${date.localDate}'
-	                    },
-	                    
-              	</c:forEach>
-              ]
-          });
-          calendar.render();
-      });
-      
-      
-      
-      
-      
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var calendarEl = document.getElementById('calendar');
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+            initialView: 'dayGridMonth',
+            events: [
+                <c:forEach var="date" items="${ptPerDayList}">
+                    {
+                        title: '${date.cnt}',
+                        start: '${date.localDate}',
+                        extendedProps: {
+                            fetchUrl: '/PHGYM/admin/doTrainerPtCheck.admin?date=${date.localDate}'
+                        }
+                    },
+                </c:forEach>
+            ],
+            eventClick: function(info) {
+            	var tbodyList = document.querySelector(".tbody_list");
+                var fetchUrl = info.event.extendedProps.fetchUrl;
+                fetch(fetchUrl)
+                    .then(response => response.json())
+                    .then(data => {
+                    	var str = "";
+                    	for(var i = 0; i < data.length; i++) {
+                    		if (data[i].progressStatus === "예약취소"){
+                    			str += "<tr>";
+                        		str += "<td style='text-decoration: line-through'>" + data[i].ptReservationHisNo + "</td>";
+                        		str += "<td style='text-decoration: line-through'>" + data[i].reservationDate + "</td>";
+                        		str += "<td style='text-decoration: line-through'>" + data[i].reservationTime + "</td>";
+                        		str += "<td style='text-decoration: line-through'>" + data[i].userNo + "</td>";
+                        		str += "<td  style='text-decoration: line-through'>" + data[i].userName + "</td>";
+                        		str += "<td class='progress' style='text-decoration: line-through'>" + data[i].progressStatus + "</td>";
+                        		if(data[i].progressStatus == '예약완료') {
+                        			str += "<td><input type='button' class='reserCbtn' value='예약취소' onclick='if(confirm(\"예약을 취소하시겠습니까?\")) {location.href=\"ptReservationCancel.admin?hisNo=" + data[i].ptReservationHisNo + "\";}'></td>";
+                        			
+                        		} else if(data[i].progressStatus == '예약취소') {
+                        			str += "<td><input type='button' class='reserCbtn2'  value='취소완료' disabled onclick='if(confirm(\"예약을 취소하시겠습니까?\")) {location.href=\"ptReservationCancel.admin?hisNo=" + data[i].ptReservationHisNo + "\";}'></td>";
+                        		}
+                        		str += "</tr>";
+                    		}else if (data[i].progressStatus === "예약완료"){
+                    			str += "<tr>";
+                        		str += "<td>" + data[i].ptReservationHisNo + "</td>";
+                        		str += "<td>" + data[i].reservationDate + "</td>";
+                        		str += "<td>" + data[i].reservationTime + "</td>";
+                        		str += "<td>" + data[i].userNo + "</td>";
+                        		str += "<td>" + data[i].userName + "</td>";
+                        		str += "<td>" + data[i].progressStatus + "</td>";
+                        		if(data[i].progressStatus == '예약완료') {
+                        			str += "<td><input type='button' class='reserCbtn' value='예약취소' onclick='if(confirm(\"예약을 취소하시겠습니까?\")) {location.href=\"ptReservationCancel.admin?hisNo=" + data[i].ptReservationHisNo + "\";}'></td>";
+                        			
+                        		} else if(data[i].progressStatus == '예약취소') {
+                        			str += "<td><input type='button' class='reserCbtn2'  value='취소완료' disabled onclick='if(confirm(\"예약을 취소하시겠습니까?\")) {location.href=\"ptReservationCancel.admin?hisNo=" + data[i].ptReservationHisNo + "\";}'></td>";
+                        		}
+                        		str += "</tr>";
+                    		}
+                    		
+                    	}
+                    	tbodyList.innerHTML = str;
+                    })
+               	 info.jsEvent.preventDefault();
+            }
+        });
+        calendar.render();
+    });
+  
+  
+    
 
-    </script>
+</script>
+
     	
 
 
@@ -69,20 +111,11 @@
           <!--  1) 다시 화면에 찍기 ?? -->
           <form action="trainer-pt-check.admin" method="post">
          <div class="search_box">
-                <div class="search_name">
-                     <b> ${adDto.adminName} </b>  트레이너 (<b>${adDto.adminNo}</b>)
-                  </div>
-  
-                 <%--   <div class="search_bar">
-                      <input type="text" name="userName" placeholder="이름을 입력하세요">
-                      <input type="submit"  class="btn-hover color-4" value="조회">
-                  </div> --%>
+				  <div class="search_name">
+					<span class="user_value1">${adDto.adminName}</span>  트레이너 (<span class="user_value1">${adDto.adminNo}</span>)
+				 </div>
           </div>
           </form>
-          
-          <div class="mini_header"> <p> 스케쥴 관리 </p></div>
-
-          
           <div class="pt_trainer_box">
 
           	           <!-- pt 일정 -->
@@ -120,22 +153,26 @@
           <div class="wrap4">
           	  <div id='calendar'></div>
           </div>
-       
 
        
           <div class="list_box">
             <div class="pt_content">
-               <table class="table_list">
-                <tbody class="tbody_list">
-                <c:forEach var="list" items="${reserDto}">
-	                  <tr>
-                        <th>예약일 : ${list.reservationDate}  </th>
-                        <td> 회원 : ${list.userNo}  </td>
-                        <td> 상태 : ${list.progressStatus}</td>
-                        <td> pt 내용 :${list.content}</td>
-                    </tr>
-	           </c:forEach>
-                </tbody>
+               <table class="user_table" style="table-layout: fixed">
+                
+                <thead>
+					<tr>
+						<th width="15%"> 예약 번호 </th>
+						<th width="30%"> 예약일 </th>
+						<th width="30%"> 예약시간 </th>
+						<th  width="15%"> 회원 번호 </th>
+						<th  width="20%"> 회원이름 </th>						
+						<th  width="30%"> 예약여부 </th>
+						<th  width="30%"> 예약취소 </th>
+					</tr>
+                </thead>
+                
+            	<tbody class="tbody_list"></tbody>
+			
                 </table>
 
             </div>
@@ -144,7 +181,6 @@
     </div>
        
     </div>
-
        
           </div>
  </section>
@@ -154,6 +190,63 @@
 
 <!-- 	<script  type="text/javascript" src="js/calendar2.js"> </script> -->
     <script type="text/javascript" src="../include/js/admin-navigation.js"> </script>
+    <script>
+
+  /*   window.onload = function() {
+        // 여기서 추가적으로 페이지 로드 후 실행될 코드를 넣을 수 있습니다.
+       	var progBtn = document.querySelector('.prog_btn');
+    
+		if (progBtn.name === 'undefined') {
+		
+			progBtn.value = '진행 전';
+		} else if (progBtn.name === 'Y') {
+		
+			progBtn.value = '완료';
+		}else if (progBtn.name === 'N') {
+		
+		    progBtn.value = '취소됨';
+		}
+    };
+ */
+
+    // 이벤트 위임으로 prog_btn 클릭 이벤트 처리
+    function modiProg() {
+	 	
+	 }
+    
+    document.querySelector('.tbody_list').addEventListener('click', function(event) {
+        if (event.target.classList.contains('prog_btn')) {
+            if (event.target.name === 'Y') {
+            	alert('이미 완료되었습니다');
+            }else if (event.target.name === 'N') {
+            	alter('취소된 예약입니다.');
+            }else{
+            	console.log('진행완료할거임?');
+            	var con = confirm ('진행 완료하시겠습니까?');	
+            	
+                if(con){
+                	event.target.value = '완료';
+                	event.target.name = 'undefined';
+                }else{
+                }
+            }
+            
+        }
+        if (event.target.classList.contains('cancel_btn')) {
+        	
+        	var con = confirm ('취소하시겠습니까?');	
+        	
+            if(con){
+            	event.target.value = '취소됨';
+            	event.target.name = '';
+            }else{
+            }
+        }
+    });
+
+    </script>
+    
+    
 <!--     <script type="text/javascript">
     
 

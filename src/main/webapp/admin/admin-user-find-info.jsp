@@ -1,3 +1,9 @@
+
+<!-- 디자인 수정완료 그대로 붙여쓰세요 
+1) 캘린더 디자인 수정해야함 
+
+-->
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -22,18 +28,13 @@
           var calendar = new FullCalendar.Calendar(calendarEl, {
               initialView: 'dayGridMonth',
               events: [
-              	<c:forEach var="date" items="${list}">
+              	<c:forEach var="dto" items="${list}">
 	                	{
-	                        start: '${date}'
+	                		title: '${dto.reservationTime}' + ' / ${dto.adminName}' + ' / ${dto.progressStatus}',
+	                        start: '${dto.reservationDate}'
 	                    },
               	</c:forEach>
-              ],
-              eventContent: function(arg) {
-                  let content = document.createElement('div');
-                  content.innerHTML = '💯';
-                  return { domNodes: [content] };
-              },
-              eventDisplay: 'block'
+              ]
           });
           calendar.render();
       });
@@ -46,6 +47,7 @@
     	<jsp:include page="../include/admin-navigation.jsp"/>
 
 
+        
 <!--  여기에 넣어주시면 됩니다. -->
 <div class="main">
 <section id="wrap">
@@ -53,7 +55,7 @@
 
          <!-- admin 페이지 헤더  -->
           <div class="admin_main_name">
-              회원 정보 조회
+            <i class="bi bi-person-circle"></i> <span>회원 정보 조회</span>
           </div>
         
           <!--  회원 정보 간략하게 -->
@@ -64,7 +66,6 @@
                 <div class="search_name">
                      <span class="user_value1">${dto.userName}</span>  님 (<span class="user_value1">${dto.userNo}</span>)
                   </div>
-  
                   <div class="search_bar1">
                       <input type="text" name="userName" placeholder="이름을 입력하세요">
                       <input type="submit"  class="btn-hover color-4" value="조회">
@@ -72,10 +73,10 @@
           </div>
           </form>
               
-<table class="user_table">
+<table class="user_table" style="table-layout: fixed">
     <tbody>
         <tr>
-            <th> 이름 </th>
+            <th width="40%"> 이름 </th>
             <td> <div> ${dto.userName}</div> </td>
         </tr>  
         <tr>
@@ -106,6 +107,22 @@
             <th> 가입일 </th>
             <td> <div> ${dto.userRegDate} </div> </td>
         </tr>
+         <tr>
+            <th width="40%"> 잔여 PT 횟수 </th>
+            <td> <div> ${num} 회 </div> </td>
+        </tr>  
+      
+       
+    </tbody>
+</table>
+
+<table class="user_table" style="table-layout: fixed">
+    <tbody>
+   <%--      <tr>
+            <th width="40%"> 잔여 PT 횟수 </th>
+            <td> <div> ${num} 회 </div> </td>
+        </tr>  
+ --%>
     </tbody>
 </table>
    <div class="wrap4">

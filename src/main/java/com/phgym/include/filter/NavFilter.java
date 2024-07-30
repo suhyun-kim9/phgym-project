@@ -49,16 +49,16 @@ public class NavFilter implements Filter {
 			request.setAttribute("left", "490px");
 			request.setAttribute("width", "150px");
 		} else if(uri.equals("/PHGYM/admin/account.admin")) {
-			request.setAttribute("color", "#ee6c4d");
+			request.setAttribute("color", "#a5ccf338");
 			request.setAttribute("num", 2);
 		} else if(uri.equals("/PHGYM/admin/user-find.admin")) {
-			request.setAttribute("color", "#ee6c4d");
+			request.setAttribute("color", "#a5ccf338");
 			request.setAttribute("num", 3);
 		} else if(uri.equals("/PHGYM/admin/pt-check.admin")) {
-			request.setAttribute("color", "#ee6c4d");
+			request.setAttribute("color", "#a5ccf338");
 			request.setAttribute("num", 3);
 		} else if(uri.equals("/PHGYM/admin/trainer-pt-check.admin")) {
-			request.setAttribute("color", "#ee6c4d");
+			request.setAttribute("color", "#a5ccf338");
 			request.setAttribute("num", 4);
 		}
 		

@@ -34,10 +34,6 @@ public class AdminController extends HttpServlet {
 	}
 	
 	protected void doAction(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-			//세션 임의 생성
-			request.getSession().setAttribute("sessionAdminNo", 2); //삭제예정
-			
 		  	request.setCharacterEncoding("utf-8");
 	        String uri = request.getRequestURI();
 	        String path = request.getContextPath();
@@ -79,12 +75,24 @@ public class AdminController extends HttpServlet {
 	        }else if(command.equals("/admin/pt-check.admin")) {
 	        	service = new AdminServiceImpl();
 	        	service.doPtCheck(request, response);
-	        }else if(command.equals("/admin/select2.admin")) {
+	        }else if(command.equals("/admin/goUserFind.admin")) {
+	        	service = new AdminServiceImpl();
+	        	service.select1(request, response);
+	        }else if(command.equals("/admin/doUserAccount.admin")) {
+	        	service = new AdminServiceImpl();
+	        	service.doUserAccount(request, response);
+	        }else if(command.equals("/admin/select1.admin")) { //번호순
+	        	service = new AdminServiceImpl();
+	        	service.select1(request, response);
+	        }else if(command.equals("/admin/select2.admin")) { //이름순
 	        	service = new AdminServiceImpl();
 	        	service.select2(request, response);
-	        }else if(command.equals("/admin/select3.admin")) {
+	        }else if(command.equals("/admin/select3.admin")) { //pt회원
 	        	service = new AdminServiceImpl();
 	        	service.select3(request, response);
+	        }else if(command.equals("/admin/ptReservationCancel.admin")) { //pt예약취소
+	        	service = new AdminServiceImpl();
+	        	service.ptReservationCancel(request, response);
 	        }
 	        
 	}
