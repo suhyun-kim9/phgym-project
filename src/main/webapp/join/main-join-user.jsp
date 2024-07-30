@@ -10,8 +10,12 @@
 </head>
 <body>
 
+
+
+     <jsp:include page="../include/main-navigation.jsp"/> 
+
   <div class="wrap">    
-  <form action="userJoin.join" method="post" class="form" id="forms">
+<form action="adminJoin.join" method="post" class="form" id="forms">
     <div class="header1">
         <p> 회원 계정 생성  </p>
     </div>
@@ -35,10 +39,10 @@
         <label for="position">성별</label>
         <div style="display: flex; border:1px solid #ddd; justify-content: space-evenly;">
             <div style="display:flex;">
-                <p> 남자 </p>  <input style="width: 20px;"  type="radio" id="userGenderM" name="userGender" value="M" required="required">
+                <p class="genderMM"> 남자 </p>  <input style="width: 20px;"  type="radio" id="userGenderM" name="userGender" value="M" required="required">
             </div>
             <div style="display:flex;">
-                <p> 여자 </p> <input style="width: 20px;" type="radio" id="userGenderW" name="userGender" value="W" required="required">
+                <p class="genderMM"> 여자 </p> <input style="width: 20px;" type="radio" id="userGenderW" name="userGender" value="W" required="required">
             </div>
         </div>
       </div>
@@ -140,7 +144,7 @@
 
   btn1.addEventListener("click", function() {
 	  if (username.value == "" || genderW.value == "" || genderM.value == "" || userBirth.value == "") {
-          alert("필수 값을 입력하세용");
+          alert("필수 값을 입력하세요.");
       }else {
           formStepsNum++;
       }

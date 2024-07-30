@@ -10,7 +10,6 @@
 <link rel="stylesheet" href="css/main-login-user.css" type="text/css">
 
 <script type="text/javascript">
-	/* 상혁 수정함 */
     function setCookie(name, value, hours) {
         var expires = "";
         if (hours) {
@@ -109,7 +108,7 @@
 											</div>
                                             <div class="link_box">
                                                 <div> <input type="checkbox" id="keepLoggedIn" name="check"> 아이디 기억하기 </div>
-                                                <div class="mb-0 mt-4 text-center"><a href="#0" class="link">아이디/비밀번호 찾기</a></div>
+                                                <div class="mb-0 mt-4 text-center"><a href="findAdminId.join" class="link">아이디 찾기</a><a href="findAdminPw.join" class="link">비밀번호 찾기</a></div>
                                             </div>
                                           
                                             
