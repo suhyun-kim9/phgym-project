@@ -1,0 +1,126 @@
+@charset "UTF-8";
+
+
+@charset "UTF-8";* {
+    padding: 0;
+    margin: 0;
+}
+
+
+body{
+    background-color: #efefef;
+}
+
+ul, li, ol, dl, dd {
+    list-style: none;
+}
+
+.wrap2 {
+  
+}
+
+.form-container {
+    background-color: white;
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 5px;
+    width: 1024px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.header1 {
+    border-bottom:  3px solid  rgb(35, 35, 62);
+    color: white;
+    display: flex;
+    align-items: baseline;
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 3px 3px 0 0;
+    margin-bottom: 30px;
+}
+
+.back-btn {
+    background: none;
+    border: none;
+    color: black;
+    font-size: 24px;
+    cursor: pointer;
+    width: 50px;
+
+}
+
+.header-title {
+    margin-left: 10px;
+    width: 100%;
+    font-size: 1.5em;
+    font-weight: bold;
+    color: black;
+}
+
+.header-icons {
+    display: flex;
+    justify-content: first baseline;
+}
+
+.icon-btn {
+    width: 50px;
+    background: none;
+    border: none;
+    color: rgb(92, 29, 29);
+    font-size: 24px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+#content, #title, #writer {
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    font-size: 1.0em;
+    padding-left: 10px;
+}
+
+#content {
+    height:431px;
+    overflow: auto;
+    resize: none;
+    font-family: Arial, sans-serif;
+}
+
+.buttons {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.reset-btn {
+    width: 100px;
+    height: 42px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    /* box-shadow: 2px 4px 12px #00000014; */
+    font-size: 15px;
+    font-weight: bold;
+    background-color: rgb(35, 35, 62);
+    color : #fff;
+    cursor: pointer;
+    
+}
+
+.submit-btn {
+    width: 100px;
+    height: 42px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    /* box-shadow: 2px 4px 12px #00000014; */
+    font-size: 15px;
+    font-weight: bold;
+    background-color: rgb(35, 35, 62);
+    color : #fff;
+    cursor: pointer;
+    margin-left: 10px;
+
+}

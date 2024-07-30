@@ -69,6 +69,10 @@ body{
 	color: #ff7f56;
 }
 
+.dropdownContent3 > li:hover > a  , .dropdownContent2 > li:hover > i {
+	color: #ff7f56;
+}
+
 
 
 .main_nav > a > img {
@@ -87,11 +91,9 @@ body{
     height: 50px;
     font-size: 0.8em;
     border : 0px;
-     font-weight : bold;
-     color : #8c8c8c;
-     background: #fff;
- 
-    
+    font-weight : bold;
+    color : #8c8c8c;
+    background: #fff;
 }
 
 .my_navigation_bar {
@@ -100,8 +102,6 @@ body{
     border-right: 3px solid #bbb ;
     background-color:#eee;
 }
-
-
 
 .my_nav{
     margin-left: 20px;
@@ -113,10 +113,6 @@ body{
     font-size: 1.3em;
     font-weight: bold;
     cursor: pointer;
-}
-
-.my_nav > li > i {
-
 }
 
 
@@ -133,10 +129,10 @@ body{
 }
 
 .dropdownContent{
-     border-bottom-right-radius: 10px;
-     border-bottom-left-radius: 10px;
-     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-     border: 1px solid #e3e3e3;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    border: 1px solid #e3e3e3;
 	display:none;
 	padding: 10px;
 	top : 100px;
@@ -152,10 +148,10 @@ body{
 
 
 .dropdownContent2{
-    border-bottom-right-radius: 10px;
-    border-bottom-left-radius: 10px;
-    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-    border: 1px solid #e3e3e3;
+   border-bottom-right-radius: 10px;
+   border-bottom-left-radius: 10px;
+   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+   border: 1px solid #e3e3e3;
    display:none;
    padding: 10px;
    top : 100px;
@@ -169,6 +165,29 @@ body{
    z-index : 9;
 }
 
+#dropdown3 {
+	cursor: pointer;
+}
+
+.dropdownContent3{
+   border-bottom-right-radius: 10px;
+   border-bottom-left-radius: 10px;
+   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+   border: 1px solid #e3e3e3;
+ display:none; 
+   padding: 10px;
+   top : 100px;
+   left : 1690px;
+   position : absolute;
+   flex: none;
+   padding-left : 8px;
+   padding-right: 8px;
+   font-size: 0.9em;
+   background-color : #fafafa;
+   z-index : 9;
+   text-align: center;
+}
+
 .dropdownContent > li {
 	margin-top : 30px;
 	margin-bottom: 30px;
@@ -180,10 +199,15 @@ body{
 	margin-bottom: 30px;
 }
 
+.dropdownContent3 > li {
+	margin-top : 30px;
+	margin-bottom: 30px;
+}
 
 .dropdown {
 	position: relative;
 }
+
 
 .bi-caret-down-fill {
 	position: absolute;
@@ -216,6 +240,11 @@ body{
 	text-align : center;
 }
 
+.dropdownContent3 li a {
+   
+	color: #000;
+}
+
 .main_nav_bar {
     position: relative;
 
@@ -237,6 +266,27 @@ body{
 }
 .dropdownContent2 li a{
     color : #000;
+}
+
+.nav-menu {
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.5s ease-out;
+}
+
+.nav-menu.expanded {
+    max-height: 500px; /* 충분히 큰 값으로 설정 */
+}
+
+.nav-menu a {
+    display: block;
+    padding: 8px;
+    text-decoration: none;
+    color: #000;
+}
+
+.nav-menu a:hover {
+    background-color: #ddd;
 }
 
 

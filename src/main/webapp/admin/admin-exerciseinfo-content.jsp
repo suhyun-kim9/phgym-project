@@ -8,9 +8,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>운동정보내용</title>
-
     <link rel="stylesheet" href="css/main-exerciseinfo-content.css">
-    
+    <link rel="stylesheet" href="../include/css/admin-navigation.css">
+	
      <script>
         function confirmDelete(infoNo) {
             if(confirm("삭제하시겠습니까?")) {
@@ -21,8 +21,17 @@
     
 </head>
 <body>
+
+	<div class="content">
+
+		<jsp:include page="../include/admin-navigation.jsp" />
+
+
+		<!--  여기에 넣어주시면 됩니다. -->
+		<div class="main">
+			<section id="wrap">
     
-    <div class="content">
+    <div class="content2">
         <div class="inquiry-view">
             <div class="view-header">
             	<input type="button" value="←" onclick="location.href='main_exe_list.board'">

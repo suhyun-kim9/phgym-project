@@ -17,8 +17,19 @@
 
 </head>
 <body>
-    <div class="content"> 
-    	<jsp:include page="../include/admin-navigation.jsp"/>
+
+	<div class="content">
+
+		<jsp:include page="../include/admin-navigation.jsp" />
+
+
+		<!--  여기에 넣어주시면 됩니다. -->
+		<div class="main">
+			<section id="wrap">
+
+
+    <div class="content2"> 
+   
 
 
 <!--  여기에 넣어주시면 됩니다. -->

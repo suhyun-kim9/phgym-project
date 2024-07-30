@@ -449,7 +449,15 @@ public class JoinServiceImpl implements JoinService {
 	}
 
 	@Override
-	public void JoinPage(HttpServletRequest request, HttpServletResponse response)
+	public void adminJoinPage(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		
+		request.getRequestDispatcher("main-join-admin.jsp").forward(request, response);
+		
+	}
+
+	@Override
+	public void JoinUserPage(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
 		request.getRequestDispatcher("main-join-user.jsp").forward(request, response);
@@ -457,9 +465,9 @@ public class JoinServiceImpl implements JoinService {
 	}
 
 	@Override
-	public void adminJoinPage(HttpServletRequest request, HttpServletResponse response)
+	public void JoinAdminPage(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
+
 		request.getRequestDispatcher("main-join-admin.jsp").forward(request, response);
 		
 	}

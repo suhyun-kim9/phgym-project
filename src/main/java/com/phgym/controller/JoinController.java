@@ -116,9 +116,13 @@ public class JoinController extends HttpServlet {
 			service = new JoinServiceImpl();
 			service.LoginPage(request,response);
 			
-		} else if(command.equals("/join/JoinPage.join")) { // 유저 홈 -> 회원가입
+		} else if(command.equals("/join/JoinUserPage.join")) { // 유저 홈 -> 유저 회원가입
 			service = new JoinServiceImpl();
-			service.JoinPage(request,response);
+			service.JoinUserPage(request,response);
+			
+		} else if(command.equals("/join/JoinAdminPage.join")) { // 유저 홈 -> 관리자 회원가입
+			service = new JoinServiceImpl();
+			service.JoinAdminPage(request,response);
 		}
 	}
 }

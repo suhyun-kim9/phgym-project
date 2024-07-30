@@ -15,10 +15,17 @@
 	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 <body>
+
 	<div class="content">
 
 		<jsp:include page="../include/admin-navigation.jsp" />
 
+
+		<!--  여기에 넣어주시면 됩니다. -->
+		<div class="main">
+			<section id="wrap">
+
+	<div class="content2">
 
 		<!--  여기에 넣어주시면 됩니다. -->
 		<div class="main">
