@@ -236,8 +236,7 @@
 }
 
 .wrap {
-	margin-top: 100px;
-    margin-left: 600px;
+	margin: 100px auto;
     display: grid;
     place-items: center;
     width: 430px;
