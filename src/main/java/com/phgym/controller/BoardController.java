@@ -56,7 +56,7 @@ public class BoardController extends HttpServlet {
 			
 		} else if(command.equals("/board/main_exe_search.board")) { // 검색
 			
-			String searchKeyword = request.getParameter("searchKeyword");
+			String searchKeyword = request.getParameter("searchKeywordn");
 			service.searchList(request, response, searchKeyword);
 			
 		} else if(command.equals("/board/main_exe_content.board")) { // 글 내용

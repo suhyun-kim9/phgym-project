@@ -35,13 +35,13 @@
 
     <div class="container">
 
-            <form action="main_notice_search.board" method="get">
+            <form action="main_qna_search.board" method="get">
                 <div class="search_box">
                     <div class="search_name">
                         <i class="bi bi-chat-dots"></i> <span>문의사항</span>
                       </div>
                       <div class="search_bar1">
-                          <input type="text" name="userName" placeholder="제목을 입력하세요.">
+                          <input type="text" name="searchKeywords" placeholder="제목을 입력하세요.">
                           <input type="submit"  class="btn-hover color-4" value="조회">
                       </div>
               </div>
