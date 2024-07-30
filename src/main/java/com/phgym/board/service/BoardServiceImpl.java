@@ -127,8 +127,11 @@ public class BoardServiceImpl implements BoardService {
 		request.setAttribute("searchKeyword", searchKeyword);
 		request.setAttribute("totalCount", totalCount);
 		
-		request.getRequestDispatcher("main-exerciseinfo-list.jsp").forward(request, response);
-		
+		if (request.getSession().getAttribute("sessionAdminNo") != null) {
+			request.getRequestDispatcher("../admin/admin-exerciseinfo-list.jsp").forward(request, response);
+		} else {
+			request.getRequestDispatcher("main-exerciseinfo-list.jsp").forward(request, response);
+		}
 	}
 
 	@Override
@@ -267,7 +270,13 @@ public class BoardServiceImpl implements BoardService {
 		request.setAttribute("searchKeywords", searchKeywords);
 		request.setAttribute("totalCounts", totalCounts);
 		
-		request.getRequestDispatcher("main-qna-list.jsp").forward(request, response);
+		if (request.getSession().getAttribute("sessionAdminNo") != null) {
+			request.getRequestDispatcher("../admin/admin-qna-list.jsp").forward(request, response);
+		} else {
+			request.getRequestDispatcher("main-qna-list.jsp").forward(request, response);
+		}
+		
+		
 		
 	}
 
