@@ -14,6 +14,7 @@
 	<link rel="stylesheet" href="../include/css/main-navigation.css">
     <link rel="stylesheet" href="../board/css/main-notice-list.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="../include/css/main-footer.css">
     
 </head>
 <body>
@@ -33,7 +34,7 @@
                         <i class="bi bi-bell"></i> <span>공지사항</span>
                       </div>
                       <div class="search_bar1">
-                          <input type="text" name="userName" placeholder="검색어를 입력하세요.">
+                          <input type="text" name="searchKeywordn" placeholder="검색어를 입력하세요.">
                           <input type="submit"  class="btn-hover color-4" value="검색">
                       </div>
               </div>
@@ -90,6 +91,8 @@
     </div>
     </div>
 
+    	<jsp:include page="../include/main-footer.jsp"/>
+
     <script>
 
             const rows = document.querySelectorAll(".user_table2 tr");
@@ -104,5 +107,7 @@
             });
 
     </script>
+    
+    
 </body>
 </html>

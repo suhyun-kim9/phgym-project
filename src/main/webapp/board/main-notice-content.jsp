@@ -11,24 +11,25 @@
 	<link rel="stylesheet" href="../include/css/main-navigation.css">
     <link rel="stylesheet" href="css/main-notice-content.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="../include/css/main-footer.css">
     
     <script>
         function confirmDelete(noticeNo) {
             if(confirm("삭제하시겠습니까?")) {
-                location.href = 'main_exe_delete.board?noticeNo=' + noticeNo;
+                location.href = 'main_notice_delete.board?noticeNo=' + noticeNo;
             }
         }
     </script>
     
 </head>
 <body>
- 
+ 	<jsp:include page="../include/main-navigation.jsp"/>
 	<div class="content"> 
 		<div class="main">
 			<section id="wrap">
 	
 
-	<jsp:include page="../include/main-navigation.jsp"/>
+
 
 	<div class="content2">
         <div class="inquiry-view">
@@ -39,11 +40,11 @@
                         <div class="no_title"> ${dto.title} </div>
                     </div>    
                     <div class="header-icons">
-                        <c:if test="${sessionScope.adminNo }">
+              <%--  삭제버튼 css 수정해야함  <c:if test="${sessionScope.adminNo }">
                             <div class="icon_click">
-                                <input type="button" value="삭제" onclick="confirmDelete(${dto.noticeNo})"> 
+                                <input type="button" value="삭제" onclick="confirmDelete(${dto.noticeNo})">
                             </div>
-                        </c:if>   
+                        </c:if>    --%>
                     </div>
                 </div>
 
@@ -62,7 +63,7 @@
             </section>
             </div>
             </div>
-        
+	<jsp:include page="../include/main-footer.jsp"/>
 
 </body>
 </html>

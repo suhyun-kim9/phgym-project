@@ -14,7 +14,7 @@
 	<link rel="stylesheet" href="../include/css/main-navigation.css">
     <link rel="stylesheet" href="../board/css/main-exerciseinfo-list.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    
+    	<link rel="stylesheet" href="../include/css/main-footer.css">
 </head>
 <body>
 
@@ -27,28 +27,28 @@
 
     <div class="container">
 
-            <form action="main_exerciseinfo_search.board" method="get">
+            <form action="main_exe_search.board" method="get">
                 <div class="search_box">
                     <div class="search_name">
                         <i class="bi bi-bell"></i> <span>운동정보</span>
                       </div>
                       <div class="search_bar1">
-                          <input type="text" name="userName" placeholder="검색어를 입력하세요.">
+                          <input type="text" name="searchKeyword" placeholder="검색어를 입력하세요.">
                           <input type="submit"  class="btn-hover color-4" value="검색">
                       </div>
               </div>
             </form>
         
-        <c:if test="${not empty liste}">
-            <p class="result_search"><small> 검색 결과: <span> ${fn:length(liste)} </span> 건 </small></p>
+        <c:if test="${not empty list}">
+            <p class="result_search"><small> 검색 결과: <span> ${fn:length(list)} </span> 건 </small></p>
 
             <div class="content_box3">
             <table class="user_table" style="table-layout: fixed">
                 <tbody class="user_table2">
-                    <c:forEach var="dto" items="${liste}" varStatus="status">
+                    <c:forEach var="dto" items="${list}" varStatus="status">
                     	<tr class="tableTr">
                             <td>
-                            	<div class="title1" style="color:  #ff7f56"><a href="main_exerciseinfo_content.board?infoNo=${dto.infoNo}">${dto.title}</a></div>
+                            	<div class="title1" style="color:  #ff7f56"><a href="main_exe_content.board?infoNo=${dto.infoNo}">${dto.title}</a></div>
                             	<div class="hitNo">조회수 [ ${dto.hit} ]</div>
                             </td>
                             <td>
@@ -61,34 +61,38 @@
             </div>
         </c:if>
         
-        <c:if test="${empty liste}">
+        <c:if test="${empty list}">
             <p class="result_non">검색 결과가 없습니다.</p>
         </c:if>
 
         <div class="pagination">
-            <c:if test="${pagee > 1}">
-                <a href="main_exerciseinfo_list.board?pagee=${pagee - 1}" class="prevBtn">이전</a>
+            <c:if test="${page > 1}">
+                <a href="main_exe_list.board?page=${page - 1}" class="prevBtn">이전</a>
             </c:if>
-            <c:forEach var="i" begin="1" end="${totalPagese}">
+            <c:forEach var="i" begin="1" end="${totalPages}">
                 <c:choose>
-                    <c:when test="${pagee == i}">
+                    <c:when test="${page == i}">
                         <span class="current">${i}</span>
                     </c:when>
                     <c:otherwise>
-                        <a href="main_exerciseinfo_list.board?pagee=${i}" class="pageLink">${i}</a>
+                        <a href="main_exe_list.board?page=${i}" class="pageLink">${i}</a>
                     </c:otherwise>
                 </c:choose>
             </c:forEach>
-            <c:if test="${pagee < totalPagese}">
-                <a href="main_exerciseinfo_list.board?pagee=${pagee + 1}" class="nextBtn">다음</a>
+            <c:if test="${page < totalPages}">
+                <a href="main_exe_list.board?page=${page + 1}" class="nextBtn">다음</a>
             </c:if>
         </div>
         <div class="buttons">
-            <input type="button" value="등록"  class="btn-hover btnRegi" class="combtn" onclick="location.href='main_exerciseinfo_post.board';">
+            <input type="button" value="등록"  class="btn-hover btnRegi" class="combtn" onclick="location.href='main_exe_post.board';">
         </div>
     </div>
     </div>
     </div>
+
+
+		<jsp:include page="../include/main-footer.jsp"/>
+
 
     <script>
 
