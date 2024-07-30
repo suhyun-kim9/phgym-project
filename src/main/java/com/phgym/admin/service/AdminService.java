@@ -37,15 +37,16 @@ public interface AdminService {
 	public void doTrainerPtCheck(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException;
 	
 	// *** 페이지 전환 ***
-	public void goUserFind(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException;
 	public void goPtCheckInfo(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException;
 	public void doPtCheck(HttpServletRequest request, HttpServletResponse response)  throws ServletException, IOException;
 	public void doUserAccount(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException;
-	public void select2(HttpServletRequest request, HttpServletResponse response)  throws ServletException, IOException;
-	public void select3(HttpServletRequest request, HttpServletResponse response)  throws ServletException, IOException;
+	public void select1(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException;
+	public void select2(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException;
+	public void select3(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException;
 	
 	
-	
+	public void modiProg(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException;
+	public void ptReservationCancel(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException;
 
 	
 	

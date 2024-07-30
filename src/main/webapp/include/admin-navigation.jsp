@@ -11,13 +11,13 @@
 		<div class="aside">
 			<nav>
 				<ul class="nav_1">
-					<div class="logo">
-						<a href="/PHGYM/admin/user-find.admin"> <img src="../include/img/logo-light.png" width="100px"> </a>
+					<div class="logo1">
+						<a href="/PHGYM/admin/user-find.admin"> <img src="../include/img/logo-light.png"> </a>
 					</div>
 					<li><i class="bi bi-person-fill"></i> <a href="/PHGYM/admin/account.admin"> 관리자 계정 </a></li>
 					<li>
 						<div id="dropdown">
-							<i class="bi bi-search"></i> <a href="/PHGYM/admin/user-find.admin"> 회원 조회 </a></i>
+							<i class="bi bi-search"></i> <a href="/PHGYM/admin/goUserFind.admin"> 회원 조회 </a></i>
 						</div>
 					</li>
 					<li><i class="bi bi-calendar4-event"></i> <a href="/PHGYM/admin/trainer-pt-check.admin"> 스케쥴 관리 </a></li>

@@ -186,7 +186,7 @@ public class JoinServiceImpl implements JoinService {
 			session.setAttribute("sessionAdminNo", adminLogin.getAdminNo());
 			session.setAttribute("sessionAdminId", adminLogin.getAdminId());
 			session.setAttribute("sessionAdminName", adminLogin.getAdminName());
-			request.getRequestDispatcher("/admin/admin-account.jsp").forward(request, response);
+			response.sendRedirect("/PHGYM/admin/account.admin");
 		}
 		
 	}

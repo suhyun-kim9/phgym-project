@@ -1,161 +1,78 @@
-* {
+/* <!-- 디자인 수정완료 그대로 붙여쓰세요
+--> */
+
+
+@charset "UTF-8";* {
     padding: 0;
     margin: 0;
+}
+
+
+body{
+	
+    background-color: #efefef;
 }
 
 ul, li, ol, dl, dd {
     list-style: none;
 }
 
-#wrap {
-}
-
-.join_page h3 {
-    text-align: center;
-}
-
-#wrap .join_page {
-    width: 100%;
-    overflow: hidden;
-    margin: 0 auto;
-
-}
-
-.join_page .left {
-    float: left;
-    width: 50%;
-    text-align: center;
-}
-
-.join_page .left button {
-    width: 30px;
-}
-
-.join_page .left .gender {
-    width: 50px;
-}
-
-.join_page .left p {
-    text-align: left;
-    margin-left: 42px;
-}
-
-.join_page .left input {
-    width: 65%;
-    text-align: right;
-}
-
-.join_page .left > div p {
-    font-size: 15px;
-    font-weight: 600;
-    margin-top: 20px;
-}
-
-.join_page .right {
+.box3 {
     float: right;
-    width: 50%;
 }
 
 
-.join_page .right input {
-    width: 65%;
-    text-align: right;
-}
-
-.join_page .right > div p {
-    font-size: 15px;
-    font-weight: 600;
-    margin-top: 20px;
-}
-
-.join_page .bottom {
+.box1{
+    display: flex;
+    justify-content: center;
     text-align: left;
-    margin-left: 42px;
+    margin: 30px;
 }
 
-.join_page .bottom .license p {
-    margin-top: 20px;
-    display: inline-block;
-    margin-right: 200px;
-    font-weight: 600;
-}
-
-.join_page .bottom .license textarea {
-    width: 425px;
-    height: 150px;
-    margin-top: 5px;
-}
-
-.join_page .btn {
-    width: 45%;
-    margin: 0 auto;
-    box-sizing: border-box;
-    resize: vertical;
-}
-
-/*dsddafasfd*/
-
-
-
-#modify_btn {
-	
-    align-self: end;
-}
-#wrap {
-	display: flex;
-	 flex-direction: column;
-}
-
-.admin-account-table {
-	
-       border-collapse: collapse;
-       margin: 25px 0;
-       font-size: 1rem;
-       min-width: 60%;
-       height: 50px;
-       border-radius: 5px 5px 0 0;
-       overflow: hidden;
-       text-align : center;
-       align-self : center;
-          
-	
-       
-}
-
-.admin-account-table tbody tr.active-row {
-    font-weight: bold;
-    color: var(--main-color);
-  }
-
-.admin-account-tbody {
-	border: 1px solid #red;
-}
-
-.admin-account-tbody tr {
-	
-    border-bottom: 1px solid #ddd;
-    transition: all 0.1s ease-in;
-    
-  }
-  
-  
-  .admin-account-tbody th {
-	padding: 10px;
-  	text-align: left;
-  
-	 font-weight: bold;
-	  }
-  
-  
-
-.admin-account-tbody td {
-	width: 60%;
-    border-bottom: 1px solid #ddd;
-    
-    transition: all 0.1s ease-in;
+.box_value2 {
+    width: 610px;
+    height: 60px;
     text-align: center;
-  }
-  
-  
+    line-height: 40px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin: 5px;
+    background-color:  #f5f5f5;
+}
+
+.box_name {
+    width: 100%;
+    font-weight: bold;
+    margin: 5px;
+    margin-left: 10px;
+}
+
+.box_value {
+    width: 300px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin: 5px;
+    background-color:  #f5f5f5;
     
-  
+}
+
+
+.btnModi {
+    float: right;
+    padding: 0.5em 2em;
+    z-index: 1;
+    -webkit-backface-visibility: hidden;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: rgb(35, 35, 62);
+    color: white;
+    border-radius: 5px;
+    box-shadow: 2px 2px 4px #00000014;
+    margin-right: 5px;
+
+}
+.trainer_img{
+    margin-top: 40px;
+}

@@ -31,17 +31,19 @@
 	<!-- 관리자 정보 수정하기 -->
 	<update  id="modifyAdminAccount" parameterType="com.phgym.admin.model.AdminAccountDTO" >
 		UPDATE admin_info
-		SET admin_name = #{adminName}, admin_birth = #{adminBirth} , 
-		admin_gender =  #{adminGender}, admin_phone =  #{adminPhone}, admin_id =  #{adminId}, 
-		admin_job_title = #{adminJobTitle}, admin_hire_date =  #{adminHireDate}, admin_email =  #{adminEmail}, admin_career_his =  #{adminCareerHis}
+		SET admin_name = #{adminName},
+		admin_phone =  #{adminPhone}, admin_pw =  #{adminPw}, 
+		admin_job_title = #{adminJobTitle}, admin_email =  #{adminEmail}, admin_career_his =  #{adminCareerHis}
 		WHERE admin_no = #{adminNo}	
 	</update>
 	
+
+	
 	<!-- 유저 정보 가져오기 -->
 	<select id="getUserAccount" parameterType="String" resultType="com.phgym.admin.model.UserAccountDTO">
-		SELECT user_no, user_id, user_name, user_Birth, user_email, user_address, user_Gender, user_Phone, user_reg_date
-		FROM user_info
-		WHERE user_name = #{userName}
+		SELECT a.user_no, a.user_id, a.user_name, a.user_Birth, a.user_email, a.user_address, a.user_Gender, a.user_Phone, a.user_reg_date, DECODE(b.user_no, NULL, 'N', 'Y') AS pt_yn
+		FROM user_info a left join (SELECT user_no FROM pt_pay_his GROUP BY user_no) b on a.user_no = b.user_no
+		WHERE a.user_name = #{userName}
 	</select>
 	
 	<select id="getUserAccount2" parameterType="int" resultType="com.phgym.admin.model.UserAccountDTO">
@@ -52,12 +54,13 @@
 
 
 	<!-- 관리자 본인 스케쥴 확인하기 -->
-	<select id="doTrainerPtCheck" parameterType="com.phgym.mypage.model.PtReservationHisDTO2" resultType="com.phgym.mypage.model.PtReservationHisDTO2">
-		SELECT *
-		FROM pt_reservation_his p
-		WHERE p.admin_no = #{adminNo}
-		 and trunc(reservation_date) = #{reservationDate}
-		
+	<select id="doTrainerPtCheck" parameterType="com.phgym.mypage.model.PtReservationHisDTO2" resultType="com.phgym.admin.model.PtReservationHisDTO3">
+		select a.pt_reservation_his_no as pt_reservation_his_no, to_char(a.reservation_date, 'YYYY-MM-DD') as reservation_date, to_char(a.reservation_date, 'HH24:MI') as reservation_time, b.user_name as user_name, decode(a.progress_status, 'Y', '예약완료', 'N', '예약취소') as progress_status, b.user_no as user_no
+		from pt_reservation_his a
+		join user_info b
+		on a.user_no = b.user_no
+		where a.admin_no = #{adminNo} and trunc(reservation_date) = #{reservationDate}
+		order by reservation_time
 	</select>
 	
 	<select id="doTrainerPtCheck2" parameterType="int" resultType="com.phgym.mypage.model.PtReservationHisDTO2">
@@ -86,11 +89,15 @@
 	</select>
 	
 	<select id="doUserAccount" resultType="com.phgym.admin.model.UserAccountDTO">
-		select * from user_info
+		select a.user_no as user_no, a.user_id as user_id, a.user_pw as user_pw, a.user_name as user_name, a.user_birth as user_birth, a.user_gender as user_gender, a.user_phone as user_phone, a.user_email as user_email, a.user_address as user_address, a.user_reg_date as user_reg_date, decode(b.user_no, null, 'N', 'Y') as pt_yn from user_info a left join (select user_no from pt_pay_his group by user_no) b on a.user_no = b.user_no order by user_no desc
 	</select>
 	
-	<select id="getUserPt3" parameterType="int" resultType="com.phgym.mypage.model.PtReservationHisDTO">
-	select * from pt_reservation_his where user_no = #{userNo} and (progress_status = 'Y' or progress_status is null)
+	<select id="getUserPt3" parameterType="int" resultType="com.phgym.admin.model.PtReservationHisDTO2">
+		select a.pt_reservation_his_no as pt_reservation_his_no, to_char(a.reservation_date, 'YYYY-MM-DD') as reservation_date, to_char(a.reservation_date, 'HH24:MI') as reservation_time, b.admin_name as admin_name, a.progress_status as progress_status
+		from pt_reservation_his a
+		join admin_info b
+		on a.admin_no = b.admin_no
+		where a.user_no = #{userNo} and (a.progress_status = 'Y' or a.progress_status is null)
 	</select>
 	
 	<select id="getTotalPtCnt2" parameterType="int" resultType="int">
@@ -101,7 +108,61 @@
 		select count(*) from pt_reservation_his where user_no = #{userNo} and (progress_status = 'Y' or progress_status is null)
 	</select>
 	
-
+	<select id="select2" resultType="com.phgym.admin.model.UserAccountDTO">
+		<![CDATA[
+			SELECT user_no, user_id, user_pw, user_name, user_birth, user_gender, user_phone, user_email, user_address, user_reg_date, pt_yn
+			FROM ( SELECT a.user_no AS user_no, a.user_id AS user_id, a.user_pw AS user_pw, a.user_name AS user_name, a.user_birth AS user_birth, a.user_gender AS user_gender, a.user_phone AS user_phone, a.user_email AS user_email, a.user_address AS user_address, a.user_reg_date AS user_reg_date, DECODE(b.user_no, NULL, 'N', 'Y') AS pt_yn, ROW_NUMBER() OVER(ORDER BY a.user_name) AS rn
+	               FROM user_info a LEFT JOIN ( SELECT user_no FROM pt_pay_his GROUP BY user_no) b ON a.user_no = b.user_no )
+	        WHERE rn > #{startRow} AND rn <= #{endRow}
+        ]]>
+	</select>
 	
+	<select id="select3" resultType="com.phgym.admin.model.UserAccountDTO">
+		<![CDATA[
+			SELECT user_no, user_id, user_pw, user_name, user_birth, user_gender, user_phone, user_email, user_address, user_reg_date, pt_yn
+			FROM (
+			    SELECT a.user_no,
+			           a.user_id,
+			           a.user_pw,
+			           a.user_name,
+			           a.user_birth,
+			           a.user_gender,
+			           a.user_phone,
+			           a.user_email,
+			           a.user_address,
+			           a.user_reg_date,
+			           DECODE(b.user_no, NULL, 'N', 'Y') AS pt_yn,
+			           ROW_NUMBER() OVER (ORDER BY a.user_no DESC) AS rn
+			    FROM user_info a
+			    LEFT JOIN (
+			        SELECT user_no
+			        FROM pt_pay_his
+			        GROUP BY user_no
+			    ) b ON a.user_no = b.user_no
+			    where b.user_no is not null
+			)
+			WHERE rn > #{startRow} AND rn <= #{endRow}
+        ]]>
+	</select>
 	
+	<update id="ptReservationCancel" parameterType="int">
+		update pt_reservation_his set progress_status = 'N' where pt_reservation_his_no = #{hisNo}
+	</update>
+	
+	<select id="countUsers">
+		select count(*) from user_info
+	</select>
+	
+	<select id="selectUsers" resultType="com.phgym.admin.model.UserAccountDTO">
+		<![CDATA[
+			SELECT user_no, user_id, user_pw, user_name, user_birth, user_gender, user_phone, user_email, user_address, user_reg_date, pt_yn
+			FROM ( SELECT a.user_no AS user_no, a.user_id AS user_id, a.user_pw AS user_pw, a.user_name AS user_name, a.user_birth AS user_birth, a.user_gender AS user_gender, a.user_phone AS user_phone, a.user_email AS user_email, a.user_address AS user_address, a.user_reg_date AS user_reg_date, DECODE(b.user_no, NULL, 'N', 'Y') AS pt_yn, ROW_NUMBER() OVER(ORDER BY a.user_no DESC) AS rn
+	               FROM user_info a LEFT JOIN ( SELECT user_no FROM pt_pay_his GROUP BY user_no) b ON a.user_no = b.user_no )
+	        WHERE rn > #{startRow} AND rn <= #{endRow}
+        ]]>
+	</select>
+	
+	<select id="countPtUsers" resultType="int">
+		SELECT count(*) FROM user_info a LEFT JOIN ( SELECT user_no FROM pt_pay_his GROUP BY user_no ) b ON a.user_no = b.user_no where b.user_no is not null
+	</select>
 </mapper>

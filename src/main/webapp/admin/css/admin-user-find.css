@@ -1,3 +1,6 @@
+/* 
+<!-- 디자인 수정완료 그대로 붙여쓰세요 --> */
+
 @charset "UTF-8";* {
     padding: 0;
     margin: 0;
@@ -28,7 +31,10 @@ ul, li, ol, dl, dd {
 
 .search_name{
     margin-bottom: 30px;
+}
 
+.wrap3 {
+  
 }
 
 .user_table {
@@ -44,7 +50,7 @@ ul, li, ol, dl, dd {
     border: 1px solid #ddd;
     padding: 10px;
     text-align: center;
-    background-color: #fff;
+    /* background-color: #fff; */
   }
 
   .user_table > tbody > tr > th{
@@ -52,19 +58,40 @@ ul, li, ol, dl, dd {
 
   }
 
-  .user_value1 {
-    color : #17181fd1;
-    font-weight: bold;
+
+
+  /*  조회 셀렉트 박스 */
+
+  .select_bar1 {
+    width:100%;
+    margin-bottom: 20px;
+  }
+  .select_bar1 > select{
+    
+    width: 100px;
+    height: 30px;
+    text-align: center;
+    background-color: rgb(255, 255, 255);
+    margin-right: 10px;
+    border-radius: 3px;
+    border: none;
+    box-shadow: 2px 2px 4px #00000014;
+  }
+  .select-bar1 > select > option{
+    background-color: rgb(255, 255, 255);
+    border: none;
   }
 
+
+  /*  조회 인풋박스 */
+  
   .search_bar1 {
     display: flex;
     width: 100%;
     margin-top: 30px;
     margin-bottom: 30px;
   }
-
-  /*  조회 인풋박스 */
+  
   .search_bar1 > input:nth-child(1) { 
     width: 80%;
     height: 40px;
@@ -72,10 +99,10 @@ ul, li, ol, dl, dd {
     border: 0px;
     border-radius: 3px;
     outline: none;
-    padding-left: 10px;
     background-color: #fff;
     margin-right: 10px;
     box-shadow: 2px 2px 4px #00000014;
+    padding-left: 10px;
 
 }
   /*  조회 버튼 */
@@ -87,10 +114,11 @@ ul, li, ol, dl, dd {
     /* box-shadow: 2px 4px 12px #00000014; */
     font-size: 15px;
     font-weight: bold;
-    background-color: rgb(35, 35, 62);
+    background-color: #23233e;
     color : #fff;
     cursor: pointer;
     box-shadow: 2px 2px 4px #00000014;
+    margin-left: 0;
 
 }
 
@@ -98,3 +126,38 @@ ul, li, ol, dl, dd {
     background-color: rgb(98, 98, 106);
     color : #fff;
 }
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.pagination > span, .pagination > a {
+	color : #fff;
+	padding :  2px 8px;
+	border: 1px solid #ddd;
+	background-color : #23233e;
+	margin: 5px; 
+	border-radius: 5px;
+	box-shadow: 2px 2px 4px #00000014;
+
+	
+}
+.pagination > span:hover, .pagination > a:hover{
+
+	background-color: #23233eab;
+
+}
+
+
+
+
+.user_table > tbody > tr > td > a {
+	color : #000;
+}
+
+.user_table > tbody > tr:hover {
+		background-color:#23233e14;
+}
+

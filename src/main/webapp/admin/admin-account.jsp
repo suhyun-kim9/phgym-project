@@ -1,3 +1,8 @@
+
+ <!-- 디자인 수정완료 그대로 붙여쓰세요
+-->
+
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -23,67 +28,82 @@
 		<!--  여기에 넣어주시면 됩니다. -->
 		<div class="main">
 			<section id="wrap">
-				<h1 class="admin_main_name">
-					<i class="bi bi-person-fill"></i> <span> 관리자 계정 (내 정보) </span>
-				</h1>
+				<div class="min_header">
+					<h1 class="admin_main_name">
+						<i class="bi bi-person-fill"></i> 
+						<span> 관리자 계정 (내 정보) </span>
+						<input type="submit" value="수정" class="btn-hover btnModi" id="modify_btn" onclick="location.href='doModifyAdminAccount.admin'">
+					</h1>
+					
+				</div>
 
-				<table class="admin-account-table">
-					<tbody class="admin-account-tbody">
-						<tr>
-							<th>이름</th>
-							<td>
-								<div>${dto.adminName}</div>
-							</td>
-						</tr>
-						<tr>
-							<th>생년월일</th>
-							<td>
-								<div>${dto.adminBirth}</div>
-							</td>
-						</tr>
-						<tr>
-							<th>성별</th>
-							<td>
-								<div>${dto.adminGender}</div>
-							</td>
-						</tr>
-						<tr>
-							<th>연락처</th>
-							<td><div>${dto.adminPhone}</div></td>
-						</tr>
-						<tr>
-							<th>아이디</th>
-							<td>
-								<div>${dto.adminId}</div>
-							</td>
-						</tr>
-						<tr>
-							<th>직책</th>
-							<td>
-								<div>${dto.adminJobTitle}</div>
-							</td>
-						</tr>
-						<tr>
-							<th>입사일</th>
-							<td><div>${dto.adminCareerHis}</div></td>
-						</tr>
-						<tr>
-							<th>이메일</th>
-							<td>
-								<div>${dto.adminEmail}</div>
-							</td>
-						</tr>
-						<tr>
-							<th>경력 및 자격사항</th>
-							<td>
-								<div>${dto.adminCareerHis}</div>
-							</td>
-						</tr>
+				<div calss="my_box">
 
-					</tbody>
-				</table>
+						<img class="trainer_img" src="../main/img/Trainer(5).jpg" width="300px">
 
-				<input type="submit" value="수정하기" class="btn-hover color-4" id="modify_btn" onclick="location.href='doModifyAdminAccount.admin'">
+						<div class="box3">
+							<div class="box1">
+								<div>
+									<div class="box_name">아이디</div>
+									<div class="box_value">${dto.adminId}</div>
+								</div>
+								
+								<div>
+									<div class="box_name">이름</div>
+									<div class="box_value">${dto.adminName}</div>
+								</div>
+							</div>
+						
+
+							<div class="box1">
+								<div>
+									<div class="box_name">생년월일</div>
+									<div class="box_value">${dto.adminBirth}</div>
+								</div>
+								<div>
+									<div class="box_name">성별</div>
+									<div class="box_value">
+										 <input class="gender" type="radio" value="남자" disabled> 남
+										 <input class="genderW" type="radio" value="여자" disabled> 여
+										 
+									</div>
+									
+									<!-- <div class="box_value">${dto.adminGender}</div>	 -->
+								</div>
+							</div>
+
+							<div class="box1">
+								<div>
+									<div class="box_name">연락처</div>
+									<div class="box_value">${dto.adminPhone}</div>
+								</div>
+								<div>
+									<div class="box_name">이메일</div>
+									<div class="box_value">${dto.adminEmail}</div>	
+								</div>
+							</div>
+							<div class="box1">
+								<div>
+									<div class="box_name">직책</div>
+									<div class="box_value">${dto.adminJobTitle}</div>
+								</div>
+								<div>
+									<div class="box_name">입사일</div>
+									<div class="box_value">${dto.adminHireDate}</div>
+								</div>
+								
+							</div>
+							
+							<div class="box1">
+								<div class="box1-box">
+									<div class="box_name">경력 및 자격사항</div>
+									<div class="box_value2">${dto.adminCareerHis}</div>
+								</div>
+							</div>
+						
+					</div>
+				</div>
+
 			</section>
 			<!--  -------------. -->
 
