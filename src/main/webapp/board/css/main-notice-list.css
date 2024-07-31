@@ -24,7 +24,6 @@ h1 {
 }
 
 
-
 .buttons {
     display: flex;
     justify-content: flex-end;
@@ -193,6 +192,10 @@ h1 {
     width: 100%;
     
 }
+.content_box3  a {
+	color : #000;
+
+	}
 
 .result_search{
     /* margin-bottom: 10px;

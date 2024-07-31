@@ -55,7 +55,7 @@
 
               
                 <div class="title2-info">             
-                    <div class="no_adminNo"> 작성자 [ <span> ${dto.adminNo} </span>  ]</div>
+                    <div class="no_adminNo"> 작성자 [ <span> 잉혜주 </span>  ]</div><%--  ${dto.adminNo} --%>
                     <div class="no_writeDate"> 작성일 [   <span> <fmt:formatDate value="${dto.writeDate}" pattern="yyyy년 MM월 dd일" /> </span>  ]</div>
                 </div>
                 <div class="inquiry-content">

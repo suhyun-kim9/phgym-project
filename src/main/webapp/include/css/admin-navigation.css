@@ -199,11 +199,20 @@ input[type=text] {
  */
  
 .nav_logout input {
-	background-color: #000; color : #fff;
-	width: 100px; height: 30px;
-	position: relative; left: 115px; top: 85px;
-	border-radius: 5px;
+   background-color: #1f202b; color : #fff;
+   width: 100px; height: 30px;
+   position: relative; left: 115px; top: 85px;
+   border: 1px solid #36384b;
+   border-radius: 5px;
 } 
  
+ 
+ .nav_logout input:hover {
+   background-color: #1f202b; color : #fff;
+   width: 100px; height: 30px;
+   position: relative; left: 115px; top: 85px;
+   border: 1px solid #36384b;
+   border-radius: 5px;
+}
  
  

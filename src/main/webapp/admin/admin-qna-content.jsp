@@ -9,7 +9,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>문의글내용</title>
 	
-	<link rel="stylesheet" href="css/main-qna-content.css">
+	<link rel="stylesheet" href="../admin/css/admin-qna-content.css">
 	<link rel="stylesheet" href="../include/css/admin-navigation.css">
 	
 </head>
@@ -18,18 +18,21 @@
 		<jsp:include page="../include/admin-navigation.jsp" />
 	<div class="content">
 		<div class="inquiry-view">
-			<div class="view-header">
-				<input type="button" value="←" onclick="location.href='main_qna_list.board'">
-				<h2>글 내용</h2>
-				<form action="">
-					<div class="title-info">
-						<span>제목 [ ${dto.title} ]</span>
-						<span>작성자 [] ${dto.writer} ]</span>
-						<span>작성일 [ <fmt:formatDate value="${dto.writeDate}" pattern="yyyy년 MM월 dd일" /> ]</span>
-						<input type="button" value="삭제" onclick="confirmDelete(${dto.inquiryNo})">
-					</div>				
-				</form>
-			</div>
+	
+				<div class="header1">
+								<input type="button" class="back-btn" value="←" onclick="location.href='main_qna_list.board'">
+								<div class="title-info">
+									<div class="no_title"> ${dto.title} </div>
+								</div>
+									<input type="button" class="icons" value="삭제" onclick="confirmDelete(${dto.inquiryNo})">
+							</div>
+								<div class="title2-info">
+									<div class="qnaWriter"><span>${dto.writer} </span></div>
+									<div class="qnaDate"><span> <fmt:formatDate value="${dto.writeDate}" pattern="yyyy년 MM월 dd일" /> </span></div>
+								</div>	
+			
+			
+			
 			<div class="inquiry-content">
 				<p>${dto.content}</p>
 			</div>
@@ -42,7 +45,7 @@
 							<input type="hidden" name="adminNo" value="${sessionScope.sessionAdminNo}"><input type="hidden" name="inquiryNo" value="${dto.inquiryNo}">
 							<textarea id="replyContent" placeholder="내용을 입력하세요." name="replyContent"></textarea>
 							<div class="button-container">
-								<input type="submit" value="등록">
+								<input type="submit"  class="icons" value="등록">
 							</div>
 						</form>
 					</div>

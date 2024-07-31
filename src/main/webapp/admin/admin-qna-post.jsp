@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>문의글작성</title>
-<link rel="stylesheet" href="css/main-qna-post.css">
+<link rel="stylesheet" href="../admin/css/admin-qna-post.css">
     <link rel="stylesheet" href="../include/css/admin-navigation.css">
     
 </head>
