@@ -84,7 +84,7 @@
             </c:if>
         </div>
         <div class="buttons">
-            <input type="button" value="등록"  class="btn-hover btnRegi" class="combtn" onclick="location.href='main_exe_post.board';">
+            <!-- <input type="button" value="등록"  class="btn-hover btnRegi" class="combtn" onclick="location.href='main_exe_post.board';"> -->
         </div>
     </div>
     </div>

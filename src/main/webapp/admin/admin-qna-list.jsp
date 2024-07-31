@@ -66,8 +66,8 @@
                         <tr>
                             <td>${dto.inquiryNo}</td>
                             <td><a href="main_qna_content.board?inquiryNo=${dto.inquiryNo}">${dto.title}</a></td>
-                            <td>${dto.adminNo}</td>
-                            <td><fmt:formatDate value="${dto.writeDate}" pattern="yyyy년 MM월 dd일 HH시 mm분 ss초"/></td>
+                            <td>${dto.writer}</td>
+                            <td><fmt:formatDate value="${dto.writeDate}" pattern="yyyy년 MM월 dd일"/></td>
                             <td>${dto.hit}</td>
                         </tr>
                     </c:forEach>
@@ -99,7 +99,7 @@
         </div>
     </div>
         <div class="buttons">
-            <input type="button" value="등록"  class="btn-hover btnRegi" class="combtn" onclick="location.href='main_qna_post2.board';">
+        <!--     <input type="button" value="등록"  class="btn-hover btnRegi" class="combtn" onclick="location.href='main_qna_post2.board';"> -->
         </div>
     </div>
     </section>

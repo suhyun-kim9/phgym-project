@@ -71,9 +71,9 @@
 										<td><a href="getUserAccount2.admin?userNo=${dto.userNo}">
 												${dto.userEmail}</a></td>
 												
-										<c:if test="${dto.ptYn == 'N'}">	
+										<c:if test="${dto.ptYn == 'Y'}">	
 										<td><a href="getUserAccount2.admin?userNo=${dto.userNo}" id="${dto.ptYn}"></a><i class="bi bi-check-lg" style='color:red'></i></td></c:if>
-										<c:if test="${dto.ptYn == 'Y'}">
+										<c:if test="${dto.ptYn == 'N'}">
 										<td><a href="getUserAccount2.admin?userNo=${dto.userNo}" id="${dto.ptYn}"></a> <i class="bi bi-dot"  style='color:#ddd'> </i></td></c:if>
 									</tr>
 								</c:forEach>
@@ -131,7 +131,10 @@
 												${dto.userPhone}</a></td>
 										<td><a href="getUserAccount2.admin?userNo=${dto.userNo}">
 												${dto.userEmail}</a></td>
-										<td><a href="getUserAccount2.admin?userNo=${dto.userNo}">${dto.ptYn}</a></td>
+														<c:if test="${dto.ptYn == 'Y'}">	
+										<td><a href="getUserAccount2.admin?userNo=${dto.userNo}" id="${dto.ptYn}"></a><i class="bi bi-check-lg" style='color:red'></i></td></c:if>
+										<c:if test="${dto.ptYn == 'N'}">
+										<td><a href="getUserAccount2.admin?userNo=${dto.userNo}" id="${dto.ptYn}"></a> <i class="bi bi-dot"  style='color:#ddd'> </i></td></c:if>
 									</tr>
 								</c:forEach>
 							</tbody>
@@ -188,7 +191,10 @@
 												${dto.userPhone}</a></td>
 										<td><a href="getUserAccount2.admin?userNo=${dto.userNo}">
 												${dto.userEmail}</a></td>
-										<td><a href="getUserAccount2.admin?userNo=${dto.userNo}">${dto.ptYn}</a></td>
+														<c:if test="${dto.ptYn == 'Y'}">	
+										<td><a href="getUserAccount2.admin?userNo=${dto.userNo}" id="${dto.ptYn}"></a><i class="bi bi-check-lg" style='color:red'></i></td></c:if>
+										<c:if test="${dto.ptYn == 'N'}">
+										<td><a href="getUserAccount2.admin?userNo=${dto.userNo}" id="${dto.ptYn}"></a> <i class="bi bi-dot"  style='color:#ddd'> </i></td></c:if>
 									</tr>
 								</c:forEach>
 							</tbody>

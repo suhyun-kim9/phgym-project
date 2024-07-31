@@ -9,6 +9,13 @@ body{
  
 }
 
+#pw {
+	    border: 1px solid #ddd;
+    height: 25px;
+    padding-left: 3px;
+    border-radius: 5px;
+}
+
 ul, li, ol, dl, dd {
     list-style: none;
 }

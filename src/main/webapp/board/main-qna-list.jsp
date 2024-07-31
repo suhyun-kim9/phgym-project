@@ -40,7 +40,7 @@
             </form>
         
         <c:if test="${not empty lists}">
-            <p class="result_search"><small> 검색 결과: <span> ${totalCountns} </span> 건 </small></p>
+            <p class="result_search"><small> 검색 결과: <span> ${totalCounts} </span> 건 </small></p>
 
             <div class="content_box3">
             <table class="user_table" style="table-layout: fixed">
@@ -49,7 +49,8 @@
                     	<tr class="tableTr">
                             <td>
                             	<div class="title1" style="color:  #ff7f56"><a href="main_qna_content.board?inquiryNo=${dto.inquiryNo}">${dto.title}</a></div>
-                            	<div class="hitNo">조회수 [ ${dto.hit} ]</div>
+                            	<div class="hitNo">조회수 [ ${dto.hit} ] 작성자 [ ${dto.writer} ]</div>
+                            	
                             </td>
                             <td>
                             	<div> <fmt:formatDate value="${dto.writeDate}" pattern="yyyy년 MM월 dd일"/> </div>
@@ -84,8 +85,7 @@
             </c:if>
         </div>
         <div class="buttons">
-            <input type="button" value="등록"  class="btn-hover btnRegi" class="combtn" onclick="location.href='main_qna_post.board';">
-        </div>
+            <input type="button" value="등록"  class="btn-hover btnRegi" class="combtn" onclick="location.href='main_qna_post.board';"> 
     </div>
     </div>
     </div>

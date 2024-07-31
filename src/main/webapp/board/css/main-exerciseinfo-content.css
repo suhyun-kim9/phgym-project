@@ -63,7 +63,7 @@ ul, li, ol, dl, dd {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     margin-left: 10px;
     font-size: 13px;
-    height: 15px;
+   
 }
 .no_adminNo > span {
     font-weight: bold;
@@ -77,7 +77,7 @@ ul, li, ol, dl, dd {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     margin-left: 10px;
     font-size: 13px;
-    height: 15px;
+    
 }
 
 .no_writeDate > span {

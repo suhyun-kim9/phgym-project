@@ -28,7 +28,7 @@
 		<div class="main2">
 			<section id="wrap">
 				
-				<div class="content">
+				<div class="content2">
 					<div class="inquiry-view">
 						<div class="view-header">
 							<div class="header1">
@@ -39,7 +39,7 @@
 									<input type="button" class="delBtn" value="삭제" onclick="confirmDelete(${dto.inquiryNo})">
 							</div>
 								<div class="title2-info">
-									<div class="qnaWriter"><span> ${dto.writer} </span></div>
+									<div class="qnaWriter"><span>${dto.writer} </span></div>
 									<div class="qnaDate"><span> <fmt:formatDate value="${dto.writeDate}" pattern="yyyy년 MM월 dd일" /> </span></div>
 								</div>				
 						</div>
@@ -70,7 +70,7 @@
 							<div class="dto">
 								<textarea name="content" disabled="disabled">${dto.replyContent}</textarea>
 								<p>
-									<small>작성자: ${dto.writer} | 작성일: <fmt:formatDate value="${dto.replyDate}" pattern="yyyy-MM-dd HH:mm:ss" /></small>
+									<small>작성자: 관리자 | 작성일: <fmt:formatDate value="${dto.replyDate}" pattern="yyyy-MM-dd HH:mm:ss" /></small>
 								</p>
 							</div>
 						</div>

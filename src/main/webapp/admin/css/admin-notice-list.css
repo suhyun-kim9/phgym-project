@@ -18,6 +18,22 @@ ul, li, ol, dl, dd {
 h1 {
     color: black;
 }
+.user_table a {
+	color: black;
+}
+
+.user_table > tbody > tr:hover {
+    background-color: #23233e14;
+}
+
+.pagination span, .pagination a {
+	background-color : rgb(35, 35, 62);
+	padding : 3px 7px;
+	color: #fff;
+	border: 1px solid #ddd;
+	border-radius : 10px;
+}
+
 
 .pagination {
     display: flex;
@@ -25,12 +41,6 @@ h1 {
     margin-bottom: 20px;
 }
 
-.pagination button, .pagination span {
-    margin: 0 5px;
-    padding: 5px 10px;
-    font-size: 16px;
-    border-radius: 5px;
-}
 
 .pagination button {
     background-color:  rgb(35, 35, 62);
