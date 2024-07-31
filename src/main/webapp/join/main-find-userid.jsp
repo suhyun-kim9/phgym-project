@@ -8,6 +8,7 @@
 <title>Document</title>
 <link rel="stylesheet" href="../include/css/main-navigation.css">
 <link rel="stylesheet" href="css/main-find-userid.css">
+<link rel="stylesheet" href="../include/css/main-footer.css">
 </head>
 <body>
 <jsp:include page="../include/main-navigation.jsp"/>
@@ -77,7 +78,7 @@
 			var nameResult = document.getElementById("nameResult");
 			
 	        if (!regex.test(userName)) {
-	            nameResult.innerHTML = "<span style='display: inline-block; position: relative; top: 35px; right: 315px; width: 250px; color: red; font-size: 10px;'>이름은 한글만 입력할 수 있습니다.</span>";
+	            nameResult.innerHTML = "<span style='display: inline-block; position: relative; top: 35px; right: 315px; width: 250px; color: red; font-size: 12px;'>이름은 한글만 입력할 수 있습니다.</span>";
 	        } else {
 	            nameResult.innerHTML = "";
 	        }
@@ -89,7 +90,7 @@
 			var emailResult = document.getElementById("emailResult");
 			
 	        if (!regex.test(userEmail)) {
-	        	emailResult.innerHTML = "<span style='display: inline-block; position: relative; top: 35px; right: 315px; width: 250px; color: red; font-size: 10px;'>유효한 이메일 형식을 입력하세요.</span>";
+	        	emailResult.innerHTML = "<span style='display: inline-block; position: relative; top: 35px; right: 315px; width: 250px; color: red; font-size: 12px;'>유효한 이메일 형식을 입력하세요.</span>";
 	        } else {
 	        	emailResult.innerHTML = "";
 	        }
@@ -102,7 +103,7 @@
 			var submitBtn = document.getElementById("submitBtn");
 			
  	    	if(!regex.test(userPhone)) {
- 	    		phoneResult.innerHTML = "<span style='display: inline-block; position: relative; top: 35px; right: 315px; width: 250px; color: red; font-size: 10px;'>연락처는 숫자만 입력할 수 있습니다.</span>";
+ 	    		phoneResult.innerHTML = "<span style='display: inline-block; position: relative; top: 35px; right: 315px; width: 250px; color: red; font-size: 12px;'>연락처는 숫자만 입력할 수 있습니다.</span>";
  	    		submitBtn.disabled = true;
  	    		
  	    	} else {
@@ -112,5 +113,6 @@
 		}
 	
 	</script>
+	<jsp:include page="../include/main-footer.jsp"/>
 </body>
 </html>

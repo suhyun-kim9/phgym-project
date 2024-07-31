@@ -1,7 +1,6 @@
     body{
 	font-weight: 300;
 	font-size: 15px;
-	line-height: 1.7;
 	color: #c4c3ca;
 	overflow-x: hidden;
 }
@@ -52,15 +51,7 @@ h6 span{
   text-transform: uppercase;
   font-weight: 700;
 }
-.section2{
 
-}
-
-
-
-.full-height{
-  min-height: 100vh;
-}
 .input2[type="checkbox"]:checked,
 .input2[type="checkbox"]:not(:checked){
   position: absolute;
@@ -102,6 +93,10 @@ h6 span{
   background-color: #23233e;
 }
 
+.section {
+	width: 1024px;
+	margin: 114px auto;
+}
 
 .card-3d-wrap {
  margin: auto;
@@ -112,8 +107,9 @@ h6 span{
   -webkit-transform-style: preserve-3d;
   transform-style: preserve-3d;
   perspective: 800px;
-  margin-top: 175px;
+  
 }
+
 .card-3d-wrapper {
   width: 100%;
   height: 100%;
@@ -168,7 +164,6 @@ h6 span{
 
 }
 
-
 .form-group{ 
     position: relative;
     display: flex;
@@ -186,7 +181,6 @@ h6 span{
   width: 15%;
   text-align: center;
   color : #434343;
-  letter-spacing: 3px;
 }
 
 .form-style {
