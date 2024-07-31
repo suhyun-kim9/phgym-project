@@ -39,13 +39,13 @@
             color: #000; 
         }
         .intro-wrap > .intro-name > a:nth-of-type(1) {
-            background-color: #f97316; width: 50%; height: 100%;
+            background-color: #fff; width: 50%; height: 100%;
             position: relative;
             border-top-left-radius: 10px;
             border-bottom-left-radius: 10px; text-align: center;
         }
         .intro-wrap > .intro-name > a:nth-of-type(2) {
-            background-color: #fff; width: 50%; height: 100%;
+            background-color: #f97316; width: 50%; height: 100%;
             position: relative; box-shadow: 2px 4px 12px #00000014;
             border-top-right-radius: 10px;
             border-bottom-right-radius: 10px; text-align: center;
