@@ -148,6 +148,7 @@ img {
 	font-size: 14px;
 	margin-bottom: 7px;
 	padding-left: 5px;
+	border: 1px solid #e3e3e3;
 }
 
 .content > .wrap-bottom {
