@@ -61,7 +61,7 @@
                         <tr>
                             <td>${dto.noticeNo}</td>
                             <td><a href="main_notice_content.board?noticeNo=${dto.noticeNo}">${dto.title}</a></td>
-                            <td>${dto.adminNo}</td>
+                            <td> 관리자 </td> <%-- ${dto.adminNo} --%>
                             <td><fmt:formatDate value="${dto.writeDate}" pattern="yyyy년 MM월 dd일"/></td>
                             <td>${dto.hit}</td>
                         </tr>
