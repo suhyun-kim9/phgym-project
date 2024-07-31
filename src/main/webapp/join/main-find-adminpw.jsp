@@ -8,6 +8,7 @@
 <title>Document</title>
 <link rel="stylesheet" href="../include/css/main-navigation.css">
 <link rel="stylesheet" href="css/main-find-adminpw.css">
+<link rel="stylesheet" href="../include/css/main-footer.css">
 </head>
 <body>
 	<jsp:include page="../include/main-navigation.jsp"/>
@@ -78,7 +79,7 @@
 	    	var idResult = document.getElementById("idResult");
 	    	
 	    	if(!regex.test(adminId)) {
-	    		idResult.innerHTML = "<span style='display: inline-block; position: relative; top: 35px; right: 315px; width: 250px; color: red; font-size: 10px;'>올바른 아이디 형식을 입력하세요.</span>";
+	    		idResult.innerHTML = "<span style='display: inline-block; position: relative; top: 35px; right: 315px; width: 250px; color: red; font-size: 12px;'>올바른 아이디 형식을 입력하세요.</span>";
 	    		
 	    	} else {
 	    		idResult.innerHTML = "";
@@ -92,7 +93,7 @@
 	    	var emailResult = document.getElementById("emailResult");
 	    	
 	    	if(!regex.test(adminEmail)) {
-	    		emailResult.innerHTML = "<span style='display: inline-block; position: relative; top: 35px; right: 315px; width: 250px; color: red; font-size: 10px;'>유효한 이메일 형식을 입력하세요.</span>";
+	    		emailResult.innerHTML = "<span style='display: inline-block; position: relative; top: 35px; right: 315px; width: 250px; color: red; font-size: 12px;'>유효한 이메일 형식을 입력하세요.</span>";
 	    		
 	    	} else {
 	    		emailResult.innerHTML = "";
@@ -106,7 +107,7 @@
 	    	var phoneResult = document.getElementById("phoneResult");
 	    	
 	    	if(!regex.test(adminPhone)) {
-	    		phoneResult.innerHTML = "<span style='display: inline-block; position: relative; top: 35px; right: 305px; width: 250px; color: red; font-size: 10px;'>연락처는 숫자만 입력할 수 있습니다.</span>";
+	    		phoneResult.innerHTML = "<span style='display: inline-block; position: relative; top: 35px; right: 305px; width: 250px; color: red; font-size: 12px;'>연락처는 숫자만 입력할 수 있습니다.</span>";
 	    		submitBtn.disabled = true;
 	    	
 	    	} else {
@@ -116,5 +117,6 @@
 	    } 
 	    
 	</script>
+	<jsp:include page="../include/main-footer.jsp"/>
 </body>
 </html>
