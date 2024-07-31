@@ -311,7 +311,7 @@
 			return;
 		}
 		
-		var regex = /^\d+-\d-\d+$/;
+		var regex = /^\d+-\d+-\d+$/;
 		var refundBankAccount = document.querySelector(".refundBankAccount");
 		if(!regex.test(refundBankAccount.value)) {
 			alert("계좌번호를 올바른 형식으로 입력해주세요.");
