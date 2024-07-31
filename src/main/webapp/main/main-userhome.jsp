@@ -94,7 +94,7 @@
 	        display: flex;
 	        height: 150px;
 	        margin-top : 60px;
-            margin-left: 150px;
+            margin-left: 115px;
         }
         
         .main-wrap > .main-event > div {
@@ -143,13 +143,13 @@
                     
 					<!-- Slides -->
                     <div class="swiper-slide">
-                        <img src="../main/img/slide2.jpg" alt="">
-                    </div>
-                    <div class="swiper-slide">
                         <img src="../main/img/slide5.jpg" alt="">
                     </div>
                     <div class="swiper-slide">
-                        <img src="../main/img/slide3.jpg" alt="">
+                        <img src="../main/img/slide6.jpg" alt="">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="../main/img/slide2.jpg" alt="">
                     </div>
                     <div class="swiper-slide">
                         <img src="../main/img/slide4.jpg" alt="">
