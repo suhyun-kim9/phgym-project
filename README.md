@@ -4,7 +4,7 @@
 
 <br>
   
-## Development Environment
+## 개발환경
 
 | 항목 | 내용 |
 |---|---|
@@ -15,7 +15,13 @@
 | **Database** | OracleDB |
 | **Server** | Apache Tomcat |
 
+## 기술스택
 
+| 항목 | 내용 |
+|---|---|
+| **Frontend** | HTML5, CSS3, JavaScript (ES6), Bootstrap |
+| **Backend** | Java (JDK 11), Eclipse(4.31.0) |
+| **Database** | OracleDB |
 
 <br>
 
