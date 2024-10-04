@@ -4,18 +4,17 @@
 
 <br>
   
-## 개발 환경 및 기술 스택
+## Development Environment
 
 | 항목 | 내용 |
 |---|---|
-| **프로그래밍 언어** | Java 11 |
-| **프론트엔드** | React 18.3.1 ,Thymeleaf |
-| **프레임워크** | Spring Boot 2.7.18 |
-| **보안** | Spring Security |
-| **빌드 도구** | gradle-8.1 |
-| **데이터베이스(DB)** | PostgreSQL 16.3 (AWS RDS) |
-| **데이터베이스 연동** | MyBatis |
-| **개발 도구(IDE)** | IntelliJ IDEA, VSCode |
+| **OS** | Windows 10 / macOS |
+| **IDE** | Visual Studio Code / Eclipse |
+| **Version Control** | GitHub |
+| **Build Tool** | Maven / Gradle |
+| **Database** | OracleDB |
+| **Server** | Apache Tomcat |
+
 
 
 <br>
