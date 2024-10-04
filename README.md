@@ -45,7 +45,7 @@ PHGYM은 효율적인 헬스장 운영을 위한 웹 기반 시스템입니다. 
 
 | **김수현** | **임혜주** | **신지윤** | **남상혁** | **최해찬** |
 | :------: |  :------: | :------: | :------: | :------: |
-| [<img src="https://avatars.githubusercontent.com/u/172233951?s=64&v=4" height=100> <br/> @suhyun-kim9](https://github.com/@suhyun-kim9) | [<img src="https://avatars.githubusercontent.com/u/129069292?v=4" height=100> <br/> @hyejux](https://github.com/@hyejux) | [<img src="https://avatars.githubusercontent.com/u/80537541?s=64&v=4" height=100> <br/> @jishin14](https://github.com/jishin14) | [<img src="https://avatars.githubusercontent.com/u/180147317?v=4" height=100> <br/> @sxxxhyuk](https://github.com/sxxxhyuk) | [<img src="https://avatars.githubusercontent.com/u/172337052?v=4" height=100> <br/> @whfh3832](https://github.com/whfh3832) |
+| [<img src="https://avatars.githubusercontent.com/u/172233951?s=64&v=4" height=100> <br/> @suhyun-kim9](https://github.com/suhyun-kim9) | [<img src="https://avatars.githubusercontent.com/u/129069292?v=4" height=100> <br/> @hyejux](https://github.com/hyejux) | [<img src="https://avatars.githubusercontent.com/u/80537541?s=64&v=4" height=100> <br/> @jishin14](https://github.com/jishin14) | [<img src="https://avatars.githubusercontent.com/u/180147317?v=4" height=100> <br/> @sxxxhyuk](https://github.com/sxxxhyuk) | [<img src="https://avatars.githubusercontent.com/u/172337052?v=4" height=100> <br/> @whfh3832](https://github.com/whfh3832) |
 
 </div>
 
